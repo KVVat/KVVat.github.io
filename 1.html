@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="Advanced Features of JavaScript, CSS3, &amp; HTML5 Transcript">
+<title>Advanced Features of JavaScript, CSS3, &amp; HTML5 Transcript</title>
+</head>
+<body>
+<h1>Advanced Features of JavaScript, CSS3, &amp; HTML5</h1>
+<p>HTML5, CSS3 and JavaScript provide advanced features for creating 
+highly interactive and responsive web pages. Discover how to use 
+JavaScript to create timers and marquees, access and validate form data,
+ and manipulate forms with CSS3.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#cd3bfe9a-d9c3-11e6-a5b1-0242c0a80503">Displaying Time with JavaScript in HTML5</a></li>
+<li><a href="#cd3bfe9c-d9c3-11e6-a5b1-0242c0a80503">Creating a Countdown Timer in an HTML5 Document</a></li>
+<li><a href="#cd3bfe9e-d9c3-11e6-a5b1-0242c0a80503">How to Use JavaScript Timers in an HTML5 Document</a></li>
+<li><a href="#cd3c25a1-d9c3-11e6-a5b1-0242c0a80503">Creating a Scrolling Marquee in HTML5</a></li>
+<li><a href="#cd3c25a3-d9c3-11e6-a5b1-0242c0a80503">Confirming User Input Using Confirm in HTML5</a></li>
+<li><a href="#cd3c25a5-d9c3-11e6-a5b1-0242c0a80503">Capturing User Input from a Prompt in HTML5</a></li>
+<li><a href="#cd3c25a7-d9c3-11e6-a5b1-0242c0a80503">Using Drag and Drop in HTML5</a></li>
+<li><a href="#cd3c25a9-d9c3-11e6-a5b1-0242c0a80503">Accessing Form Data</a></li>
+<li><a href="#cd3c25ab-d9c3-11e6-a5b1-0242c0a80503">Validating Form Data</a></li>
+<li><a href="#cd3c25ad-d9c3-11e6-a5b1-0242c0a80503">Adding HTML Elements to a Web Page</a></li>
+<li><a href="#cd3c4cb1-d9c3-11e6-a5b1-0242c0a80503">Modifying Form Elements</a></li>
+<li><a href="#cd3c4cb3-d9c3-11e6-a5b1-0242c0a80503">Modifying HTML5 Form Inputs Using CSS3</a></li>
+<li><a href="#cd3c4cb5-d9c3-11e6-a5b1-0242c0a80503">Styling HTML5 Submit Buttons Using CSS3</a></li>
+<li><a href="#cd3c4cb7-d9c3-11e6-a5b1-0242c0a80503">Inserting Images in HTML5 Form Fields Using CSS3</a></li>
+<li><a href="#cd3c4cb9-d9c3-11e6-a5b1-0242c0a80503">Changing the Style of an HTML5 Form Using CSS3</a></li>
+</ol></div>
+<div>
+<h2 id="cd3bfe9a-d9c3-11e6-a5b1-0242c0a80503">
+Displaying Time with JavaScript in HTML5
+</h2>
+<div><p>
+<strong></strong>
+JavaScript provides a powerful toolkit, full of different functions. One
+ function that can be very useful is the time object, which allows you 
+to access and display a system's time. With it, we can provide feedback 
+for the user or even place a real-time clock on the screen. So in this 
+video, I'll explain how to display time using JavaScript. Okay, so I've 
+already set up a button called <strong>Show Time</strong> and when it's clicked, we're going to run a function called <code>"displayTime()"</code>. And I've set up an <code>"output"</code> id here, <code>span</code>, that we can use to pass information back to the page. So I'm going to start with <code>script</code> <code>type="text/javascript"</code> and then our <code>function</code>, which is <code>displayTime()</code>, like that. Now the way we create date object is to use <code>new</code> <code>Date</code>. And I'm going to start a variable called <code>now = new</code> <code>Date();</code>
+ like that. Make sure you use the opening and closing parentheses. And 
+I'm going to add a line here...actually rather than a line, I'll just 
+say <code>document.getElementById("output").innerHTML</code>, we'll 
+actually put it to the screen. I was going to try an alert, but this is 
+better because we can actually see it pop up on the screen, equals <code>now</code>. And if I <strong>Refresh</strong> the page and <strong>Show Time</strong>,
+ we get a nice sort of indication of the day, and year, and the time, 
+and even the time zone. So that's really useful. But what if you wanted 
+to drill down a bit? Well, it's easy to do. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag. The body section contains the following code:<br>&lt;button onclick="displayTime()"&gt;Show Time&lt;/button&gt;&lt;br&gt;&lt;br&gt;<br>&lt;span id="output"&gt;&lt;/span&gt;<br>In
+ the head section, the presenter adds the opening and closing script 
+tags in separate lines of code. The opening script tag reads "&lt;script
+ type="text/javascript"&gt;". He creates the displayTime() function as 
+follows:<br>function displayTime()<br> {<!-- --><br> now = new Date();<br> document.getElementById("output").innerHTML = now;<br>}<br>The
+ presenter refreshes the web page and clicks the Show Time button in it.
+ This displays the current day, date, time, and time zone below the 
+button.</em>
+<br><br>
+<strong></strong>
+So what we're going to do is say <code>month = now.getMonth();</code>. 
+By the way, you'll see there is a lot of information that you can pull 
+from that date object, so that's all the different information that you 
+can pull. We're going to choose <code>getMonth</code>, <code>day = now.get</code>...make sure you put the opening and closing parentheses otherwise it's not going to work. The <code>day = now.getDay()</code>, <code>year = now.get</code>...now you can use <code>getYear</code> or <code>getFullYear</code>. There is <code>getYear</code>, <code>getFullYear</code> will give you the full year, so we want that...and again parentheses...and <code>time = now.getTime();</code>. Now once I've done that, I'm going to go ahead and use <code>document.getElementById</code> again and the <code>("output")</code> container and <code>.innerHTML</code> equals...I'm going to be using <code>+=</code> because we want to add to the date object that we added up there. We're going to start with couple of line breaks and then <code>+ "month: " + month + </code>"<code> day: "</code>...make sure we put a space in there...<code>+ day + </code>"<code> year: " + year + </code>and then finally, <code>" time: " + time;</code>. <br>
+<em>In the displayTime() function, the presenter types the code "month =
+ now.get" and a datalist with various options appears. The options 
+include getDate, getDay, getFullYear, getHours, getMilliseconds, and 
+getMonth. He clicks the getMonth option and the code is automatically 
+set as "month = now.getMonth();". In a similar way, he adds the 
+following code to the displayTime() function:<br>day = now.getDay();<br>year= now.getFullYear();<br>time = now.getTime();<br>Then,
+ to display the output, the presenter types the code 
+"document.getElementById("output").innerHTML += '&lt;br&gt;&lt;br&gt;' +
+ "month: " + month + " day: " + day + " year: " + year + " time: " + 
+time;".</em>
+<br><br>
+<strong></strong>
+Now when I <strong>Save</strong> this and <strong>Refresh</strong> our page and then click <strong>Show Time</strong>,
+ what we have is not exactly what we were expecting. Okay, we do have 
+correct information here. The month is "month: 4", which is actually 
+correct, okay. May is the 5th month, but actually when you consider this
+ starts at 0, that's correct; "day: 3", well, it's not the third, it's 
+the seventh, but day is actually the day of the week, okay, so it's the 
+fourth day of the week. Remember, 0 is the first value. The year we got 
+right because we used <code>getFullYear</code>. And then this is totally
+ out of whack. And the reason for that is I'm going to put a little 
+comment in here about time because this is something you've to be aware 
+of; <code>// time is the number of milliseconds</code>, this is an interesting little fact that you can use to impress your friends, <code>since midnight January 1, 1970</code>.
+ So according to JavaScript, that's the number of milliseconds that have
+ passed since midnight January 1st, 1970. So you're going to have to do a
+ little bit of math to figure out exactly what time it is using that 
+feature. But if I put in additional one in here, let's go ahead and put <code>getDate</code>. So <code>date =</code>, lowercase d <code>date</code>, that should work, it's <code>now.getDate</code>. Okay, and then here we're going to put <code>" date: " + date</code>. <br>
+<em>The presenter saves the file and refreshes the web page. He clicks 
+the Show Time button. In addition to the information regarding the 
+current day, date, time, and time zone, the following information is 
+displayed:<br>Month: 4 day: 3 year: 2014 time: 1399477398405<br>Since 
+the time is shown in milliseconds, the presenter adds a comment above 
+the code "time = now.getTime();". The comment reads "// time is the 
+number of milliseconds since midnight, January 1, 1970". Next, to 
+display the current date as an output on the web page, he types the code
+ "date = now.getDate;" below the code "day = now.getDay();". Then, to 
+display the date, he modifies the code for displaying the output as 
+follows:<br> document.getElementById("output").innerHTML += 
+'&lt;br&gt;&lt;br&gt;' + "month: " + month + " day: " + day + " date: " +
+ date+ " year: " + year + " time: " + time;<br></em>
+<br><br>
+<strong></strong>
+And then <strong>Save</strong> that and <strong>Refresh</strong> our page and <strong>Show Time</strong>. And there you see that the <code>date</code>
+ didn't work because I had to put the parentheses. So that's what 
+happens if you don't put the opening and closing parenthesis, you'll get
+ that "function getDate()", doesn't really makes sense. I'll go ahead 
+and <strong>Refresh</strong> the page, <strong>Show Time</strong>. And 
+so there we got the proper date of the month. Okay, so you have to be 
+aware of how the time feature works with JavaScript. And there is a 
+little quirk such as the number of milliseconds since January 1st, 1970.
+ But using this information, you can start to parse some really 
+incredible things. And you're going to have to do little bit of math in 
+order to figure things out. But it's a really useful feature and you 
+should make a part of your toolkit when you're working with JavaScript 
+and HTML5. <br>
+<em>The presenter saves the file and refreshes the web page. He clicks 
+the Show Time button. In addition to the information regarding the 
+current day, date, time, and time zone, the following information is 
+displayed:<br>Month: 4 day: 3 date: function getDate() { [native code] } year: 2014 time: 1399477398405<br>Since
+ the code for date did not work, the presenter adds the opening and 
+closing parentheses in the code. Therefore, the code now reads "date = 
+now.getDate();". He then refreshes the web page and clicks the Show Time
+ button. The date is now correctly displayed as "7".<br></em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3bfe9c-d9c3-11e6-a5b1-0242c0a80503">
+Creating a Countdown Timer in an HTML5 Document
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can create a countdown timer 
+using JavaScript. Okay, so I've already set up a web page that has a 
+little form field here. We can enter a date in this format and 
+optionally we can enter a time as well. When we click <strong>GO</strong>, we're going to run a function and that function will be called <code>"doIt()"</code> and it'll show our "Countdown" time. I've already actually started the <code>function</code>. So let's go ahead and create our <code>Date()</code> object, so <code>now = new Date();</code> remember, make sure to use the opening and closing parentheses. Now what that'll do is set the present date and time and <code>then =</code> and this will be the time that we've entered up here, so <code>then = Date.parse</code>. What we want to do here is just get the <code>document.getElementById</code>, the <code>"date"</code> field where we entered the date, <code>.value</code>, okay. So we want to grab that information. And then we're going to create a variable called <code>daysLeft = then - now;</code>
+ so it's actually a mathematical function that we create here saying 
+take the date that we want to countdown to and subtract the current date
+ from it and it'll actually work. JavaScript will do the math for us. So
+ we need to now break it up and say, <code>days =</code>, <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag, a title tag, and a script tag. The script tag contains the doIT() 
+function, which is empty. The body section contains the following code:<br>Enter a date in the format "December 24, 2014"&lt;br&gt;(optionally add time, e.g., "17:00:00")<br>&lt;br&gt;&lt;br&gt;<br>&lt;input type="text" id="date" size="50" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;button onclick="doIt()"&gt;GO&lt;/button&gt;&lt;br&gt;&lt;br&gt;<br>&lt;div
+ style="text-align: center; vertical-align: middle; width: 400px; 
+height: 50px; border: 2px solid; line-height: 24pxfont-family: 
+Arial;"&gt;<br>Countdown:&lt;br&gt;<br>&lt;div id="Countdown"&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>The
+ web page shows the label "Enter a date in the format "December 24, 
+2014"" followed by a line break and another label "(optionally add time,
+ e.g., "17:00:00")". The labels are followed by a text field, the GO 
+button, and the Countdown section. The presenter types the following 
+code in the doIt() function:<br>now = new Date();<br>then = Date.parse(document.getElementById("date").value);<br>daysLeft = then - now;<br></em>
+<br><br>
+<strong></strong>
+and here is where we need to use <code>Math.floor</code> function 
+because what we need to do is take the information the JavaScript, the 
+browser, uses and put it into a meaningful format that we can read. And 
+so in this case, it's <code>daysLeft /</code> and then this function, so a <code>(1000*60*60*24)</code>. Okay, we're talking about hours now and hours of course are <code>24</code> hours a day, okay. That's going to calculate the number of <code>days</code> for us. And we use <code>1000</code> because everything is in milliseconds. So we need to be able to set that up so that the math is done properly, <code>hours = Math.floor(daysLeft / (1000*60*60))</code>, remember <code>60</code> for minutes, seconds, and hours, <code>mins = Math.floor(daysLeft /</code> and now we're breaking it down even more, so <code>(1000*60)</code>. Okay, this will be our minutes. And then <code>secs = Math.floor(daysLeft / 1000);</code> and actually I don't even need to have the parentheses there, that will work. <br>
+<em>The presenter continues to type code in the DoIt() function as follows:<br>days = Math.floor(daysLeft / (1000*60*60*24));<br>hours = Math.floor(daysLeft / (1000*60*60));<br>mins = Math.floor(daysLeft / (1000*60));<br>secs = Math.floor(daysLeft / 1000);<br></em>
+<br><br>
+<strong></strong>
+Okay, so then I'm going to set up some variables for date, days, <code>dd = days;</code> <code>hh = hours - days * 24;</code> this is where we're actually doing the math to create the countdown between <code>now</code> and <code>then</code>. <code>mn = mins – hours * 60;</code> trust me this math will work, <code>ss = secs - mins * 60;</code> so you probably see what we're doing here is we're actually doing this subtraction, <code>hours</code>, <code>days</code>, <code>mins</code> to <code>hours</code>, <code>secs</code> to <code>mins</code> where we can finally do this <code>document.getElementById</code> and then we use our <code>"Countdown"</code> container, which is right here, capital <code>C</code> for <code>"Countdown"</code>. I need to make sure we use a capital <code>C</code>, <code>.innerHTML = dd + ' days ' + hh + ' hours ' + mm + ' minutes ' +</code> and then finally, we'll do <code>ss + ' seconds '</code>. <br>
+<em>The presenter continues to type code in the doIt() function as follows:<br>dd = days;<br>hh = hours - days * 24;<br>mm = mins - hours * 60;<br>ss = secs - mins * 60;<br>document.getElementById("Countdown").innerHTML = dd + ' days ' + hh + ' hours ' + mm + ' minutes ' + ss + ' seconds ';<br></em>
+<br><br>
+<strong></strong>
+And once we've got that all set up, then we need to make our braces, 
+make sure our braces are closed properly. We need a closing brace there 
+and then a comma and then <code>1000</code>. The reason we use <code>1000</code>, so that looks good, the reason we use <code>1000</code> is because remember we're doing a <code>setInterval</code> up here. Actually that's the one thing that I forgot to do. Make sure that we use <code>setInterval</code>, <code>setInterval</code> will actually allow us to...it's one thing I forgot to do. Okay, so we're actually going to use <code>setInterval(function (countdown()</code>. Alright, and that looks pretty good. Okay, so <code>setInterval</code>
+ is going to update the clock for us. It's actually going to show us a 
+countdown rather than showing us a static date from the moment that we 
+actually click the <strong>GO</strong> button. So down here is the timing for that interval and in this case, a <code>1000</code> milliseconds. And I'll go ahead and <strong>Save</strong> that now and <strong>Refresh</strong>. And let's pick a date. Christmas sounds pretty good, go ahead and <strong>Copy</strong> that, <strong>Paste</strong> it in here. Actually make that <code>December 25, 2014</code> and <strong>GO</strong>, <br>
+<em>The presenter adds a closing squiggly bracket and types the code 
+",1000);". Then, above the code for creating a date object, he types the
+ code "setInterval(function countdown() {". This encloses the entire 
+code of the doIt() function within the setInterval function. The 
+presenter saves the index.html file and refreshes the web page to view 
+the output. He copies the date "December 24, 2014" from the label and 
+pastes it in the text field. Then he changes "December 24" to "December 
+25" in the text field. He clicks the Go button.</em>
+<br><br>
+<strong></strong>
+and there is our "Countdown", okay. Now you can speed it up and just to sort of better understand <code>setInterval</code>, if I make that <code>100</code> milliseconds, <strong>Save</strong> that and <strong>Refresh</strong> and <strong>Paste</strong> and <strong>GO</strong>, okay, that "Countdown" is going to happen a little quicker, but it's not really necessary because the <code>1000</code> is seconds anyways, okay. So we don't actually need to do that, <code>1000</code> would be fine, <code>100</code> is not going to speed up the actual "Countdown" because we're still seeing the actual "seconds" that are being counted. <br>
+<em>The Countdown section displays the following information "231 days 
+12 hours 2 minutes 55 seconds". The value of seconds in the section is 
+decreasing to show that the countdown has begun. To speed up the 
+countdown, the presenter changes the value "1000" to "100" at the end of
+ the code for the setInterval function. Then he saves the file, 
+refreshes the web page, and views the changes in the speed of the 
+countdown. Since there is no change as such in the speed of the 
+countdown, so the presenter changes the value back to "1000" in the 
+code.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3bfe9e-d9c3-11e6-a5b1-0242c0a80503">
+How to Use JavaScript Timers in an HTML5 Document
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll discuss how you can use JavaScript timers. Now, I'll start by creating a <code>script</code> here, <code>script type="text/javascript"</code>, let the browser know that we're running JavaScript. And what I want to do is create a variable, I'll call this <code>timeIt</code> and here is where we use <code>setInterval</code>, so it looks like this, a capital I and then in parenthesis a function that we're going to run called <code>updateMe</code> and then the time, okay, the time is in millisecond, so <code>5000</code> milliseconds is going to be every 5 seconds. Go ahead and put a semicolon in there and then create our function, so <code>function</code> is called <code>updateMe()</code> and it'll be a simple function. We're just going to, maybe, pop up an <code>alert</code> that says <code>("5 seconds have passed")</code>. <strong>Save</strong> that and <strong>Refresh</strong> our browser and wait about 5 seconds, "5 seconds have passed". Now if I click <strong>OK</strong>, every 5 seconds we'll get a message saying that 5 more seconds have passed. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the head section,
+ the presenter adds the opening and closing script tags in separate 
+lines of code. The opening script tag reads "&lt;script 
+type="text/javascript"&gt;". Then he types the code "var timeIt = 
+setInterval(updateMe, 5000);" to create the timeIt variable. He creates 
+the updateMe() function by typing the following code:<br>function updateMe()<br>{<!-- --><br>alert("5 seconds have passed");<br>}<br>The
+ presenter saves the file and refreshes the web page. After 5 seconds, 
+the "Message from web page" dialog box shows up. The dialog box contains
+ the note "5 seconds have passed" and the OK button. The presenter 
+clicks the OK button to close the dialog box. After every 5 seconds, the
+ dialog box opens.<br></em>
+<br><br>
+<strong></strong>
+Pretty simple, it can get irritating very quickly though as you might 
+well imagine. You want to be careful about setting this value too low, 
+the lower you set them, the quicker the alerts are going to be popping 
+up and you might get into a situation where you're actually getting more
+ alerts than you can handle. But the interval is a really useful feature
+ that allows you to set timing events for any function. So anything that
+ we put inside this <code>function</code> called <code>updateMe()</code>,
+ that we called here is going to run every 5 seconds. And once you start
+ to take advantage of that, you can do some really fantastic things 
+using HTML5, JavaScript, and the <code>setItnterval</code> feature. <br>
+<em>The presenter points to the value "5000" in the code for the timeIt variable.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25a1-d9c3-11e6-a5b1-0242c0a80503">
+Creating a Scrolling Marquee in HTML5
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can create a scrolling marquee 
+using JavaScript. Okay, so here I've created a page that's got a <code>div</code> container called <code>"marquee"</code>
+ and you can see the styles there and it's just a black sort of bar 
+across the top of the page and here is where I create the JavaScript. 
+Now, what I want to do is create the JavaScript in the <code>body</code> section because we're referencing now the <code>id="marquee"</code> and this won't work if we put it in the <code>head</code> section, <code>type="text/javascript"</code>. And what we're going to do with this <code>script</code> is start by creating a variable, I'll call this 0 or <code>i</code>, <code>i=0;</code>
+ and then create some text and this will be our marquee text. So 
+something like this. Make it nice and long because that's marquees 
+normally are. And you can put anything in here that you want and once 
+I've created that, let's move to the next line. And we're going to 
+create our sequence, so <code>var sequence</code> and I'll call whatever we want, but we want to call it <code>sequence</code> in this instance, it just sounds good, equal <code>setInterval</code>. So we're going to use that <code>setInterval</code> and create a function called <code>update</code> that'll run say every <code>100</code> milliseconds, so we want it nice and fast. Now, down here, I'll create the <code>function</code> called <code>update</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag, a title tag, and a style tag. The following code is enclosed within
+ the opening and closing style tags:<br>{<!-- --><br>font-family: Calibri;<br>}<br>#marquee {<!-- --><br>width: 680px;<br>height: 20px;<br>border: 1px solid black;<br>padding-left: 15px;<br>}<br>The
+ body section contains the code "&lt;div 
+id="marquee"&gt;&lt;/div&gt;&lt;br&gt;". The presenter adds the opening 
+and closing script tags in separate lines of code in the body section. 
+The opening script tag reads "&lt;script type="text/javascript"&gt;". To
+ create a variable and to specify the marquee text, the presenter types 
+the following code:<br> i = 0;<br>myText = "Welcome to our site! This week only – 25% off all storage devices! Check out our storage section."<br>Then, to create the sequence variable, he types the code "var sequence = setInterval(update, 100);". <br></em>
+<br><br>
+<strong></strong>
+And again remember, we're using a <code>function</code> here <code>update</code> that's going to run every <code>100</code> milliseconds. So <code>function update()</code> and what we want to do now is define the marquee text. So the reason I set the variable <code>i</code> here, we're starting it at <code>0</code> is now we're going to increment it every time we run this function using <code>setInterval</code>, which is every <code>100</code> milliseconds. So I'm going to add one to <code>i</code> and then I'm going to say, <code>if (i &lt; myText.length)</code>,
+ because what we wanted to do is have it run for the entire duration of 
+the length of this text. So this will work no matter how long or short 
+you set the text. If it's actually rather than, less than I'll set that 
+to greater than, if it's <code>i &gt; myText.length</code>, then what we want to do, <code>i &gt; myText.length</code>, what we want to do is we want to reset <code>i = 0;</code> we want to start at the beginning again. Once we've done that, now we can create our <code>marqueeText = myText.substring</code>, we're going to use <code>substring</code> here because what we want to do is say, begin at <code>i</code>, whatever <code>i</code> is <code>myText.length</code>. <br>
+<em>The presenter creates the update function by typing the following code:<br>function update() {<!-- --><br>i++;<br>if (i &gt; myText.length)<br>{<!-- --><br>i = 0;<br>}<br>marqueeText= myText.substring(i, myText.length);<br>}<br></em>
+<br><br>
+<strong></strong>
+So that's going to run from <code>i</code> to length of <code>myText</code>. Now, what that means is that <code>i</code> is going to start at <code>0</code>
+ right there and then it's going to be one and it's going to start 
+there, and it's going to start there. Every time we increment <code>i</code>,
+ okay, it's going to start at the next letter and then store all the 
+information from there to the end of the string, okay, that's why we've <code>myText.length</code>,
+ okay. But what we want to do is we also want to account for this 
+beginning text, because if we're starting say, over here, okay, we still
+ have all this text to deal with, we want to take this text and swap it 
+and put it here at the end. So we do that this way, <code>marqueeText +=</code> because we want to add to the <code>marqueeText</code>.
+ Now, what I'm going to do here is put in a bunch of nonbreaking spaces,
+ that's a character entity in HTML. If we put hard spaces just using a 
+spacebar, this wouldn't work. I want to put some spaces in between the 
+end of this and the beginning of this, okay, so I'm just going to <strong>Copy</strong> that and <strong>Paste</strong> it in several times, create some hard or some nonbreaking spaces for text. And then <code>marqueeText +=</code>, <br>
+<em>The presenter continues to type code in the update() function as follows:<br>marqueeText + = "&amp;nbsp;";<br>To
+ provide a number of nonbreaking spaces at the beginning and at the end 
+of the marquee text, he types "&amp;nbsp;" several times in the above 
+code. <br></em>
+<br><br>
+<strong></strong>
+and what we're going to do is, say, <code>myText.substring(0,i)</code>, okay, so what we're doing is we're now saying, okay, we want to start at the very beginning and count upto and only including <code>i</code> or up to <code>i</code>
+ and show that at the end of this text and that will create that 
+simulated marquee or it's not simulated, it's an actual marquee effect, 
+but it'll create the effect that that text is scrolling over and over 
+again. And then finally what I'll do is create our output, so <code>document.getElementById</code>, we're going to use that <code>("marquee")</code> output that we created right here, <code>.innerHTML</code>, so we're going to put it inside the container <code>= marqueeText</code>. So I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>
+ the page and you can see there is our marquee text now. Now notice 
+there are some spaces right here between the beginning and the end and 
+that's great. That's what we wanted to use in the nonbreaking spaces, 
+but that marquee feature works because of the <code>substring</code> and, sort of, counting from that <code>i</code> wherever that begins till the end of the text and then adding two at the end using this <code>substring</code> line at the beginning upto <code>i</code>. <br>
+<em>To add an effect to the marquee text, he types the code "marqueeText
+ += myText.substring(0, i);" in the update() function. Then to create 
+the output, he types the code 
+"document.getElementById("marquee").innerHTML = marqueeText;". He saves 
+the index.html file and refreshes the web page to view the output. The 
+web page shows the marquee text the presenter specified. The marquee 
+text scrolls over and over again due to the effect applied on it, and 
+there are a number of nonbreaking spaces at the beginning and at the end
+ of the marquee text.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25a3-d9c3-11e6-a5b1-0242c0a80503">
+Confirming User Input Using Confirm in HTML5
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can confirm user input using JavaScript. Okay, so here I've got a <code>"button"</code> and a little prompt there to say <code>Press to Continue</code> and then here, we're going to use the <code>onclick</code> event and run a function called <code>"confirmMe()"</code>, which we haven't created yet. Let's go ahead and create that <code>function</code>. So a <code>script type="text/javascript"</code> and here is our function, <code>function confirmMe()</code> like that. Now, what I want to start with is a variable, I'll call it <code>result</code>, an empty variable and then a variable called <code>check</code> and this will be our confirmation. So we use <code>confirm</code> and then inside the parenthesis, whatever the confirmation text is going to be, <code>("Would you like to proceed?")</code>. Now, I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>, and we just test it. Okay, there we have our confirmation dialog, we have our <strong>OK</strong> and our <strong>Cancel</strong>, but unfortunately clicking it right now doesn't really have any effect. So <strong>OK</strong> or <strong>Cancel</strong>, it'll close the dialog, but we actually want to be able to test what the user chose. So here is where we do that, <code>if (check == true)</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag. The body section contains the following code:<br>&lt;p&gt;Press to Continue&lt;/p&gt;<br>&lt;input type="button" onclick="confirmMe()" value="Submit" /&gt;<br>&lt;p id="output"&gt;&lt;/p&gt;<br>The
+ web page shows the label "Press to Continue" followed and the Submit 
+button. In the head section, the presenter adds the opening and closing 
+script tags in separate lines of code. The opening script tag reads 
+"&lt;script type="text/javascript"&gt;". To create the confirmMe() 
+function, he types the following code:<br>function confirmMe()<br>{<!-- --><br>var result;<br>var check = confirm("Would you like to proceed?")<br>}<br>The
+ presenter saves the file and refreshes the web page to view the output.
+ He clicks the Submit button and a dialog box with the note "Would you 
+like to proceed?" opens. He clicks the OK button to close the dialog 
+box.<br></em>
+<br><br>
+<strong></strong>
+Now, remember we created that confirmation right there inside the variable <code>check</code>. So we'll get a true or false, if <code>true</code>, then okay, so if <strong>OK</strong> has been pressed, then we get a <code>true</code> and we'll just put in here <code>result = "Proceeding";</code> otherwise, okay, so it's not true, it's a false, <code>result = "Cancelling"</code>. Now, once we've done that, let's go ahead and just output the information to the screen by using <code>document.getElementById("output")</code>, because I've created a paragraph tag here with the <code>id</code> output, so we can store information there, <code>.innerHTML = result</code>. If I go ahead and <strong>Save</strong> that now and <strong>Refresh</strong> our page, when I click <strong>Submit</strong>, okay and I choose <strong>OK</strong>, we can see we get the message "Proceeding", but if I click it and press <strong>Cancel</strong>, okay, now the browser knows that we chose <strong>Cancel</strong> and so that's how you use a confirmation dialog and it can be very useful in setting up your web pages in HTML5. <br>
+<em>To add functionality to the OK and Cancel buttons of the dialog box,
+ the presenter types the following code in the confirmMe() function:<br>if (check == true)<br>{ result = "Proceeding";}<br>else<br>{result = "Cancelling";}<br>document.getElementById("output").innerHTML = result;<br>The
+ presenter saves the index.html file and refreshes the web page to view 
+the output. He clicks the Submit button and the dialog box opens. He 
+clicks the OK button, which closes the dialog box and displays the 
+message "Proceeding" below the Submit button. The presenter again clicks
+ the Submit button to open the dialog box and then clicks the Cancel 
+button. This closes the dialog box and displays the message "Cancelling"
+ below the Submit button.<br></em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25a5-d9c3-11e6-a5b1-0242c0a80503">
+Capturing User Input from a Prompt in HTML5
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll discuss how you can capture user input using a JavaScript prompt. Okay, so here I've a set up a <code>"button"</code>, when the button is clicked, we're going to run a function called <code>"nameMe()"</code>, so let's go ahead and create that <code>function</code>. I'll start with the <code>script</code> tag and then <code>type</code> and make sure that the browser knows that we're running JavaScript and then start our <code>function nameMe()</code>. Now, the way this works is I'm going to create a variable, I'll call it <code>result</code> and we actually put the <code>prompt</code> command right in the variable <code>("Enter your name to continue")</code>. Now, if I go ahead and <strong>Save</strong> that and <strong>Refresh</strong> the page and press <strong>Submit</strong>,
+ okay, there is our prompt and we got a little text there in place where
+ we can type our information, but the only problem is that clicking is 
+not really going to do anything, because we need to pull that 
+information. So I'm going to use this <code>"output"</code> container that I created down here, it's just a paragraph tag with an <code>id</code> of <code>"output"</code>. So I'll use <code>document.getElementById("output").innerHTML</code> because we're actually going to be storing information in there and it'll be <code>result</code>. So it'll be whatever resulted from the user pressing <strong>OK</strong> after they have typed information in the <code>prompt</code>. So I'll go ahead and <strong>Save</strong> that, <strong>Refresh</strong> the page, and then click <strong>Submit</strong> and now I can type in and we get information back to us and we can even friendly it up a bit by doing something like this <code>"Welcome to our website, " + result +"!"</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag. The body section contains the following code:<br>&lt;p&gt;Press to Continue&lt;/p&gt;<br>&lt;input type="button" onclick="nameMe()" value="Submit" /&gt;<br>&lt;p id="output"&gt;&lt;/p&gt;<br>The
+ web page shows the label "Press to Continue" and the Submit button. In 
+the head section, the presenter adds the opening and closing script tags
+ in separate lines of code. The opening script tag reads "&lt;script 
+type="text/javascript"&gt;". To create the nameMe() function, he types 
+the following code:<br>function nameMe()<br>{<!-- --><br>var result = prompt("Enter your name to continue") ;<br>}<br>The
+ presenter saves the file and refreshes the web page to view the output 
+of the code. He clicks the Submit button and the "localhost needs some 
+information" dialog box opens. The dialog box contains the "Enter your 
+name to continue" label, a text field, and the OK and Cancel buttons. 
+The text field is set to "undefined" by default. The presenter clicks 
+the OK button to close the dialog box. To add functionality to the OK 
+and Cancel buttons, the presenter types the following code in the 
+nameMe() function:<br>Document.getElementById("output").innerHTML = result;<br>He
+ saves the file and refreshes the web page to see the output. He clicks 
+the Submit button and the "localhost needs some information" dialog box 
+opens. He types "Jamie Campbell" in the text field and clicks the OK 
+button. This closes the dialog box and displays the name "Jamie 
+Campbell" below the Submit button. To change the text displayed after 
+clicking the OK button, the presenter modifies the code as follows:<br>Document.getElementById("output").innerHTML = "Welcome to our web site, " + result +"!";<br></em>
+<br><br>
+<strong></strong>
+Go ahead and <strong>Save</strong> that, <strong>Refresh</strong> the page and now type my name, press <strong>OK</strong>, and there you go. And that's how you use the prompt in HTML5. <br>
+<em>The presenter saves the file and refreshes the web page. He clicks 
+the Submit button to open the "localhost needs some information" dialog 
+box. He enters "Jamie" in the text field and clicks the OK button. This 
+closes the dialog box and displays the text "Welcome to our web site, 
+Jamie!" below the Submit button.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25a7-d9c3-11e6-a5b1-0242c0a80503">
+Using Drag and Drop in HTML5
+</h2>
+<div><p>
+<strong></strong>
+I've actually prewritten the code to explain drag and drop. There's 
+quite a bit of it and I wanted to make sure it was understandable. To 
+start, I created a <code>div</code> that would be our target; that was where the user will drop the actual object. So on the div I <code>id</code>'d it as <code>target</code> and I associated with the target an <code>ondrop</code> event, which calls a <code>drop</code> function and passes the <code>event</code>, and an <code>ondragover event</code>, which calls <code>allowDrop</code> and passes it the event. On the image, which we sourced as <code>kitten.jpg</code>, we put a <code>width</code> of <code>300</code>, a <code>height</code> of <code>200</code>, and most importantly, we set the <code>draggable</code> attribute to <code>true</code>. <code>ondragstart</code> we called the <code>drag</code>
+ function from above. So we have our three callback functions here in 
+the script that I'll go over in a minute. On the target, I set a <code>width</code> of <code>350</code>, a <code>height</code> of <code>250</code>, and a <code>1px solid black</code> border around the actual target. Put a little space in the bottom margin of <code>20px</code> to separate the target from the object. We'll just <strong>Preview</strong> it real quick here in the actual IDE. There's our target and there's our object that will drop. <br>
+<em>The listeners.html file is open in the Komodo Edit window. The file 
+contains two sections, head and body. The head section contains a title 
+tag, a style tag, and a script tag. The following code is enclosed 
+within the opening and closing style tags:<br>#target<br>{<!-- --><br>width: 350px<br>height: 250px;<br>border: 1px solid black;<br>margin-bottom: 20px;<br>}<br>The following code is enclosed within the opening and closing script tags:<br>function allowDrop(ev)<br>{<!-- --><br>ev.preventDefault();<br>}<br>function drag(ev)<br>{<!-- --><br>ev.dataTransfer.setData("Text", ev.target.id);<br>}<br>function drop(ev)<br>{<!-- --><br>ev.preventDefault();<br>var data = ev.dataTransfer.getData("Text");<br>ev.target.appendChild(document.getElementById(data));<br>}<br>The body section contains the following code:<br>&lt;div id="target" ondrop="drop(event)" ondragover="allowDrop(event)" &gt;&lt;/div&gt;<br>&lt;img id="dragMe" src="kitten.jpg" width="300px" height="200px" draggable="true" ondragstart="drag(event)"&gt;<br>The presenter previews the file in a test browser and an empty section and the image of a kitten are shown.<br></em>
+<br><br>
+<strong></strong>
+So following the life cycle of this, the user will start to drag the image and the <code>ondragstart</code> event fires calling <code>drag</code> and passing it the <code>event</code>. So the drag function will fire first. And on the event's <code>dataTransfer</code> object, it's going to set the data to this key value pair: <code>Text</code> and <code>ev.target.id</code>. So what that means is the target is going to be the image and the id is going to be <code>dragMe</code>. So we're essentially, when we start dragging, on the event, setting the <code>dataTransfer</code> object, its key value paired to <code>Text</code> and <code>dragMe</code>.
+ So the user's dragging the actual object and then when they go over the
+ target and release, we have a couple of other callback function. When 
+we drag it over, we call <code>allowDrop</code> and pass it the event. And all <code>allowDrop</code>
+ does is prevent the default behavior of the event in the browser. But 
+then when we drop, when the user actually releases the mouse button, we 
+run <code>preventDefault</code> again on the event and then we get from the event the <code>dataTransfer</code> object, which is going to be <code>getData</code> and <code>Text</code> – remember, <code>Text</code> is the name of the key value pair. So data will now include the id <code>"dragMe"</code>, and then we'll use this when we say <code>ev.target.appendChild(document ElementById</code>, and this will be <code>dragMe</code>.
+ So we'll essentially append to this div this image object, and in the 
+end, the image will end up inside the div instead of outside of it. So 
+let's demo this in an actual browser. Go ahead and bring up Firefox 
+here, <br>
+<em>The presenter previews the file in Mozilla Firefox.</em>
+<br><br>
+<strong></strong>
+and I drag, I release, and now the image is inside the actual target. 
+Let me do this again, and what I'm going to do is I'm going to pull up 
+here our Firefox console from Firebug and we're going to take a look at 
+how the information is stored inside the dom of the browser. And notice 
+here at this point, before we've done anything, the <code>div</code> 
+element ends and then the image element begins. Now I'm going to drag 
+the kitty into the target, make a little more space here, and now you'll
+ notice that the image is inside the div. Right, the <code>div</code> 
+starts here, ends here, and the image is inside it. So the way that 
+happened is this line right here. We appended the child, so essentially 
+making the image a child of the div or the logical division. This is a 
+very common pattern that you see underneath all drag-and-drop 
+interactions in HTML5. <br>
+<em>The web page shows an empty section and the image of a kitten. The 
+presenter drags the image and drops it inside the empty section. This 
+places the image inside the section. The presenter refreshes the web 
+page and opens the Mozilla Firefox console. This divides the browser 
+into two parts, design view and console view. In the console view, the 
+presenter points to the code in the body section. Then, in the design 
+view, he drags the image and drops it inside the empty section. This 
+moves the code of the image to the div tag in the console view.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25a9-d9c3-11e6-a5b1-0242c0a80503">
+Accessing Form Data
+</h2>
+<div><p>
+<strong></strong>
+HTML forms are an important part of web design. And once you put all 
+that work into designing a form and make it look great, how can you 
+access the information that users type into those forms? Well, it's 
+pretty easy using JavaScript. So in this video, I'll explain how you can
+ access form data once it's been entered. I've created a simple HTML <code>form</code> and inside that <code>form</code>, we have got four inputs: <code>Name:</code>, <code>Address:</code>, <code>Email:</code>, and <code>Phone:</code> number. And then when we click the <code>"button"</code>, we're actually going to run a function called <code>"doIt()"</code>. So let's go ahead and create that function. Make sure we use <code>type="text/javascript"</code> so the browser knows what we're running here, and then create our <code>function doIt()</code>. Now in order to get the information from the form, what we do is we create a variable, I'll call it <code>elem</code> for elements, <code>document.forms</code>,
+ and we put in square brackets afterwards a value. And so you could have
+ multiple forms on a page, so this way we will pick the very first form 
+by using <code>[0]</code>. So if I go <code>alert(elem);</code> right now just create an alert, so we see what is contained in that variable. And then type <strong>GO</strong>
+ we see we have "[object HTMLFormElement]", so that's great. We know 
+that it's a form element so we can actually do this, let's say <code>elem[0].value</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains the head section and the body section. The head section 
+contains a meta tag and a title tag. The body section contains the 
+following code:<br>&lt;form name="form1"&gt;<br>Name: &lt;input type="text" id="name" /&gt;&lt;br&gt;&lt;br&gt;<br>Address: &lt;input type="text" id="name" /&gt;&lt;br&gt;&lt;br&gt;<br>Email: &lt;input type="text" id="name" /&gt;&lt;br&gt;&lt;br&gt;<br>Phone: &lt;input type="text" id="name" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;input type="button" onclick="doIt()" value="GO" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;/form&gt;<br>&lt;span id="output"&gt;&lt;/span&gt;<br>The
+ web page shows four text fields – Name, Address, Email, and Phone – and
+ the GO button. In the head section, the presenter adds the opening and 
+closing script tags in separate lines of code. The opening script tag 
+reads "&lt;script type="text/javascript"&gt;". He creates the doIt() 
+function by typing the following code:<br>function doIt()<br>{<!-- --><br>var elem = document.forms[0];<br>alert(elem);<br>}<br>The
+ presenter refreshes the web page. Leaving the four text fields blank, 
+he clicks the GO button. This opens the "Message from web page" dialog 
+box, which shows the note "[object HTMLFormElement]" and the OK button. 
+The presenter clicks the OK button to close the dialog box. In the 
+doIt() function, he changes the code "alert(elem);" to 
+"alert(elem[0].value);".<br></em>
+<br><br>
+<strong></strong>
+I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>, and then type in my name in this form field, and click <strong>GO</strong>. And then you can see that we have captured that value using the <code>.value</code> feature. So suddenly we can actually pull out the information using a simple <code>for</code> loop. So it looks like this <code>var i=0; i &lt; elem.length</code> because we actually want to go the entire length of the element, <code>-1</code>. Okay, we want to stop at the end and then <code>i++</code> to increment the loop. Now inside the loop, we will create a variable called <code>formData = new Array;</code> we will create an array here. And then <code>formData[i]</code>, okay, we're going to count through using <code>[i]</code> in a loop equals <code>elem[i].value</code> again we're going to use that <code>.value +</code> and we will add in a line break here, so we can break everything up. <br>
+<em>The presenter saves the index.html file and refreshes the web page. 
+He types "Jamie" in the Name text field and clicks the GO button. This 
+opens the "Message from web page" dialog box, which shows the name 
+"Jamie" and the OK button. Next the presenter types the following code 
+in the doIt() function:<br>for (var i=0; I &lt; elem.length - 1; i++)<br>{<!-- --><br>var formData = new Array;<br>formData[i] = elem[i].value + "&lt;br&gt;";<br></em>
+<br><br>
+<strong></strong>
+And then finally, what we will do is we will actually write that information so <code>document.getElementById</code>, I've created a container on the page called <code>("output")</code> so right here it's a <code>span</code> container, <code>.innerHTML = formData[i]</code>.
+ Okay, so what we're doing is we're running through the entire length of
+ each entry that was filed. So in the case of Jamie, that would be 5 
+characters and it would write that information into the array and then 
+put it on the page. So let's go ahead and <strong>Save</strong> that, <strong>Refresh</strong>, and enter some real information. Now if I click <strong>GO</strong>, we see something happened there. And I know what it was, I forgot to put a <code>+=</code> here, we want to keep adding that information. So let's go ahead and <strong>Save</strong> that, <strong>Refresh</strong>, do that again. That's fine, we don't actually have to type in the actual information, we're not validating it, and then click <strong>GO</strong>.
+ And you can see that information has been captured using this 
+relatively simple method. So it all comes down to using the 
+document.forms grabbing the appropriate form number, in this case, it's 
+the only form in the page so it'll be form <code>[0]</code> and then reading that information using element, the actual index location in brackets and then <code>.value</code>. <br>
+<em>The presenter continues to type code in the doIt() function as follows:<br>document.getElementById("output").innerHTML = formData[i];<br>}<br>He
+ saves the index.html file and refreshes the web page. He populates the 
+four text fields with "Jamie", "123 State St.", "noone@nobody.com", and 
+"555-555-5555", respectively. He clicks the GO button and the value in 
+the Phone text field, which is "555-555-5555", is shown below the GO 
+button. The presenter modifies a part of the code in the doIt() function
+ as follows:<br>document.getElementById("output").innerHTML += formData[i];<br>He
+ again saves the file and refreshes the web page. He populates the four 
+text fields with the same information and clicks the GO button. This 
+displays the information populated in the four text fields below the GO 
+button.<br></em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25ab-d9c3-11e6-a5b1-0242c0a80503">
+Validating Form Data
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can validate form data using 
+JavaScript. Now for this example, I've just created a simple form and 
+we're asking the user to enter a number. We can use this method to check
+ for text as well, but we're going to do numbers for this one. When we 
+click the button, we're going to run a function called <code>"chkInput()"</code>. So let's go ahead and create that, <code>function chkInput()</code>. Now the first thing I'm going to do is create a variable called <code>x</code>.
+ I'm not going put anything in it because we want to use this as a true 
+or false value. So I'm just going to establish the variable and then we 
+will refer to it in a minute. And I'm going to create a variable called <code>numInp = document.getElementById</code>. In this case, we want to grab the contents of this form field right here and it's called <code>"num1"</code>, so I'll just go ahead and put that there <code>("num1")</code>. And what we want to do here is use <code>.value</code>
+ because we want to grab the information that the user has typed into 
+that field. So...actually I don't even need to do that, I'll just put a 
+semicolon and we're storing that information in a variable called <code>numInp</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains the head section and the body section. The head section 
+contains a meta tag and a title tag. The body section contains the 
+following code:<br>Please enter a number:&lt;br&gt;<br>&lt;form name="myForm" action="#" onsubmit="return false"&gt;<br>&lt;input type="text" id="num1" name="num1" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;input type="submit" value="Submit now" onclick="chkInput()" /&gt;<br>&lt;br&gt;&lt;br&gt;<br>&lt;span id="output"&gt;&lt;/span&gt;<br>&lt;/form&gt;<br>The
+ web page shows the label "Please enter a number:", a text field, and 
+the Submit now button. In the head section, the presenter adds the 
+opening and closing script tags in separate lines of code. The opening 
+script tag reads "&lt;script type="text/javascript"&gt;". He creates the
+ chkInput() function by typing the following code:<br>function chkInput()<br>{<!-- --><br>var x;<br>var numInp = document.getElementById("num1").value;<br></em>
+<br><br>
+<strong></strong>
+Now I'm going to create another variable called <code>validNums</code>...and we can put a variable. I should put it there, put <code>var</code> in there just to make sure that we establish the variable. We're going to create a variable called <code>var validNums =</code>
+ and here I'll use what's called a regular expression. Regular 
+expressions are expressions that you create that you can use to, sort 
+of, create wildcards and sets of information you want to compare in 
+JavaScript and it looks like this, <code>/[]/</code>. And inside the brackets, we will put <code>0-9</code>.
+ And that'll have the browser check for actual numerical input. And then
+ I'm also going to put a period and the reason I want to do that is 
+because I want somebody to be able to enter a decimal value just as 
+easily. So we're going to check and make sure that a decimal is a valid 
+character to enter in that field. Now once I've done that, I'll just set
+ up an <code>if</code> statement here, <code>if (numInp.match(validNums))</code>...we're using another method here in JavaScript to match the <code>validNums</code>...so in parentheses <code>(validNums)</code>. <br>
+<em>The presenter continues to type code in the chkInput() function as follows:<br>var validNums = /[0-9. ]/;<br>if (numInp.match(validNums))<br></em>
+<br><br>
+<strong></strong>
+So all we're doing is saying here if the information that's been typed 
+in here has a match right there to this variable...and this variable 
+once again is a set of numbers and the decimal...so if there is a match,
+ then we're going to say <code>x=true</code>. So now we're going to use that <code>x</code> variable that we created. Now once I've done that, then we can go ahead and say this. I'll create <code>document.getElementById</code> because we want to <code>("output")</code> some information on the screen, let the user know that he/she did a good job. So we have got an <code>"output" span</code> right here that we will use, <code>.innerHTML = "Thank you!"</code> Now we will <code>return</code> from here. So in other words, we will just <code>return</code> and that'll end the function. And we're going to <code>return x</code>. What that means is that we can break out of this function, but we can return the value of <code>x</code>. So we also know that that value <code>true</code> is being returned in case we need to do something with it. We're not going to, but <code>return x</code> will just allow us to pass that information back once the function is finished. Now what I'll do here is create an <code>else</code> statement. So if it doesn't match a number or the decimal, then we're going to say <code>alert("Please enter numbers only!")</code>. <br>
+<em>The presenter continues to type code in the chkInput() function as follows:<br>{<!-- --><br>x=true;<br>document.getElementById("output").innerHTML = "Thank You!";<br>return x;<br>}<br>else<br></em>
+<br><br>
+<strong></strong>
+And then I'm going to also set <code>x</code> to <code>false</code>. So I'll put that there <code>x = false</code>, <code>("Please enter numbers only!");</code> and then <code>return x;</code>
+ and that'll return a false value back to JavaScript and then we can use
+ it if we need to. Again we're not going to, but we could if we wanted 
+to. So I'll <strong>Save</strong> that, let's go ahead and <strong>Refresh</strong> the page. And I'll start by typing in nothing. So if we type nothing and press <strong>Submit</strong> <strong>now</strong>,
+ we're going to get that message, of course, because we haven't entered 
+any numbers. Now if I type in some text, again we're going to see 
+"Please enter numbers only!". If I type in a number, we get a message 
+saying "Thank You!". So we validated that, that's an actual valid entry.
+ And if we use that decimal as well to create a decimal value and <strong>Submit now</strong>,
+ we still get "Thank You!", so that works as well. So effectively what 
+we're doing here is grabbing the information from this form field and 
+using a regular expression to check for numbers. And once again, you 
+could just as easily do this with characters like this. And this you 
+would have to actually use the lowercase and uppercase, check for 
+character input. But you can use regular expressions to check that 
+information and validate it using JavaScript. <br>
+<em>The presenter continues to type code in the chkInput() function as follows:<br>{<!-- --><br>x=false;<br>alert("Please enters numbers only!");<br>return x;<br>}<br>The
+ presenter saves the file and refreshes the web page. He leaves the text
+ field blank and clicks the Submit now button. This opens the "Message 
+from web page" dialog box, which contains the note "Please enter numbers
+ only!" and the OK button. He clicks the OK button to close the dialog 
+box and types "jamie" in the text field. He clicks the Submit now button
+ and the dialog box opens with the same note. Now the presenter types 
+"1234" in the text field and clicks the Submit now button. This displays
+ the message "Thank you!" below the button. Next the presenter types 
+"1234.256526" in the text field and clicks the Submit now button. This 
+too displays the message "Thank you!" below the button. In the code, he 
+changes the value of the validNums variable in the chkInput() function 
+to "/[a-zA-Z]/;".<br></em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c25ad-d9c3-11e6-a5b1-0242c0a80503">
+Adding HTML Elements to a Web Page
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can add HTML elements to a web page using JavaScript. Okay, so I've got a <code>"button"</code> on this page that runs a function called <code>"doIt()"</code>
+ that when we click it. Let's go ahead and create that function. Now 
+what I'm going to do is start by creating a variable and I'll call this <code>newDiv</code>, so <code>newDiv = document.createElement</code>. And this is how we create new elements on the page. We're going to create a <code>div</code> element so we put <code>("div")</code>
+ in here. And when we do that, we're actually not adding the object to 
+the page just yet, we're actually creating it for the browser to place, 
+but we actually need to do some things with it first. So once we have 
+done that, we can say newDiv.innerHTML. We're going to change the actual
+ contents or add contents to it rather, <code>"This is a DIV"</code>. And we can even do this, <code>div.className</code> with a capital N equals <code>"class1"</code> because down here, I've got a class already in my stylesheet called <code>class1</code>, so I'm going to apply that class to this <code>newDiv</code>. Now it's still not going to appear on the page yet. If I go ahead and <strong>Save</strong> it and <strong>Refresh</strong>, and click nothing happens here. We have to add a final line here. And actually I did that wrong, that should be <code>newDiv.className</code>, remember, that's the object that we created. And then <code>document.body.appendChild</code>, so use <code>appendChild</code>. This is the command that'll actually add that <code>div</code> container that we created to the page. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains the head section and the body section. The head section 
+contains a meta tag, a title tag, a script tag, and a style tag. The 
+opening script tag reads "&lt;script type="text/javascript"&gt;." The 
+following code is enclosed within the opening and closing style tags:<br>.class1<br>{<!-- --><br>font-family: 'Times New Roman';<br>font-size: 12px;<br>font-color: 'black';<br>width: 200px;<br>height: 75px;<br>background-color: #ff6a00;<br>}<br>The body section contains the following code:<br>&lt;input type="button" onclick="doIt()" value="GO" /&gt;&lt;br&gt;&lt;br&gt;<br>The web page shows the GO button. The presenter creates the doIt() function in the script tag by typing the following code:<br>function doIt()<br>{<!-- --><br>var newDiv = document.createElement("div");<br>newDiv.innerHTML = "This is a DIV";<br>newDiv.className = "class1";<br> document.body.appendChild (newDiv);<br>}<br></em>
+<br><br>
+<strong></strong>
+So if I go ahead and <strong>Save</strong> that now and <strong>Refresh</strong>, and then click <strong>GO</strong> there is our <code>div</code>
+ container. So we have actually taken it, created it, added some 
+information to it such as contents and a style and then put it on the 
+page. But you can do that with other elements as well. So for instance, I
+ can do this <code>var btn</code> for button equals <code>document.createElement</code>. And then again whatever you want to create you put in there, <code>("button")</code> and then <code>btn.innerHTML = "New button";</code>...actually no, maybe, I'll change that to click me, that's...buttons are supposed to be clicked so <code>"Click Me"</code> and <strong>Save</strong> that and <strong>Refresh</strong>. Now when I click <strong>GO</strong>,
+ you're not going to see that button yet, because once again I actually 
+have to add that button to the page. Now before I do that, I'm going to 
+do this <code>document.body.appendChild</code> and in parentheses, I'm going to put <code>document.createElement</code>. I'm actually going to add an extra element here, it's a line break <code>('br')</code>, like that. And now I can do document and I just want to put a line break in-between that <code>div</code> container and the new button that we're creating so <code>appendChild</code> and, remember, we call it <code>(btn)</code> so there it is right there. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>.
+ And that's how you create elements on an HTML page. And just use that 
+particular tag name or element name and then use this method with the <code>appendChild</code> and you'll be able to create elements on the fly with JavaScript. <br>
+<em>The presenter saves the file and refreshes the web page. He clicks 
+the Go button and an orange-colored container with the text "This is 
+DIV" appears. Next he adds the following code to the doIt() function:<br>var btn = document.createElement("button");<br>btn.innerHTML = "Click Me";<br>He
+ saves the file and refreshes the web page. He clicks the GO button, but
+ nothing new happens. The orange-colored container with the text "This 
+is DIV" appears as before. To show the Click Me button in a separate 
+line in the web page, the presenter adds the following code to the 
+doIt() function:<br>document.body.appendChild(document.createElement('br'));<br>document.body.appendChild(btn);<br>He
+ saves the file and refreshes the web page. He clicks the GO button and 
+the Click Me button appears below the orange-colored container.<br></em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c4cb1-d9c3-11e6-a5b1-0242c0a80503">
+Modifying Form Elements
+</h2>
+<div><p>
+<strong></strong>
+In this video, I'll demonstrate how you can modify form elements using JavaScript. So here, I've created a <code>form</code> and it's got a number of elements: <code>Name</code>, <code>Address</code>, <code>Email</code>, <code>Phone</code>. They are all text type inputs and a <code>"button"</code> that'll run a function called <code>"doIt()"</code>, when we click the button. So let's go ahead and create that function. Make sure you put in the <code>type</code> so the browser knows what we're doing here. And then <code>function doIt()</code>. Now, what I want to do is grab the form element and it looks like this, it looks like <code>document.forms</code>.
+ Now we put in parenthesis or square brackets, rather afterward a value 
+and it reflects a value of the form on the page, in this case there is 
+only one form and so that'll be <code>forms[0]</code>, but if add more 
+than one form, we would just address them that way depending on how they
+ were placed in the HTML. So we placed another form below this one, it 
+would actually be forms[1] and then another one below that would be 
+forms[2], and so on. What we want to do here is actually create a 
+variable, so we have a variable called <code>elem</code> for element equals <code>document.forms[0]</code>. Now, what we can do at this point is see what is contained in that element object, so I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>.
+ I don't even have to bother entering any information, I just want to 
+see what's in there and what we have got is "[object HTMLFormElement]", 
+that tells me that there is something in there that we can address by 
+using this type of, actually let me get that back here. Let's take a 
+look at <code>(elem[4])</code>, <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains the head section and the body section. The head section 
+contains a meta tag and a title tag. The body section contains the 
+following code:<br>&lt;form name="form1"&gt;<br>Name: &lt;input type="text" id="name" /&gt;&lt;br&gt;&lt;br&gt;<br>Address: &lt;input type="text" id="add" /&gt;&lt;br&gt;&lt;br&gt;<br>Email: &lt;input type="text" id="email" /&gt;&lt;br&gt;&lt;br&gt;<br>Phone: &lt;input type="text" id="tel" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;input type="button" onclick="doIt()" value="GO" /&gt;&lt;br&gt;&lt;br&gt;<br>&lt;/form&gt;<br>&lt;span id="output"&gt;&lt;/span&gt;<br>The
+ web page shows four text fields – Name, Address, Email, and Phone – and
+ the GO button. In the head section, the presenter adds the opening and 
+closing script tags in separate lines of code. The opening script tag 
+reads "&lt;script type="text/javascript"&gt;". He creates the doIt() 
+function by typing the following code:<br>function doIt()<br>{<!-- --><br>var elem = document.forms[0];<br>alert(elem);<br>}<br>The
+ presenter saves the file and refreshes the web page. Leaving the four 
+text fields blank, he clicks the GO button. This opens the "Message from
+ web page" dialog box, which shows the note "[object HTMLFormElement]" 
+and the OK button. The presenter clicks the OK button to close the 
+dialog box. In the doIt() function, he changes the code "alert(elem);" 
+to "alert(elem[4]);".<br></em>
+<br><br>
+<strong></strong>
+<strong>Refresh</strong> and click <strong>GO</strong>, okay, that's an 
+input element and in this case actually 4, 0, 1, 2, 3, 4, that's 
+actually the button, okay. Let's see if we can get the <code>type</code> out of that, I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>, yeah, so it's a "button", okay, and if I actually did <code>elem[3]</code>, <strong>Save</strong> it and <strong>Refresh</strong>,
+ it's "text", okay, because we know that these four containers are text.
+ So that's how you address it and if you can address it then you can 
+start to change it, so for instance, let's do this, let's go <code>elem[3].value = "555-555-5555"</code>, so a phone number. <strong>Save</strong> it and <strong>Refresh</strong> the page, and if I click <strong>GO</strong>, we're actually forcing that information into that form field. Let's try something different here, <code>elem[4].value</code> and this is the button remember, so we're changing the button now equals <code>"Submit"</code>. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong> the page and now when I click <strong>GO</strong>, the button has changed to <strong>Submit</strong>,
+ so we can actually change the label on a button, not just the contents 
+of a field. As a matter of fact, we could even do something else, let's 
+do this <code>elem[4].type</code>, now remember, when we looked at <code>type</code>, the <code>type</code> was <code>"button"</code>, but let's change it to <code>"text"</code>, so I'll go ahead and put a semicolon there and then enter a <code>value</code> of <code>"Submit"</code>. Go ahead and <strong>Save</strong> that, <strong>Refresh</strong> the page and when I click <strong>GO</strong>,
+ you can see that we actually changed it to a text field. So you can 
+actually change the form elements, not just the contents of that form 
+elements, but the type of form element using that relatively simple 
+method. <br>
+<em>The presenter refreshes the web page. Leaving the four text fields 
+blank, he clicks the GO button. This opens the "Message from web page" 
+dialog box, which now shows the note "[object HTMLInputElement]". The 
+presenter clicks the OK button to close the dialog box. In the doIt() 
+function, he changes the code "alert(elem[4]);" to 
+"alert(elem[4].type);". He saves the file and refreshes the web page. 
+Again, leaving the four text fields blank, he clicks the GO button. This
+ opens the "Message from web page" dialog box, which now shows the text 
+"button", indicating the type of the fifth element in the code. Next, to
+ view the type of the fourth element in the code, he changes 
+"alert(elem[4].type);" to "alert(elem[3].type);". He saves the file and 
+refreshes the web page. He opens the "Message from web page" dialog box,
+ which now shows the text "text", indicating the type of the fourth 
+element in the code. Next he deletes the code "alert(elem[3].type);" and
+ types "elem[3].value = "555-555-5555";". He saves the file and 
+refreshes the web page. He clicks the GO button and the Phone text field
+ is autopopulated with "555-555-5555". In a similar way, he specifies 
+the value of the GO button by typing the code "elem[4].value = 
+"Submit";" in the doIt() function. He saves the file and refreshes the 
+web page. He clicks the GO button. As a result, the Phone text field is 
+autopopulated with "555-555-5555" and the name of the GO button changes 
+to Submit. Next the presenter types the code "elem[4].type = "text";" in
+ the doIt() function to change the type of the fifth element, which is 
+the GO button. He saves the file and refreshes the web page. He clicks 
+the GO button. As a result, the Phone text field is autopopulated with 
+"555-555-5555" and the Go button changes to a text field, which is 
+autopopulated with "Submit".</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c4cb3-d9c3-11e6-a5b1-0242c0a80503">
+Modifying HTML5 Form Inputs Using CSS3
+</h2>
+<div><p>
+<strong></strong>
+Web page designer requires the use of forms. Whether it's a simple login
+ form or a complex membership signup, forms represent an important part 
+of web site creation, but default form fields have been around since the
+ beginning of the Web and they are not very interesting on their own. So
+ in this video, I'll explain how to modify form inputs using CSS3. Okay,
+ so let's go ahead and create some inputs here. I'll just create an <code>input type="text"</code> and we will give this an <code>id</code> of <code>"username"</code>, put in a line break here. And then <code>input</code> and again we will create...actually this one we will make a <code>"password" id="pw"</code>, like that and then a line break. I'll go ahead and <strong>Save</strong> that and <strong>Refresh</strong>
+ our page. And you can see there are our two inputs. There's not really 
+much to them. As a matter of fact, maybe I'll just put some text in 
+here, just so it looks more like a form, <strong>Save</strong> that, <strong>Refresh</strong>, and there you go. Now what we want to do here is create a stylesheet in the <code>head</code> section of our document and see how we can affect <code>input</code>. So I'm going to start with a <code>style</code> called <code>input</code> because that's what we're doing. We're changing the <code>input</code> tag, so <code>input</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter types the following code to create two text fields:<br>&lt;input type="text" id="username" /&gt;&lt;br&gt;<br>&lt;input type="password" id="pw" /&gt;&lt;br&gt;<br>He
+ saves the file and refreshes the web page. This shows two text fields 
+in the web page. To provide a label to the two text fields, the 
+presenter types "Username" and "Password", respectively, before the code
+ for each text field. He saves the file and refreshes the web page. This
+ shows the Username and Password text fields in the web page. Next, in 
+the head section, the presenter adds the opening and closing style tags 
+in separate lines of code.<br></em>
+<br><br>
+<strong></strong>
+And let's go ahead and choose a <code>width</code> here, <code>180px</code>, <strong>Save</strong> that and <strong>Refresh</strong>, and you can see that we can change the size of that <code>input</code>. Now generally the old fashioned way was to actually change the <code>style</code> or the <code>size</code> of the input here in the <code>html</code>
+ tag, but you can actually do that in CSS and it's probably a better 
+idea. There you go, we can actually increase the size of that. We can do
+ some other things too. So for instance, we can change the font style. 
+So let me just go ahead and type something in there, and we see it's 
+just plain Arial. Let's change the <code>font-family</code> to <code>Calibri</code> and go ahead and <strong>Save</strong> that and <strong>Refresh</strong>. And you see it's a slightly different font there, so we have actually changed the font of that <code>input</code> field. So now what I'm going to do is just put an extra line here. And now what I'm going to do is use the pound symbol or <code>#</code> and let's choose the id <code>username</code> and pick a <code>color</code>, something like this, a dark orange. <br>
+<em>To change the width of the two text fields, the presenter types the following code:<br>input<br>{<!-- --><br>width: 180px;<br>}<br>He
+ saves the file and refreshes the web page. The width of the two text 
+fields have changed. To change the font of the text being entered in the
+ two text fields, the presenter types the code "font-family: Calibri" in
+ the input container. He saves the file and refreshes the web page. He 
+types some dummy text in the Username text field to check the font, 
+which is Calibri. After the closing squiggly bracket of the input 
+container, the presenter types the following code to change the font 
+color of the Username text field:<br>#username<br>{<!-- --><br>color: #ff6a00;<br>}<br></em>
+<br><br>
+<strong></strong>
+Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>, 
+and you see now when I type, we're actually getting a different color in
+ that field. So what we've done there is reference the actual <code>id</code> called <code>"username"</code> and just change this specific <code>input</code> rather than all the inputs the way we did up here. Now it may have occurred to you that we can also do this. We can change the <code>background-color</code>
+ as well. So I could make this bright red and maybe just a sort of make 
+this a little easier to read, put, well, a gold might work. I'll go 
+ahead and <strong>Save</strong> that and <strong>Refresh</strong>, and 
+you can see there is our red form field now with a text inside it. So 
+you can really do a lot with CSS with any type of input, form input, 
+using one of these methods, either just referencing the <code>input</code> tag in general or referencing the actual <code>id</code> of that tag. We can do some really neat things, very quickly and easily with CSS3 and HTML5. <br>
+<em>The presenter saves the file and refreshes the web page. He types 
+some dummy text in the Username text field; the font color of the dummy 
+text is orange. To add a background color to the Username text field, he
+ types the code "background-color: #f00;". Then he changes the font 
+color of the Username text field to "#ffd800" so that it is readable 
+with respect to the background color. He saves the file and refreshes 
+the web page. The background color of the Username text field is shown 
+as red. The presenter types some dummy text in the text field; the font 
+color of the dummy text is yellow.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c4cb5-d9c3-11e6-a5b1-0242c0a80503">
+Styling HTML5 Submit Buttons Using CSS3
+</h2>
+<div><p>
+<strong></strong>
+Web forms are an integral part of web design, but the default form 
+fields have been around since the beginning of the Web and they are not 
+very interesting on their own. Fortunately, you can modify form fields 
+using CSS. And in this video, I'll explain how to style submit buttons 
+using CSS3. Okay, so I'll start by creating a button, we use <code>input type="submit"</code> because we want a submit button. The <code>value</code> will be whatever is on the actual button itself. And then we will give it an <code>id="go"</code>. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>, and that's pretty much what you would expect from a standard button in HTML. Now the thing is I'll go to the <code>head</code> section and after the <code>title</code>, create a <code>style</code> sheet. And here what we're going to do is we're going to do <code>input</code>, create a <code>style</code> for <code>input</code>. And let's go ahead and change the font, change the <code>font-family</code> to <code>Calibri</code> and the <code>font-size</code>, make it something really big like <code>26pt</code>. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>. And you can see that you can change the <code>input</code> now. By using the <code>input</code> style, we're going to affect any <code>input</code>
+ tag that's used on the page. So if we had text boxes, if we had 
+password fields, whatever, they are all going to be affected by using 
+this method. So we want to be careful about using this to style things 
+like buttons. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter types the following code to create the "Go do it!" 
+button:<br>&lt;input type="submit" value="Go do it!" id="go" /&gt;<br>He
+ saves the file and refreshes the web page. The "Go do it!" is shown in 
+the web page. Next, in the head section, the presenter adds the opening 
+and closing style tags in separate lines of code. To change the font and
+ font size of the "Go do it!" button, he types the following code:<br>input<br> {<!-- --><br>font-family: Calibri;<br>font-size: 26pt;<br>}<br>The
+ presenter saves the file and refreshes the web page. The font and font 
+size of the "Go do it!" button have changed to Calibri and 26pt, 
+respectively.<br></em>
+<br><br>
+<strong></strong>
+Another way to do this would be to access the button's <code>id</code>. Remember we gave it this <code>id</code>, so I'll just use the <code>#</code> or pound symbol and then <code>go</code> and now what we can do is start to change things with <code>color</code>. Let's go ahead and create, say, a blue. <strong>Save</strong> that and <strong>Refresh</strong> and you can see that that changed the actual button text to blue. But let's go ahead and change the <code>background-color</code> as well, <code>background-color</code>. And we will change the <code>background</code>, say, to an orange, go ahead and <strong>Save</strong> that and <strong>Refresh</strong>.
+ And you can change the color of that button as well. So you can do all 
+sorts of things very quickly and easily using CSS styles with buttons 
+and IDs. And I'll try something a little softer there because that was 
+awfully dark. I'm going to <strong>Save</strong> that and <strong>Refresh</strong>, and that's not too bad. Now you can also do things like change the <code>width</code> and <code>height</code> of a button. So if I wanted to make that really long like a <code>100px</code> long, I can do that and <strong>Save</strong> it and <strong>Refresh</strong>. Actually that didn't make it really long, it made it really short. Let's try something really long at <code>300px</code>. Go ahead and <strong>Save</strong> it and there you go. You can make really long buttons and you can also change the <code>height</code> as well. So, <br>
+<em>To change the font color of the "Go do it!" button to blue, the 
+presenter types the following code after the closing squiggly bracket of
+ the input container:<br>#go<br>{<!-- --><br>color: #0094ff<br>}<br>He 
+saves the file and refreshes the web page. The font color of the "Go do 
+it!" button has changed from black to blue. Next, to change the 
+background color of the button to orange, the presenter types the code 
+"background-color: #ff6a00;". He again saves the file and refreshes the 
+web page. The background color of the button has changed from grey to 
+orange. In a similar way, he changes the background color of the button 
+to yellow. Next, to change the width and height of the button, the 
+presenter types the code "width: 300px; height: 200px;". He saves the 
+file and refreshes the web page to view the change in the width and 
+height of the button.</em>
+<br><br>
+<strong></strong>
+pretty much any CSS style that you can apply to other things like <code>div</code>
+ containers, for instance, you can do...you can use rather with form 
+elements and make changes to them. Now what that means is you can start 
+doing some really interesting things using some of the new transform 
+features and background features and linear gradient that are available 
+with CSS3. So you're not just limited to sort of creating a single 
+static background color and a static text color. You can start to add 
+shadows and gradient fields and all sorts of things to get in the sense 
+of depth using the CSS3, but that's just sort of a quick introduction to
+ how you can style buttons and input elements using HTML5 and CSS. </p>
+</div>
+</div>
+<div>
+<h2 id="cd3c4cb7-d9c3-11e6-a5b1-0242c0a80503">
+Inserting Images in HTML5 Form Fields Using CSS3
+</h2>
+<div><p>
+<strong></strong>
+Web forms are an integral part of web design, but the default form 
+fields have been around since the beginning of the Web and they are not 
+very interesting on their own. Fortunately, you can modify form fields 
+using CSS and perform some visually appealing makeovers on the standard 
+form. So in this video, I'll explain how to insert an image into a form 
+field using CSS3. Okay, so now I've got this <code>form</code> input and it's been styled a little bit. So I've actually added some <code>border</code>
+ to it and some depth and a shadow. As a matter of fact, it probably 
+made the thing a little too high, let's maybe take that down to a <code>100px</code>, <strong>Save</strong> that and <strong>Refresh</strong>.
+ Yeah, that's not too bad. So now what we're going to do is we want to 
+add a background image to this. Now I've already got a background image,
+ it's right here. I'll double-click it and you can take a look. So it's a
+ little data center image that I'm just going to put in the background 
+of this. Now what we want to do is use the <code>form</code> tag and the reason for that is here's the <code>form</code> and all the inputs are inside. So <code>form</code>, think of <code>form</code>
+ as a container that contains a bunch of other things. It's like a 
+package and in this particular instance, that's what we have got to use 
+to put a background in there. We could, I guess, put a <code>div</code> container in there. That's not really a good, no pun intended, form. What we want to do is actually use the <code>form</code> tag and styling in the CSS style sheet. So it looks like this, <code>background-image</code>. And then we're going to use <code>url</code> and then in parentheses the name of the image, in this case, <code>"data.jpg"</code> and a semicolon. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag, a title tag, and a style tag. The following code is enclosed within
+ the opening and closing style tags:<br>form<br>{<!-- --><br>font-family: Calibri;<br>font-weight: bold;<br>color: #ffffff;<br>text-shadow: 0px 1px 1px black;<br>width: 250px;<br>height: 180px;<br>padding: 15px;<br>border: 1px solid black;<br>-ms-border-radius: 20px;<br>-webkit-border-radius: 20px;<br>-moz-border-radius: 20px;<br>border-radius: 10px;<br>box-shadow: 0px 0px 25px #000000;<br>}<br>The body section contains the following code:<br>&lt;form&gt;<br>&lt;label&gt;User name: &lt;/label&gt;<br>&lt;input type="text" id="uname" /&gt;<br>&lt;br&gt;&lt;br&gt;<br>&lt;label&gt;Password: &lt;/label&gt;<br>&lt;input type="password" id="pw" /&gt;<br>&lt;br&gt;&lt;br&gt;<br>&lt;input type="submit" value="Go!" id="go" /&gt;<br>&lt;/form&gt;<br>The
+ web page shows a form containing two text fields – User name and 
+Password – and the "Go!" button. In the style tag, the presenter changes
+ the value of height from "180px" to "100px". He saves the file and 
+refreshes the web page to view the changes in the height of the form. To
+ add data.jpg as the background image to the form, the presenter types 
+the code "background-image: url("data.jpg");" in the style tag.<br></em>
+<br><br>
+<strong></strong>
+Now once I <strong>Save</strong> that and <strong>Refresh</strong> the page, you can see that we have quickly added that image to the <code>form</code>
+ tag. You might need a little bit of editing. We have to edit down the 
+image and that's the important thing to remember...is that you want to 
+make sure you have the right image. If it's too big, what you're going 
+to see is probably not representative of what you want to look at on the
+ image. If the image is too small, it might not fit in the form box. So 
+you want to pay attention to that, but it's really easy to do. And 
+remember the best method for doing it is to use that <code>form</code> tag and then wrap all your form elements inside and then once you have done that, we can change that using the <code>form</code> tag styling in CSS3. <br>
+<em>The presenter saves the file and refreshes the web page. data.jpg is added as a background image to the form.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3c4cb9-d9c3-11e6-a5b1-0242c0a80503">
+Changing the Style of an HTML5 Form Using CSS3
+</h2>
+<div><p>
+<strong></strong>
+Web page design requires the use of forms whether it's a simple login 
+form or a complex membership signup. Forms represent an important part 
+of web site creation, but default form fields have been around since the
+ beginning of the Web and they are not very interesting on their own. So
+ in this video, I'll explain how to change the style of a form using 
+CSS3. Now your standard form when you create in HTML is going to look 
+something like this. There is not a whole lot to it here, I've got the <code>form</code> tag, I've got some labels, and I've got some inputs, text inputs for name and password, and then a <code>"submit"</code>
+ button. Not much to look at, is it? Well, you would be surprised what 
+you can do with HTML5 and CSS with forms. Now because there is a lot of 
+information here, I don't want to actually spend the time typing it in 
+but rather explain sort of what I'm doing here. So the first thing 
+is...let's take a look at our form again. We've got our <code>form</code> tag so up here in the <code>style</code> sheet, I've actually created just <code>form</code>, a style for <code>form</code>, and then all this information here from things to font type, <code>font-weight</code>, the <code>color</code>, <code>text-shadow</code>, the <code>width</code>, and <code>height</code>, and dimensions, and so on, and a <code>border</code>. And then down here, <code>border-radius</code>. Now <code>border-radius</code>
+ is going to allow us to create rounded edges on borders and in order to
+ make that work in HTML5 with different browsers, we have to use <code>border-radius</code> and then for IE9 and 10, <code>-ms-border-radius</code>, for Chrome and Safari, <code>-webkit-border-radius</code>, and for Firefox browsers, <code>-moz-border-radius</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag, a title tag, and a style tag. The following code is enclosed within
+ the opening and closing style tags for the form:<br>form<br>{<!-- --><br>font-family: Calibri;<br>font-weight: bold;<br>color: #ffffff;<br>text-shadow: 0px 1px 1px black;<br>width: 200px;<br>height: 180px;<br>padding: 15px;<br>border: 1px solid black;<br>-ms-border-radius: 20px;<br>-webkit-border-radius: 20px;<br>-moz-border-radius: 20px;<br>background: linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background: -ms-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background: -moz-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background:-webkit-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>box-shadow: 0px 0px 25px #000000;<br>border-radius: 10px;<br>}<br></em>
+<br><br>
+<strong></strong>
+And down here, same thing. We've created some <code>linear-gradient</code>
+ backgrounds and again you're going to have to create one each for the 
+different browser types in order to make them work with different 
+browsers. And then finally, we've done a <code>box-shadow</code> here and actually I've got two <code>border-radius</code> there and I don't need them but a shadow around that...the box that we've created. So that's how that works. Now here we have <code>input</code> and for <code>input</code> and again let's take a look, we've got 1, 2, 3 different <code>input</code> types, two <code>"text"</code> fields and a <code>"submit"</code> button. And so here I've created a style for <code>input</code> and again given it some dimensions, some <code>padding</code>, some <code>border</code> values that sort of set things up with the way the border is going to look including the <code>border-radius</code>. So we're going to soften the edges of that <code>border-radius</code> using this feature in CSS. And then also apply some <code>linear-gradient</code> here. The <code>linear-gradient</code> are effectively the same <code>linear-gradient</code> that we've used up here. Now finally, I've <code>#go</code> and you know there is a <code>#</code> or hash tag in front of that and that's because here I've created the <code>id="go"</code> for that button. So we just want to change that button itself and we can do that by using the <code>id</code> and a hash tag in the CSS <code>style</code> sheet. And again here, we have applied some different styles to it and <code>border-radius</code>, and <code>background</code>, and <code>box-shadow</code>. <br>
+<em>The presenter deletes "border-radius: 10px;" from the code.<br>The following code is enclosed within the opening and closing style tags for the input elements in the form:<br>input<br>{<!-- --><br>width: 180px;<br>background-color: #ff6a0;<br>padding: 6px;<br>margin-bottom: 10px;<br>border-top: 1px solid #ff6a05;<br>border-left: 0px;<br>border-right: 0px;<br>border-bottom: 0px;<br>border-radius: 5px;<br>-ms-border-radius: 5px;<br>-webkit-border-radius: 5px;<br>-moz-border-radius: 5px;<br>background: linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background: -ms-linear-gradient(top, #ff6a00 0%, #ffff00 200%);<br>background: -moz-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background:-webkit-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>box-shadow: 0px 5px 25px #000000;<br>}<br>The following code is enclosed within the opening and closing style tags for the "Go!" button in the form:<br>#go<br>{<!-- --><br>width: 100px;<br>float: right;<br>font-family: Calibri;<br>font-weight: bold;<br>font-size: 18pt;<br>color: #ffffff;<br>text-shadow: 0px 1px 1px black;<br>border-radius: 10px;<br>-ms-border-radius: 10px;<br>-webkit-border-radius: 10px;<br>-moz-border-radius: 10px;<br>background: linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background: -ms-linear-gradient(top, #ff6a00 0%, #ffff00 200%);<br>background: -moz-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>background:-webkit-linear-gradient(top, #ffd800 0%, #ff6a00 200%);<br>box-shadow: 0px 5px 25px #000000;<br>}<br>The body section contains the following code:<br>&lt;form&gt;<br>&lt;label&gt;User name: &lt;/label&gt;<br>&lt;input type="text" id="uname" /&gt;<br>&lt;br&gt;&lt;br&gt;<br>&lt;label&gt;Password: &lt;/label&gt;<br>&lt;input type="password" id="pw" /&gt;<br>&lt;br&gt;&lt;br&gt;<br>&lt;input type="submit" value="Go!" id="go" /&gt;<br>&lt;/form&gt;<br></em>
+<br><br>
+<strong></strong>
+So if I go ahead and <strong>Save</strong> that now and <strong>Refresh</strong>,
+ okay, what we've got is a vastly different final product than the one 
+that we started out with using just this HTML because we've applied all 
+the CSS to it. Now it's not perfect looking, but it certainly is 
+functional and it certainly looks a lot better than just that basic form
+ and now you can start to type in some information. You will see, it 
+acts just the way a form should act and the <strong>Go</strong> button can be clicked and we'll just go ahead and cancel that because nothing really happens when we click <strong>Go</strong>.
+ But that shows you how to style forms using HTML5 and CSS and you can 
+do a heck of a lot with just a few lines of code to get really, really 
+super professional looking effects. <br>
+<em>The presenter saves the file and refreshes the web page. The web 
+page shows a form containing two text fields – User name and Password – 
+and the "Go!" button. The various effects specified in the style tag are
+ applied to the form.</em>
+</p>
+</div>
+</div>
+
+
+</body></html>

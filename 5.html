@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="JavaScript Front-end Development: Data, Decision Making, &amp; Arrays Transcript">
+<title>JavaScript Front-end Development: Data, Decision Making, &amp; Arrays Transcript</title>
+</head>
+<body>
+<h1>JavaScript Front-end Development: Data, Decision Making, &amp; Arrays</h1>
+<p>JavaScript has rich language features for representing data and 
+controlling the flow of programs. During this course, you will start by 
+considering the seven data types defined by ECMAScript. After that you 
+will explore how Java Script's type conversion functions work with its 
+Comparison and Logical Operators. Next, learn how to declare and use IF 
+Statements. From there you will observe how to employ a conditional 
+operator statement to replace an IF/ELSE statement, and how to write a 
+SWITCH statement that contains CASE and BREAK statements.  Other topics 
+include how to use FOR loops, WHILE loops, and DO WHILE loops; how to 
+declare an array; how to insert, retrieve, and modify values. Finally, 
+learn how to loop through arrays, and work with multidimensional arrays.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#46a51b90-6ee2-11e8-a814-671ad7cef381">JavaScript Data Types</a></li>
+<li><a href="#4971d020-6ee2-11e8-a814-671ad7cef381">JavaScript Type Conversion</a></li>
+<li><a href="#4ce5e840-6ee2-11e8-a814-671ad7cef381">JavaScript Comparison and Logical Operators</a></li>
+<li><a href="#4f3cf7a0-6ee2-11e8-a814-671ad7cef381">If Statements</a></li>
+<li><a href="#51b43930-6ee2-11e8-a814-671ad7cef381">The Conditional Operator</a></li>
+<li><a href="#59edc8a0-6ee2-11e8-a814-671ad7cef381">Switch Statements</a></li>
+<li><a href="#5c8f2770-6ee2-11e8-a814-671ad7cef381">For Loops</a></li>
+<li><a href="#5efddd80-6ee2-11e8-a814-671ad7cef381">While and Do While Loops</a></li>
+<li><a href="#617c23f0-6ee2-11e8-a814-671ad7cef381">Declaring Arrays</a></li>
+<li><a href="#63dca930-6ee2-11e8-a814-671ad7cef381">Looping Through Arrays</a></li>
+<li><a href="#664a4dd0-6ee2-11e8-a814-671ad7cef381">Working with Multidimensional Arrays</a></li>
+<li><a href="#694b31c0-6ee2-11e8-a814-671ad7cef381">Exercise: Working with Arrays</a></li>
+</ol></div>
+<div>
+<h2 id="46a51b90-6ee2-11e8-a814-671ad7cef381">
+JavaScript Data Types
+</h2>
+<div><p>[Video description begins] <em> Topic title: Javascript Data Types Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to discuss the seven data types 
+defined by an ECMAScript and incorporated into JavaScript. On the 
+screen, I have Notepad++ opened up to an HTML file. On the right side of
+ that screen is a Chrome rendition of the same file on the left. So, 
+let's start with the boolean types. On Line 14, I've got the boolean 
+type of truth = true. I could easily have created another variable 
+called notTrue and make that = false.</p>
+<p>[Video description begins] <em> The code on line 14 is let truth = true semi colon double slash boolean comma let nottrue = false</em> [Video description ends]</p>
+<p>So, this is one of the simplest data type and it probably has to be 
+in every programming language on Earth. The null data type is treated 
+like a primitive type. It indicates there's a lack of referencing with 
+the variable, so the variable exists, but it does not reference 
+anything. Nulls are important when JavaScript interacts with, for 
+example, APIs, and it is expecting an object to be returned, but nothing
+ was returned so null would come in handy in that situation. An 
+undefined data type indicates that a variable has been declared so it 
+exists, but it does not yet have a value so the value has not been 
+assigned as yet. Now note that undefined is not the same as null. In 
+fact, if we try to compare null and undefined, we will get a False being
+ returned.</p>
+<p>[Video description begins] <em> The presenter points to the code on line 16. The code here is: double slash, null, triple equal to, undefined returns false.</em> [Video description ends]</p>
+<p>Now, if I did not use the word undefined here or the data type 
+undefined and my statement is let days as I mentioned here, then days 
+will still be undefined by default.</p>
+<p>[Video description begins] <em> The presenter points to the code on 
+line 17. The code on line 17 is : let days = undefined, semicolons, 
+double forward slash undefined, comma same as let days, semi colon</em> [Video description ends]</p>
+<p>Along with boolean types, number types and string types have been around forever, so I'm not going to really go into those.</p>
+<p>[Video description begins] <em> The presenter points to the code on 
+line 18 and 19. The code on line 18 is: let x = 5, semi colon, double 
+slash, number. The code on line 19 is: let first name = open quote, 
+axle, close quote, semi colon, double slash, string</em> [Video description ends]</p>
+<p>Just know that when you declare a number in JavaScript you're really 
+declaring just about any number that exists in some of the other 
+programming languages. So that number could be a float, it could be a 
+double, it could be a large int, it could be a small int, even be a big 
+decimal. It doesn't really matter. Remember, JavaScript was meant to be a
+ language that was created to be used by just about anybody. So even 
+designers can use it. So, this is very flexible in terms of non 
+programmers being able to use numbers and strings like this. ECMAScript 
+2015 or ES6, created a data type that is called a symbol and it's 
+supposed to be unique and immutable. Meaning that once you've created a 
+const or symbol then that value should not be changed during the running
+ of the program. Symbols are mainly used in objects, and they're mainly 
+used for establishing keys for properties. Between lines 21 and 27 we 
+have the object data type and it is the only non-primitive type.</p>
+<p>[Video description begins] <em> The code on line 21 is: let vehicle =
+ open curly bracket. The code on line 22 is: make, colon, open quotes, 
+buick, close quotes, comma, color, colon, open quote, red, close quote, 
+comma, year, colon, 2019, comma. The code on line 23 is: about me, 
+colon, function, open close curve bracket, open curly bracket. The code 
+on line 24 is: return this, dot, make, plus, double quote double quote, 
+plus. The code on line 25 is: this, dot color, plus, double quote double
+ quote, plus. The code on line 26 is: this, dot, year, semi colon, close
+ curly bracket. The code on line 27 is: close curly bracket, semi colon,
+ double slash, object.</em> [Video description ends]</p>
+<p>As you can see, the programmer is free to develop these data types, 
+develop these types and pretty much make it whatever he or she wants. In
+ this case, it has properties and it has a function. And it has a lot of
+ flexibility, in fact, when we discuss objects I'll show you what I mean
+ by flexibility. But, just to demonstrate how our object will work in 
+this case I could, for example, attempt to identify or target my vehicle</p>
+<p>[Video description begins] <em> The presenter points to line thirty 
+The presenter modifies the code from : PL dot inner HTML = truth semi 
+colons too : PL dot inner HTML = vehicle dot about me open close curve 
+brackets semicolons</em> [Video description ends]</p>
+<p>and I may want to see what the aboutMe function is about. So I could 
+do something like this. And that would print out, perhaps, information 
+about the particular vehicle that we're looking at. So if I refresh our 
+screen, I see that it is a Buick Red 2019. So, JavaScript has seven data
+ types and these data types work, at this point in time, for most 
+situations.</p></div>
+</div>
+<div>
+<h2 id="4971d020-6ee2-11e8-a814-671ad7cef381">
+JavaScript Type Conversion
+</h2>
+<div><p>[Video description begins] <em> Topic title: JavaScript type Conversion. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'd like to explore how type conversion works 
+in JavaScript. One of the goals of JavaScript, when it was created, is 
+to have a mass audience appeal. So, it wasn't just meant for developers,
+ they wanted designers, they wanted non-programmers to be able to use 
+the language. That may explain why we have so few data types. Also, 
+JavaScript is a loosely typed language, and that means we can get away 
+with things like lines 14 and 15.</p>
+<p>[Video description begins] <em> The code on line 14 is: x, =, open quote, five, close quote, semi colon. The code on line 15 is: X ,=, five, semi colon.</em> [Video description ends]</p>
+<p>Now, this is absolutely not recommended. I'm just showing you it here
+ for demonstration purposes, but look at line 14, x started off. The 
+variable x started off as a string, and on line 15, it got converted 
+into a number. Something like that would be impossible in a language 
+like Java or C#. Now, I will also say that conversion happens in 
+JavaScript just like in other languages. So, if we take a look at line 
+17, line 17 is attempting to print a number onto</p>
+<p>[Video description begins] <em> The code in line seventeen is: p, 1, dot, inner, HTML = x, semi colon.</em> [Video description ends]</p>
+<p>a piece of technology that can only handle strings, it can only handle text.</p>
+<p>[Video description begins] <em> He highlights x in the code on line 17.</em> [Video description ends]</p>
+<p>So, what has to happen when the JavaScript engine attempts to read or
+ interpret line 17 is that that x, which is a number at this point in 
+time. On line 17 has to be implicitly converted into a string.</p>
+<p>[Video description begins] <em> He highlights 5 in the code on line 15.</em> [Video description ends]</p>
+<p>And only then can we actually see that the rendition of that x on the browser.</p>
+<p>[Video description begins] <em> The browser shows the following text: Javascript data types conversion. 5.</em> [Video description ends]</p>
+<p>So that's an example of implicit conversion. Now, I'll attempt to get
+ a date object. So let's declare a variable called date and assign it to
+ new Date, and what we're going to be getting in date is a date object.</p>
+<p>[Video description begins] <em> The presenter inserts an empty line 
+of code between line sixteen and seventeen. The new code on line 16 is: 
+let, date, =, new, date, opened and closed curve bracket, semi colon.</em> [Video description ends]</p>
+<p>We could then let year be the date get.</p>
+<p>[Video description begins] <em> The presenter inserts another empty 
+line between lines 17 and 18. The new code on line 17 is: let, year, =, 
+date, dot, get full year, opened and closed curved brackets, semi colon.</em> [Video description ends]</p>
+<p>So, what I'm attempting to do is extract just the last four digits of
+ that date, or the year of that date, and store it in year. Now, 
+implicitly, that year is going to become a number because the 
+date.getFullYear method will return a number to me.</p>
+<p>[Video description begins] <em> The presenter modifies line nineteen 
+from: p, 1, dot, inner, HTML, =, X, semi colons. To: p, 1, dot, inner, 
+HTML, =, year, semi colons.</em> [Video description ends]</p>
+<p>So, if I were to print year, then I should see 2018 on the screen. So
+ once again, we have implicit conversion happening on line 19 because 
+year is a number that was converted to a string in order to be seen on 
+the browser window. But, just to demonstrate explicit conversion, let's 
+create another variable called sYear to represent a year string. And we 
+can say year, we could take the same value of year, and then convert 
+that to a string.</p>
+<p>[Video description begins] <em> The presenter inserts an empty line 
+of code between line 18 and 19. The new code on line 18 is: let, S year,
+ =, year, dot, to string, opened and closed curved brackets, semi colon.</em> [Video description ends]</p>
+<p>Now, there's another way to do that, to convert numbers to string, 
+but let's just use this method now. So, we are attempting to take the 
+year that happens to be a number and convert it into a string and then 
+print it out. So this is explicit conversion. If I refresh the browser 
+screen, notice nothing happens, because the JavaScript engine does not 
+have to do any work on line 20. That work was already done on line 18. 
+Now, there is actually an operator that I wanted to demonstrate here as 
+well. And that's the typeof operator. That's the operator that you would
+ use to try to determine what type you're dealing with if you're not 
+sure. So let's see, typeof, and if I were to attempt to get the 
+typeof(year) at this point, let's save this.</p>
+<p>[Video description begins] <em> The presenter changes the code in 
+line 20 from P, 1, dot, inner HTML, =, year, semi colon. To: P, 1, dot, 
+inner HTML, =, type of, open curved bracket, year, closed curved 
+bracket, semi colon.</em> [Video description ends]</p>
+<p>I should see number, because year happens to be a number. However, sYear happens to be a string, so I should see.</p>
+<p>[Video description begins] <em> He adds S before year in the code on line 20.</em> [Video description ends]</p>
+<p>All right, so I had forgot to save it there, and if I refresh now, it
+ says string. I just forgot to save my change there. So that's the way 
+typeof works. Now, another conversion we can do is conversion from 
+Boolean. So, if I were to attempt to convert, let's say, true.</p>
+<p>[Video description begins] <em> In line 20, the presenter changes the
+ code to p 1, dot, inner, HTML, = Number, open curve bracket, true, 
+close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Let's save this and see what it happens to be. So, a true in 
+JavaScript happens to be 1. And if you wanted to know what a false turns
+ out to be, well, let's try that.</p>
+<p>[Video description begins] <em> He changes true to false in the code on line 20.</em> [Video description ends]</p>
+<p>So we can convert the Boolean type of false into a number, and 
+that'll give us 0. Now, keep remembering that implicit conversion is 
+happening. And after the Boolean gets converted into a number, that 
+number gets converted into a string in order to be seen on the browser. 
+So, one other thing I wanted to show you here is the parseInt function. 
+And parseInt works very similarly to other languages.</p>
+<p>[Video description begins] <em> In line 20, the presenter changes the
+ code to p 1, dot, inner, HTML, = parse int, open curved bracket, closed
+ curved bracket, semi colons.</em> [Video description ends]</p>
+<p>So it takes a string, so at this point in time, we do have a string on line 18.</p>
+<p>[Video description begins] <em> He highlights s year in the code on line 18.</em> [Video description ends]</p>
+<p>And if we were to convert that to a number using parseInt,</p>
+<p>[Video description begins] <em> He adds s year between open and close curve brackets in the code on line 20.</em> [Video description ends]</p>
+<p>we should see 2018, like we did before. Again, implicit conversion is
+ happening in the background. But the idea is that parseInt will accept a
+ string and attempt to turn that string into a number. If it does not, 
+If the conversion was not successful then, parseInt will return a 
+not-a-number, NaN, to the caller. So, if I were to, for example, turn 
+our parameter here into a string,</p>
+<p>[Video description begins] <em> He puts s year in quotes in the code on line 20.</em> [Video description ends]</p>
+<p>and attempt to convert that, I should see not-a-number. So parseInt 
+is available to developers, as well as parseFloat. But, the takeaway 
+here is that conversion in JavaScript works exactly like other 
+languages.</p></div>
+</div>
+<div>
+<h2 id="4ce5e840-6ee2-11e8-a814-671ad7cef381">
+JavaScript Comparison and Logical Operators
+</h2>
+<div><p>[Video description begins] <em> topic title : JavaScript Comparison and Logical Operators Your presenter for this session is : Axle Barr</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to look at JavaScript logical and 
+comparison operators and see how they work. I'll start by saying that 
+they work very similarly to other programming languages. In fact, all of
+ these operators and operations are based on those truth tables. 
+However, according to the ECMAScript, especially ES6, there is a little 
+bit of an issue with the ampersand ampersand. But, generally though they
+ work like we see on the screen. On the left side of your screen, 
+there's a Notepad++, the application opened up to a very simple HTML 
+file with some JavaScript in the middle. On the right side is a Chrome 
+browser showing how it has rendered the HTML file on the left.</p>
+<p>[Video description begins] <em> Following text appears on the chrome browser: Javascript logical, and comparison operator. True</em> [Video description ends]</p>
+<p>Let's take a look at the JavaScript now, in the middle of the page. 
+We have three variables, we're just going to concentrate on the first 
+two, for the first part of this demo.</p>
+<p>[Video description begins] <em> The presenter refers to the codes 
+from line 13 to 15. The code on line 13 is: let x = 5, semicolon. The 
+code on line 14 is: let y = 55, semicolon. The code on line 15 is: let z
+ = 4, semicolon.</em> [Video description ends]</p>
+<p>And as you can see, the expression if x is less than 10 and or logical AND, y is greater than 50.</p>
+<p>[Video description begins] <em> The presenter points to the code on 
+line 16. The code here is: if, open curve bracket, x, less than sign, 
+10, double ampersand, y, greater than sign, 50, close curve bracket, 
+open curly bracket.</em> [Video description ends]</p>
+<p>Let's execute line 17.</p>
+<p>[Video description begins] <em> The presenter points at line seventeen. The code here is: p 1, dot, inner HTML = true , semicolon.</em> [Video description ends]</p>
+<p>It doesn't mean that the entire expression is true. I just had to print something on to the screen, or the browser window,</p>
+<p>[Video description begins] <em> He highlights true in the code on line 17.</em> [Video description ends]</p>
+<p>in this case. So obviously, x is less than 10, and y is greater than 50, so</p>
+<p>[Video description begins] <em> The presenter points to the code on line 16.</em> [Video description ends]</p>
+<p>we see that browser has printed true. In other words, it executed the
+ expression on line 17. But JavaScript also gives us the ability to 
+actually print the entire expression. So, if I were to copy that 
+expression and put it directly into the innerHTML of my p1 tag,</p>
+<p>[Video description begins] <em> The presenter copies open curve 
+bracket, x, less than sign, 10, double ampersand, y, greater than sign, 
+50, close curve bracket, from the code on line 16. He then goes to the 
+code on line 17 and replaces true with the copied code.</em> [Video description ends]</p>
+<p>I should get the same evaluation being returned as true. And the same thing works for OR.</p>
+<p>[Video description begins] <em> He selects double ampersand in the code on line 17, and replaces it with double vertical bars.</em> [Video description ends]</p>
+<p>So, the OR operator are two pipe characters. I'll save this, refresh 
+the screen, and we get true as well because at least one of these 
+operands have to be true. So now that we know this entire expression is 
+true. Actually let's put this back to the logical AND, and now</p>
+<p>[Video description begins] <em> He selects double vertical bars in the code on line 17, and replaces it with double ampersand.</em> [Video description ends]</p>
+<p>that we know that it is true, let's see what the NOT operator is going to be.</p>
+<p>[Video description begins] <em> He adds an exclamation mark, between equals, and open curve bracket, in the code on line 17.</em> [Video description ends]</p>
+<p>So, I've put the NOT operator in front of the entire expression. I'm 
+going to save those changes, refresh the screen. And the NOT simply 
+turns everything to false, or to not what it was before. So if it was 
+initially false, then the NOT operator in front of that would turn 
+everything into true. Turn the entire expression to be true. Now, I did 
+say that there was a little bit of a difference in terms of how 
+JavaScript handles these operators. I mean, different from other 
+languages. And I'm going to demonstrate that by changing this a little 
+bit. So, let's remove some of this code here in my if statement, and 
+then I'm going to replace it with an ampersand. Meaning that I'm 
+evaluating the left-hand side with the right-hand side of the 
+expression.</p>
+<p>[Video description begins] <em> The code on line 16 was modified to, if, open curve bracket, x, double ampersand, y, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>Now, I know this entire expression is going to turn out to be true 
+because I do have values in x and y. But what I want to see is what 
+JavaScript will return to my browser window. So I'll simply replace the 
+innerHTML with the very same expression that I have in my if statement.</p>
+<p>[Video description begins] <em> The presenter copies open curve 
+bracket, x, double ampersand, y, close curve bracket, from the code on 
+line 16. He goes to the code on line 17, and replaces exclamation mark, 
+open curve bracket, x, less than sign, 10, double ampersand, y, greater 
+than sign, 50, close curve bracket, with the copied code.</em> [Video description ends]</p>
+<p>Let's save those changes, refresh the screen, and notice what it 
+turns out to be. It turns out to be 55. So according to ECMAScript, what
+ is going to happen here is that if we evaluate x AND y, meaning 
+&amp;&amp; y, y will always be returned. Unless, we can coerce x into 
+being false. So that means that if x was undefined up here, and</p>
+<p>[Video description begins] <em> He changes 5, in the code on line 13, to undefined.</em> [Video description ends]</p>
+<p>I attempt to print it, well, I'm going to have to change this because I do have this printing statement in an if statement.</p>
+<p>[Video description begins] <em> The presenter highlights x, double ampersand, and y in line 16.</em> [Video description ends]</p>
+<p>So let's change this to true, so it will always be true.</p>
+<p>[Video description begins] <em> The presenter replaces x, double ampersand, and y in line 16 with 'True'.</em> [Video description ends]</p>
+<p>So I will always print line 17. I'm going to save my changes. Now, 
+I've just made x undefined. And if I refresh my screen, I do get 
+undefined. So, in the case, where x or the expression or the operant on 
+the left side</p>
+<p>[Video description begins] <em> The presenter highlights x in line seventeen.</em> [Video description ends]</p>
+<p>can't be coerced into being false, undefined turns out to false, then we</p>
+<p>[Video description begins] <em> He highlights undefined in the code on line 13.</em> [Video description ends]</p>
+<p>will get whatever value it is on the left, or the left operand, in this case.</p>
+<p>[Video description begins] <em> The presenter highlights x in line seventeen.</em> [Video description ends]</p>
+<p>So that turns out to be undefined. Now JavaScript like many other 
+languages perform it's logical operations from left to right. This means
+ that JavaScript can short circuit the OR operation. In other words, 
+well let's go back to the truth table for a second. Remember, with the 
+truth table, with the logical OR, if any of the operands happen to be 
+true, then the entire expression is considered to be true. So that means
+ then that if we worked on the first, or the left operand, and that 
+operand returns true, there really is no need to perform another cycle 
+of the processor to check on the right operand. We've already got a true
+ to the entire expression. So let's see how that works here. If I had 
+something like this, so x&lt;10, change our x back to 5.</p>
+<p>[Video description begins] <em> The presenter changes true to x less than sign ten in the code on line 16.</em> [Video description ends]</p>
+<p>And I can say if x is less than 10, or, z++. And notice I have 
+another variable here called z, and it's a four, actually, let's do, ++ 
+z.</p>
+<p>[Video description begins] <em> the presenter is referring to line 
+16, and the code has been changed to: if, open curve brackets, x, open 
+angular bracket, 10, vertical bar, vertical bar, plus, plus, z, close 
+curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>Now, what this is going to do is, it is going to, what JavaScript 
+will do is evaluate the expression on the left of the OR operator. And 
+if this expression happens to be true, the z will never be incremented.</p>
+<p>[Video description begins] <em> The presenter is now referring to 
+line 17. The code of line 17 is : pl, dot, inner HTML, =, open curve 
+bracket, x, ampersand, ampersand, y, close curve bracket, semicolons.</em> [Video description ends]</p>
+<p>So let's print out the value of our z and see what it happens to be.</p>
+<p>[Video description begins] <em> The presenter changes x, ampersand, ampersand, y, to z in the code on line 17.</em> [Video description ends]</p>
+<p>I'll save my changes, refresh the screen, and notice that z never 
+changed. z remained 4, that proves that the right side of the operator 
+never got executed. Now just to prove that, if I change my OR operator 
+to an ampersand ampersand operator, and I saved my changes.</p>
+<p>[Video description begins] <em> The presenter replaces double vertical bars to double ampersand in the code on line 17.</em> [Video description ends]</p>
+<p>Refresh our page, we see that four has been incremented meaning that 
+the right operand of the operator was evaluated and our value was 
+increased. Now, I've just demonstrated just a few of the operators here 
+just to get the point across, but there are a lot more operators. And 
+you are encouraged to check the documentation on those operators.</p></div>
+</div>
+<div>
+<h2 id="4f3cf7a0-6ee2-11e8-a814-671ad7cef381">
+If Statements
+</h2>
+<div><p>[Video description begins] <em> Topic title: If Statements. Your presenter for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about the conditional statements in the JavaScript.</p>
+<p>[Video description begins] <em> The browser application open on the 
+right displays the results of the code in the notepad++ file on the 
+left. Currently, it is showing: JavaScript conditional Statements. CEO 
+receives a bonus.</em> [Video description ends]</p>
+<p>And the conditional statement is represented by If, and we can extend
+ that to If Else. And it works exactly like in other languages. What I 
+have on the left hand side of your screen is an HTML document, with 
+JavaScript in the middle. On the right side is the Chrome browser 
+rendering the document on the left.</p>
+<p>So, the document on the left has some JavaScript in the middle, and 
+we're starting off with, we're allowing title, which is a variable to be
+ equal to CEO. On line 14 is where the conditional statement comes into 
+effect, we are saying that If that title contains the word CEO. And by 
+using a === here, we are checking even for the casing of the letters. So
+ it has to be upper case CEO. And only when that is true, are we going 
+to execute line number 15,</p>
+<p>[Video description begins] <em> The code on line 14 is, If, open curved bracket, title, triple equals, open quote C E O close quote, semi-colon</em> [Video description ends]</p>
+<p>which simply prints out that the CEO receives a bonus. And you see 
+that happening on the Chrome window to the right. So just like in other 
+languages, If the condition is not true, you may want to do something 
+else. So in this case, If our title does not contain the word, CEO, in 
+all uppercase, we may want to print a different message to the browser 
+window. In this case, it's going to be a no bonus situation. Now I've 
+just entered some code between line 16 and 18, I have included an Else 
+clause in there.</p>
+<p>[Video description begins] <em> The code on lines 16 to 18 are: Line 
+16: close curly bracket, else, open curly bracket. Line 17: p, 1, dot, 
+inner HTML, =, open quote, No Bonus, period, accent, semicolon. Line 18:
+ close curly bracket.</em> [Video description ends]</p>
+<p>And my message of course, has to be different. Well, it doesn't have 
+to be, but in this case it does make sense to be different. I'll save 
+those changes, refresh the browser screen, and</p>
+<p>[Video description begins] <em> He highlights lines 17 and 18. Then, 
+he, saves the changes made earlier on notepad++ and refreshes the chrome
+ browser. The text on the browser doesn't change.</em> [Video description ends]</p>
+<p>nothing happens, because title does have the value of CEO in it.</p>
+<p>[Video description begins] <em> The presenter is referring to line 13. The code on line 13 is: let, title, =, open quote, CEO, close quote, semicolon.</em> [Video description ends]</p>
+<p>However, If I were to change that title to CIO, save those changes,</p>
+<p>[Video description begins] <em> He replaces CEO with CIO in the code on line 13</em> [Video description ends]</p>
+<p>so I've just made a change to line 13, changed CEO to CIO. I refresh 
+the screen, and I get No bonus, because CIO does not equal title.</p>
+<p>[Video description begins] <em> He saves the changes on notepad++ and
+ refreshes the browser. The text changes. New text on the browser is, 
+Java script conditional statements, No bonus dot, period. He highlights,
+ no bonus period, in the text.</em> [Video description ends]</p>
+<p>So it means, Or title does not equal CEO in this case, on line 14. 
+Now, the thing is we may want our CEO to be able to get a bonus. And 
+therefore this will not work. We will have to extend our If statement a 
+little bit. Now, of course, there are several different ways to 
+accomplish what I'm trying to show you here. But for the purposes of 
+this demonstration, we could say that, well I could move this Else 
+statement down a little bit, and where my first If statement ends, I 
+could do something like Else. Else If, start a new statement, and then 
+end it. And within those braces, is where I could insert the statements 
+that pertain to a CIO, so I could, in fact, copy the same statement and 
+enter it here.</p>
+<p>[Video description begins] <em> The presenter copies the code on line
+ 15. the code is: pl, dot, inner HTML, =, open quote, $, open curly 
+bracket, title, close curly bracket, receives a bonus, close quote, 
+semicolons.</em> [Video description ends]</p>
+<p>And I can say receives a bonus as well. Now of course, like I said, we could do this much differently.</p>
+<p>[Video description begins] <em> The code on line 16 has been modified
+ to: close curly bracket, else if, open curly bracket. The code on line 
+17 has been modified to: p, 1, inner HTML, =, open quote, $, accent, 
+dollar sign, open curly bracket, title, close curly bracket, receives a 
+bonus, period, accent, semicolons. The code on line 18 has been modified
+ to: close curly bracket, else, open curly bracket.</em> [Video description ends]</p>
+<p>But the point is to show you, that we can have multiple If statements
+ like this. So now that we do have a CIO as being the title, we can say 
+that If title is the same as CIO, in this case then once I save my 
+changes,</p>
+<p>[Video description begins] <em> The presenter is talking about line 
+16. The line has been modified to: Close curly bracket, else if, open 
+curve bracket, title, =, =, =, open quote, CIO, close quote, close curve
+ bracket, open curly bracket.</em> [Video description ends]</p>
+<p>once I refresh my screen I do get the fact that a CIO receives a bonus.</p>
+<p>[Video description begins] <em> He saves the changes in notepad ++ , 
+Then he refreshes the screen and the following text appears: CIO 
+receives a bonus period. He highlights CIO receives a bonus period. on 
+the browser.</em> [Video description ends]</p>
+<p>So what this entire block of conditional statements equate to, is 
+that if we have a CIO or a CEO, then these individuals receive bonuses, 
+but everybody else will not get a bonus.</p>
+<p>[Video description begins] <em> He highlights, No bonus period in the code line 19.</em> [Video description ends]</p>
+<p>The idea here is that we can take this line 16, and repeat it as many times as we wish, of course.</p>
+<p>[Video description begins] <em> He highlights code line 16.</em> [Video description ends]</p>
+<p>You may not want to go to too many levels, and we do have a switch 
+statement in Java, that will sort of encapsulate these statements a 
+little bit better. But, JavaScript will not complain if you continue 
+these Else If statements, as far as you wanted to go. Apart from the 
+switch statement, JavaScript does have a ternary operator, which we will
+ see in a subsequent video.</p></div>
+</div>
+<div>
+<h2 id="51b43930-6ee2-11e8-a814-671ad7cef381">
+The Conditional Operator
+</h2>
+<div><p>[Video description begins] <em> Topic Title: The Conditional Operator. Your host for this session is Axle Barr</em> [Video description ends]</p>
+<p>In this demonstration, I wanted to demonstrate or show the 
+conditional operator in JavaScript. This is the operator that takes 
+three operands. It's also called the ternary operator. On the screen, on
+ the left side, is an HTML document opened up in Notepad++ with 
+JavaScript between lines 10 and 17. On the right side of the screen is a
+ Chrome rendition of that file on the left.</p>
+<p>[Video description begins] <em> The web page on the right displays 
+the results of the code you input on the left. Currently it is 
+displaying the text: JavaScript Ternary Operator</em> [Video description ends]</p>
+<p>If we look at the HTML document, and the JavaScript in particular, 
+you will see that it is absolutely correct what is happening here. It is
+ not interesting, but it is correct. On the right side, in Chrome, if I 
+were to hit F12 on my keyboard and check the console window, no errors 
+are occurring. So, the file works, but it's not interesting.</p>
+<p>[Video description begins] <em> The Presenter clicks on the cross at the top-right to close the console window and open the result screen.</em> [Video description ends]</p>
+<p>Let's introduce the ternary operator, and what the ternary operator 
+allows us to do is sort of shorten the if else structure in JavaScript. I
+ say sort of, because, depending on what you're trying to do, between, 
+you know, if something is true or something is false, you might be 
+wanting to print a long sentence. In that case, the ternary operator may
+ not make sense for you. So, in this case here, I do have a bit of a 
+long sentence, because I wanted to follow on from a previous example. 
+But the idea is to get you to understand the ternary operator.</p>
+<p>So perhaps you've seen the video where I explained the if else 
+structure, and we were looking at the CEO and CIO in the title. So, on 
+line 15, I'm saying, is the title equal to or the same as CIO? And that 
+statement is true. Even though I didn't print it anywhere, that 
+statement happens to be true. This is why I did not get any errors 
+showing up in my Chrome developer tools window. So what we wanted to do 
+is, if title is equal to or the same as CIO, then we want to print that 
+this individual gets a bonus. On the other hand, if title does not equal
+ or is not the same as CIO, we wanted to print no bonus on the browser 
+window. The code that I just inserted on line 16 in the comments is the 
+ternary operator.</p>
+<p>[Video description begins] <em> The presenter changes the code in line 16 from: double forward slash. To: double forward slash, question mark, colon.</em> [Video description ends]</p>
+<p>As you can see, it is a combination of two characters. However, there
+ are three operands. What's left of the question mark, what's between 
+the question mark and the colon, and then what's to the right of that 
+colon. Let's explain it as we go along. Now, what I want to do is 
+evaluate title. I want to make sure that that title equals or is the 
+same as CIO. So it means, then, that I really should wrap that title up,
+ or</p>
+<p>[Video description begins] <em> The presenter changes the code in line 16 from: double forward slash, question mark, colon. To: double forward slash.</em> [Video description ends]</p>
+<p>that condition up, into some parentheses to make sure that I don't 
+interfere with anything else. And I wanted the JavaScript engine to make
+ sure that it evaluated that for me.</p>
+<p>[Video description begins] <em> The presenter changes the code of 
+line fifteen from: title, triple=, open quote,CIO, close quote. To: open
+ curved bracket, title, triple=, open quote, CIO, close quote, close 
+curved quote, question mark, accent, $, open curly bracket, title, close
+ curly bracket, receives a bonus, dot, accent, semi colon.</em> [Video description ends]</p>
+<p>Then what I want to do is use the first character of the ternary 
+operator. And whatever comes to the right of that character is the true 
+part of the ternary statement. So, in other words, if we look at line 15
+ again, we are saying that, if title is the same as CIO, then I want to 
+print whatever title happens to be. In this case, CIO, I want to print 
+CIO receives a bonus. Now, I'll get to the printing part in a second, 
+let's just finish the ternary operator here. The thing is, the ternary 
+operator is not complete. It's only complete when we insert the colon, 
+because that handles the or part of it. So, obviously, if title does not
+ contain CIO, we want to print no bonus to the browser window. So now 
+this entire statement is now complete.</p>
+<p>[Video description begins] <em> The presenter changes the code of 
+line fifteen from: open curved bracket, title, triple=, open quote, CIO,
+ close quote, close curved bracket, question mark, accent, $, open curly
+ bracket, title, close curly bracket, receives a bonus, dot, accent, 
+semi colon. To: open curved bracket, title, triple=, open quote, CIO, 
+close quote, close curved bracket, question mark, accent, $, open curly 
+bracket, title, close curly bracket, receives a bonus, dot, accent, 
+colon, accent, No Bonus, dot, accent, semi colon.</em> [Video description ends]</p>
+<p>If title is not equal to CIO, we're going to print no bonus. However,
+ if it is equal to CIO, then we'll print receives a bonus. The last part
+ of this puzzle, then, is the printing part. So I could, if I wanted to,
+ include my innerHTML statement here.</p>
+<p>[Video description begins] <em> He adds some text before the existing code in code line 15. The added text is: p l dot, inner H T M L, equals.</em> [Video description ends]</p>
+<p>And if I save this document and refresh the screen, you'll see that 
+CIO receives a bonus, because title does happen to be CIO on line 13.</p>
+<p>[Video description begins] <em> He refreshes the browser on the 
+right, and as a result, the text changes. New text on the browser is, 
+Java Script ternary operator, C I O receives a bonus. Then he highlights
+ the code line 13 in notepad ++., The code on line 13 is, let title, 
+equals, open quote, C I O, close quote, semi colon.</em> [Video description ends]</p>
+<p>However, just to make it a little bit clearer, I'm going to take my 
+titles, the ternary part, down to line 16 now, so 15 and 16 is one 
+statement.</p>
+<p>[Video description begins] <em> He split the code on line 15 into two
+ parts, the second part shifts to the code line 16. The new code on line
+ 15 is, p l dot, inner H T M L, equals. The new code on line 16 is, open
+ curved bracket, title, triple=, open quote, CIO, close quote, close 
+curved bracket, question mark, accent, $, open curly bracket, title, 
+close curly bracket, receives a bonus, dot, accent, colon, accent, No 
+Bonus, dot, accent, semi colon.</em> [Video description ends]</p>
+<p>If, for some reason, CIO is not CIO anymore, then the statement 
+becomes false. If I save this change, so I've just made title equal to 
+CFO.</p>
+<p>[Video description begins] <em> He changed C I O to C F O in code 
+line 13. Now, the new code is, let title, equals, open quote, C F O, 
+close quote, semi colon. He then saved the changes.</em> [Video description ends]</p>
+<p>So the true part should not print. The false part of this ternary 
+statement should now print. So I've saved my changes. If I refresh the 
+Chrome window, I see No bonus.</p>
+<p>[Video description begins] <em> He highlights the parts accent, $, 
+open curly bracket, title, close curly bracket, receives a bonus, dot, 
+accent, and, accent, No Bonus, dot, accent, in the code line 16. He then
+ refreshes the Java Script browser. The text changes on the browser. The
+ new text is, Java Script ternary operator, No bonus. Then he 
+highlighted the text part, No bonus.</em> [Video description ends]</p>
+<p>So the thing to remember about the ternary operator is that the ternary operator first evaluates some condition.</p>
+<p>[Video description begins] <em> He highlighted open curved bracket, title, triple=, open quote, CIO, close quote, close curved bracket, in the code line 16.</em> [Video description ends]</p>
+<p>If that condition is true, then everything to the right of the 
+question mark is what gets executed next. And what gets executed next is
+ that a string is formed, and that string is passed over to 
+p1.innerHTML. If the condition is false, then everything to the right of
+ the colon is passed to the innerHTML statement.</p>
+<p>[Video description begins] <em> The presenter highlighted accent, $, 
+open curly bracket, title, close curly bracket, receives a bonus, dot, 
+accent, and, accent, No Bonus, dot, accent, in the code line 16. He also
+ highlighted the code line 15.</em> [Video description ends]</p>
+<p>So the ternary operator works fine, and it works well. And it does 
+save a little bit of space and time, depending on what you're trying to 
+do, of course, when it comes to those if and if else statements.</p></div>
+</div>
+<div>
+<h2 id="59edc8a0-6ee2-11e8-a814-671ad7cef381">
+Switch Statements
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Switch Statements Your host for this session is Axle Barr</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to take a look at the switch 
+statement in JavaScript. And you'll see that it behaves and operates 
+exactly like it does in other programming languages. On the screen, we 
+have Notepad++ opened up on the left side of your screen. It is showing 
+an HTML file that has some JavaScript embedded between lines 10 and 
+lines 33.</p>
+<p>[Video description begins] <em> To Be Continued Later.</em> [Video description ends]</p>
+<p>On the right side is a Chrome browser showing what that HTML file on 
+the left would look like once that file has been rendered in the 
+browser.</p>
+<p>[Video description begins] <em> The presenter points to the browser 
+open to the right side of the screen. The browser shows the results of 
+the code which is written in a notepad file. Currently, the browser 
+shows the following text: JavaScript Switch Statement. CFO receives a 
+bonus of five point five percent.</em> [Video description ends]</p>
+<p>So the switch statement falls into that category of control flow 
+statements. It allows the programmer to direct the flow or the execution
+ of code depending on the value of some variable. If we take a look at 
+line 16, that's where our switch statement starts, and it is evaluating 
+something called title.</p>
+<p>[Video description begins] <em> Line 16 contains the following code: switch, open curved bracket, title, close curved bracket, open curly bracket</em> [Video description ends]</p>
+<p>On line 15, that title happens to have the word CFO in it.</p>
+<p>[Video description begins] <em> Line 15 contains the following code: let, title, =, open quote, CFO, close quote, semi colon.</em> [Video description ends]</p>
+<p>And if we take a look at line 24, we're seeing that if the case is in
+ fact CFO, then we want our bonus variable to contain the value of 5.5. 
+So that means that once we get to line 31, then title, of course, is 
+CFO, but the bonus will be 5.5. So as you can see, depending on what our
+ title happens to be, the code execution changes. So if we had a CIO 
+here instead, then our code should change to 5%.</p>
+<p>[Video description begins] <em> The presenter changes the code in 
+line 15 from: let, title, =, open quote, CFO, close quote, semi colon. 
+To: let, title, =, open quote, CIO, close quote, semi colon. He then 
+refreshes the chrome browser, as a result, the text on the browser 
+changes. The new text is, Java Script switch statement, CIO receives a 
+bonus of 5 percent.</em> [Video description ends]</p>
+<p>Notice both CIO and the bonus amount changes.</p>
+<p>[Video description begins] <em> He highlights CIO and 5% in the text on the browser.</em> [Video description ends]</p>
+<p>So in this way, then, if we have a few different conditions that can 
+take place, that can occur, then a switch statement is valuable in that 
+case. I probably will not want to use it for more than maybe about seven
+ different cases. Critical, though, to the switch statement is the break
+ statement that you see showing up each time we have a case.</p>
+<p>[Video description begins] <em> He highlights lines 19, 23 and 26 one by one. Code on each of these lines are same, the code is break, semi colon.</em> [Video description ends]</p>
+<p>What this break statement is doing is saying that, okay, if our title
+ happens to be CIO, then we want that bonus to be 5.0 or 5%. But at the 
+same time, we wanted to break out of this structure. Because what the 
+case is doing is it's sort of like inserting imaginary curly braces 
+between the colon and between the next case here.</p>
+<p>[Video description begins] <em> He highlights 5 point 0 in code line 
+18. The code on line 18 is bonus equals 5 point 0, semi colon. He also 
+highlights code line 19.</em> [Video description ends]</p>
+<p>So you can consider this case of CIO being a block. Also, notice that
+ we can have several statements within this block, even though we don't 
+have any curly braces. Take a look at lines 20 to 23.</p>
+<p>[Video description begins] <em> Code on line 20 is, case, open quote,
+ CEO, close quote, colon., Code on line 21 is bonus equals, 4 point 0, 
+semi colon. Code on line 22 is term extended equals false, semi colon. 
+Code on line 23 is break, semi colon.</em> [Video description ends]</p>
+<p>If the case is CIO, so if our title happens to be CEO, then we want 
+our bonus to be 4, but we also wanted to have another variable executed 
+on line 22. We wanted the termExtended to be false. Right now it is true
+ once the program starts.</p>
+<p>[Video description begins] <em> He highlights 4 point 0, in code line 21. He also highlights code line 22.</em> [Video description ends]</p>
+<p>And at the same time, we're going to break out of that CEO block once we have executed 21 and 22.</p>
+<p>[Video description begins] <em> He highlights code line 23. Then he highlights code lines 21 and 22.</em> [Video description ends]</p>
+<p>Now, as with other languages, if we did not include our break 
+statement, so, for example, if I put a comment there and our title 
+happens to be CIO. Then our bonus will show up as 4, because what's 
+going to happen is that the interpreter, in this case, will, first of 
+all, assign 5 to bonus. But then because there's no break, that 
+interpreter will simply move on to line 21 and cause bonus to have a 
+value of 4 in it instead.</p>
+<p>[Video description begins] <em> The presenter modifies the code in 
+line 19 from: break, semi colon. To: double forward slash, break, semi 
+colon Then he highlights code line 18. The code on the line 18 is, bonus
+ equals, 5 point 0, semi colon. After that, he highlights, 4 point 0 in 
+code line 21.</em> [Video description ends]</p>
+<p>So if I would have save this change and refresh the screen, we see 
+that the bonus is 4, and that's not right according to our logic. So 
+that break statement is extremely important.</p>
+<p>[Video description begins] <em> He saves the change in notepad ++ and
+ then refreshes the browser. This changes the text on the browser. The 
+new text is, Java Script switch statement, CIO receives a bonus of 4%. 
+He, then highlights the digit, 4 on the browser.</em> [Video description ends]</p>
+<p>However, it does play a part whenever we're trying to sort of put 
+things into some kind of range. So for example, if the company has 
+decided that the both CIOs and CEOs should get a bonus of 4, then again 
+there's really no need for the bonus to be 5 in this case. Because 
+whether title is made up of the CIO string or the CEO string, that bonus
+ will be 4. So let's save this.</p>
+<p>[Video description begins] <em> The presenter modifies the code in 
+line 18 from: bonus equals 5 point zero semi colon. To: double forward 
+slash, bonus equals 5 point zero semi colon. He also modifies the code 
+in line 19 from: break semi colons. To: double forward slash, break semi
+ colon.</em> [Video description ends]</p>
+<p>Refresh the page, and you'll see that CIO receives a bonus of 4. In 
+this case, this is exactly what we want. So if I were to change CIO to 
+CEO, then they both get a bonus of 4%. And that might be exactly what we
+ needed for the company or what the company has decided.</p>
+<p>[Video description begins] <em> He modifies the code in code line 15,
+ from, let title, equals open quote CIO, close quote, semi colon, to, 
+let title, equals open quote CEO, close quote, semi colon. He saves the 
+changes in notepad ++ , and refreshes the browser. The text on the 
+browser changes to, Java Script switch statement, CEO receives a bonus 
+of 4%.</em> [Video description ends]</p>
+<p>Now, I'm just going to remove these comments here because I wanted to talk about the default that appears on line 27.</p>
+<p>[Video description begins] <em> The presenter changes the code in 
+line 19 from: double forward slash, break, semi colon. To: break, semi 
+colon. And in line 18, the presenter modifies the code from: double 
+forward slash, bonus equals 5 point zero semi colon. To: bonus equals 5 
+point zero semi colon.</em> [Video description ends]</p>
+<p>What that default is doing is it's saying that if our title is not CIO, CEO, or CFO, then let's allow that bonus to be 2.5.</p>
+<p>[Video description begins] <em> He highlights the code line 28. The code in this line is, bonus equals, 2.5, semi colon.</em> [Video description ends]</p>
+<p>If, let's say, we are processing salaries for a company and we have a
+ lot of employees but the employee is not a CIO, CEO, or CFO, it means 
+that that employee will get a bonus of 2.5 automatically. So our switch 
+statement is extremely useful whenever we have several conditions and we
+ wanted to perhaps execute code differently based on each condition.</p></div>
+</div>
+<div>
+<h2 id="5c8f2770-6ee2-11e8-a814-671ad7cef381">
+For Loops
+</h2>
+<div><p>[Video description begins] <em> Topic Title: For Loops. Your host for this session is Axle Barr</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to use JavaScript loops. And as you 
+will see, looping in JavaScript is very much like all of the other 
+programming languages. On the screen, I have two applications opened up,
+ Notepad++ on the left and Chrome on the right.</p>
+<p>[Video description begins] <em> The browser application open on the 
+right displays the results of the code in the notepad++ file on the 
+left. Currently, it is showing: JavaScript Loop Statements. 0 1 2 3</em> [Video description ends]</p>
+<p>The Notepad++ has been opened to a simple HTML file with JavaScript 
+stuck in the middle. So between lines 10 and line 16, there is 
+JavaScript, but this will change as the video continues. What the code 
+shows is that we are looping through some sequence. In this case, we're 
+starting out at 0 and we're going to be looping until that variable i 
+happens to be just less than 4, so when i is equal to 3. In Chrome you 
+see how Chrome has rendered that code. Of course, I'm using the 
+paragraph tag and using the innerHTML of my p1 tag, I've labelled it p1.</p>
+<p>And that's what you see on the Chrome window. So this is the for loop
+ that we're all familiar with. However, since ES6, the ECMAScript 
+organization has introduced a couple of new loops that we can use, the 
+for of loop and the for in loop. I'm going to start with the for in 
+statement, which is a statement for iterating over objects, specifically
+ the innumerable properties of objects. So what I'm going to do is I'm 
+going to introduce an object in this equation here. So I'm going to 
+paste onto, between lines 12 and 16, I've pasted some code that makes up
+ an object.</p>
+<p>[Video description begins] <em> The presenter inserts 5 lines of code
+ between lines 11 and 12. he inputs the following code in them: Line 12:
+ let my object equals open curve bracket. Line 13: apple colon ten 
+comma. Line 14: bananas colon twenty nine comma. Line 15: pears colon 
+thirteen. Line 16: close curly bracket, colon</em> [Video description ends]</p>
+<p>Notice that this object is simply a combination of properties. So 
+what we have on the left side is a variable, and on the right side we 
+have some kind of value. So this is like a key value, or a key pair, 
+type of structure.</p>
+<p>[Video description begins] <em> The presenter inserts an empty line 
+of code after line 16. He inputs the following code in the empty line: 
+double forward slash.</em> [Video description ends]</p>
+<p>So what I'm going to do then is introduce the for in statement that 
+will iterate over this myObject object and display the various items or 
+keys and values. Actually it'll display the various keys on the Chrome 
+window. So in order to do this, we can say for (i in myObject). So for 
+(i in myObject), let's go ahead and print out i just like we had before.
+ So line 19 will do all of the printing for us. So I'm going to save 
+this change and move over to my browser on the right. Refresh that page,
+ and there you see it has iterated over the keys of the myObject object.</p>
+<p>[Video description begins] <em> The presenter modifies the code in 
+line 18 from: for open curved bracket, let I equals zero semi colon, I, 
+open angular bracket, four, semi colon, plus plus I, closebr bracket, 
+open curly bracket. To: for open curved bracket, I , in, my object, 
+close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>This particular statement, the for in statement, works nicely with 
+strings. Because a string really is just a collection of characters. 
+However, you might be tempted to use it with arrays. And I would 
+strongly urge you not to use it with arrays. And that's because 
+JavaScript cannot guarantee that the iteration will happen exactly 
+sequentially. JavaScript array keys were meant to be numerical values, 
+whereas the for in was meant to be used with string type of indexes, 
+like as in the case here. So for arrays, we suggest that you use the for
+ of structure or the old for each that was part of ES5. So that brings 
+me then to the for of loop, which was meant to address some of the 
+issues in the for in loop. This loop is better at looping over data.</p>
+<p>So things like arrays, strings, maps, and sets. In fact, it can 
+iterate over any object that happens to have the property of iterable. 
+Now, the object that I have on my screen is not iterable even though it 
+appears to be so. So let's change it then, let's change it to an array. 
+So let's call it myArray, and change the structure to be an array. And 
+remove some of the values that we had before and change the data items 
+to be strings. And if I were to do that, then I can iterate over the 
+array, and of course I'm using the for of in this case, so, and we have 
+declare our variable here. So let i of myArray, save those changes, 
+refresh the screen, and you notice nothing happens because we are still 
+iterating over the same items.</p>
+<p>[Video description begins] <em> The presenter modifies the code in 
+lines 12, 13, 14, 15, 16 and 18. He inputs the following in Line: 12: 
+let my array equals open square bracket. 13: open quote, apple, close 
+quote, comma. 14: open quote, bananas, close quote, comma. 15: open 
+quote, pears, close quote. 16: close square bracket, colon. 18: for, 
+open curved bracket, let I of my array, close curved bracket, open curly
+ brackets.</em> [Video description ends]</p>
+<p>And just to show you we can add another fruit here and refresh the screen, and it shows up.</p>
+<p>[Video description begins] <em> The presenter inserts a comma after 
+the code in code line 15. He inserts an empty line of code after line 
+15. He inputs the following code to the empty line of code: open quote, 
+plums, close quote. He then saved the changes in notepad++ and refreshed
+ the chrome browser. This changed the text on the browser screen. The 
+new text is, Java Script, loop statements, apple, banana, pears, plums.</em> [Video description ends]</p>
+<p>Now, I believe that I did mention that for each still exists. And of 
+course, I could use a for each to iterate over this array. However, the 
+for each does not give developers an opportunity to break out of the 
+structure of the looping process. But I could, if I wanted to, do 
+something like this. I can break any time I want. So if, let's say, i is
+ the same as, let's say I wanted to break after pears. So P-E-A-R-S, 
+let's save those changes, you'll see that plums is going to disappear 
+once I refresh the screen. So I refresh the screen and it has 
+disappeared. So this is a big improvement for our for of loop.</p>
+<p>[Video description begins] <em> The presenter inserts an empty line 
+of code bet after line 20 and inputs the following code in the empty 
+line:, if, open curve bracket, I, triple =, open quote, pears, close 
+quote, close curve bracket, break, semi colon.</em> [Video description ends]</p>
+<p>Now, there are a lot more sophisticated ways of iterating over 
+objects. But for this video I've just discussed these three items here 
+and I've just reminded you of the for each loop, which still exists.</p></div>
+</div>
+<div>
+<h2 id="5efddd80-6ee2-11e8-a814-671ad7cef381">
+While and Do While Loops
+</h2>
+<div><p>[Video description begins] <em> topic title : While and Do While Loops Your Presenter For This Session : Axle Barr</em> [Video description ends]</p>
+<p>In this video, I'm going to demonstrate the use of while and do while
+ in JavaScript. At the same time, I'll also talk about the continue 
+statement, as well as labels. On the screen, I have two applications 
+opened up. On the right side it's Chrome, on the left side it's 
+Notepad++. It's been opened to a simple HTML file with some JavaScript 
+stuck in the middle of the body tag. So between lines 10 and lines 24 we
+ have JavaScript. As you can see, I am declaring an array. And between 
+lines 19 and lines 23, I am using a while loop to display the values of 
+that array.</p>
+<p>[Video description begins] <em> Code on line 19 is, while, open curve
+ bracket, i is less than my array, dot length, close curve bracket, open
+ curly bracket. Code on line 20 is, i, ++, semi colon. Code on line 21 
+is, p, 1, dot, inner H T M L, + =. Code on line 22 is, double quote, 
+open angle bracket, b r, close angle bracket, fruit, double quote, +, 
+open curve bracket, i, close curve bracket, +, double quote, is, double 
+quote, + , my array, open square bracket, i, minus, 1, close square 
+bracket, semi colon. Code on line 23 is close curly bracket.</em> [Video description ends]</p>
+<p>So in Chrome, you see a rendition of the code on the left, where I'm 
+going through, or I'm iterating over, that array and displaying it 
+within the innerHTML of a p1 tag, the various values of that array. In 
+fact, I can even switch to a do while loop, so I'm going to remove my 
+statement on line 19 and put it down at line 23.</p>
+<p>[Video description begins] <em> the presenter highlights code line 
+19. line 19 was modified to : do, open curly bracket and line 23 was 
+modified to : Close curly bracket, while, open curve bracket, i, less 
+than, my array, dot, length, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>And as you can see, I'm going save this as, i'm going to refresh the 
+browser screen to show the effect of that change and notice that nothing
+ happens.</p>
+<p>[Video description begins] <em> The presenter saves the changes made in Notepad++ and then refreshes the chrome browser. No change is observed in the text.</em> [Video description ends]</p>
+<p>The only difference between the do while loop and the while loop is 
+that with the do while loop, the code between lines 20 and 22 gets 
+executed regardless</p>
+<p>[Video description begins] <em> the code between the lines 20 and 22 
+are : code of line 20: i, plus, plus, semicolon code of line 21: p, 1, 
+dot, inner HTML, plus, = code of line 22: double quote, open angular 
+bracket, B R, close angular bracket, fruit, double quote, plus, open 
+curve bracket, i, close curve bracket, plus, double quote, is, double 
+quote, plus, my array, open square bracket, i, minus, 1, close square 
+bracket, semicolon.</em> [Video description ends]</p>
+<p>of what happens to the while statement or the condition in the while 
+statement. I'm just going to replace what I had before so we can start 
+over. But the while loop, just save that change.</p>
+<p>[Video description begins] <em> the presenter removes the code on 
+line 23 and pastes the code of line 23 on line 19. the code on line 19 
+now is : while, open curve bracket, i, less than, my Array, dot, length,
+ close curve bracket, open curly bracket</em> [Video description ends]</p>
+<p>Refresh my browser screen. Notice that nothing happens, great.</p>
+<p>[Video description begins] <em> He saves the changes in notepad++ and refreshes the browser. No change is seen in the text on the browser.</em> [Video description ends]</p>
+<p>So what I want to do now is introduce that continue statement. So I'm
+ going to insert some code between lines 20 and 21. So what I'm going to
+ say here is that if i is the same as 2. Let's skip everything else. So 
+I'm going to save that code.</p>
+<p>[Video description begins] <em> the code on line 21 is : if, open curve bracket, i, =, =, =, 2, close curve bracket, continue, semicolon.</em> [Video description ends]</p>
+<p>Let's refresh our screen and notice that i was equal to 2, that print statement is now missing.</p>
+<p>[Video description begins] <em> He saves the changes made in 
+notepad++ and refreshes the browser. The text on the browser changes. 
+The part , Fruit 2 is bananas is not there any more. New test on the 
+browser is, Java Script, loop statement, open curve bracket, do, and 
+while, close curve bracket, Fruit 1 is apple, Fruit 3 is pears, fruit 4 
+is plums.</em> [Video description ends]</p>
+<p>So, continue and break sort of do similar things, but different. Now,
+ it is also possible to label any line in JavaScript. So for example, I 
+can insert a label on line 19 to label the fact that I want this loop to
+ have a label on it. So I could do something like this. I can say 
+myLabel, and insert a colon, so the while loop is now labeled with 
+myLabel. Now I can go back to my line 21, where I inserted a continue 
+statement, and also say that I want to continue at the place where 
+myLabel starts.</p>
+<p>[Video description begins] <em> Codes lines 19 and 21 are modified. 
+Now, code on line 19 is, My Label, colon, while, open curve bracket, i, 
+less than, my Array, dot, length, close curve bracket, open curly 
+bracket. New code on line 21 is, if, open curve bracket, i, triple 
+equals, 2, close curve bracket, continue, My Label, semi colon.</em> [Video description ends]</p>
+<p>So I've just saved the changes. If I refresh my screen, notice that 
+nothing happens. Because the continue statement will simply direct the 
+code execution</p>
+<p>[Video description begins] <em> He saves the changes in notepad++, and refreshes the browser. No change appears on the browser screen.</em> [Video description ends]</p>
+<p>back up to the while loop, where it continues to execute the rest of 
+the loop. But where the label business comes in handy, though, is when 
+we have two loops. So, for example, I could insert another loop above 
+the while loop. So, for example, right above the let statement, I can 
+insert a for loop. And that for loop, I can say something like let's say
+ let x = 1, x &lt; 5, let's say, x++. Let's wrap up what's now going to 
+become the inner while loop inside of this.</p>
+<p>[Video description begins] <em> He inserts a code line below code 
+line 17, the new code on line 18 is: for, open curve bracket, let, x, =,
+ 1, semi colon, x, less than, 5, semi colon, x, plus, plus, close curve 
+bracket, open curly bracket. He inserts another code line below line 24.
+ The new code on line 25 is, close curly bracket. the presenter 
+highlights line 20 to line 25. Code on line 20 is, My Label, colon, 
+while, open curve bracket, i, less than, my Array, dot, length, close 
+curve bracket, open curly bracket. Code on line 21 is, i, ++, semi 
+colon. Code on line 22 is, if, open curve bracket, i, triple equals, 2, 
+close curve bracket, continue, My Label, semi colon. Code on line 23 is,
+ p, 1, inner H T M L, +=. Code on line 24 is, double quote, open angular
+ bracket, B R, close angular bracket, fruit, double quote, plus, open 
+curve bracket, i, close curve bracket, plus, double quote, is, double 
+quote, plus, my array, open square bracket, i, minus, 1, close square 
+bracket, semi colon. Code on line 25 is, close curly bracket.</em> [Video description ends]</p>
+<p>Well, let's move the label, first of all, from the while loop, put it
+ where the for loop is. So now my label is at the for loop, it's not at 
+the while loop.</p>
+<p>[Video description begins] <em> Lines 18 and 20 are modified. New 
+code on line 18 is, My Label, colon, for, open curve bracket, let, x, =,
+ 1, semi colon, x, less than, 5, semi colon, x, plus, plus, close curve 
+bracket, open curly bracket. New code on line 20 is, while, open curve 
+bracket, i, less than, my Array, dot, length, close curve bracket, open 
+curly bracket.</em> [Video description ends]</p>
+<p>Let's wrap this up by shifting it over to the right a little bit, 
+save those changes. Now if I refresh my screen, so now we have a while 
+loop operating inside of a for loop. Let's move this over to the right a
+ little bit, save that change, refresh the screen. And notice now that 
+whenever i becomes 2, we simply skip the rest of the while loop in this 
+case and move back over to the for loop.</p>
+<p>[Video description begins] <em> He saves the changes in notepad++, 
+and, refreshes the browser. Text on the browser changes. The new text 
+is: Java Script loop statements, open curve bracket, do and while, close
+ curve bracket., Fruit 1 is apple, Fruit 1 is apple, Fruit 1 is apple, 
+Fruit 1 is apple</em> [Video description ends]</p>
+<p>Now to make it a little bit more interesting, let's change the condition here to i = 3, save those changes.</p>
+<p>[Video description begins] <em> the code on line 22 was modified to :
+ if, open curve bracket, i, =, =, =, 3, close curve bracket, continue, 
+my label, semicolons.</em> [Video description ends]</p>
+<p>Refresh it, and now you see we're sort of looping over every two lines.</p>
+<p>[Video description begins] <em> The presenter saves the changes in 
+notepad++, and refreshes the browser. The text changes to, Java Script 
+loop statements, open curve bracket, do and while, close curve bracket.,
+ Fruit 1 is apple, Fruit 2 is bananas, Fruit 1 is apple, Fruit 2 is 
+bananas, Fruit 1 is apple, Fruit 2 is bananas, Fruit 1 is apple, Fruit 2
+ is bananas</em> [Video description ends]</p>
+<p>So the while loop and the do while loop works exactly as in other programming languages.</p></div>
+</div>
+<div>
+<h2 id="617c23f0-6ee2-11e8-a814-671ad7cef381">
+Declaring Arrays
+</h2>
+<div><p>[Video description begins] <em> Topic title: Declaringarrays. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at JavaScript 
+arrays, how they're created, how we can manipulate them. On the screen, I
+ have Notepad++ opened up to a very short and simple HTML file with 
+JavaScript between lines 10 and 17. On the right side of your screen is a
+ Chrome browser that is showing you how that document on the left would 
+be rendered in a typical HTML5 standard browser. So, on the left side, 
+there's the JavaScript between 10 and 17. Let's take a look at that 
+JavaScript. You've probably seen me use this array in other examples. 
+It's a simple array that I've created, and it has four elements in it. 
+And between lines 13 and 16, we are iterating over that array using a 
+for loop and accessing the elements of that array. So we're already 
+seeing at least one property of the array, which is the length property 
+that tells you how many items are in that array.</p>
+<p>[Video description begins] <em> The presenter goes to the code line 
+13. The code is : for, open curved bracket, let, i, =, 1, semi-colon, i,
+ greater than equal to, my array, dot, length, semi-colon, i, plus plus,
+ close curved bracket, open curly bracket.</em> [Video description ends]</p>
+<p>And we've seen in a previous video, at least one of the methods of an
+ array, which is the forEach() method. Before I go on, though, let me 
+just say that there is another way of declaring arrays. So I could say, 
+let stuff = new Array, and I used the new operator here, or the new 
+keyword, to create an array.</p>
+<p>[Video description begins] <em> He declares a code on line 12. The code is: let stuff , =, new Array, open close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Now, this will work, however, it is not recommended, so I'm not going to use that style of declaring arrays.</p>
+<p>[Video description begins] <em> He highlights the code line 12. After highlighting, he deletes the code line 12.</em> [Video description ends]</p>
+<p>Now, just like in other languages, we can add items to the end of an 
+array, we can remove items from the end of an array. And we do this with
+ push and pop. So if I wanted to probably put a fruit at the end of this
+ array, I can do something like myArray.push, and I could add an item to
+ the array.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The 
+code is: my array, dot, push, open curved bracket, open quote, mango, 
+close quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>I can save that change, and if I refresh the browser, we will see 
+mango shows up at the end, and even the length property has changed.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser . Following text appears on the screen: Java 
+Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is grapes. 
+Fruit 4 is bananas. Fruit 5 is mango. He highlights the Fruit 5 is 
+mango.</em> [Video description ends]</p>
+<p>To remove the last item, we simply use pop. Now, unshift and shift 
+will do similar things to the front of the array. Let's talk about 
+finding items in the array. I'm going to remove this line for a second.</p>
+<p>[Video description begins] <em> He removes the code line 13.</em> [Video description ends]</p>
+<p>Let's just leave it at the original array. Let's save it, refresh the screen. Now we just have these four items.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser . Following text appears on the screen: Java 
+Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is grapes. 
+Fruit 4 is bananas.</em> [Video description ends]</p>
+<p>So JavaScript does have the ability to find items in an array. So 
+let's use the myArray.indexOf method to find where pears is located, I 
+don't have pears, let's see, plums, plums is located.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The 
+code is: my array, dot, index of, open curved bracket, open quote, 
+plums, close quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So I could do something like this, and it will tell me that plums is 
+located at, let's see, 01, at the 1th position. Let me just, in order so
+ I don't have to make too many changes, I'm just going to push this out 
+to the console window. So we can see the effects of what this will 
+return.</p>
+<p>[Video description begins] <em> He adds, console, dot, log in the 
+code line 13. Now the code is: Console, dot, log, open curved bracket, 
+my array, dot, index of, open curved bracket, open quote, plums, close 
+quote, close curved bracket, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So I need to know where plum is located. So if I save these changes, 
+refresh the browser screen, and then hit F12 to get the developer tools.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the chrome browser. Following text is now on the screen: 
+Java Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is 
+grapes. Fruit 4 is bananas. He clicks, the F12 button on the keyboard, a
+ developer console window opens up. Number 1 appears on the screen.</em> [Video description ends]</p>
+<p>I do see that my plums is at position 2, so let's just check grapes quickly.</p>
+<p>[Video description begins] <em> He replaces, plums with grapes in code line 13.</em> [Video description ends]</p>
+<p>And we will see that that now changes to position number 2, there you go.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the Java browser web page. Following text appears on the 
+screen: Java Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 
+is grapes. Fruit 4 is bananas. He clicks, the F12 button on the 
+keyboard, a developer console window opens up. Number 2 appears on the 
+screen.</em> [Video description ends]</p>
+<p>I'm just going to hit F12 again to remove the bottom part that shows 
+the developer tools. Back on the HTML document, let's use this 
+information, let's use the indexOf to get rid of something from an 
+array, and yes, we can do that. So instead of sending it off to the 
+console,</p>
+<p>[Video description begins] <em> He highlights, console, dot, log in the code line 13.</em> [Video description ends]</p>
+<p>I'm actually going to have to save this position somehow. So grapes, 
+if we're looking for grapes and we wanted to remove grapes, I would have
+ to let, let's say, pos = myArray.indexOf('grapes'). So that, pos will 
+return with the position in terms of the index, so that's 012.</p>
+<p>[Video description begins] <em> He replaces, console, dot, log with 
+let, pos, =, in the code line 13. Now the code is: let, pos, =, my 
+array, dot, index of, open curved bracket, open quote, plums, close 
+quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>I can then use that too to remove grapes if I wanted to. So for that,
+ I would say myArray.splice is the method, splice, and I'll pass it the 
+index that I wanted to remove.</p>
+<p>[Video description begins] <em> He declares a code on line 14. The code is: my array, dot, splice, open curved bracket, pos, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So myArray.splice 2 in this case will remove grapes. And actually I 
+have to tell it how many items I wanted to remove, so I just wanted to 
+remove that one item.</p>
+<p>[Video description begins] <em> He adds, comma, 1, after pos in code line 14.</em> [Video description ends]</p>
+<p>Let's save this, refresh our screen, and now grapes is gone.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the chrome browser. Following text is now on the screen: 
+Java Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is 
+bananas.</em> [Video description ends]</p>
+<p>So I'm just going to clean my code up a little bit, I'm going to 
+remove the splice that I just used and remove also the myArray.indexOf 
+line. So that's line 13, I'll remove that and</p>
+<p>[Video description begins] <em> He removes, code line 13 &amp; 14.</em> [Video description ends]</p>
+<p>get my code back to the way it was before. Save my changes, refresh 
+my browser screen, and we're back to the original set of items.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is grapes. 
+Fruit 4 is bananas.</em> [Video description ends]</p>
+<p>Now, one more thing on this topic I'd like to talk about is the 
+includes method. So JavaScript does have an includes method, however, 
+includes will return a Boolean. So let's just say that we just wanted to
+ find out whether bananas is part of our array.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The 
+code is: my array, open curved bracket, open quote, bananas, close 
+quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>We could do something like this, we can say, again, I'm going to push
+ it to the console, console.log. And I just wanted to find out whether 
+bananas is in the array, so I don't need to know the position or 
+anything like that.</p>
+<p>[Video description begins] <em> He adds, console, dot, log in the 
+code line 13. Now the code is: Console, dot, log, open curved bracket, 
+my array, open curved bracket, open quote, bananas, close quote, close 
+curved bracket, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>I'll save my changes, I'll refresh the screen, and it looks like I have, let's see, hit F12 again to find that error.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Arrays. He clicks, the F12 button on the keyboard, a developer 
+console window opens up with an error,</em> [Video description ends]</p>
+<p>And myArray is not a function, okay. So let's see, myArray.includes('bananas').</p>
+<p>[Video description begins] <em> He adds, dot, includes, after my array, in code line 13.</em> [Video description ends]</p>
+<p>Save that, refresh the screen, and we see we get a true being returned.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Arrays. Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is grapes. 
+Fruit 4 is bananas. He clicks, the F12 button on the keyboard, a 
+developer console window opens up. Text, True, appears on the screen.</em> [Video description ends]</p>
+<p>So includes doesn't tell you the position of bananas, it'll simply 
+tell you, yes, bananas does exist in this array. I'll hit F12 again to 
+get rid of that developer window, and I will remove line 13 that 
+actually looked at that includes method for us.</p>
+<p>[Video description begins] <em> He removes code line 13.</em> [Video description ends]</p>
+<p>And before I go on, I will say that there are certain built-in array 
+methods in JavaScript, such as slice, join, and indexOf. These are 
+methods that will actually use the length property of your array. So 
+whenever you're using these types of methods, keep that in mind. Some 
+other methods, like push and splice, will actually update the length of 
+the property. So keep that in mind when you're developing. Now, one 
+other method I'd like to introduce is the sort method, and JavaScript 
+will sort our array in ascending order. So we can simply call upon that 
+sort method, and it will not return, well it will return something, but 
+we don't need whatever it returns. Let's just see how it works. So I've 
+called the sort method on my array, and we can refresh our</p>
+<p>[Video description begins] <em> He declares a code on line 13. The code is: my array, dot, sort, open close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>browser screen and notice that bananas has jumped up to the second position.</p>
+<p>[Video description begins] <em> He refreshes the Java browser web 
+page. Following text appears on the screen: Java Script Arrays. Fruit 1 
+is apple. Fruit 2 is bananas. Fruit 3 is grapes. Fruit 4 is plums.</em> [Video description ends]</p>
+<p>Now, in order to get it descending, that's a bit of an advanced topic
+ in that we will have to pass a function to the sort method. However, a 
+very easy way to do this is to call the myArray exactly after calling 
+the sort method and call the reverse method on the array. So we can, but
+ you would have to do this in order, call the sort first and then call 
+reverse afterwards.</p>
+<p>[Video description begins] <em> He declares a code on line 14. The code is: my array, dot, reverse, open close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Let's save these changes, refresh our screen, and notice that it has now reversed the order.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Arrays. Fruit 1 is plums. Fruit 2 is grapes. Fruit 3 is bananas. 
+Fruit 4 is apple.</em> [Video description ends]</p>
+<p>So we've looked at quite a few methods, and I encourage you to look 
+at the documentation for even more methods and definitely use them as 
+you find them useful.</p></div>
+</div>
+<div>
+<h2 id="63dca930-6ee2-11e8-a814-671ad7cef381">
+Looping Through Arrays
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Looping through arrays. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to work with JavaScript arrays and 
+looping over or iterating over these arrays. On the screen, we have two 
+applications open. Notepad++ is open on your left side of the screen, 
+and it's opened up to an HTML file that has some JavaScript embedded 
+between lines 10 and 25. On the right side of your screen is a browser 
+window that's Chrome. Chrome is showing you what the code on the left 
+would look like once it's rendered in the browser. Let's take a look at 
+the code itself. We are grabbing that p1 tag, which is the paragraph 
+tag, and</p>
+<p>[Video description begins] <em> The presenter points to the code on 
+line 11. The code here is: let p 1 = document dot get element by I D, 
+open curve bracket, double quote, p 1 , double quote, close curve 
+bracket, semi colon.</em> [Video description ends]</p>
+<p>we're using that to insert items off the array.</p>
+<p>[Video description begins] <em> The presenter goes to the code on 
+line 22. The code here is: double quote, open angular bracket, b r, 
+close angular bracket, fruit, double quote, + open curve bracket, i, 
+close curve bracket, + double quote, is, double quote, + my array, open 
+square bracket, i minus 1, close square bracket, semi colon. He 
+highlights my array, open square bracket, i minus 1, close square 
+bracket, in the code.</em> [Video description ends]</p>
+<p>So, on the right hand side, you see the result of using that p1 tag 
+to display elements. So, we have an array declared on line 12, and</p>
+<p>[Video description begins] <em> The code on line 12 is: let my array =, open square bracket.</em> [Video description ends]</p>
+<p>we've entered some items in that array between lines 19 and 23.</p>
+<p>[Video description begins] <em> He points to the codes from line 13 
+to 16. The code on line 13 is: open quote, apple, close quote, comma. 
+The code on line 14 is: open quote, bananas, close quote, comma. The 
+code on line 15 is: open quote, pears, close quote, comma. The code on 
+line 16 is: open quote, plums, close quote.</em> [Video description ends]</p>
+<p>We are using the first method of iterating over an array. We are 
+using a while loop, and you may have seen this in a previous video,</p>
+<p>[Video description begins] <em> The code on line 19 is: while, open 
+curve bracket, i, less than sign, my array dot length, close curve 
+bracket, open curly bracket. The code on line 20 is: i, ++, semi colon. 
+The code on line 21 is: p1, dot inner HTML, + =. The code on line 23 is:
+ close curly bracket.</em> [Video description ends]</p>
+<p>but obviously we're going through the array and we are accessing the index of that array.</p>
+<p>[Video description begins] <em> The presenter highlights i minus 1 in the code on line 22.</em> [Video description ends]</p>
+<p>And that's what's grabbing each of the values and displaying it on the browser window.</p>
+<p>[Video description begins] <em> He points to the codes from line 13 
+to 16, and then points to the results in the browser. The following 
+result is displayed on the browser: Fruit 1 is apple. Fruit 2 is 
+bananas. Fruit 3 is pears. Fruit 4 is plums.</em> [Video description ends]</p>
+<p>If we wanted to, we can use a do while loop instead of a while loop. 
+So, in that case, I will just simply cut the while part of line 19 and 
+replace it with the word do, and</p>
+<p>[Video description begins] <em> He cuts while, open curve bracket, i,
+ less than sign, my array dot length, close curve bracket, from the code
+ on line 19, and replaces it with do.</em> [Video description ends]</p>
+<p>insert that while part at the bottom of the do while loop. So, I'm inserting at line 23, so</p>
+<p>[Video description begins] <em> He pastes the code cut from line 19 
+on line 23. The new code on line 23 is: close curly bracket, while, open
+ curve bracket, i, less than sign, my array dot length, close curve 
+bracket, semi colon.</em> [Video description ends]</p>
+<p>all I've done is switched from a while loop to a do while loop. Let's
+ save the changes, refresh our screen and we see we get the same result.
+ So, those are already two ways of iterating over an array. A third way 
+will be using a for loop, so for example, I can start my for loop at 
+line 19. I can say something like for, open close parenthesis. I've 
+already got an i declared and initialized on line 18, so I'll just use 
+that i here, i is less than. Now array object does have a property 
+called length, and that will return the amount of items we have in that 
+array. So I'm simply using it in my for loop to make sure that I don't 
+go beyond the bounds of that array.</p>
+<p>[Video description begins] <em> The presenter changes the code on 
+line 19. The new code on line 19 is: for, open curve bracket, i, semi 
+colon, i, less than sign, my array, dot, length, semi colon, i, ++, 
+close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>So let's remove the iteration or the incrementing that happens on line 20.</p>
+<p>[Video description begins] <em> He removes the code from line 20. The
+ code on line 21 shifts to line 20. The code on line 22 shifts to line 
+21. and the code on line 23 shifts to line 22.</em> [Video description ends]</p>
+<p>We will leave everything else. Let me remove my while statement at the bottom here and</p>
+<p>[Video description begins] <em> He removes while, open curve bracket, i, less than sign, my array dot length, close curve bracket, from the code on line 22.</em> [Video description ends]</p>
+<p>on line 21 I now have to, let's say I am going to remove. The indexing works a little bit differently with the for loop, so</p>
+<p>[Video description begins] <em> He removes minus 1 from the code on line 21.</em> [Video description ends]</p>
+<p>I definitely want to start my printing at line zero,</p>
+<p>[Video description begins] <em> He goes to the code on line 18. The code here is: let, i, =0, semi colon. He highlights 0 in the code.</em> [Video description ends]</p>
+<p>because that's going to give me apple.</p>
+<p>[Video description begins] <em> He highlights the code on line 13.</em> [Video description ends]</p>
+<p>Now, the only other thing I would need to do is this, where I am 
+showing the user, which is Fruit 1. If I leave it as i, then I will get 
+zero starting my loop and humans don't understand zero, they'll 
+understand one.</p>
+<p>[Video description begins] <em> The presenter adds +1, between i, and close curve bracket, in the code on line 21.</em> [Video description ends]</p>
+<p>So let's save these changes, refresh the browser screen and notice 
+nothing happens so that's already three ways of iterating over an array.
+ But JavaScript does have a for-in loop and that was introduced with 
+ES6. However that is not recommended for use with arrays. For-in was 
+meant to be used with properties of an object. But JavaScript does have a
+ for of statement that we can use. So let's start by changing up the 
+code between lines 18 and 22. So on line 18 I'm going to remove the 
+declaration initialization of i.</p>
+<p>[Video description begins] <em> He adds double forward slash, before let, in the code on line 18.</em> [Video description ends]</p>
+<p>I am still going to use that i, but I'm going to use it within the 
+for loop. So I'm going to say, let i, because I need some kind of 
+indexing to happen. And I'm going to remove everything else from that 
+for statement. And I'm going to say let i of myArray this time.</p>
+<p>[Video description begins] <em> He changes the code on line 19. The 
+new code on line 19 is: for, open curve bracket, let i of my array, 
+close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>And in terms of grabbing the items off that array, I can simply use 
+my i from this point on. So now I no longer have any kind of counter. 
+So, I'm just going to remove some of this, some of the statements that's
+ being printed and remove the array itself as well as the index and 
+simply use the i in this case.</p>
+<p>[Video description begins] <em> He changes the code on line 21. The 
+new code on line 21 is: double quote, open angular bracket, b r, close 
+angular bracket, fruit is, double quote, i, semi colon.</em> [Video description ends]</p>
+<p>So let's save these changes, refresh our screen, and now it's going to say,</p>
+<p>[Video description begins] <em> No result is displayed on the browser.</em> [Video description ends]</p>
+<p>okay, so I missed the cancellation character there. Let's put that back in.</p>
+<p>[Video description begins] <em> The presenter adds + before i, in the code on line 21.</em> [Video description ends]</p>
+<p>Save everything refresh your screen, and there is our array.</p>
+<p>[Video description begins] <em> The results display on the browser.</em> [Video description ends]</p>
+<p>Now, JavaScript does have a fifth way of iterating over an array, but
+ it tends to be a bit of an advanced topic. It is the for each 
+statement. I say it's advance but let's see if we can do a quick 
+overview of it here. Basically what happens is that we are going to have
+ to create a call back function, so let's create a function here. Call 
+it something like myFruits, and by default it does have a few arguments 
+like value, index, and arguments.</p>
+<p>[Video description begins] <em> He changes the code on line 19. The 
+new code on line 19 is: function, my fruits, open curve bracket, value, 
+comma, index, comma, ae r, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>So what we can do with our statement is, of course, use the index+1 
+because our index will start at zero. I can use that as my numbering or 
+sequencing for human readability and simply use value at the end to show
+ the various elements of that array.</p>
+<p>[Video description begins] <em> He changes the code on line 21. The 
+new code on line 21 is: double quote, open angular bracket, b r, close 
+angular bracket, fruit is, double quote, +, open curve bracket, index, 
++1, close curve bracket, + value, semi colon.</em> [Video description ends]</p>
+<p>After that, all I really need to do is tap into my array and tap into
+ the function core or method core for each. And every time I call for 
+each I simply have to refer back to myFruits. Let's save our changes and
+ refresh the browser screen and</p>
+<p>[Video description begins] <em> He adds a new line of code on line 
+23. The code here is: my array, dot, for each, open curve bracket, my 
+fruits, close curve bracket, semi colon. The following text displays on 
+the browser screen: Fruit is 1 apple. Fruit is 2 bananas. Fruit is 3 
+pears. Fruit is 4 plums.</em> [Video description ends]</p>
+<p>as you can see so just a little bit of a fixing needs to be done. So 
+fruit, let's see, let's remove is from here, fruit number one, two, 
+etc., let's concatenate a better result here. So fruit one is etc., 
+let's save those changes,</p>
+<p>[Video description begins] <em> He changes the code on line 21. The 
+new code is: double quote, open angular bracket, b r, close angular 
+bracket, fruit, double quote, +, open curve bracket, index +1, close 
+curve bracket, +, double quote, is, double quote, + value, semi colon.</em> [Video description ends]</p>
+<p>refresh the screen and we see it's we're back to fruit one as apple etc.</p>
+<p>[Video description begins] <em> The following result is displayed on the browser: Fruit 1 is apple. Fruit 2 is bananas. Fruit 3 is pears. Fruit 4 is plums.</em> [Video description ends]</p>
+<p>So there you have about five different ways of iterating over JavaScript arrays.</p></div>
+</div>
+<div>
+<h2 id="664a4dd0-6ee2-11e8-a814-671ad7cef381">
+Working with Multidimensional Arrays
+</h2>
+<div><p>[Video description begins] <em> Topic title: Working with Multidimensional arrays. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'd like to discuss multidimensional arrays in
+ JavaScript. On my screen, I have two applications opened. On the left 
+side is Notepad++, it is showing a short HTML file. On the right side is
+ a Chrome browser showing how that file on the left is rendered once it 
+opens up in a browser. The HTML file on the left has some embedded 
+JavaScript between lines 10 and 18. We're going to be using this script 
+to create a multidimensional array. I've already got a single 
+dimensional array, and you may have seen me use this example before. 
+JavaScript, unlike some other languages, does not have a special 
+constructor for creating a multidimensional array. Basically, what you 
+have to do is create an array inside of another array. So I've got an 
+array declared and initialized on line 12, and you have probably seen me
+ use this array for other examples.</p>
+<p>[Video description begins] <em> The code on line 12 is: let, my 
+array, =, open square bracket, open quote, apple, close quote, comma, 
+open quote, plums, close quote, comma, open quote, grapes, close quote, 
+comma, open quote, bananas, close quote, close square bracket, semi 
+colon.</em> [Video description ends]</p>
+<p>In order for me to make myArray into a multidimensional array, all I 
+really have to do is wrap the current list of items inside of a second 
+pair of square brackets.</p>
+<p>[Video description begins] <em> He adds an open square bracket before
+ the open square bracket, and close square bracket after the close 
+square bracket in the code on line 12.</em> [Video description ends]</p>
+<p>And with just that one change, if I were to save this change and 
+refresh the browser screen. You see that it almost appears as though 
+myArray that I declared on line 12 is composed of just one row. You can 
+look at it as a row.</p>
+<p>[Video description begins] <em> The following result appears on the browser: Fruit 1 is apple, plums, grapes, bananas</em> [Video description ends]</p>
+<p>So basically what this is is a two-dimensional array with one row and
+ one cell. That cell just happens to have several different items in it,
+ but it's just one cell. What I would like to do is create multiple 
+rows, and I'll have one item in each row. So basically what I need to do
+ is wrap up each of my items within their own square brackets. And that 
+would now give me a two-dimensional array with four rows. You can think 
+of it as four rows,</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 12. The new code here is: let, my array, =, open square bracket, 
+open square bracket, open quote, apple, close quote, close square 
+bracket, comma, open square bracket, open quote, plums, close quote, 
+close square bracket, comma, open square bracket, open quote, grapes, 
+close quote, close square bracket, comma, open square bracket, open 
+quote, bananas, close quote, close square bracket, close square bracket,
+ semi colon.</em> [Video description ends]</p>
+<p>so those are all the changes that I have to make. If I save those 
+changes, refresh the browser screen, you'll see that we're sort of like 
+back to four different rows.</p>
+<p>[Video description begins] <em> Following text appears on the browser: Fruit 1 is apple. Fruit 2 is plums. Fruit 3 is grapes. Fruit 4 is bananas.</em> [Video description ends]</p>
+<p>Now, to see this a little bit clearer, what I could do is sort of 
+actually reconfigure my code or reformat the text in my code. And now we
+ can clearly see that we've got a two-dimensional array here.</p>
+<p>[Video description begins] <em> The presenter splits the code on line
+ 12 in 6 parts. The codes on line 13, 14, 15, and 16, shift to line 18, 
+19, 20, and 21 respectively. The code on line 12 is: let my array = open
+ square bracket. The code on line 13 is: open square bracket, open 
+quote, apple, close quote, close square bracket, comma. The code on line
+ 14 is: open square bracket, open quote, plums, close quote, close 
+square bracket, comma. The code on line 15 is: open square bracket, open
+ quote, grapes, close quote, close square bracket, comma. The code on 
+line 16 is: open square bracket, open quote, bananas, close quote, close
+ square bracket. The code on line 17 is: close square bracket, semi 
+colon.</em> [Video description ends]</p>
+<p>There's an outer square brackets and four inner square brackets. So 
+what I've got now is a two-dimensional array with four rows, but one 
+cell inside of each row. Perhaps that's what I want, perhaps it's not 
+what I want, so let's go with it's not what I want. I really wanted to 
+involve some more information here. So, I want to say that my apple is 
+stored in my warehouse called W1, and I also want to have some kind of a
+ quantity here.</p>
+<p>So, I'm not sure how apples quantify, or the units that are used, but
+ let's just say it's 205. And probably I wanted to make the same change 
+for the rest of the items here, so I'll just copy this to make my code 
+go faster. And I'll just paste it into the various other cells that I 
+have and just change, let's say, this is on Warehouse 2, this is also on
+ Warehouse 2, and this one is on Warehouse 3. And maybe my quantities 
+are all different. So I don't have that many plums, and maybe I have 
+2805 grapes, and maybe I have 501 bananas.</p>
+<p>[Video description begins] <em> He modifies the codes from line 13 to
+ 16. The code on line 13 is: open square bracket, open quote, apple, 
+close quote, comma, open quote, W 1, close quote, comma 205, close 
+square bracket, comma. The code on line 14 is: open square bracket, open
+ quote, plums, close quote, comma, open quote, W 2, close quote, comma 
+20, close square bracket, comma. The code on line 15 is: open square 
+bracket, open quote, grapes, close quote, comma, open quote, W 2, close 
+quote, comma 2805, close square bracket, comma. The code on line 16 is: 
+open square bracket, open quote, bananas, close quote, comma, open 
+quote, W 3, close quote, comma 501, close square bracket.</em> [Video description ends]</p>
+<p>So if I save these changes, I refresh the screen, we will see the information coming out.</p>
+<p>[Video description begins] <em> Following text appears on the 
+browser: Fruit 1 is apple, comma, W1, comma, 205. Fruit 2 is plums, 
+comma, W2, comma, 20. Fruit 3 is grapes, comma, W2, comma, 2805. Fruit 4
+ is bananas, comma, W3, comma, 501</em> [Video description ends]</p>
+<p>The idea here is that I'm using a for loop to loop through the original array that I originally had.</p>
+<p>[Video description begins] <em> He highlights the codes from line 18 
+to 21. The code on line 18 is: for, open curve bracket, let, i=1, semi 
+colon, i less than equal to, my array, dot length, semi colon, i ++, 
+close curve bracket, open curly bracket. The code on 19 is: p1 dot inner
+ HTML, +=. The code on line 20 is: double quote, open angular bracket, b
+ r, close angular bracket, fruit, double quote, +, open curve bracket, 
+i, close curve bracket, +, double quote, is, double quote, +, my array, 
+open square bracket, i minus 1, close square bracket, semi colon. The 
+code on line 21 is: close curly bracket.</em> [Video description ends]</p>
+<p>And what this loop is doing is simply picking up each of the rows and
+ printing them out. Now, I had initially started my initial array with 
+starting at item 1 here. I'm going to change this because I wanted to do
+ something different here. I'm going to start at 0 instead and I'm going
+ to change my equal to just less than, because if I went to the length 
+of the array, I would be out of bounds.</p>
+<p>[Video description begins] <em> In the code on line 18, the presenter replaces 1 with 0, and less than equal to sign with less than sign.</em> [Video description ends]</p>
+<p>What I want to show you now is how we can target each one of these 
+individual cells. Again, I'm looking at a two-dimensional array as sort 
+of like a matrix. There's rows and columns. So each one of these lines, 
+so lines 13, 14, 15, and 16, represent rows in myArray. Whereas the 
+first item on the left represent the first column or the first cell. The
+ second item, so anything between, I'm separating out by items with a 
+comma. So all of my fruits are located in some warehouse somewhere, and 
+there's a quantity that's the third item to the right. So think of it as
+ my cell one, or column one, contains my fruits. The second column 
+contains the warehouse where they're located. And a third column would 
+be the quantity on hand. That means I can do something like this. I can 
+remove fruit, and instead I can target my apple, so I say myArray, and 
+I'm going to have to use some square brackets here. So basically what 
+I'm saying is the ith row, so that's i, but the first column, so my 
+first column is 0, so that will give me apple. So myArray[i] [0] will 
+give me apple.</p>
+<p>[Video description begins] <em> He changes the code on line 20. The 
+new code on line 20 is: double quote, open angular bracket, b r, close 
+angular bracket, double quote, +, my array, open square bracket, i, 
+close square bracket, open square bracket, 0, close square bracket, +, 
+double quote, is, double quote, +, my array, open square bracket, i 
+minus 1, close square bracket, semi colon.</em> [Video description ends]</p>
+<p>So that's located, I'd have to remove the is. Well, let's do a continuation here.</p>
+<p>[Video description begins] <em> He splits the code on line 20 into 
+two parts. The code on line 20 is: double quote, open angular bracket, b
+ r, close angular bracket, double quote, +, my array, open square 
+bracket, i, close square bracket, open square bracket, 0, close square 
+bracket, +. The code on line 21 is: double quote, is, double quote, +, 
+my array, open square bracket, i minus 1, close square bracket, semi 
+colon.</em> [Video description ends]</p>
+<p>So apple is located in the warehouse. Again, I'm going to use my ith 
+position for the row. And my column will be 1 in this case because I'm 
+trying to grab the warehouse number, and I'll also concatenate here as 
+well.</p>
+<p>[Video description begins] <em> He modifies the code on line 21. The 
+new code on line 21 is: double quote, is located in, double quote, +, my
+ array, open square bracket, i, close square bracket, open square 
+bracket, 1, close square bracket, +.</em> [Video description ends]</p>
+<p>So I've got apple is located in Warehouse 2. And the quantity is, and
+ here's where I'm going to use my last column, which is 2 in this case. 
+So I'm going to concatenate myArray the ith position with the second 
+column, which is the third column if we check from 1.</p>
+<p>[Video description begins] <em> He adds a new code in line 21. The 
+code here is: double quote, and the quantity is, double quote, +, my 
+array, open square bracket, i, close square bracket, open square 
+bracket, 2, close square bracket, semi colon.</em> [Video description ends]</p>
+<p>If I save these changes, I refresh my browser screen, we will see 
+that apple is located in Warehouse 1 and the quantity is 205. And that 
+continues all the way down.</p>
+<p>[Video description begins] <em> The following result is displayed on 
+the browser: apple is located in W1 and the quantity is 205. plums is 
+located in W2 and the quantity is 20. grapes is located in W2 and the 
+quantity is 2805. bananas is located in W3 and the quantity is 501.</em> [Video description ends]</p>
+<p>After you have created your two-dimensional array, then you can apply
+ some of those methods that I spoke about for the single dimensional 
+array, things like sorting and reversing. In fact, we can even do pop 
+and push to the myArray element. You would, of course, probably want to 
+have these items, you know, the rows match with what you had before.</p>
+<p>[Video description begins] <em> He highlights the code on line 16.</em> [Video description ends]</p>
+<p>So, for example, I could use myArray.push, and I can push, let's say,
+ mangoes from Warehouse 4, and I have that many quantity. And then it 
+will print out on the browser screen. JavaScript does allow for jagged 
+arrays. Meaning that if I did not have a quantity, for example, for my 
+plums,</p>
+<p>[Video description begins] <em> He removes comma 20 from the code on line 14.</em> [Video description ends]</p>
+<p>I don't have to put it in. If I refresh the screen, I will get undefined, however, I do not get an error.</p>
+<p>[Video description begins] <em> The result for plums in browser changes to, plums is located in W2 and the quantity is undefined.</em> [Video description ends]</p>
+<p>So you would have to, of course, account for this sort of jagged 
+array in your looping here, but of course it is possible to have jagged 
+arrays in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="694b31c0-6ee2-11e8-a814-671ad7cef381">
+Exercise: Working with Arrays
+</h2>
+<div><p>[Video description begins] <em> Topic title: Exercise: Working with Arrays. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this exercise, you will create an empty array. Using a loop, fill 
+up that array with numeric values. This could be sequential values or 
+randomized values using the random function in JavaScript. Remove the 
+third element once you've filled up your array. So, you're going to use 
+at least nine values, I would say. Then with another loop, add up all of
+ the elements in the array. And then display all those elements in the 
+array along with their total in arithmetic fashion. So something like 1,
+ 2, 3, if you were to add all of the numbers from 1 to 9 you would get a
+ total of 49. Now you can pause the video, attempt this exercise, and 
+then return to the video to see how I would approach the exercise. So 
+the exercise asked you to create an empty array and fill it up with some
+ numbers, remove the third element of the array. Write a loop to add up 
+all of the elements of the array, and then display those elements along 
+with the total.</p>
+<p>[Video description begins] <em> On desktop, there is two screen: 1st screen is for Java Codes in Notepad++. 2nd screen is for Java browser web page.</em> [Video description ends]</p>
+<p>So I've got on the screen two applications opened up, Notepad++ as 
+well as Chrome. On the Notepad++ application on the left, I have a very 
+simple HTML file with JavaScript between lines 9 and 11. On the right 
+side, Chrome will reveal what I decide to show, or what I decide to 
+develop, between those script tags on the HTML document. So, the first 
+thing we'll do is declare an array. And declaring an array is as simple 
+as using a let statement or a var, the name of the array, =, and then 
+two square brackets. So that's an empty array declared on line 12.</p>
+<p>[Video description begins] <em> He declares, code on line 11 &amp; 
+12. The code on line 11 is: slash, slash, declare, empty array. The code
+ on line 12 is: let my array, =, open close square bracket, semi-colon.</em> [Video description ends]</p>
+<p>So the next thing we had to do was use a loop and fill up that array. So, the first thing we need to do is create our loop.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The code is: slash, slash, add sequential numbers, to array.</em> [Video description ends]</p>
+<p>So I'm going to create our loop. It's a for loop, so basically I'm going to be adding up the numbers from 1 to 9.</p>
+<p>[Video description begins] <em> He declares a code on line 14 &amp; 
+15. The code on line 14 is: for, open curved bracket, let X =, 1, 
+semi-colon, x less than 10, semi-colon, x ++, close curved bracket, open
+ curly bracket. The code on line 15 is: close curly bracket.</em> [Video description ends]</p>
+<p>Then once I have a loop, it means I can now use the push method of 
+the array object to add these numbers from 1 to 9 into the array.</p>
+<p>[Video description begins] <em> He declares a new code on line 15. 
+The new code on line 15 is: my array, dot, push, open curved bracket, x,
+ close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So, the numbers 1 to 9 will become the elements of the array. Then 
+we're supposed to remove the third element of the array. So basically, 
+that would be the number 3.</p>
+<p>[Video description begins] <em> He declares a code on line 17. The 
+code is: slash, slash, remove third element, open curved bracket, so 2 
+if counting from zero, close curved bracket.</em> [Video description ends]</p>
+<p>So in order to remove the third element of the array, I would use the
+ splice function starting at the twoth position, so that's 0, 1, 2.</p>
+<p>[Video description begins] <em> He declares a code on line 18. The 
+code is: my array, dot, splice, open curved bracket, 2, comma, 1, close 
+curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>And I'm saying to remove only one element. So, just the 3 should be 
+removed with the statement. Then we're going to use another loop to add 
+up all of the elements in the array. So that means, that we are going to
+ add up numbers 1 to 9, excluding 3.</p>
+<p>[Video description begins] <em> He declares a code on line 19 &amp; 
+20. The code on line 19 is: slash, slash, declare variable to hold sum. 
+The code on line 20 is: let total =, zero, semi-colon.</em> [Video description ends]</p>
+<p>So I'm going to declare a total first to hold the total of all these 
+numbers. Then I'm going to add up the elements using a for loop.</p>
+<p>[Video description begins] <em> He declares a code from line 21 to 
+24. The code on line 21 is: slash, slash, add up elements. the code on 
+line 22 is: for, open curved bracket, let X =, Zero, semi-colon, x less 
+than my array, dot length, semi-colon, x ++, close curved bracket, open 
+curly bracket. The code on line 23 is: Total +, =, my array, open square
+ bracket, X close square bracket, semi-colon. the code on line 24 is: 
+close curly bracket.</em> [Video description ends]</p>
+<p>So as you can see, I'm using my total to add each element of the array. And then finally I'm going to display all of this.</p>
+<p>[Video description begins] <em> He declares a code from line 25 to 
+27. The code on line 25 is: slash, slash, display. The code on line 26 
+is: p 1, dot, inner Html, +,=. The code on line 27 is: accent, dollar 
+sign, open curly bracket, my array, dot, join, open curved bracket, open
+ quote, +, close quote, close curved bracket, close curly bracket, =, 
+dollar sign, open curly bracket, total, close curly bracket, accent, 
+semi-colon.</em> [Video description ends]</p>
+<p>So I'm going to display the elements of the array, and I'm using the join method, joined together by the plus sign.</p>
+<p>[Video description begins] <em> He highlights, +, from the code line 27.</em> [Video description ends]</p>
+<p>And then finally, I'll show the total using templated strings.</p>
+<p>[Video description begins] <em> He highlights, total, from the code line 27.</em> [Video description ends]</p>
+<p>I can save all of these changes, refresh the browser screen. And 
+there we see our array with all the numbers added up, and the total 
+showing, as well.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the Java browser web page. Following number with text 
+appears on the screen: Java Script Exercise. 1 + 2 + 4 + 5 + 6 + 7 + 8 +
+ 9, =, 42.</em> [Video description ends]</p></div>
+</div>
+
+
+</body></html>

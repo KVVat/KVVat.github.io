@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="HTML5 with JavaScript &amp; CSS3: Advanced Input Validation Transcript">
+<title>HTML5 with JavaScript &amp; CSS3: Advanced Input Validation Transcript</title>
+</head>
+<body>
+<h1>HTML5 with JavaScript &amp; CSS3: Advanced Input Validation</h1>
+<p>Explore the advanced HTML5 and JavaScript feature that can be used 
+for client-side input and form validation, including how to validate 
+textual, numeric, and date input data.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#0d643969-a91c-11e7-b050-7a420a93a8e4">Working with the HTML5 Input Attributes</a></li>
+<li><a href="#0d646070-a91c-11e7-b050-7a420a93a8e4">Using Regular Expressions in the Pattern Attribute</a></li>
+<li><a href="#0d646072-a91c-11e7-b050-7a420a93a8e4">Using the HTML5 Number Attributes</a></li>
+<li><a href="#0d646074-a91c-11e7-b050-7a420a93a8e4">Styling Input Fields Based on Input Attributes</a></li>
+<li><a href="#0d646076-a91c-11e7-b050-7a420a93a8e4">Validating Textual Input Data</a></li>
+<li><a href="#0d646078-a91c-11e7-b050-7a420a93a8e4">Validating Numeric Input Data</a></li>
+<li><a href="#0d648781-a91c-11e7-b050-7a420a93a8e4">Validating Date Input Data</a></li>
+<li><a href="#0d648783-a91c-11e7-b050-7a420a93a8e4">Working with Password Validation</a></li>
+<li><a href="#0d648785-a91c-11e7-b050-7a420a93a8e4">Using the onSubmit Attribute</a></li>
+<li><a href="#0d648787-a91c-11e7-b050-7a420a93a8e4">Exercise: Input Validation with HTML5 and JavaScript</a></li>
+</ol></div>
+<div>
+<h2 id="0d643969-a91c-11e7-b050-7a420a93a8e4">
+Working with the HTML5 Input Attributes
+</h2>
+<div><p>[Video description begins] <em> Topic title: Working with the HTML5 Input Attributes. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we will demonstrate some of the basic HTML5 input attributes. On our page, we have two input boxes.</p>
+<p>[Video description begins] <em> The advancedInput.HTML file is open 
+in the Microsoft Visual Studio window. The code in this file is 
+mentioned in the transcript under the heading "advancedInput.HTML".</em> [Video description ends]</p>
+<p>One says First Name, and the other says Last Name. The first one we 
+will introduce is the autocomplete feature. We will put in 
+autocomplete="on". This means it will remember previous input with the 
+same name. Anything you previously entered for fname will be 
+autocompleted as you type. We will also put in autocomplete for our Last
+ Name input box. But we will switch it to off, for demonstrating the 
+differences. The next attribute we have is the placeholder. When there's
+ no value in the input, this is what we will show as placeholder. So we 
+will make it equal to first name. And the second line, we will make it 
+equal to last name. The next attribute is required. This will allow the 
+browser to perform a validation in these fields before submitting the 
+form. This will require the field to have a value inside. The last one 
+we have is autofocus. You will autofocus on the field. Let's give this 
+page a try and see how it works.</p>
+<p>[Video description begins] <em> He alters the lines from, code 
+starts: First Name: &lt;input type="text" name="fname""&gt;, Last Name: 
+&lt;input type="text" name="lname"&gt;. Code ends to code starts: First 
+Name: &lt;input type="text" name="fname" autocomplete="on" 
+placeholder="first name" required autofocus&gt;, Last Name: &lt;input 
+type="text" name="lname" autocomplete="off" placeholder="last name" 
+required&gt;. Code ends.</em> [Video description ends]</p>
+<p>So you see, we have two input fields. These fields currently hold no 
+value inside. But we have a placeholder that says First and Last Name. 
+Let's try clicking on Submit first.</p>
+<p>[Video description begins] <em> He right-clicks the 
+advancedInput.HTMLHTML file under the advancedInput folder in the 
+Solution Explorer and clicks the View in Browser (Google Chrome) option.
+ A web page opens that contains two text boxes, First Name and Last 
+Name. It also contains the Submit button.</em> [Video description ends]</p>
+<p>It will prompt us with an error saying, Please fill out this field, 
+because we set them to be required. Let's put in some value inside, and 
+click on Submit. Once we have already submitted, I'm going to try typing
+ in again. As you can see, it will remember our input from before. 
+However, for our Last Name field, it does not remember our input from 
+previous try. No matter what we do here, it will not autocomplete. These
+ are some of the basic input attributes.</p></div>
+</div>
+<div>
+<h2 id="0d646070-a91c-11e7-b050-7a420a93a8e4">
+Using Regular Expressions in the Pattern Attribute
+</h2>
+<div><p>[Video description begins] <em> Topic title: Using Regular Expressions in the Pattern Attribute. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we will demonstrate the input pattern attribute. The 
+pattern attribute allows us to define,&nbsp;using regular expression, 
+what kind of value of input it will accept.</p>
+<p>[Video description begins] <em> The pattern.HTML file is open in the 
+Microsoft Visual Studio window. The code in this file is mentioned in 
+the transcript under the heading "pattern.HTML".</em> [Video description ends]</p>
+<p>So here we have a Postal Code input box. We will use the attribute 
+required pattern, and we will input our regular expression. So we will 
+have bracket, uppercase A to uppercase Z and lowercase a to lowercase z.
+ This represent an alphabetical letter and then we have \d, representing
+ a numerical digit. And we will repeat this pattern three times to 
+represent a Canadian postal code format. Let's take a look at how the 
+page will look like.</p>
+<p>[Video description begins] <em> He alters the line from, code starts:
+ Postal Code: &lt;input type="text" name="postalcode" 
+placeholder="postal code" required&gt;. Code ends to code starts: Postal
+ Code: &lt;input type="text" name="postalcode" placeholder="postal code"
+ required pattern="( [ A-Za-z ] \d){3}"&gt;. Code ends.</em> [Video description ends]</p>
+<p>So here we have a postal code input box. If I click Submit now, it 
+will prompt us to please fill out this field. Let's type in an invalid 
+postal code.</p>
+<p>[Video description begins] <em> He right-clicks the pattern.HTML file
+ under the advancedInput folder in the Solution Explorer and clicks the 
+View in Browser (Google Chrome) option. A web page opens that contains 
+the Postal Code text box and Submit button.</em> [Video description ends]</p>
+<p>It will say please match the requested format. Let's now put in a 
+valid input. This should be valid in regards to our requirement and you 
+will see it go through.</p></div>
+</div>
+<div>
+<h2 id="0d646072-a91c-11e7-b050-7a420a93a8e4">
+Using the HTML5 Number Attributes
+</h2>
+<div><p>[Video description begins] <em> Topic title: Using the HTML5 Number Attributes. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we will demonstrate the number attribute. The number 
+attribute allows us to put a validation on input of an type number. So 
+here, we have an input type number, that is the age.</p>
+<p>[Video description begins] <em> The number.HTML file is open in the 
+Microsoft Visual Studio window. The code in this file is mentioned in 
+the transcript under the heading "number.HTML".</em> [Video description ends]</p>
+<p>We're going to put in max. So the maximum value we will set is 65, 
+and the minimum will equal to 0. We are also going to put in the step 
+attributes, which will place an incremental or decremental button beside
+ the field. And for every click, it will increase or decrease by a value
+ of 5. So we have step="5".</p>
+<p>[Video description begins] <em> He alters the line from, code starts:
+ Age: &lt;input type="number" name="age" placeholder="Age" required&gt;.
+ Code ends to code starts: Age: &lt;input type="number" name="age" 
+placeholder="Age" required max="65" min="0" step="5"&gt;. Code ends.</em> [Video description ends]</p>
+<p>Let's take a look at this in our browser. As you can see, we have an 
+input that allows us to put in the age. The scroll bar on the side 
+allows us to change the value in the increment of 5 as how we set it to 
+be. It will decrease to a minimum of 0 and stop as that's our set 
+minimum requirement. If we place another value, I'm going to put in 80, 
+it will prompt a message saying, value must be less than or equal to 65.
+ Same if we enter a negative number. It will say the value must be 
+greater than or equal to 0. If we enter a value that is not in the 
+increment of 5,&nbsp;it will also say, please enter a valid value.</p>
+<p>[Video description begins] <em> He right-clicks the number.HTML file 
+under the advancedInput folder in the Solution Explorer and clicks the 
+View in Browser (Google Chrome) option. A web page opens that contains 
+the Age spin box and Submit button.</em> [Video description ends]</p>
+<p>That's because we set the step equal to 5. So the number must be 
+dividable by 5. So if we enter a value such as 15, it will set the 
+input.</p></div>
+</div>
+<div>
+<h2 id="0d646074-a91c-11e7-b050-7a420a93a8e4">
+Styling Input Fields Based on Input Attributes
+</h2>
+<div><p>[Video description begins] <em> Topic title: Styling Input Fields Based on Input Attributes. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we'll be styling the input field based on the input attributes.</p>
+<p>[Video description begins] <em> The errorStyle.HTML file is open in 
+the Microsoft Visual Studio window. The code in this file is mentioned 
+in the transcript under the heading "errorStyle.HTML".</em> [Video description ends]</p>
+<p>So we start with our form and two input fields, the First Name and 
+Last Name. Both of these fields are required. The first thing we will do
+ here is we will style the field. So we're going to put in style and the
+ input:required, this selects all the input field that is required. And 
+we will style it with border: 2 pixels, solid and green. On the page, if
+ the field box has a green border we will know it is a required field. 
+Next thing I will do is input:invalid. So when the input is invalid then
+ we will say border:, we'll set it to 2 pixels, solid and red. However, 
+as we start the page, the two field will start as empty values, which is
+ against the required attribute that we have put in. So it will start as
+ invalid fields, and gain its red border. Which looks weird when the 
+user first log on to the page, and then see red box all over. So what we
+ have to do to remedy that is to add form.touched in front of the input.
+ So right in front of the input we are putting form.touched. Then we are
+ going to add a little JavaScript to add the class touched to the form 
+when we submit the form. The first thing to do here is to import the 
+jQuery. And next, we will say script, $(document).ready(function). And 
+then when input that has type equal to submit is .click, we will put a 
+function, and we will put in $('form').addClass('touched'). So what this
+ basically is saying is when we click on the submit button, we want to 
+add the class touched to the form. And because of the CSS on top of here
+ indicate that if the input is invalid inside the form with a class name
+ touched, then you will mark the border red. Let's take a look at the 
+page now.</p>
+<p>[Video description begins] <em> After the line 
+&lt;title&gt;&lt;/title&gt;, he adds, code starts: &lt;style&gt;, 
+input:required {, border: 2px solid green;, }, form.touched 
+input:invalid {, border: 2px solid red;, }, &lt;/style&gt;, &lt;script 
+src="HTTPs://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;,
+ &lt;script&gt;, $(document).ready(function () {, $('input [="submit" ] 
+').click(function () {, $('form').addClass('touched');, });, });, 
+&lt;/script&gt;. Code ends.</em> [Video description ends]</p>
+<p>As you can see, we have two field. They are both green border, as they are both required.</p>
+<p>[Video description begins] <em> He right-clicks the errorStyle.HTML 
+file under the advancedInput folder in the Solution Explorer and clicks 
+the View in Browser (Google Chrome) option. A web page opens that 
+contains two text boxes, First Name and Last Name. It also contains the 
+Submit button.</em> [Video description ends]</p>
+<p>Let's fill in the first one. I can see my autocomplete is kicking in.
+ Then I'm going to just press Submit without inputting the last name. 
+And we will be prompt a message saying is required field. And the border
+ of the field of Last Name has now turned red.</p></div>
+</div>
+<div>
+<h2 id="0d646076-a91c-11e7-b050-7a420a93a8e4">
+Validating Textual Input Data
+</h2>
+<div><p>[Video description begins] <em> Topic title: Virtual Textual Input Data. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we'll demonstrate how to use JavaScript to perform 
+text input validation. On our page, under form id="data_sheet",&nbsp;we 
+have an input called Postal Code and a button that will submit the form.</p>
+<p>[Video description begins] <em> The textValidate.HTML file is open in
+ the Microsoft Visual Studio window. The code in this file is mentioned 
+in the transcript under the heading "textValidate.HTML".</em> [Video description ends]</p>
+<p>The first thing we will do here is to use jQuery to perform our task.
+ So first, we find our button that has the ID submit. And we'll do 
+.click, the onClick event, and pass it into an anonymous function with 
+event as a parameter. So what we want to do here is you want to call 
+preventDefault. This will allow the button to not submit the form. The 
+next thing we need to do is to create a variable called postalcode. And 
+it is in equal to the input. Which is same as the id postalcode, .val, 
+which is the current value of the input field. Now, here's the 
+validation part. If (postalcode), and we're going to put an exclamation 
+mark in front to negate the result. If postalcode does not match, and 
+we're going to put in a regular expression here. The upper arrow here 
+means the starting of the string. And we will expect an alphabetical 
+character that is either uppercase or lowercase, then we will expect a 
+number digit. And we want this particular pattern to repeat three times,
+ to represent the Canadian postal code, and then a dollar sign at the 
+end of the string. If the value does not match, we will alert, The 
+Postal code is in wrong format, then we will just return false. If it 
+passes, we want to submit the form. So we call the form with ID 
+data_sheet, and call it .submit. Let's look at this page in the browser.</p>
+<p>[Video description begins] <em> After the line 
+$(document).ready(function () {, he adds, code starts: 
+$('#submit_bt').click(function (event) {, event.preventDefault();, var 
+postalcode = $('#postcode').val();, if (!postalcode.match(/^( [ A-Za-z 
+]\d){3}$/)) {, alert("Postal code is in wrong format");, return false;, 
+}, $('#data_sheet').submit();, });. Code ends.</em> [Video description ends]</p>
+<p>So we can see the postal code field on the page, and we will type in some random text and click submit.</p>
+<p>[Video description begins] <em> He right-clicks the textValidate.HTML
+ file under the advancedInput folder in the Solution Explorer and clicks
+ the View in Browser (Google Chrome) option. A web page opens that 
+contains the Postal Code text box and submit button.</em> [Video description ends]</p>
+<p>Then we will receive a message indicating the Postal code is in the 
+wrong format. If we go with a valid postal code format and click submit,
+ you will see in the URL, it has been passed through, and the form has 
+been submitted.</p></div>
+</div>
+<div>
+<h2 id="0d646078-a91c-11e7-b050-7a420a93a8e4">
+Validating Numeric Input Data
+</h2>
+<div><p>[Video description begins] <em> Topic title: Validating Numeric Input Data. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we'll demonstrate how to use JavaScript to validate 
+number input. So we have a number input that represents the age on the 
+screen.</p>
+<p>[Video description begins] <em> The numberValidate.HTML file is open 
+in the Microsoft Visual Studio window. The code in this file is 
+mentioned in the transcript under the heading "numberValidate.HTML".</em> [Video description ends]</p>
+<p>All we need to do inside our jQuery script is put a dollar sign and 
+find the submit button .click. So on click, we will have function with 
+event parameter, and we are going to have event.preventDefault. Then 
+we'll create a variable called age which is equal to age input value. 
+Next, we'll perform our validation. So if isNAN age, so this is to check
+ whether age is not a number. So if age is not a number, or if age is 
+less than 0, or if age is greater than 65. We will say alert Age is out 
+of range, and return false. If the validation passes, then we will do 
+data_sheet submit. Let's take a look at the page in the browser.</p>
+<p>[Video description begins] <em> After the line 
+$(document).ready(function () {, he adds, code starts: 
+$('#submit_bt').click(function (event) {, event.preventDefault();, var 
+age = $('#age').val();, if (isNaN(age) || age &lt; 0 || age &gt; 65) {, 
+alert("Age is out of range");, return false;, }, 
+$("#data_sheet").submit();, });. Code ends.</em> [Video description ends]</p>
+<p>So on the page, we will see the age field.</p>
+<p>[Video description begins] <em> He right-clicks the 
+numberValidate.HTML file under the advancedInput folder in the Solution 
+Explorer and clicks the View in Browser (Google Chrome) option. A web 
+page opens that contains the Age spin box and submit button.</em> [Video description ends]</p>
+<p>We are able to increase or decrease through the button. If we leave 
+it in the negative number, we will receive an error message saying, Age 
+is out of range. If we put in the number 70, the same error message will
+ appear. Only when we put in a number within range, then the form can be
+ submitted.</p></div>
+</div>
+<div>
+<h2 id="0d648781-a91c-11e7-b050-7a420a93a8e4">
+Validating Date Input Data
+</h2>
+<div><p>[Video description begins] <em> Topic title: Validating Date Input Data. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we'll be using the JavaScript to validate date input 
+field. Looking at our page right now,&nbsp;we have a date input field in
+ our form called birthdate field.</p>
+<p>[Video description begins] <em> The dateValidate.HTML file is open in
+ the Microsoft Visual Studio window. The code in this file is mentioned 
+in the transcript under the heading "dateValidate.HTML".</em> [Video description ends]</p>
+<p>The input type is equal to date. We will start by selecting our 
+submit button. And we will say upon click, perform function, with 
+parameter event. Then event.preventDefault, And we will create a 
+variable called birthdate, which is equal to our birthdate input value. 
+For our validation, we need to transform this into a date object. So if 
+new Date, birthdate is larger than new Date. If we do not give new Date a
+ parameter, the new Date will return as the current date. So here, what 
+we are basically saying is the birthdate is in the future. If that's the
+ case, then alert, Birth date is out of range. And return false. When 
+the validation is successful, we will say ("#data_sheet").submit. Let's 
+now take a look at the page inside our browser.</p>
+<p>[Video description begins] <em> After the line 
+$(document).ready(function () {, he adds, code starts: 
+$('#submit_bt').click(function (event) {, event.preventDefault();, var 
+birthdate = $('#birthdate').val();, if (new Date(birthdate) &gt; new 
+Date()) {, alert("Birth date is out of range");, return false;, }, 
+$("#data_sheet").submit();, }). Code ends. He right-clicks the 
+dateValidate.HTML file under the advancedInput folder in the Solution 
+Explorer and clicks the View in Browser (Google Chrome) option. A web 
+page opens that contains the Birthdate field and submit button.</em> [Video description ends]</p>
+<p>We can see that the date view has been loaded and if we pick a future
+ date, Today is the August 22nd, so I'm going to pick the August 25th. 
+It will say, Birth date is out of range. If we click on a date that is 
+in the past, then the form can be submitted.</p></div>
+</div>
+<div>
+<h2 id="0d648783-a91c-11e7-b050-7a420a93a8e4">
+Working with Password Validation
+</h2>
+<div><p>[Video description begins] <em> Topic title: Working with Password Validation. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we will demonstrate how to do a front end password 
+validation. So we've all signed up accounts on websites before.</p>
+<p>[Video description begins] <em> The passwordValidate.HTML file is 
+open in the Microsoft Visual Studio window. The code in this file is 
+mentioned in the transcript under the heading "passwordValidate.HTML".</em> [Video description ends]</p>
+<p>And it will ask for a password. Sometimes these password have rules. 
+Either you need to include a number or a mix of uppercase or lowercase 
+characters, or have symbol in there. Only when password meets all these 
+requirement rules, it will allow us to set as password. So on our page 
+here, we have a password input field, and we'll take the submit button 
+by its ID. And we'll do a function upon click, and the function will 
+have a parameter of event. Then we'll call the event and prevent 
+default. And we will take the value of the input field, make it into 
+password. So we have variable password equals to password value. Now 
+it's time for validation. If the password has not been filled, so the 
+password is equal to empty. I will put an alert saying Password is 
+required. Then return false. Now we will do some additional validation 
+in the password. We will set our password to have a number, an uppercase
+ character and lowercase character. And must have a minimum of six 
+characters. So if password does not match, So we have slash d, so if it 
+does not have a digit, anywhere, if the password match, uppercase A to 
+Z. Meaning if it does not have an uppercase character and or if password
+ does not have lowercase. So the lowercase alphabet, or password length 
+is less than six. So if the password fails to meet any of these 
+requirements, we will open the alert saying, the Password is not strong 
+enough, and return false. And here we'll submit the form if the password
+ is valid. So we have ("data_sheet").submit. So let's take a look at the
+ page in the browser.</p>
+<p>[Video description begins] <em> After the line 
+$(document).ready(function () {, he adds, code starts: 
+$('#submit_bt').click(function (event) {, event.preventDefault();, var 
+password = $('#password').val();, if (password == "") {, alert("Password
+ is required");, return false;, }, if (!password.match(/\d/) || 
+!password.match(/ [ a-z ] /) || password.length &lt; 6) {, 
+alert("Password is not strong enough");, return false;, }, 
+$("#data_sheet").submit();, });. Code ends.</em> [Video description ends]</p>
+<p>So we can see the password field on our page.</p>
+<p>[Video description begins] <em> He right-clicks the 
+passwordValidate.HTML file under the advancedInput folder in the 
+Solution Explorer and clicks the View in Browser (Google Chrome) option.
+ A web page opens that contains the Password text box and submit button.</em> [Video description ends]</p>
+<p>If we click submit right now, it will tell that the password field is
+ required. If we type in some random character, it will say the Password
+ is not strong enough. The only way to get through, is that we must type
+ in a password that has a number digit, uppercase character, lowercase 
+character, and it's got to be at least six digits long. Only then the 
+form can be submitted.</p></div>
+</div>
+<div>
+<h2 id="0d648785-a91c-11e7-b050-7a420a93a8e4">
+Using the onSubmit Attribute
+</h2>
+<div><p>[Video description begins] <em> Topic title: Using the onSubmit Attribute. The presenter is William Shen.</em> [Video description ends]</p>
+<p>In this video, we'll demonstrate how to perform an onSubmit 
+validation. Previously, our form validation's based on when&nbsp;the 
+user clicked the submit button.</p>
+<p>[Video description begins] <em> The submitValidate.HTML file is open 
+in the Microsoft Visual Studio window. The code in this file is 
+mentioned in the transcript under the heading "submitValidate.HTML".</em> [Video description ends]</p>
+<p>Now, we can also listen when the form is about to submit. So we will 
+take form by the ID data_sheet, and we will say submit. This will get 
+called before the form is about to be submitted. So what we need to do 
+here is simply take the variable postalcode, equal to the input value. 
+And we're going to check if the postalcode does not match the format. 
+The format will contain an alphabet letter, and also a digit. And you 
+will repeat three times. So if it does not match, we'll say alert, the 
+postalcode is in the wrong format. And return false. And that's it. If 
+the validation passes, it will simply not return false then proceed with
+ the submission. Let's take a look at the page inside our browser.</p>
+<p>[Video description begins] <em> After the line 
+$(document).ready(function () {, he adds, code starts: 
+$('#data_sheet').submit(function (event) {, var postalcode = 
+$('#postcode').val();, if (!postalcode.match(/^( [ A-Za-z ] \d){3}$/)) 
+{, alert("Postal code is in wrong format");, return false;, }, }). Code 
+ends.</em> [Video description ends]</p>
+<p>On our page, we have a postalcode input.</p>
+<p>[Video description begins] <em> He right-clicks the 
+submitValidate.HTML file under the advancedInput folder in the Solution 
+Explorer and clicks the View in Browser (Google Chrome) option. A web 
+page opens that contains the Postal Code text box and submit button.</em> [Video description ends]</p>
+<p>Let's type in some random value, and we'll receive a message 
+indicating incorrect format. Once we put in the proper value, we'll see 
+our form will now be submitted.</p></div>
+</div>
+<div>
+<h2 id="0d648787-a91c-11e7-b050-7a420a93a8e4">
+Exercise: Input Validation with HTML5 and JavaScript
+</h2>
+<div><p>[Video description begins] <em> Topic title: Exercise: Input Validation with HTML5 and JavaScript.</em> [Video description ends]</p>
+<p>In this exercise, you will create a web page with three input field 
+and a Submit button. Make one input field use the pattern attribute and 
+limit the input to hexadecimal characters, (0-9, A-F). Make another 
+input field to accept numbers including a minimum, maximum, and step. 
+Make the last field accept a password. Add an onSubmit attribute and use
+ JavaScript to verify the three input fields when the Submit button is 
+pressed. Do not allow empty fields, and validate the password is at 
+least 5 characters long. Now, pause the video and perform the exercise. 
+We start with a page that has a form and a submit button.</p>
+<p>[Video description begins] <em> The Microsoft Visual Studio window is open.</em> [Video description ends]</p>
+<p>So to put in our first input field, I'll put in text Field 1. And we 
+will say, input type text and we'll name this field1. Let's also give 
+this an id, which is equal to field1, and we'll put in a pattern, a 
+pattern will only include characters upper case from A to F, and/or 
+numbers, and we'll put a star to indicate we want as many of these as 
+possible. Next, we have Field 2. For our Field 2, the input type, is 
+equal to number. And we'll correct the typo on the first one. So type 
+equal to number and the name is equal to field2. We will give it an id, 
+field2. The max for this number, we 'll set it to 100 and the minimum we
+ 'll set it to 0. Then, we'll set the step to 5. And lastly, on our 
+Field 3, we'll set the input type, to password. And the name is equal to
+ field3, as well as the id is equal to field3. And that's it. Let's 
+start now on our JavaScript validation upon submit. So, under our 
+JavaScript document ready, we're going to put get form by id, data sheet
+ and then upon submit we're going to have function with perimeter 
+events. Then we're going to say, variable field1 is equal to the value 
+inside field1. So if the field1 has not been filled in, then we'll 
+create an alert and we'll say, Field 1 is required, then return false. 
+Then we'll do the same for Field2. So I'm going to take a shortcut and 
+just copy the script over. And again do the same for Field3, simply just
+ adjusting some value inside. This is to make sure all three fields are 
+filled out. Note that you can use the required attribute to achieve the 
+same result. For the purpose of this exercise, I'm showing you how it's 
+done through the JavaScript. Then we want to validate the length of 
+field3. So if Field3 length is less than five, then we will say, alert 
+Field 3 is too short. And return false. This is it. Let's take a look at
+ the page in the browser. In our browser, you can see we have three 
+input field on display. If we click on Submit, it'll notify us that 
+Field1 is required. If we fill in Field1 with some invalid random input,
+ it will then ask us to please match the requested format. Now, that 
+Field1 is filled and click on Submit it will say, Field2 is required. 
+Field2 requires any number from 0 to 100 in the increment of five. So we
+ have put in something outside the range it will say value must be 
+greater or equal to zero. If I put in a number not in the increment of 
+five it'll say the two nearest valid values are 5 and 10. In this case I
+ will put in 10 instead. Lastly, Field3 is required. So, it will have a 
+length validation. If I put it only three character, it'll say Field3 is
+ too short. Only if we fill all criteria will the form be submitted.</p></div>
+</div>
+
+
+</body></html>

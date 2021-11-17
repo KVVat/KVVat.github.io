@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="HTML5 Graphics &amp; Canvas Transcript">
+<title>HTML5 Graphics &amp; Canvas Transcript</title>
+</head>
+<body>
+<h1>HTML5 Graphics &amp; Canvas</h1>
+<p></p><p>The HTML5 canvas and SVG can be used to ensure the quality of 
+your images are not lost due to scaling on all screen sizes. Discover 
+how to&nbsp;use SVG in HTML5 to draw shapes, create text, and rotate 
+graphics.</p><p></p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#cd3aed26-d9c3-11e6-a5b1-0242c0a80503">Using Scalable Vector Graphics (SVG) in HTML5</a></li>
+<li><a href="#cd3aed28-d9c3-11e6-a5b1-0242c0a80503">Drawing Lines Using SVG in HTML5</a></li>
+<li><a href="#cd3aed2a-d9c3-11e6-a5b1-0242c0a80503">Drawing Rectangles Using SVG in HTML5</a></li>
+<li><a href="#cd3aed2c-d9c3-11e6-a5b1-0242c0a80503">Creating Rounded Corners Using SVG in HTML5</a></li>
+<li><a href="#cd3b1430-d9c3-11e6-a5b1-0242c0a80503">Drawing Circles and Ellipses Using SVG in HTML5</a></li>
+<li><a href="#cd3b1432-d9c3-11e6-a5b1-0242c0a80503">Drawing Polylines Using SVG in HTML5</a></li>
+<li><a href="#cd3b1434-d9c3-11e6-a5b1-0242c0a80503">Creating SVG Text in HTML5</a></li>
+<li><a href="#cd3b1436-d9c3-11e6-a5b1-0242c0a80503">Rotating SVG Graphics in HTML5</a></li>
+<li><a href="#cd3b1438-d9c3-11e6-a5b1-0242c0a80503">Placing Text on a Path Using SVG in HTML5</a></li>
+<li><a href="#cd3b143a-d9c3-11e6-a5b1-0242c0a80503">Using Transparency with SVG in HTML5</a></li>
+</ol></div>
+<div>
+<h2 id="cd3aed26-d9c3-11e6-a5b1-0242c0a80503">
+Using Scalable Vector Graphics (SVG) in HTML5
+</h2>
+<div><p>
+<strong></strong>
+HTML5 is extremely powerful, especially when you consider the amount of 
+effort and attention that's been put toward graphics. With CSS3, the 
+HTML5 Canvas, and SVG, there is a powerhouse graphical engine under the 
+HTML hood that can be used to create rich web applications. Scalable 
+Vector Graphics is one feature that deserves some serious discussion. So
+ in this video, I'll introduce you to SVG. SVG or Scalable Vector 
+Graphics are new to HTML5. They use the <code>svg</code> tag right there
+ and I'll go ahead and show an example. So you can do some really 
+interesting things with text and graphics using <code>svg</code>. The first thing to know about <code>svg</code>
+ is that they are inline, which means that you can fit them right into 
+HTML code without having to evoke any CSS3 or JavaScript. They use XML 
+to describe objects and the most important thing and this is the "S" 
+part of Scalable Vector Graphics is they can be scaled freely without 
+the loss of resolution. So if I zoom in on this, you can see that it 
+really shows up nicely. As I keep going in, it doesn't matter, but it's 
+not like Bitmap graphics that, sort of, degrades when you zoom in on 
+them. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window. The 
+file contains two sections, head and body. The head section contains a 
+meta tag and a title tag. The body section contains the following code:<br>&lt;svgxmlns="http://www.w3.org/2000/svg" version="1.1"&gt;<br>&lt;text x="0" y="50" font-family="Verdana" font-size="55" fill="#0000ff"&gt;Hello World!&lt;/text&gt;<br>&lt;/svg&gt;<br>&lt;svgxmlns="http://www.w3.org/2000/svg" version="1.1"&gt;<br>&lt;text
+ x="0" y="45" font-family="Verdana" font-size="55" fill="#009900" 
+transform="rotate(30,20,40)"&gt;Hello World!&lt;/text&gt;<br>&lt;/svg&gt;<br>The
+ presenter previews the file in Internet Explorer. The web page shows 
+the text "Hello World" in two different layouts. In the first layout, 
+the text is in the blue color. And in the second layout, the text is in 
+the green color and is rotated by 30 degrees. While the presenter zooms 
+in on the text, the quality of the text remains the same; it does not 
+dither.</em>
+<br><br>
+<strong></strong>
+Now, they pop right up on the page, you invoke them again using tags and
+ they can be animated as well as indexed, searched, scripted, or even 
+compressed. So you can do a number of different things with Scalable 
+Vector Graphics and there is a nice option from using the Canvas or 
+JavaScript, the traditional methods of creating graphics on your page in
+ HTML5. They are vector based and again they are scalable, so vector 
+based means they are based on lines and curves, rather than clots of 
+dots that makes them scalable. Again, they use the XML format and it's a
+ recommendation of the W3C that you use these things. They are going to 
+definitely take off, they really haven't seen the light of day yet in 
+terms of common usage, but the more you work with them, the more you'll 
+realize the power of SVG. For instance, you can create images in SVG 
+that can be edited with any text editor. You can again search and index 
+them, script them, and compress them. And you can print them with very 
+high quality at pretty much any resolution and they are zoomable. So 
+play around a bit with Scalable Vector Graphics, learn how the tag 
+works, and you'll be really impressed with the opportunities this new 
+feature in HTML5 opens up for web design. <br>
+<em>The presenter is explaining about SVG.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3aed28-d9c3-11e6-a5b1-0242c0a80503">
+Drawing Lines Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so I'll add a line here, <code>svg</code> is the tag and then let's give it an <code>id</code>. Now, we're not going to use the <code>id</code> in this example, but the reason we give an <code>id</code>
+ is because we can actually do things with JavaScript and some other 
+things. Now, what I want to do is create this line, so we use the <code>line</code> tag. Now, the important thing here is to remember that, we create that <code>svg</code> tag and then any <code>svg</code> that's invoked, like a <code>line</code> for instance, goes inside the opening and closing tags. So <code>line</code> and then we start creating some coordinates, so <code>x1=</code>, we'll make this <code>"50"</code> and this is in pixels, but we don't have to put the px in there. So we create <code>x1="50" y1="50"</code> and then <code>x2="300"</code> and <code>y</code><code>2="300"</code>. Now that we have done that, we can actually add a <code>style</code> to it and for this, we actually do use the standard CSS. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. The opening svg tag reads "&lt;svg id="redline"&gt;". He starts
+ typing the code for creating a line as follows: <br>&lt;line x1="50" y1="50"x2="300" y2="300" style</em>
+<br><br>
+<strong></strong>
+So we could do it here or we could put it in the <code>head</code> section as a style sheet, but I'm doing it right here, inline, so <code>style="stroke:</code> and here is where we give it a color <code>#ff0000</code>, that's red, <code>stroke-width</code> and in this case it'll be <code>2</code>,
+ go ahead and finish that off. Now, because it's a line, we're not 
+actually creating an opening and closing tag here. It's a self-closing 
+tag. So we put that space and then the forward slash in before we close 
+the right facing bracket. If I go ahead and <strong>Save</strong> that right now and <strong>Refresh</strong> the page, there is our line, so we can start to do some really interesting things using <code>svg</code> with the <code>line</code> command to draw objects on the screen. And again, you can style them either using this <code>id</code> that we created and a style sheet and <code>head</code> section, or attach a style sheet, or you can style them inline in the <code>svg</code> tag. <br>
+<em>The presenter specifies the style attribute in the code for the 
+line. Therefore, the code now reads "&lt;line x1="50" y1="50"x2="300" 
+y2="300" style="stroke: #ff0000; stroke-width: 2;" /&gt;". He saves the 
+file and refreshes the web page to view the output. A red line rotated 
+by 30 degrees is shown.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3aed2a-d9c3-11e6-a5b1-0242c0a80503">
+Drawing Rectangles Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so go ahead and add a line here and start our <code>svg</code> tag and we'll give it an <code>id</code>
+ just in case we need to reference it with the CSS. Now, there is a 
+closing tag and then the actual drawing goes inside those tags, so we're
+ going to create a rectangle and it looks like this. And we can even 
+give it an id again, if we want to do something with it <code>"rrect"</code> for red rectangle. And now, we can give it some value, so an <code>x="0"</code> value, a <code>y="0"</code> value inside quotation marks, a <code>width</code>, let's make it bigger <code>"300"</code> and a <code>height="300"</code>. Now finally, we're going to give it a <code>fill</code> color and we'll use red like that and that looks pretty good. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. The opening svg tag reads "&lt;svg id="bigsquare"&gt;". To 
+create a rectangle filled with the red color, he types the code 
+"&lt;rect id="rrect" x="0" y="0" width="300" height="300" fill="#ff0000"
+ /&gt;".</em>
+<br><br>
+<strong></strong>
+Now, this is a self-closing tag. You don't need an opening and closing 
+tags, so we just put a forward slash and then the closing right facing 
+bracket. <strong>Save</strong> that and <strong>Refresh</strong> our page, and there is our rectangle. Now, if you want to style this a little bit more, again we've given it an <code>id</code>, so we can create a <code>style</code> sheet up here. As a matter of fact, I'll go ahead and do that, create a <code>style</code>
+ tag. And then, we're going to reference, the hash tag, so we're going 
+to reference the id #rrect, red rectangle and let's create our stroke, 
+so stroke, we'll create a color of black, and then <code>stroke-width</code>, and we'll make that <code>3</code>. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>
+ the page, so we can actually add strokes to it and modify it otherwise 
+with CSS using that method. And again, we could have done this inline 
+down here, but that's effectively how you draw rectangles using SVG with
+ HTML5. <br>
+<em>The presenter saves the file and refreshes the web page to view the 
+output. A rectangle filled with the red color is shown. In the head 
+section, the presenter adds the opening and closing style tags in 
+separate lines of code. Then, to create a stylesheet for the rectangle, 
+he types the following code:<br>#rrect<br>{<!-- --><br>stroke: #000;<br>stroke-width: 3;<br>}<br>The presenter saves the file and refreshes the web page to view the output. A black-colored border appears around the rectangle.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3aed2c-d9c3-11e6-a5b1-0242c0a80503">
+Creating Rounded Corners Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so go ahead and create our <code>svg</code> tag and our objects coincide here. So I'll create our <code>rect</code> tag, and then <code>x="0" y="0" width="300" height="300"</code>, and we'll give it a <code>fill</code> color and add some <code>style</code> to it because we want to modify the stroke here. So <code>style="stroke</code>, what we'll do is make that a black stroke and then <code>stroke-width</code> is going to be <code>10px</code>.
+ Like that, close it off with a forward slash, it's a self-closing tag, 
+so we don't need a closing tag, just that forward slash. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. Then, to create a rectangle filled with the magenta color and 
+surrounded by a black border, he types the code "&lt;rect x="0" y="0" 
+width="300" height="300" fill="#ff00ff" style="stroke: #000000; 
+stroke-width: 10px;" /&gt;".</em>
+<br><br>
+<strong></strong>
+Now, if I <strong>Refresh</strong> the page, there is our square, it 
+looks good, but what we want to do is round the corners here and to do 
+that, you can put this in any order, but I'll go ahead and put it right 
+here. We use <code>rx</code> and <code>ry</code> and I'll start with something like <code>"20"</code>, oops, <code>ry="20"</code>, go ahead and <strong>Save</strong> that and <strong>Refresh</strong>
+ and you can see our corners have rounded up nicely. Now, if I increase 
+that value, you can round them even more. So you can do a lot with a 
+little bit, using the <code>svg</code> and that <code>rx</code> and <code>ry</code> to round the corners in rectangles and other objects in HTML5. <br>
+<em>The presenter saves the file and refreshes the web page to view the 
+output. A rectangle filled with the magenta color and surrounded by a 
+black border is shown. To create rounded corners for the rectangle, the 
+presenter types "rx="20" ry="20"" in the code for the rectangle. Then he
+ saves the file and refreshes the web page to view the changes. The 
+corners of the rectangle are rounded now. Next the presenter changes the
+ value of the rx and ry attributes to 50 in the code for the rectangle. 
+He saves the file and refreshes the web page to view the changes. The 
+corners of the rectangle are rounded even more.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b1430-d9c3-11e6-a5b1-0242c0a80503">
+Drawing Circles and Ellipses Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so I'll start with an <code>svg</code> tag. And I'll give it an <code>id</code> just in case, you want to reference it with the CSS or JavaScript, we call this <code>"circle1"</code>. Now we create the circle inside the <code>svg</code> tags, so it's <code>circle</code>. And then we can give an <code>id</code> if we want to specifically reference it like <code>"bcircle"</code> for blue circle. And then we start with our <code>cx</code> and <code>cy</code> values. So let's go ahead and do <code>"120"</code> and <code>cy</code>. And, of course, c for circle, little bit different than the x and y values used with lines and rectangles. And then the <code>r</code> finally. And let's give it a <code>fill</code>
+ and it's supposed to be blue so 0000 is followed by two ffs, forward 
+slash, and a closing bracket. Because it's a self-closing tag, we don't 
+need a closing tag for this. Go ahead and <strong>Refresh</strong> that page. And there is our circle, nice and neat. Let's go ahead and take a look at ellipses. I'll create a new <code>svg</code> tag here and we'll call this <code>"ellipse1"</code>. Now there is a separate <code>ellipse</code> tag for <code>svg</code> but it still uses <code>cx</code> and <code>cy</code>, so let's make this <code>"200"</code>, <code>cy="80"</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. The opening svg tag reads "&lt;svg id="circle1"&gt;". To create
+ a circle filled with the blue color, he types the code "&lt;circle 
+id="bcircle" cx="120" cy="120" r="100" fill="#0000ff" /&gt;". He saves 
+the file and refreshes the web page to view the output. A circle filled 
+with the blue color is shown. Next the presenter again adds the opening 
+and closing svg tags in separate lines of code. The opening svg tag 
+reads "&lt;svg id="ellipse1"&gt;". He starts typing the code for 
+creating an ellipse filled with the yellow color as follows:<br>&lt;ellipse cx="200" cy="80"</em>
+<br><br>
+<strong></strong>
+And then what we're going to do is a <code>rx</code> because we've got two different radiuses here or two different values, because ellipse is not a perfect circle, so <code>rx</code> and <code>ry</code>. And then <code>fill=</code> and for this we'll just use <code>"yellow"</code>, we don't have to put hexadecimal value in there. And again a self-closing tag. Go ahead and <strong>Save</strong> that and <strong>Refresh</strong>. And there is our ellipse. Now the thing is you've to be very, very careful with circles especially when you're drawing with <code>svg</code>,
+ because the x and y coordinates are center-based, what that means is 
+that here, for instance, if I'm replacing, say, a box on the screen and x
+ and y value of <code>"20"</code> would be quite reasonable that would 
+put that in 20 and down 20 because the coordinates for a box, or a 
+rectangle, or a line are going to be from the upper left-hand corner of 
+the object. With circles and ellipses it's a little bit different. I'll 
+go ahead and <strong>Save</strong> that now and <strong>Refresh</strong>
+ and we'll see what happens is, we're actually dealing with center-based
+ coordinates now so we've to be very careful when drawing these to give 
+them ample room so they actually fit on the screen. I'll put that back 
+to <code>"120"</code> and <code>"120"</code>. So that's the big thing 
+you've to remember when drawing circles and ellipses. Other than that 
+they work pretty much the same ways any other object with SVG, that is, 
+you can apply styles to them, you can access them through the DOM using 
+JavaScript and start to have some real fun drawing circles with HTML5. <br>
+<em>The presenter continues to type the code for creating the ellipse. 
+The code now reads "&lt;ellipse cx="200" cy="80" rx="100" ry="50" 
+fill="yellow" /&gt;". He saves the file and refreshes the web page to 
+view the output. In addition to the circle, the web page shows an 
+ellipse filled with the yellow color. The ellipse is overlapping the 
+circle a bit. Therefore, the presenter changes the cx and cy attributes 
+in the code for the circle to "20". He saves the file and refreshes the 
+web page to view the changes. The circle and the ellipse separate from 
+each other. Next he changes back the cx and cy attributes in the code 
+for the circle to "120".</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b1432-d9c3-11e6-a5b1-0242c0a80503">
+Drawing Polylines Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so I'll start by creating our <code>svg</code> tag. And here is the tag for <code>polygon</code>, it's like this <code>polygon points</code>. And then you start putting in points for your polygon and so you can create multiple points. In this case, <code>"30,250,400,25,70,80"</code>. And then we'll assign a <code>fill="#ff0000"</code> to this and go ahead and put the forward slash and close it, it's a self-closing tag. <strong>Save</strong> that and <strong>Refresh</strong>
+ and there is our polygon. So you can really do a lot. And the way these
+ points work is their x and y values so xy, xy, xy and that will allow 
+you to draw different things. Now I'll create another one, <code>polygon points=</code>
+ now for this one, I'm not going to pretend that I'm going to make these
+ up on the fly. I've actually created the set of coordinates here that 
+I'll just <strong>Copy</strong> and <strong>Paste</strong> back in here. And let's go ahead and give it a <code>fill</code>. It would be something like, <code>"#ff00ff"</code> just like a magenta. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. Then, to create a polygon filled with the red color, he types 
+the code "&lt;polygon points="30,250,400,25,70,80" fill="#ff0000" 
+/&gt;". He saves the file and refreshes the web page to view the output.
+ A polygon filled with the red color is shown. Next, the presenter 
+starts typing the code for creating a polygon filled with the magenta 
+color as follows:<br>&lt;polygon points=<br>He opens a Notepad file, 
+which contains the coordinates for this polygon. He copies the 
+coordinates and pastes them to the code. Therefore, the code now reads 
+"&lt;polygon 
+points="300,10,375,85,375,190,300,275,175,275,100,190,100,85,175,10"". 
+He completes the code by specifying the fill attribute with the 
+hexadecimal value of the magenta color. Therefore, the code now reads 
+"&lt;polygon 
+points="300,10,375,85,375,190,300,275,175,275,100,190,100,85,175,10" 
+fill="#ff00ff" /&gt;".</em>
+<br><br>
+<strong></strong>
+Close that Off, <strong>Save</strong> it and <strong>Refresh</strong>, 
+and there is our polygon. So you can do that really easily but to figure
+ out the points can often be tricky. As you can see all these different 
+points are required in order to get the shape on the screen. So I 
+actually have to go and figure them out before I did this example. And 
+one other thing worth mentioning...I'll go ahead and put a space there, 
+this is a CSS style, its <code>fill-rule</code>. And the way <code>fill-rule</code> works is you can choose one of two things, you can have <code>nonzero</code>, or you can have <code>evenodd</code>. And this will swap the way that the <code>fill</code>
+ will work if you're actually using polylines, and it only works if they
+ are intersecting. So if you're intersecting, if we've lines that are 
+crossing over each other, you can create a different fill effect. You 
+can either have a solid fill or where the lines crossover, you can 
+create this, sort of, dropout effect in and it'll just show the 
+background. So you have those two choices when you're working with 
+polylines and its worth playing around with. Just have some fun with it,
+ may be, draw a star or something and try those different fill rules. <br>
+<em>The presenter saves the file and refreshes the web page to view the 
+output. In addition to the polygon filled with the red color, a polygon 
+filled with the magenta color is shown. In the code for the polygon 
+filled with the magenta color, he modifies the fill attribute as 
+follows:<br>fill="#ff00ff; fill-rule: evenodd;"</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b1434-d9c3-11e6-a5b1-0242c0a80503">
+Creating SVG Text in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so I'll start with the <code>svg</code> tag and then inside the tag, we'll use the <code>text</code>. This is an <code>svg</code> tag where we can start to create some coordinates <code>x="0" y="0"</code>. And then we choose our <code>font-family</code>, in this case, I'll choose <code>"Calibri"</code>. And then <code>font-size</code>, and you'll notice they are very similar to the CSS styles, the way they are named, <code>"55"</code>. And then a <code>fill</code>, and we'll do something like this <code>"#0000ff"</code>,
+ which is blue. Now this is not a self-closing tag you see when I closed
+ that bracket, then a closing tag appeared and the reason for that is 
+that we have to put in some text, we'll put it in here. And I'll go 
+ahead and <strong>Save</strong> that and <strong>Refresh</strong>, and there you see it popped at the top of the screens. You have to watch out for coordinates with things like <code>text</code>. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. To display the text "Hello World!" in the blue color, he types 
+the code "&lt;text x="0" y="0" font-family="Calibri" font-size="55" 
+fill="#0000ff"&gt; Hello World!&lt;/text&gt;". He saves the file and 
+refreshes the web page to view the output. The text "Hello World!" is 
+displayed in the blue color, but it is truncating at the top of the web 
+page.</em>
+<br><br>
+<strong></strong>
+It's going to be based on the center of the text and so we actually need to add some value to the <code>y</code> there, may be, to pop it down to the screen. <strong>Save</strong> that and <strong>Refresh</strong> and there is our text, it's really easy to use. But you want to be careful about the coordinates.<br>And, remember, you can style that using CSS styles. So if we wanted to do something like this <code>style=font-weight</code>, I'll go ahead and <strong>Save</strong> that now and <strong>Refresh</strong>,
+ you see that we can actually apply those styles, we don't need to put 
+them in this notation here. As a matter of fact, most of this all of 
+this actually could be put into a <code>style</code> tag, or a style 
+sheet could be created for the document where you can apply those styles
+ as long as you have no ID applied to this <code>text</code> tag. So text is really easy to use with <code>svg</code>
+ and play around with it a bit. You'll have lots of fun with it, you can
+ do some really interesting things using this wonderful new feature of 
+HTML5. <br>
+<em>In the code for the text, the presenter changes the y attribute to 
+"50". He saves the file and refreshes the web page to view the changes. 
+The text does not truncate anymore. Next he specifies the style 
+attribute in the code for the text as follows:<br>style="font-weight: bold;"<br>The presenter saves the file and refreshes the web page to view the changes. The text is now shown in bold.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b1436-d9c3-11e6-a5b1-0242c0a80503">
+Rotating SVG Graphics in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, so I'll go ahead and create a <code>svg</code> tag. And now that I've done that let's go ahead and create some <code>text</code> first, it gives them <code>x</code> and <code>y</code> coordinates and we'll use <code>"Verdana"</code> for this one. Give it a <code>font-size</code> and a <code>fill</code>. And then let's go ahead and close that tag off. And inside the tag, put our text. Great, now let's also create a <code>rect</code>. Now give it a <code>width</code> of, say, <code>"100"</code>, will work, <code>height</code> same, and a <code>fill</code>. And this is a self-closing tag so let's go ahead and put that forward slash in there and a closing bracket. <strong>Save</strong> it and <strong>Refresh</strong> the page and there are two graphics. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. Then the presenter types the following code:<br>&lt;text x="0" y="45" font-family="Verdana" font-size="55" fill="#009900"&gt;Hello world&lt;/text&gt;<br>&lt;rect x="100" y="100" width="100" height="100" fill="#ff00ff" /&gt;<br>The
+ presenter saves the file and refreshes the web page to view the output.
+ The text "Hello world" is shown in the green color. The text is 
+followed by a rectangle, which is filled with the magenta color.</em>
+<br><br>
+<strong></strong>
+Now what we want to do here is <code>rotate</code>, and so we're going to use the <code>transform</code> property. And it's very similar to CSS in the way that it works, except we're using '<code>=</code>' instead of '<code>:</code>'. And then inside quotation marks, <code>rotate</code>, and then the value, in this case, we'll say <code>(30)</code> degrees, and <strong>Save</strong> that and I'll do it down here as well. So again <code>transform="rotate</code>, and for this one we'll make it <code>(45)</code> degrees. So let's go ahead and <strong>Save</strong> that and <strong>Refresh</strong> the page. And you can see now we can quickly rotate things using that <code>transform</code> property. Again it's very similar in syntax to CSS, but it's little different in the way we noted it using the <code>svg</code>
+ tag. And you can play around with those values to come up with all 
+sorts of interesting different effects, pretty quickly and easily on any
+ SVG graphic. <br>
+<em>To rotate the text "Hello world" by 30 degrees, the presenter 
+specifies the transform attribute in the code for the text as follows:<br>transform="rotate(30)"<br>In a similar way, he specifies the transform attribute in the code for the rectangle as follows:<br>transform="rotate(45)"<br>He
+ saves the file and refreshes the web page to view the changes. Both the
+ text and the rectangle rotate in accordance with the specified degrees.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b1438-d9c3-11e6-a5b1-0242c0a80503">
+Placing Text on a Path Using SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+I'll start by creating an <code>svg</code> tag. And then let's go ahead and create our text. So we'll use the <code>text</code> tag, give it some <code>x</code> and <code>y</code> values; give it a <code>font-family</code>, so we'll say <code>"Arial"</code>; and a <code>font-size</code>, like that. Then finally we'll add a color to it. So I'm going to use the <code>style</code>, inline style sheet. And fill, a little bit different, but <code>"fill:#ff0000;"</code>, which is red. And close it off, like that. Now normally, you would go ahead and close that, and have your <code>text</code>
+ tag, and put your text in there but we're going to do one other thing 
+first. We're going to...actually let's go ahead and put our text in 
+first, I'll go ahead and show that. <strong>Save</strong> that and <strong>Refresh</strong> it, and there is our text. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. Then the presenter types the following code:<br>&lt;text x="10" y="100" font-family="Arial" font-size="55" style="fill: #ff0000; "&gt;<br>Hello, great big world<br>&lt;/text&gt;<br>He saves the file and refreshes the web page to view the output. The text "Hello, great big world" displays in the red color.</em>
+<br><br>
+<strong></strong>
+Now what I want to do before I do that is create a path. So up here, just after the <code>svg</code> tag, I'm going to create a tag called <code>defs</code> and this allows us to define a path for the text. We go ahead and inside the <code>defs</code> tag, we use <code>path</code> and we give it an <code>id</code> in this case, I'll call this <code>"path1"</code>. And then we use <code>d</code>
+ to define the path. Okay, so we go ahead and inside quotation marks, we
+ start putting our values. Now what we do first is we use a command and 
+this command varies depending on what you're trying to do. The <code>M</code> stands for move to. So I'm going to move the cursor or the pointer to <code>75</code>,
+ and then from here start creating our path. So there are two values and
+ then spaces between those values. And then I'm going to use <code>A1</code> or A, it doesn't matter if you use uppercase and lowercase; <code>A1</code>, that's for an elliptical arc, and <code>1</code> and then <code>0</code> <code>0</code> to define that path, and then <code>0</code>, <code>350</code>, and then finally <code>0</code>.
+ And you have to play around with this, sort of, to get used to how this
+ works. But we're just going to create that elliptical path using that 
+notation. <br>
+<em>After the opening svg tag, the presenter adds the opening and 
+closing defs tags in separate lines of code. Then, to specify the path 
+for the text, he types the code "&lt;path id="path1" d="M75,20 A1,1 0 0,
+ 0 350,0" /&gt;".</em>
+<br><br>
+<strong></strong>
+Now once we have created that path, go ahead and <strong>Save</strong> that and <strong>Refresh</strong> the page. We can see that nothing happens, we actually have to apply that path to the text. So after the <code>text</code> tag and before our text, I'll put in this tag, <code>textPath xlink:href</code> because now we're accessing that path. We're using <code>xlink:href</code><code>=</code> and its an ID so we use the <code>"#path1"</code>.
+ Now I close that. And here I actually have to put this after the text. 
+I'll actually put it right there so it goes before the closing <code>text</code> tag. <strong>Save</strong> that and <strong>Refresh</strong>
+ our page, and there is our path or text order path. So it's a tad 
+complicated but you'll get used to it. What you'll do is you use <code>defs</code>
+ to create your path. And again go out and find out what the various 
+commands are, there are number of these different commands. Again <code>M</code> stands for move to, and <code>A</code>
+ is elliptical arc. But once you start to understand the syntax, you can
+ assign that path and then apply it to text using this notation. <br>
+<em>The presenter saves the file and refreshes the web page, but nothing
+ happens in the output. Therefore, he types the code 
+"&lt;textPathxlink:href="#path1"&gt;&lt;/textPath&gt;" after the opening
+ text tag. Then he drags the closing textPath tag and drops it before 
+the closing text tag. He saves the file and refreshes the web page to 
+view the changes. The text "Hello, great big world" is shown in an 
+elliptical arc path.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="cd3b143a-d9c3-11e6-a5b1-0242c0a80503">
+Using Transparency with SVG in HTML5
+</h2>
+<div><p>
+<strong></strong>
+Okay, I'll start by creating our <code>svg</code> tag, and then I'm going to create a <code>circle</code> and a square. So we'll start with the circle, and we use <code>cx</code>, so circleX, the x value is <code>"120"</code>, <code>cy="120"</code>. And the radius, we'll make that, say, <code>"80"</code> and then give it a <code>fill</code>, so blue. And go ahead and close that tag. And then I'll create a <code>rect</code> with <code>x</code> and <code>y</code> values, <code>width="150"</code>, <code>height</code>
+ the same. And let's give that a fill as well, we'll make that...and 
+actually I just noticed something there, make sure we put the '<code>#</code>' in here, and one there, and then <code>"#ff00ff"</code>. Close that off, <strong>Save</strong> it and <strong>Refresh</strong>
+ our page, and there is our circle and our square. Now actually I'm 
+going to, may be, move this down somewhat, let's move that down to <code>"80"</code> and a little bit more say <code>"110"</code>. Okay, that's pretty good. <br>
+<em>The index.html file is open in the Microsoft WebMatrix window and 
+the corresponding web page is open in Internet Explorer. The file 
+contains two sections, head and body. The head section contains a meta 
+tag and a title tag, and the body section is empty. In the body section,
+ the presenter adds the opening and closing svg tags in separate lines 
+of code. Then he types the following code:<br>&lt;circle cx="120" cy="120" r="80" fill="#0000ff" /&gt;<br>&lt;rect x="80" y="0" width="150" height="150" fill="#ff00ff" /&gt;<br>He
+ saves the file and refreshes the web page to view the output. A circle 
+and a rectangle are shown. The circle is filled with the blue color, and
+ the rectangle is filled with the magenta color. The rectangle is 
+overlapping the circle. Therefore, the presenter changes the y attribute
+ in the code for the rectangle to "110". He saves the file and refreshes
+ the web page to view the changes. The rectangle has separated out from 
+the circle a bit but is still overlapping it.</em>
+<br><br>
+<strong></strong>
+So what I want to do is show you transparency. So here we're going to use the <code>opacity</code>
+ attribute and it's always a decimal value. So if we wanted to make that
+ 50% opaque or 50% transparent, we click and we see the color of that 
+has changed. Now it isn't really appearing what happened there because 
+the square is on top of the circle. But I'm going to go to the <code>rect</code> because it's on top of the circle and change the <code>opacity</code>; I'm going to make that, say, <code>"0.4"</code>. We don't really need this <code>0</code> in there but I'd like to put it in anyway. <strong>Save</strong> that and <strong>Refresh</strong>
+ and there is our transparency. So it's fairly easy to use. The syntax 
+is quite similar to CSS except instead of using a colon you're using an 
+equal sign, and then you're putting the value inside quotation marks. 
+And you could just as easily do a <code>style</code> here. So I could do this, I could do <code>style="opacity</code>,
+ you'll have to change this to a colon, get rid of...or actually I'm 
+going to keep that closing quotation mark, put a semicolon in there. And
+ suddenly we have created an inline <code>style</code> that we could have just as easily created in the style sheet. And <strong>Refresh</strong> that page; we see it hasn't changed anything so it does work exactly the same. I'll change the value a bit to <code>0.7</code> and there you can see we have altered the <code>opacity</code> again. So you can use that to create a number of interesting effects in HTML5 using Scalable Vector Graphics. <br>
+<em>In the code for the circle, the presenter specifies the opacity 
+attribute as "0.5". Then he saves the file and refreshes the web page to
+ view the changes. The blue color of the circle changes due to the 50 
+percent opacity specified. Next, in the code for the rectangle, he 
+specifies the opacity attribute as "0.4". He saves the file and 
+refreshes the web page to view the changes. The magenta color of the 
+rectangle lightens and the rectangle looks 40 percent transparent. The 
+part of the circle that was overlapped by the rectangle is now a bit 
+visible. In the code for the rectangle, the presenter adds the style 
+attribute and specifies opacity in it. Therefore, the code now reads 
+"&lt;rect x="80" y="0" width="150" height="150" fill="#ff00ff" 
+style="opacity: 0.4;" /&gt;". He saves the file and refreshes the web 
+page, but nothing changes in the output. Therefore, the presenter 
+changes the value of opacity to "0.7" in the style attribute. He again 
+saves the file and refreshes the web page to view the changes. The 
+rectangle is less opaque now.</em>
+</p>
+</div>
+</div>
+
+
+</body></html>

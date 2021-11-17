@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="Defensive Coding Fundamentals for JavaScript and HTML5 Transcript">
+<title>Defensive Coding Fundamentals for JavaScript and HTML5 Transcript</title>
+</head>
+<body>
+<h1>Defensive Coding Fundamentals for JavaScript and HTML5</h1>
+<p>Defensive programming is a methodology for writing code that is not 
+prone to present or future errors caused by unexpected user inputs or 
+actions. Explore defensive programming for JavaScript and HTML5, 
+including an introduction to testing.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#fe198c4f-e4cb-11e6-8282-0242c0a80a04">Potential Software Risks in JavaScript and HTML5</a></li>
+<li><a href="#fe198c51-e4cb-11e6-8282-0242c0a80a04">Why Do Risks Exist in JavaScript and HTML5?</a></li>
+<li><a href="#fe198c53-e4cb-11e6-8282-0242c0a80a04">Browser Security for JavaScript and HTML5</a></li>
+<li><a href="#fe19b351-e4cb-11e6-8282-0242c0a80a04">Preventive Planning in &nbsp;JavaScript and HTML5</a></li>
+<li><a href="#fe19b353-e4cb-11e6-8282-0242c0a80a04">Using Escape in HTML5 and JavaScript</a></li>
+<li><a href="#fe19b355-e4cb-11e6-8282-0242c0a80a04">Cross-Origin Resource-Sharing Policy</a></li>
+<li><a href="#fe19b357-e4cb-11e6-8282-0242c0a80a04">Event Handlers &nbsp;and Untrusted Data</a></li>
+<li><a href="#fe19b359-e4cb-11e6-8282-0242c0a80a04">Securing Web Storage in JavaScript and HTML5</a></li>
+<li><a href="#fe19b35b-e4cb-11e6-8282-0242c0a80a04">Securing Web Messaging in JavaScript and HTML5</a></li>
+<li><a href="#fe19b35d-e4cb-11e6-8282-0242c0a80a04">Introduction to Testing</a></li>
+<li><a href="#fe19b35f-e4cb-11e6-8282-0242c0a80a04">Cross-Browser Testing for &nbsp;JavaScript and HTML5</a></li>
+<li><a href="#fe19b361-e4cb-11e6-8282-0242c0a80a04">Writing Testable Code for JavaScript and HTML5</a></li>
+<li><a href="#fe19b363-e4cb-11e6-8282-0242c0a80a04">Unit Tests for JavaScript and HTML5</a></li>
+<li><a href="#fe19da61-e4cb-11e6-8282-0242c0a80a04">Defensible Methods in &nbsp;JavaScript and HTML5</a></li>
+<li><a href="#fe19da63-e4cb-11e6-8282-0242c0a80a04">Parameters and Return Values &nbsp;in JavaScript and HTML5</a></li>
+<li><a href="#fe19da65-e4cb-11e6-8282-0242c0a80a04">Variables in JavaScript and HTML5</a></li>
+<li><a href="#fe19da67-e4cb-11e6-8282-0242c0a80a04">Using Null Values in JavaScript and HTML5</a></li>
+<li><a href="#fe19da69-e4cb-11e6-8282-0242c0a80a04">If and Switch Statements in JavaScript and HTML5</a></li>
+</ol></div>
+<div>
+<h2 id="fe198c4f-e4cb-11e6-8282-0242c0a80a04">
+Potential Software Risks in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+As I am sure you're aware, HTML5 was a fantastic update to the HTML 
+standard, and when coupled with JavaScript, it provides a very robust 
+and flexible platform for developing web applications, but there are 
+potential risks. There is always the potential for bad data. There is 
+also the potential for poor error handling, and that can be particularly
+ significant for JavaScript developers. It is frequently the case that 
+JavaScript developers don't even use error handling at all. You also 
+have the potential for usability issues. It's important that your 
+program be easy to use. That not only makes it more user-friendly, but 
+by controlling the users flow through activities, you reduce risk; you 
+reduce the chance of them doing actions out of order, entering bad data,
+ that sort of thing. There is also the issue of poor runtime 
+performance. Given that you have no idea what sort of connectivity the 
+end user might have to the web, you need to ensure that your 
+application, your web page is as performance-oriented as possible. There
+ is, of course, the potential for security vulnerabilities any web 
+application is publicly facing. That indicates that any number of users 
+might attempt any sort of attack and you need to be aware of this. 
+Injection attacks are particularly common on web pages. We also have the
+ issue of denial-of-service and even insecure communications. <br><br>
+<strong></strong>
+There are some specific areas that generate risks. One of those is 
+shared hosting. It's usually the case that web sites are often hosted on
+ a shared platform via a hosting company. That can present risks of its 
+own. Messaging is a common way that web sites communicate. This also can
+ present an attack vector for a bad guy to use to attempt to hijack your
+ communications. Clickjacking is a very common web site attack, wherein 
+the attacker attempts to get the user to click something other than they
+ intended to and usually direct them to a phishing site, downloading 
+malware, that sort of thing. Cross-site scripting can be a very powerful
+ attack, but we'll show you how to prevent that. CORS and CSRF are 
+basically techniques that are used by attackers. Cross-Site Request 
+Forgery and Cross-Origin Resource Sharing, these allow the attacker to 
+exploit weaknesses in the HTTP protocol. <br><br>
+<strong></strong>
+There is also the issue of browser security issues. There are a number 
+of browsers available: Internet Explorer, Firefox, Chrome, Safari, 
+Opera. You have no idea which one the user might be using, but you have 
+to be aware of security issues. The Document Object Model combined with 
+cross-site scripting also has a significant risk. Plugins are very 
+common. There are many, many plugins available for web browsers; each of
+ those can pose a security risk. Of course, you're going to store the 
+data somewhere, and that web storage is another place that can be 
+vulnerable to attack. WebSockets and Web workers are specific APIs you 
+can use. For example, Web workers allow you to spot background scripts 
+in your application. All of these are potential risks for JavaScript and
+ HTML, and you need to be addressing them when you're developing your 
+web application. </p>
+</div>
+</div>
+<div>
+<h2 id="fe198c51-e4cb-11e6-8282-0242c0a80a04">
+Why Do Risks Exist in JavaScript and HTML5?
+</h2>
+<div><p>
+<strong></strong>
+Why do risks exist in JavaScript and HTML5? At this point, you're well 
+aware that there are several risks, but how do they happen? One major 
+reason is the programs often rely on data from some external source. The
+ most obvious such example are end users. It's certainly possible and, 
+in fact, one might say common for an end user to put data into a field 
+in inappropriate size, not the appropriate data type, any number of bad 
+data entries can occur. It's also possible that your web application 
+derives data from databases or web services; any of these can be a 
+source of bad data, and bad data can lead to problems. Poor input 
+validation is a real major problem. As a basic rule, any time data is 
+input into your system, you must check it. If there is a failure to 
+account for and handle errors properly, this can also be the source of 
+risks. As I had mentioned in a previous video, it's all too common for 
+JavaScript programmers to either give minimal or, in some cases, no 
+error handling at all. That's something you have to address. And again, 
+you have to implement proper software design. It's not enough that you 
+be a skilled and talented programmer, you also have to be good at 
+designing software. And it's important that before you write any code, 
+regardless of the type of application or the language being used that 
+you fully design your code. <br><br>
+<strong></strong>
+And I realize that sometimes design gets shortchanged due to issues 
+beyond the programmer's control, things like time and budget 
+constraints, but as much as possible, you need to implement good 
+software design. Failure to check the origins of data or the origins of 
+redirect commands, any time information is coming to your application in
+ any format, find out where it came from. Local storage is not used 
+enough. It's not just cookies; there are APIs that will enable you to 
+store data locally. If you store it locally in the end user's machine 
+and the end user is the only one that has access to it, that's one 
+reason that can help alleviate some security risks. There are certain 
+aspects of HTML5, such as the <code>&lt;canvas&gt;</code> and <code>&lt;video&gt;</code>
+ tags that were meant to support multimedia. Unfortunately, these also 
+provide an entirely new attack vector, so they can increase the chance 
+of an attack. Cross-origin JavaScript request, in other words, a 
+JavaScript command that come from a different site that's crossing 
+domains, that's a very significant risk. </p>
+</div>
+</div>
+<div>
+<h2 id="fe198c53-e4cb-11e6-8282-0242c0a80a04">
+Browser Security for JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+Defensive coding for JavaScript and HTML5, it's also referred to as 
+"secure" coding. The bottomline is you're attempting to make sure that 
+your application is going to continue functioning even if something you 
+couldn't foresee occurs. This might mean an error occurs; it might mean 
+an actual attacker is attempting to exploit your application. Whether 
+the adverse or unforeseen circumstance is intentional and malicious on 
+the part of an attacker or it's simply a common error, either way your 
+software should continue to function. One of the ways you do this is to 
+assume mistakes will be made. Assume that users will enter bad data. 
+Assume that there will be some sort of attack attempted. Assume the 
+worst basically, and then you try to plan for that and write your code 
+so as to prevent or at least ameliorate those issues. You also need to 
+make sure that errors are not simply masked. Error handling should 
+reveal to the end user at least that some error occurred. Even if you 
+have a mechanism to correct and move on, at least let the user know 
+something is happening. And certainly give consideration to logging 
+errors with some extensive logging information. All of these make sure 
+that the errors are visible so that someone can be aware of them and 
+eventually they can be dealt with. <br><br>
+<strong></strong>
+There are some basic strategies that should guide your defensive 
+programming approach. First of all, be wary of input. Whether that input
+ is coming from a database you're reading, users typing data into a text
+ field, or a web server supplying you with data, assume that the data is
+ likely to come to you in the incorrect format, incorrect data type, or 
+incorrect size, and account for that. Yes, you plan for success, but you
+ do that by expecting problems and addressing them. There are many 
+errors that you can anticipate. A user entering text or strings when 
+they should have entered digits, someone trying to put in a zero so that
+ you divide by zero, all of these and many, many others are foreseeable 
+errors. If you can stop that before it even happens, then you can make a
+ much more defensive application. And by stopping it before it happens, I
+ mean controlling the flow of data and the input so that there is not 
+even an error that you need to track. <br><br>
+<strong></strong>
+You need to develop clean code, readable code. Certainly, your program 
+will execute the same, whether your JavaScript and HTML is clean and 
+well-written or not. However, it's going to be so much easier to debug, 
+to test, and to look for security issues if it's clean, well-written 
+code. Test early and test often, this should be a mantra for you. When 
+you've completed a single JavaScript function, test it. When you've 
+completed an entirely functional module that may include HTML5 front-end
+ and some JavaScript functions, test that module. When your entire web 
+application is done, test that application. Testing, testing, testing. 
+And be sure to perform cross-browser checks. Just because your 
+application runs great in your favorite browser, it doesn't mean that's 
+the browser your end user will be using. One of the most common issues I
+ see with web applications is when they function really well in one 
+particular browser but have glitches or issues in other browsers. You 
+need to at least check the major ones: Internet Explorer, Mozilla 
+Firefox, Google Chrome, and Apple Safari. Those four browsers are so 
+common that your application must work in those. You may also choose to 
+check on some of the less known browsers like Opera but at least those 
+four. </p>
+</div>
+</div>
+<div>
+<h2 id="fe19b351-e4cb-11e6-8282-0242c0a80a04">
+Preventive Planning in &nbsp;JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+One important aspect of defensive programming is preventative planning. 
+Preventative planning means you're designing your code, you're planning 
+your code in such a way that you prevent many problems, and there are a 
+lot of problems, and security risks, and issues that can be addressed by
+ proper design. But what do we mean by proper design? One of the best 
+things you can implement is an iterative design process. That 
+essentially means that you design the basic functionality, then you 
+review that design, and expand the design. Often cases, when you're 
+reviewing the design, you get the input of stakeholders, perhaps other 
+developers, that sort of thing, and you keep going through the design 
+process in an iterative fashion until you have a fully functional, 
+ready-to-go design, and you do this before you write the code. 
+Unfortunately, in the real world, design often gets shortchanged, and 
+that's probably the basis for a number of software flaws that we see in 
+the real world. It's also a good idea to use pseudo code before actually
+ writing any code. Now I don't mean that you have to write pseudo code 
+for every single function. But if you're creating a JavaScript function,
+ for example, that has some core functionality to your web application 
+or perhaps it's something new you haven't done before, will require some
+ sort of complex programming launch. <br><br>
+<strong></strong>
+In any of these cases, it's a good idea to write out pseudo code and 
+review that pseudo code to make sure you're fully implementing the 
+algorithms and logic necessary before you write the actual code. And of 
+course, you want to avoid using any code that's known to be prone to 
+vulnerabilities. There are certain libraries and APIs that are known to 
+be vulnerable. When I say avoid, I don't say completely forbid yourself 
+from using them. It's entirely possible that you may be in a situation 
+where you have no choice. But whenever possible, avoid using any code 
+that's prone to vulnerability. Utilize test cases wherever possible. 
+When you're planning and testing your application, your web application,
+ you need to have specific test cases in order to guide your planning as
+ well as your related testing. Perform inspections. Someone needs to 
+look at the code, literally read parts of it, and I know with very large
+ web applications, reading the entire thing may not be practical. 
+However, it is certainly possible to perform spot checks to read key 
+functions and to actually look and see if all the code is done properly.
+ And it's usually best if someone other than the original programmer 
+does this. <br><br>
+<strong></strong>
+All programmers are familiar with this scenario, wherein you've looked 
+at code for hours and you can't see the problem, but someone else takes a
+ glance at it with a fresh perspective and they immediately see the 
+problem. That's why someone other than the original programmer should do
+ those code inspections. Definitely use proper error handling 
+techniques. It's really hard to overstress just how important good error
+ handling is for any application, including web applications. Always 
+validate input. Proper input validation will actually stop cold many 
+attacks like cross-site scripting and SQL injection and will ameliorate 
+many other issues. Plan for proper and secure storage of data. Once 
+you've taken in data, where and how will you store it? Should you 
+encrypt it? Is there a good authentication to prevent unwanted, 
+unauthorized parties from accessing the data? Lots of issues to be 
+addressed there, but make sure you're planning for proper and secure 
+storage of the data. </p>
+</div>
+</div>
+<div>
+<h2 id="fe19b353-e4cb-11e6-8282-0242c0a80a04">
+Using Escape in HTML5 and JavaScript
+</h2>
+<div><p>
+<strong></strong>
+The <code>escape</code> function, it's been in JavaScript for a very 
+long time and it was considered very, very useful to a number of 
+programmers before it was deprecated in JavaScript version 1.5. Here is 
+the issue. There are certain characters that, if you put into a string, 
+have specific meaning. They mean something in HTML, or they mean 
+something in JavaScript, or they terminate a string or something of that
+ nature, but in some cases, those same characters need to be passed to a
+ target web site. For example, if you're searching an <code>asp</code> or PHP site, and you need to pass along certain symbols, such as the ampersand or percent sign, well, the <code>escape</code> function allowed you to essentially replace characters with their hexadecimal <code>escape</code>
+ sequence. It works just fine, very useful. Now it turns out that a lot 
+of programmers were overusing this in places it wasn't necessary, using 
+it inappropriately, but worse than all of those issues, it was possible 
+for an attacker to use the <code>escape</code> function as part of 
+cross-site scripting. Now there're certain characters that are used in 
+certain attacks, and one can program an intrusion detection system or an
+ application firewall to seek these out and to block them. So to hide 
+those, some attackers were using cross-site scripting and using the <code>escape</code> function to mask some of these sorts of characters in their attack. <br>
+<em>The Microsoft Visual Studio window is displayed. The menu bar 
+includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area in the window includes the 82756 Correct use of escape
+ function.htm tabbed page. This tabbed page is open and includes the 
+following code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82756 Correct Use of Escape function&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>function EscapeFunction()<br>{<!-- --><br>//The
+ deprecated escape() method computes a new string in which certain 
+characters have been replaced by a hexadecimal escape sequence<br>// encodes a string The escape() function was deprecated in JavaScript version 1.5.<br>document.write(escape("This is just a normal string? does not really need escape!"));<br>// alternatives to escape<br>var uri = "mytest.php?name=sales&amp;car=sedan";<br>var res = encodeURI(uri);<br>var uri = "http://somesite.com/mytest.asp?name=sales&amp;car=sedan";<br>var res = encodeURIComponent(uri);<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY BGCOLOR=White&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;<br><br>The presenter explains the above code.</em>
+<br><br>
+<strong></strong>
+Well, with the advent of JavaScript 1.5, the <code>escape</code> 
+function was deprecated. First and foremost, it will still work in those
+ browsers. When JavaScript deprecates a function, it doesn't go away 
+immediately. In fact...usually have quite a few years before it will no 
+longer be supported. However, they're deprecated for a reason. We've 
+just described the reason for this <code>escape</code> function being 
+deprecated and eventually new browsers will see supporting it. There are
+ some alternatives. Since it was meant specifically for passing values 
+to <code>uri</code>, we have <code>encodeURI</code>, which encodes Uniform Resource Identifier. That's pretty much the same thing as <code>escape</code> did, specifically with uniform resource indicators; <code>encodeURI</code> component does essentially the same thing with parts of the <code>uri</code>. Both of these are what are recommended for use with modern JavaScript. <br>
+<em>The 82756 Correct use of escape function.htm tabbed page is open in 
+the Microsoft Visual Studio window. The presenter highlights and 
+explains the following code from the tabbed page:<br><br>var res = encodeURI(uri);</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19b355-e4cb-11e6-8282-0242c0a80a04">
+Cross-Origin Resource-Sharing Policy
+</h2>
+<div><p>
+<strong></strong>
+Cross-origin request are nothing new, but the support for them and the 
+robust functionality is new. In the past, a cross-origin request was 
+relatively simple. It literally means to request some resource from a 
+different origin, a different domain, a different server, a different 
+web site. And in the past, this was kept to a minimum. Essentially you 
+might request a particular font from a different origin, a different 
+domain. You might request a particular image or media file. Later on it 
+became common place to have JavaScript files that might exist on a 
+different server that you request. Well, as we've expanded the 
+cross-origin request and expanded that to more and more data, it seemed 
+prudent to add in some more functionality, in fact some more security. 
+Let's look at three methods to do this. Each one progressively a little 
+more complex, but also a little more robust. This first one is your 
+simplest, <code>callOtherDomain()</code>. All we're going to do is create this <code>invocation</code> object and <code>open</code> whatever <code>url</code> this is passing it a <code>'GET'</code>
+ method. And then we're prepared to handle any sort of state changes and
+ send our request. Now this is terribly simple, easy to understand, but 
+it lacks quite a few things. For example, it doesn't handle credentials.
+ <br>
+<em>The Microsoft Visual Studio window is displayed. The menu bar 
+includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area in the window includes the 82757 CORS.htm tabbed page.
+ This tabbed page is open and includes the following code:<br><br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82757 CORS&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>var invocation = new XMLHttpRequest();<br>var url = 'http://test.com/resources/public-data/';<br>function callOtherDomain()<br>{<!-- --><br>if(invocation) {<!-- --><br>invocation.open( 'GET' , url, true);<br>invocation.onreadystatechange = handler;<br>invocation.send();<br>}<br>}<br>var invocation = new XMLHttpRequest();<br>var url = 'http://test.com/resources/credentialed-content/';<br>function callOtherDomainWithcredentials()<br>{<!-- --><br>if(invocation) {<!-- --><br>invocation.open( 'GET', url, true);<br>invocation.withCredentials = true;<br>invocation.onreadystatechange = handler;<br>invocation.send();<br>}<br><br>The presenter highlights and explains the following code:<br><br>function callOtherDomain()<br>{<!-- --><br>if(invocation) {<!-- --><br>invocation.open( 'GET' , url, true);<br>invocation.onreadystatechange = handler;<br>invocation.send();<br>}<br>}</em>
+<br><br>
+<strong></strong>
+What if the domain I'm requesting a resource from demands that I supply 
+some sort of authentication before giving me that resource? And in fact 
+that's highly recommended from a security perspective. There's really 
+not a good reason for your servers to be handing out resources, data, 
+media files, or whatever to anyone who can't be authenticated. So let's 
+expand that method just a little bit and look at <code>callOtherDomainWithCredentials()</code>. It looks exactly the same as what we had before. We <code>open</code> the <code>url</code> with a <code>'GET'</code>, but we say <code>withCredentials</code> <code>=</code> <code>true;</code>
+ the rest is all the same. Now we will either send credentials along or 
+the server is going to prompt us to enter credentials. But that still 
+doesn't handle another issue. What if the browser either doesn't support
+ cross-origin request or supports them in a different way? Well, let's 
+look at this <code>function</code> <code>betterCORSRequest</code>, so named because it's the preferred way to do this. First we're going to create an <code>XMLHttpRequest()</code> object and we're simply going to ask does this object indicate that it should be done with credentials? If so, then let's <code>open</code> our request and notice here I didn't hard code <code>GET</code>, I used <code>method</code>. This function is more flexible. You could pass in a <code>GET</code> or <code>POST</code> or any HTTP method you like. Pass in the <code>url</code> you'd like to connect to and yes, we would like to do this with credentials. <br>
+<em>The 82757 CORS.htm tabbed page is open in the Microsoft Visual 
+Studio window. The presenter highlights and explains the following code:<br><br>function callOtherDomainWithcredentials()<br>{<!-- --><br>if(invocation) {<!-- --><br>invocation.open( 'GET', url, true);<br>invocation.withCredentials = true;<br>invocation.onreadystatechange = handler;<br>invocation.send();<br>}<br><br>He then scrolls down the tabbed page and the following code is displayed below the invocation.send (); } code statement:<br><br>// this one checks to see if CORS is supported<br>function betterCORSRequest(method, url)<br>{<!-- --><br>var xhr = new XMLHttpRequest();<br>if ("withCredentiais" in xhr)<br>{<!-- --><br>xhr.open(method, url, true);<br>}<br>else if (typeof XDomainRequest != "undefined")<br>{<!-- --><br>// Otherwise, check if XDomainRequest.<br>// XDomainRequest only exists in lE, and is IE's way of making CORS requests.<br>xhr = new XDomainRequest();<br>xhr.open(method, url);<br>}<br>else<br>{<!-- --><br>xhr = null;<br>}<br>return xhr;<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY BGCOLOR=White&gt;<br><br>He then explains the above code.</em>
+<br><br>
+<strong></strong>
+Well, maybe it wasn't credentials. Well, it just so happens that 
+Internet Explorer has its own way of making CORS request and that's an <code>XDomainRequest</code> object. So if we're not doing this with credentials, the next question is, is the <code>XDomainRequest</code> <code>!=</code> <code>"undefined"</code>. In other words, is this particular object being used? So are we in Internet Explorer? If so, then let's use that to <code>open</code> a <code>method</code> and a <code>url</code>. Now if none of these have passed, let's set our object to <code>null</code>
+ and essentially indicate to the calling function that this particular 
+browser can't support a cross-object request. So there you have it; 
+three different methods for cross-object request. I highly recommend you
+ take this last one and modify it to suit your needs. <br>
+<em>The 82757 CORS.htm tabbed page is open in the Microsoft Visual 
+Studio window. The presenter continues to explain the code in the 
+function betterCORSRequest.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19b357-e4cb-11e6-8282-0242c0a80a04">
+Event Handlers &nbsp;and Untrusted Data
+</h2>
+<div><p>
+<strong></strong>
+The Document Object Model has several events, some of which I'm certain you've used in the past. For example, the <code>onClick</code>
+ event is often called when a user clicks a button, and you've probably 
+worked with that in the past, executing your JavaScript code in response
+ to a button being clicked. There's also, of course, the <code>onLoad</code> event, which is often associated with the loading of the web page, <code>onChange</code> event, which can be associated with the text field as the text field changes. And of course, <code>onMouseOver</code>, <code>onKeyDown</code>,
+ all of these events are available to you. But I'm going to suggest two 
+new ways to use events in your JavaScript code. The first is data 
+validation. So let's scroll down just a little bit and take a look at 
+what we have here. You can see in the code that we have two forms. Right
+ now, we're going to focus on the second <code>FORM</code>. It simply has four fields: <code>First</code> <code>name</code>, <code>Last</code> <code>name</code>, <code>Age</code>, and <code>Job</code>. Presumably, a user, who is an employee, will fill this out and click <code>"Submit"</code>.
+ Now at some point in a real application, you will do something with 
+that data, perhaps write it to persistent storage, perhaps e-mail it to 
+someone. Who knows? Whatever your application demands. But the real 
+issue is you should probably validate the data before you send it. Now 
+you can choose to do that validation within the function that writes it 
+to permanent storage or within the function that e-mails it. <br>
+<em>The Visual Studio window is displayed. The menu bar includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area includes the 82758 Event Handlers and Untrusted 
+Data.htm tabbed page. This tabbed page is open and includes the 
+following code:<br><br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82758 Event Handlers and Untrusted Data&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>// assign user-defined function to intercept errors<br>window.onerror = myOnError<br>// create array to hold error messages<br>messageArray = new Array(0)<br>// create array to hold URLs of errors<br>urlArray = new Array(0)<br>// create array to hold line numbers of errors<br>lineNumberArray = new Array(0)<br>// error-intercepting function<br>function myOnError(msg, url, lno)<br>{<!-- --><br>// assign message of current error to the array element following the last element<br>messageArray[messageArray.length] = msg<br>// assign URL of current error to the array element following the last element<br>urlArray[urlArray.length] = url<br>// assign line number of current error to the array element following the last element<br>lineNumberArray[lineNumberArray.length] = lno<br>// return true to intercept JavaScript errors<br>return true<br>}<br>function displayErrors()<br>{<!-- --><br>// open new browser window to report errors<br>errorWindow = window.open('','errors','scrollbars=yes')<br>// write header to window<br>errorWindow.document.write('&lt;B&gt;Error Report&lt;/B&gt;&lt;P&gt;')<br>// loop to print all error data<br>for (var i = 0; i &lt; messageArray.length; ++i) {<!-- --><br>errorWindow.document.write('&lt;B&gt;Error in file:&lt;/B&gt; ' +<br>urlArray[i] + '&lt;BR&gt;')<br>errorWindow.document.write('&lt;B&gt;Line number:&lt;/B&gt; ' +<br>lineNumberArray[i] + '&lt;BR&gt;')<br>errorWindow.document.write('&lt;B&gt;Message:&lt;/B&gt; ' +<br>messageArray[i] + '&lt;P&gt;')<br>}<br>// close data stream<br>errorWindow.document.close()<br>}<br><br>The presenter scrolls down the tabbed page and the following code is displayed:<br><br>function onClick()<br>{<!-- --><br>//validation code goes here<br>var datatocheck;<br>datatocheck= document.getElementById("age")<br>try<br>{<!-- --><br>if(datatocheck== "")<br>throw "empty";<br>if(isNaN(datatocheck))<br>throw "not a number";<br>if(datatocheck &lt; 18)<br>throw "too low";<br>if(datatocheck &gt; 100)<br>throw "too high";<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;FORM&gt;<br>&lt;INPUT TYPE="button" onClick="displayErrors()" VALUE="display errors"&gt;<br>&lt;/FORM&gt;<br>&lt;FORM id="empldatafrm"&gt;<br>First name: &lt;input type="text" name="fname" value="Smith" /&gt;&lt;br /&gt;<br>Last name: &lt;input type="text" name="lname" value="John" /&gt;&lt;br /&gt;<br>Age: &lt;input type="text" name="age" value="30" /&gt;&lt;br /&gt;<br>Job: &lt;input type="text" name="job" value="Programer" /&gt;&lt;br /&gt;&lt;br /&gt;<br>&lt;input type="submit" value="Submit" /&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br><br>He highlights the following:<br><br>&lt;FORM id="empldatafrm"&gt;<br>First name: &lt;input type="text" name="fname" value="Smith" /&gt;&lt;br /&gt;<br>Last name: &lt;input type="text" name="lname" value="John" /&gt;&lt;br /&gt;<br>Age: &lt;input type="text" name="age" value="30" /&gt;&lt;br /&gt;<br>Job: &lt;input type="text" name="job" value="Programer" /&gt;&lt;br /&gt;&lt;br /&gt;<br>&lt;input type="submit" value="Submit" /&gt;<br>&lt;/FORM&gt;</em>
+<br><br>
+<strong></strong>
+But a better approach is to validate the data the moment it is entered. This is a great place to use either <code>onChange</code> or <code>onClick</code>. The problem with <code>onChange</code> is as each user types in a character, it's going to validate with each and every character; <code>onClick</code> is only going to validate when they click the <code>"button"</code>. Now in this case, we're just going to validate one of the fields as an example. We'll grab the <code>"age"</code> and we'll check. Is it blank? That's a problem. Is it <code>"not</code> <code>a</code> <code>number"</code>?
+ That's also an issue. Is it within the range we've determined in 
+advance? If not, we have an issue. The real point here is not what we're
+ validating nor even how we're validating it but rather when we're 
+validating it as soon as the <code>"button"</code> is clicked. There's 
+another way to use events that you may not have seen previously. In this
+ case, it's a little more complex. I'm going to create my own error 
+handler for errors that occur within this entire <code>window</code>, any error that occurs in a <code>window</code>, whether it comes from my web application or not. I'm going to create an <code>Array</code> that's simply meant to hold those error messages, and an <code>Array</code> to handle the URLs that are the source of the errors, and an <code>Array</code> to give me a line number, so I have three arrays. <br>
+<em>The 82758 Event Handlers and Untrusted Data.htm tabbed page is open 
+in the Visual Studio window. The presenter highlights the following:<br><br>var datatocheck;<br>datatocheck= document.getElementById("age")<br>try<br>{<!-- --><br>if(datatocheck== "")<br>throw "empty";<br>if(isNaN(datatocheck))<br>throw "not a number";<br>if(datatocheck &lt; 18)<br>throw "too low";<br>if(datatocheck &gt; 100)<br>throw "too high";<br>}<br><br>He then highlights the following:<br><br>// assign user-defined function to intercept errors<br>window.onerror = myOnError<br>// create array to hold error messages<br>messageArray = new Array(0)<br>// create array to hold URLs of errors<br>urlArray = new Array(0)<br>// create array to hold line numbers of errors<br>lineNumberArray = new Array(0)</em>
+<br><br>
+<strong></strong>
+When an error occurs, I take the <code>msg</code>, I put it in my <code>messageArray</code>; I take the <code>url</code>, I put it in my <code>urlArray</code>; I take the <code>lno</code>, put it in my <code>lineNumberArray</code>.
+ So I'm storing each error as it occurs. And I have set no artificial 
+limit in advance as to how many errors I can have. At any point, I click
+ the <code>"button"</code> and that's the second <code>FORM</code> we had, right here, there's a "button" <code>onClick="displayErrors()"</code>. It will go get this <code>function</code> and execute it. That <code>function</code> creates a new <code>window</code>, which gives me a complete <code>Error</code> <code>Report</code>. Now this is a wonderful little <code>function</code>,
+ particularly in the debugging phase of your web application. I haven't 
+seen it live in many web pages, so it's obviously not that commonly 
+known and used. I hope you will find it useful. Let's recap. You can use
+ events either as data validation, and we saw here this example I am 
+highlighting now with <code>onClick()</code>, or you could literally 
+create your own global error handler using your own events. In either 
+case, event handling will allow you to handle untrusted data, either 
+validating it in advance or recording errors after they have occurred. <br>
+<em>The 82758 Event Handlers and Untrusted Data.htm tabbed page is open 
+in the Visual Studio window. The presenter highlights the following:<br><br>function myOnError(msg, url, lno)<br>{<!-- --><br>// assign message of current error to the array element following the last element<br>messageArray[messageArray.length] = msg<br>// assign URL of current error to the array element following the last element<br>urlArray[urlArray.length] = url<br>// assign line number of current error to the array element following the last element<br>lineNumberArray[lineNumberArray.length] = lno<br><br>He then highlights the following:<br><br>&lt;INPUT TYPE="button" onClick="displayErrors()" VALUE="display errors"&gt;<br>function displayErrors()<br>{<!-- --><br>// open new browser window to report errors<br>errorWindow = window.open('','errors','scrollbars=yes')<br>// write header to window<br>errorWindow.document.write('&lt;B&gt;Error Report&lt;/B&gt;&lt;P&gt;')<br>// loop to print all error data<br>for (var i = 0; i &lt; messageArray.length; ++i) {<!-- --><br>errorWindow.document.write('&lt;B&gt;Error in file:&lt;/B&gt; ' +<br>urlArray[i] + '&lt;BR&gt;')<br>errorWindow.document.write('&lt;B&gt;Line number:&lt;/B&gt; ' +<br>lineNumberArray[i] + '&lt;BR&gt;')<br>errorWindow.document.write('&lt;B&gt;Message:&lt;/B&gt; ' +<br>messageArray[i] + '&lt;P&gt;')<br>}<br>// close data stream<br>errorWindow.document.close()<br>}<br><br>Next he highlights the following:<br><br>function onClick()<br>{<!-- --><br>//validation code goes here<br>var datatocheck;<br>datatocheck= document.getElementById("age")<br>try<br>{<!-- --><br>if(datatocheck== "")<br>throw "empty";<br>if(isNaN(datatocheck))<br>throw "not a number";<br>if(datatocheck &lt; 18)<br>throw "too low";<br>if(datatocheck &gt; 100)<br>throw "too high";<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19b359-e4cb-11e6-8282-0242c0a80a04">
+Securing Web Storage in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+Storing data has been a problem for web developers for a very long time.
+ We have two issues: we have persistently storing data; and storing 
+session data. Let's talk about persistent first. The traditional 
+mechanism has been to store data as a cookie. Unfortunately, there are a
+ lot of problems with that. To begin with, cookies get sent along with 
+requests; they slow things down; they're limited in storage size; and 
+there are quite a few ways attackers have developed to compromise 
+cookies. Next we have storing session information. Unfortunately, the 
+HTTP protocol does not inherently maintain state information. So if 
+you'd like to maintain some piece of data as a user transverses from one
+ web page to another within your overall web application, you have to 
+store that data somehow. Unfortunately many of the methods that 
+programmers have come up with are very insecure. For example, storing 
+data in session variables that can be seen in the URL, that's very 
+insecure. Fortunately, HTML5 has brought us a whole new set of methods 
+that we can use. Let's look first of all at persistent storage. You have
+ something called <code>localStorage</code>, which allows you to set a 
+particular item. Now in this case in our example, I'm going to scroll 
+down here just a little bit, shift our focus just a little bit further 
+down. <br>
+<em>The Visual Studio window is displayed. The menu bar includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area includes the 82759 Secure Web Storag.html tabbed page.
+ This tabbed page is open and includes the following code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82759 Secure Web Storage&lt;/TITLE&gt;<br>function setSettings()<br>{<!-- --><br>if ('localStorage' in window &amp;&amp; window['localStorage'] !== null)<br>{<!-- --><br>var backcolor= document.getElementById('backcolor').value;<br>var fontsz= document.getElementById('fontsz').value;<br>localStorage.setItem('bgcolor', backcolor);<br>localStorage.fontweight = fontsz;<br>}<br>else<br>{<!-- --><br>alert('Cannot store user preferences as your browser do not support local storage');<br>}<br>}<br>function applySetting()<br>{<!-- --><br>document.body.style.backgroundColor = localStorage.getItem('backcolor');<br>document.body.style.fontSize = localStorage.fontweight + 'px';<br>document.getElementById('favcolor').value = localStorage.bgcolor;<br>document.getElementById('fontwt').value = localStorage.fontweight;<br>}<br>function sessionStorage()<br>{<!-- --><br>//methods are setItem,getItem,clear,removeitem, and key<br>// sessionStorage.setItem('someKey','someValue');<br>sessionStorage.setItem("username", "jsmith"); //name is the key, jsmith is the value<br>}<br><br>The presenter scrolls down the tabbed page and the following is displayed:<br><br>&lt;form onsubmit="javascript:setSettings()"&gt;&lt;label&gt;Seelct your background color: &lt;/label&gt;<br>&lt;input id="backcolor" type="color" value="#ffffff" /&gt;<br>&lt;label&gt;Select FOnt Size: &lt;/label&gt;<br>&lt;input id="fontsz" type="number" max="14" min="10" value="13" /&gt;<br>&lt;input type="submit" value="Save" /&gt;<br>&lt;input onclick="clearSettings()" type="reset" value="Clear" /&gt;<br>&lt;/form&gt;</em>
+<br><br>
+<strong></strong>
+I have a simple web form that allows the user to select a background color and a font size. Now later, we will call <code>setSettings()</code> and store that in local storage and it's as simple as calling the <code>setItem</code>
+ method, the key and the value I want to store. So everything is stored 
+as a key-value pair. If I wish to retrieve that later, I call this 
+function, which calls <code>getItem</code>, calls the key, and it's 
+going to return back the value. So it's pretty simple, pretty 
+straightforward and a great alternative to cookies. But what about 
+session storage? You no longer have to store things in URLs and that 
+sort of thing. There's literally an object called the <code>sessionStorage</code> object. It also works as a key-value pair. You can store any value you like there. So in this case, I'm storing <code>"username"</code>, <code>"jsmith"</code>.
+ Now there have been various programming languages like ASP and ASP.NET 
+that provide their own session information to allow you to store session
+ variables. But HTML5 has brought that function right into HTML itself. 
+Using either of these methods is going to be a lot more secure. <br>
+<em>The 82759 Secure Web Storag.html tabbed page is open in the Visual Studio window. The presenter highlights the following:<br><br>function setSettings()<br>{<!-- --><br>if ('localStorage' in window &amp;&amp; window['localStorage'] !== null)<br>localStorage.setItem('bgcolor', backcolor);<br>function applySetting()<br>document.body.style.backgroundColor = localStorage.getItem('backcolor');<br><br>He then highlights the following:<br><br>sessionStorage.setItem("username", "jsmith"); //name is the key, jsmith is the value</em>
+<br><br>
+<strong></strong>
+Now just a few caveats you need to keep in mind before you implement 
+these simple methods. You always want to validate the code before you 
+put it into either local or session storage. In other words, you don't 
+know what has been typed in; for example, background color. Was it 
+actually a color or is this some sort of script or attack or what was 
+it? So let's validate and verify often using various functions to pull 
+out any scripting. Never, never just accept the data that you get from 
+either session or local storage. Assume that it's untrusted user input 
+and validate it when you get it back. Don't just run with it. And you 
+should also remember neither of these are terribly secure. I wouldn't 
+store sensitive data in either of these mechanisms. But you can store 
+things like user preferences, username, and that sort of thing. </p>
+</div>
+</div>
+<div>
+<h2 id="fe19b35b-e4cb-11e6-8282-0242c0a80a04">
+Securing Web Messaging in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+One issue that's getting more and more attention in the area of secure 
+programming is secure messaging, and part of the issue is that HTML5 has
+ added even more easier ways to send a message. Let me show you a basic 
+methodology for sending a message. Now right now I'm going to shift the 
+focus just a little bit. You can see this highlighted form at the 
+bottom. It's a very simple form. The user will enter some sort of 
+message, click, and then the <code>sendMessage</code> function will be 
+called. Let's see what the user interface looks like. You can see it's 
+pretty simple, pretty straightforward, a text box and a button. Now 
+let's see the code that does this. I'm actually showing you two methods 
+here. The first is how you send a message. It's terribly simple. There 
+are a few different properties you'd like. There is the <code>postMessage</code> method, which has the following attributes. The <code>message</code> you want to send, the <code>targetOrigin</code> from which you've sent it and a <code>transfer</code> parameter that's optional. Now let's talk about this <code>message</code> and <code>targetOrigin</code>.
+ The real issue is to indicate to the site that's receiving your message
+ where the message came from. That's going to be very important in just a
+ moment. So in this case, I <code>open</code> a new site. <br>
+<em>The Microsoft Visual Studio window is displayed. The menu bar 
+includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area in the window includes the 82760 Secure Messaging.html
+ tabbed page. This tabbed page is open and includes the following code:<br><br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82760 Secure Messaging&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>function sendMessage(message)<br>{<!-- --><br>//format<br>//otherWindow.postMessage(message, targetOrigin, [transfer]);<br>var target = window.open("https://www.somesite.com");<br>target.postMessage(message, "https://mysource.com");<br>}<br>// the receiving end<br>window.addEventListener("message", receiveMessage, false);<br>function receiveMessage(event)<br>{<!-- --><br>if (event.origin == "https://www.somesite.com"")<br>{<!-- --><br>// only process message if it came from the correct origin. You can use the || command to have a set of origins<br>// you will accept<br>// then validate the message you received One method is to use regular expressions<br>var SCRIPT_REGEX = /&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi;<br>while (SCRIPT_REGEX.test(message))<br>{<!-- --><br>message= message.replace(SCRIPT_REGEX, "");<br>}<br>}<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY BGCOLOR = White&gt;<br>&lt;FORM NAME =sampleform&gt;<br>Message to Send: &lt;input type="text" name="message" required&gt; &lt;br&gt;<br>&lt;INPUT TYPE=button VALUE="SendMessage" onClick="sendMessage(this.sampleform.message)"&gt;<br>&lt;/form&gt;<br>&lt;/HTML&gt;<br><br>The presenter highlights the following code:<br><br>&lt;BODY BGCOLOR = White&gt;<br>&lt;FORM NAME =sampleform&gt;<br>Message to Send: &lt;input type="text" name="message" required&gt; &lt;br&gt;<br>&lt;INPUT TYPE=button VALUE="SendMessage" onClick="sendMessage(this.sampleform.message)"&gt;<br>&lt;/form&gt;<br><br>He
+ then opens the 82760 Secure Messaging tabbed page in the Internet 
+Explorer browser window. This tabbed page includes the Message to Send 
+text box and the SendMessage button.<br><br>The presenter returns to the
+ 82760 Secure Messaging tabbed page in the Microsoft Visual Studio 
+window and highlights the code sendMessage from the following code 
+statement:<br><br>function sendMessage(message)<br><br>He then highlights and explains the following code:<br><br>//otherWindow.postMessage(message, targetOrigin, [transfer]);</em>
+<br><br>
+<strong></strong>
+I use that window <code>target</code>, the <code>postMessage</code> method, and pass it whatever <code>message</code>
+ the user entered, and send it along with my address, where this came 
+from. Now on the receiving end, you'd have some code that looks very 
+much like this...the highlighted code here. You would add an 
+EventListener to listen for receiving messages. When a <code>"message"</code> comes in, let's call the <code>receiveMessage</code>
+ function. Now that function should do some things. Here's where the 
+security comes into play. It's not so much about the sending the message
+ as the receiving. First of all look at the <code>origin</code>. If it 
+doesn't come from a site that you've predecided that you will accept 
+messages from, then reject it. And you can see here a very simple <code>if</code> statement. Along the way, we can also use the <code>||</code> command to add in other sites so you could accept from multiple different sites. You could even set up multiple <code>if</code>
+ statements to handle each origin separately. Now it's entirely possible
+ that rather than send the message you expected that someone sent to you
+ script or malicious code. Well, I'm showing you here the REGEX example 
+using a regular expression. In this case, it's removing <code>script</code> tags. You could use any regular expression you like to go through and remove anything you're concerned about. <br>
+<em>The 82760 Secure Messaging tabbed page is open in the Microsoft 
+Visual Studio window. The presenter highlights and explains the 
+following code:<br><br>var target = window.open("https://www.somesite.com");<br>target.postMessage(message, "https://mysource.com");<br><br>He then highlights and explains the following code:<br><br>window.addEventListener("message", receiveMessage, false);<br>function receiveMessage(event)<br>{<!-- --><br>if (event.origin == "https://www.somesite.com"")<br>{<!-- --><br>// only process message if it came from the correct origin. You can use the || command to have a set of origins<br>// you will accept<br>// then validate the message you received One method is to use regular expressions<br>var SCRIPT_REGEX = /&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi;<br>while (SCRIPT_REGEX.test(message))<br>{<!-- --><br>message= message.replace(SCRIPT_REGEX, "");<br>}<br>}<br>}</em>
+<br><br>
+<strong></strong>
+Now in this case, we've elected to simply loop through the <code>message</code> looking at each character, if it's one of our <code>script</code>
+ tags remove it and replace it with nothing. Essentially, we're 
+stripping out any malicious code or potentially malicious code. You 
+might choose rather than strip it out to simply cease processing and log
+ the event. Either method is appropriate. The other thing you will 
+notice is that we're sending this to an HTTPS site. It's highly 
+recommended that any messages you send, only be over an encrypted 
+channel. So let's recap. Obviously, you can do some things from the 
+sending side, but the most important part about secure messaging is on 
+the receiving side. First and foremost, you should always check the 
+origin. You should not be accepting messages from just any old site that
+ wants to send you a message. You can then use regular expressions to 
+take out or to at least flag any data that seems inappropriate for your 
+environment. And last but not least, you want to always use HTTPS, use 
+an encrypted channel so that someone else can't intercept and receive 
+those messages being sent. <br>
+<em>The 82760 Secure Messaging tabbed page is open in the Microsoft Visual Studio window. The presenter explains the following code:<br><br>while (SCRIPT_REGEX.test(message))<br>{<!-- --><br>message= message.replace(SCRIPT_REGEX, "");<br>}<br>}<br><br>Next he highlights the code ("https://www.somesite.com") from the following code statement:<br><br>var target = window.open("https://www.somesite.com");<br><br>The he highlights the following code:<br><br>if (event.origin == "https://www.somesite.com"")<br><br>Finally, he highlights the following code:<br><br>var SCRIPT_REGEX = /&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi;<br>while (SCRIPT_REGEX.test(message))<br>{<!-- --><br>message= message.replace(SCRIPT_REGEX, "");<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19b35d-e4cb-11e6-8282-0242c0a80a04">
+Introduction to Testing
+</h2>
+<div><p>
+<strong></strong>
+Testing is an integral part of defensive programming, regardless of the 
+programming tools you use. With JavaScript and HTML5, testing is just as
+ important as it is with any other programming language. The idea behind
+ testing is that we need our software to be dependable. In the case of 
+web applications, you also have added issues of more attack vectors, the
+ chance for an indefinable number of end users interacting with your 
+application at one time. All of these issues can be addressed through 
+appropriate testing. Testing is really the only way to assess how robust
+ your program is, how resilient it is, and this allows you to prevent 
+problems before deployment. Now that means you have to have a budget for
+ testing, and budget issues are always problematic and controversial, 
+but failure to test is always more expensive than the cost of testing. 
+So when I say budget for testing until rollout, I mean testing during 
+the planning phase, the development phase, and at the end of development
+ phase. To support this, you need to write testable code, code that's 
+easily testable either via manual processes or automated tools. You 
+absolutely need to be performing unit testing. <br><br>
+<strong></strong>
+This diagram gives you sort of a flow of the software testing process. 
+And this particular process flow is both application independent and 
+programming language independent. First we have to plan our tests. Then 
+it sounds odd to some developers. We're not simply out there banging 
+away on the software hoping to find bugs. We actually plan specific 
+tests, and we analyze those plans and see if they met all of our 
+requirements, if they address all the potential risks and problems. Only
+ when you're comfortable that they do, you actually design your test and
+ construct the test. Now of course, after construction, you have to 
+verify, you have to actually test, and testing is usually done in a 
+cycle, including unit testing, system-wide testing, and simple code 
+reviews. And of course, once you've assembled the entire system, all the
+ various elements of past adequate testing, now we have the final 
+testing phase of the entire system one last time to ensure that 
+everything works appropriately, and this leads us to a presentation of 
+our findings post testing. <br><br>
+<strong></strong>
+Now this sort of process is really helpful to think about how you're 
+going to go about testing. First of all, when you assemble your 
+requirements, let's immediately do an inspection, "Are those 
+requirements adequate? Are there questions they don't answer?" If those 
+things are not fully met in the requirements document, then stop and 
+correct that before moving on. Then you have your design for your 
+software. Again let's examine the design, "Is it meeting all of the 
+needs, addressing all of the risks and requirements?" Then we can 
+implement. Now we apply testing tools. Now the test plan is done in a 
+similar fashion. You create a test plan, and then inspect that test plan
+ and ensure that it meets all requirements, addresses all risks, and 
+it's going to be an effective test, only then do you do a test 
+implementation. And notice both of these flows, the flow of development 
+and the flow of testing go to a code inspection phase. At some point, 
+someone needs to actually inspect the code. Now it's usually not 
+practical to reread every single line of code, the least core 
+functionality should be manually inspected, and then again we test the 
+entire system altogether. As you can see, testing should be an integral 
+part of the entire lifecycle throughout your defensive programming. </p>
+</div>
+</div>
+<div>
+<h2 id="fe19b35f-e4cb-11e6-8282-0242c0a80a04">
+Cross-Browser Testing for &nbsp;JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+An important element of testing, particularly for JavaScript and HTML5, 
+is cross-browser testing. Now in general, you know that testing lets us 
+assess a web application's robustness. We can test excessive workloads; 
+we can test various scenarios, use case situations, and see how the 
+program performs. If there is an issue, discovering it during testing is
+ a lot better than discovering it after deployment because preventing 
+problems before deployment is just a great approach to software 
+development. Once you've already deployed, any problems could have 
+exposed data to attackers, certainly will lead to customer 
+dissatisfaction and will be more expensive to repair. Now you can test 
+manually, simply manually implementing data, checking, reviewing code, 
+all those manual techniques are part of testing. But there are also a 
+variety of testing tools available to you and it's absolutely critical 
+that a web application to be tested in more than one browser. I can't 
+tell you how often I've encountered a web application that performs 
+admirably in one browser but not so well in another browser. Now there 
+are many browsers available and you don't necessarily have to test in 
+each and everyone, but you should test in what I call the big four, 
+Microsoft Internet Explorer, Mozilla Firefox, Google Chrome, and Apple 
+Safari, those four browsers account for the vast bulk of end users out 
+there. <br><br>
+<strong></strong>
+Now there are some tools that will do some of this for you. Inside many 
+development environments like Web Matrix, Visual Studio, and many 
+others, there's testing inside the development tool itself. There are 
+some open source testing tools; Selenium and Apache JMeter are just two.
+ Then there're Windows-based GUI tools like the CSE HTML Validator, 
+Ranorex, and Test Studio. Any kind of tool that will do some level of 
+testing for you is going to be beneficial. So I'm just checking to make 
+sure all your HTML and JavaScript tags are valid; others can actually 
+subject to web application to hypothetical workloads, stimulating 
+hundreds or even thousands of users. In my opinion, because web 
+application to have to account for multiuser environments, it's really 
+difficult to test that manually, so you need to at least use a testing 
+tool that will stimulate heavy workloads. However you approach testing, 
+ensure that you're doing thorough testing throughout the development 
+lifecycle and that you're absolutely testing on at least the big four 
+browsers. </p>
+</div>
+</div>
+<div>
+<h2 id="fe19b361-e4cb-11e6-8282-0242c0a80a04">
+Writing Testable Code for JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+It's important when you're writing code that you write clean code, 
+testable code. Testable code means that it can easily be tested either 
+by a specific testing tool or manually. So what does it take to make 
+testable code? First of all, it needs to have good structure, 
+well-indented, easy to read. Now the code you're seeing on the screen is
+ part of the code for a basic card game, a simple Blackjack game. Now 
+what makes this good testable code? Let's look at the structure first of
+ all. Each <code>function</code> has a meaningful name. Without me telling you anything about this web application, you could probably guess what <code>Shuffle</code>, <code>getSuit()</code>, <code>cardName</code>, <code>cardValue</code>,
+ and things like that mean...wouldn't be overly difficult. You also need
+ meaningful variable names. And let's look up here, we have some global 
+variables, <code>cardCount</code>, <code>gameOver</code>, very easy to tell what they mean. No complex functions. What that means is a <code>function</code>
+ should have one clearly defined goal and accomplish that goal. If you 
+need to do other things, then you have other functions to do those 
+things. You don't try to get one <code>function</code> to do everything.
+ Another issue is there's no hidden state value, so you are not holding 
+the state any particular way. In other words, we're not trying to keep 
+state variables in some particular global variable. <br>
+<em>The Microsoft Visual Studio window is displayed. The menu bar 
+includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and TOOLS.<br><br>The
+ code editor area in the window includes the 82763 testable code in 
+JavaScript.htm tabbed page. This tabbed page is open and includes the 
+following code:<br><br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82763 Testable Code&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>// Good structure<br>// No complex function<br>// No hidden state<br>// Not tightly coupled to the DOM<br><br>var gameOver<br>var cardCount<br><br>function Shuffle(max)<br>{<!-- --><br>try<br>{<!-- --><br>var num=Math.random()*max<br>return Math.round(num)+1<br>}<br>catch(err)<br>{<!-- --><br>alert ( err.message);<br>}<br>}<br><br>function getSuit()<br>{<!-- --><br><br>try<br>{<!-- --><br>suit = Shuffle(4)<br>if(suit == 1)<br>return "Spades"<br><br>if(suit == 2)<br>return "Clubs"<br><br>if(suit == 3)<br>return "Diamonds"<br><br>else<br>return "Hearts"<br>}<br>catch(err)<br>{<!-- --><br>alert ( err.message);<br>}<br><br>}<br><br>The presenter scrolls further down the tabbed page and the following code after the code alert ( err.message); } } is displayed:<br><br>function cardName(card)<br>{<!-- --><br><br>try<br>{<!-- --><br>if(card == 1)<br>return "Ace"<br><br>if(card == 11)<br>return "Jack"<br><br>if(card == 12)<br>return "Queen"<br><br>if(card == 13)<br>return "King"<br><br>return "" + card<br>}<br>catch(err)<br>{<!-- --><br>alert ( err.message);<br>}<br><br>}<br><br>function cardValue(card,strWho)<br>{<!-- --><br><br>try<br>{<!-- --><br>if(card == 1)<br>{<!-- --><br>if(strWho =="You" &amp;&amp; document.display.you.value &gt;10)<br>{<!-- --><br>document.display.say2.value=document.display.<br>say2.value+" Low"<br>return 1<br>}<br>else<br>return 11<br>}<br><br>He
+ highlights the function names Shuffle, getSuit, cardName, and cardValue
+ from the above code. Next he highlights the variable names cardCount 
+and gameOver from the codes var cardCount and var gameOver, 
+respectively.</em>
+<br><br>
+<strong></strong>
+This also isn't tightly coupled to the Document Object Model. It's okay 
+to use the Document Object Model, but it's not okay to have your program
+ so tightly coupled to it that if there's an issue, you can't decouple. 
+Now I want you to look also at this code. It's well-indented. Obviously,
+ we have <code>try</code>-<code>catch</code> error handling. We have 
+variables that mean something. We have error handling that gives 
+meaningful messages back, but most importantly, it's neat, easy-to-read 
+code. Probably you could use a few more comments, but the comments won't
+ affect automated testing, just manual. So let's recap the rules for 
+good testable code. Good, clean, readable structure; no complex 
+functions; each <code>function</code> does one thing, and those are the 
+two most important. If you follow those two rules alone, you will have 
+fairly good testable code. No hidden state values, and not tightly 
+coupled to the Document Object Model. And remember, the good structure 
+includes good names, indention, use of white space, meaningful 
+structure, and an obvious logical flow. This is the basics of writing 
+testable code in JavaScript and HTML5. <br>
+<em>The 82763 testable code in JavaScript.htm tabbed page is open in the
+ Microsoft Visual Studio window. The presenter highlights and explains 
+the following code:<br><br>try<br>{<!-- --><br>var num=Math.random()*max<br>return Math.round(num)+1<br>}<br>catch(err)<br>{<!-- --><br>alert ( err.message);<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19b363-e4cb-11e6-8282-0242c0a80a04">
+Unit Tests for JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+Certainly not all JavaScript programmers like to use Visual Studio. But 
+it's frequently the case that you're developing ASP.NET applications and
+ you wish to include JavaScript in those applications. And you would be 
+doing those applications inside of Visual Studio. So let's talk a little
+ bit about testing methodologies and tools available to you in Visual 
+Studio. Well, at least as light as Visual Studio 2012, there are no 
+built-in preconfigured testing tools specifically for JavaScript. But 
+the good news is, we can add some in. Now the code you see on the screen
+ here is one of the other video codes we've looked at before, the <code>Clean</code> <code>Testable</code> <code>Methods</code>.
+ And you're looking at the code window in Visual Studio. Now I'm going 
+to slide this window up just a little so we can see the toolbar, there 
+you go. Now if you'll look under <strong>TOOLS</strong>, and you'll look for <strong>Extensions</strong> <strong>and</strong> <strong>Updates</strong>,
+ now again this is in Visual Studio 2012, you will see a number of 
+components. Now these are the ones that are installed. I've already 
+installed the ones I would like to use such as 
+JavaScriptUnitTestProject, Test Adapter, those sorts of things. However,
+ if you don't have those installed, select Online, it takes a little bit
+ to load and type in a search term such as <code>javascript</code> <code>unit</code> <code>testing</code>. <br>
+<em>The default.js tabbed page is displayed in the Microsoft Visual 
+Studio window. The tabbed page includes the following partially 
+displayed code:<br><br>1 !DOCTYPE html&gt;<br>2 &lt;HTML&gt;<br>3 &lt;HEAD&gt;<br>4 &lt;TITLE&gt;82776 Clean Testable Methods&lt;/TITLE&gt;<br>5 &lt;script type="text/javascript"&gt;<br>6 function Calculate(cost, rate, weight, qty)<br>7 {<!-- --><br>8 try<br>9 {<!-- --><br>10<br>11 var temp = (cost * qty);<br>12 var tax = temp * rate;<br>13 document.sampleform.total.value = temp+tax;<br>14<br>15 var shippindate = document.getElementById("shipdate");<br>16<br>17 //now this can be sent toa web service, written to a database, or stored however you wish<br>18<br>19 }<br>20 catch(err)<br>21 {<!-- --><br>22 alert( err.message);<br>23 }<br>24 }<br>25<br>26<br>27<br>28 function validate()<br>29 {<!-- --><br>30 try<br>31 {<!-- --><br>32 //remove anything but digits<br>33 document.sampleform.basecost.value = document.getElementById("basecost").value.toString().replace( /[^0-9]/, '' );<br>34 document.sampleform.weight.value = document.getElementById("weight").value.toString().replace( /[^0-9]/, '' );<br>35<br>36<br>37 var cost = document.sampleform.basecost.value;<br>38 var rate = document.sampleform.taxrate.value;<br>39 var weight= document.sampleform.weight.value;<br>40 var qty = document.getElementById("qty").value;<br>41<br>42 if (isNaN(cost))<br>43 {<!-- --><br><br>The
+ presenter moves the window of Microsoft Visual Studio, and the menu bar
+ and the toolbar of the window are displayed. The menus such as DEBUG, 
+TEAM, TOOLS, and VMWARE are displayed in the menu bar. Then he expands 
+the TOOLS menu and options such as Attach to Process, Connect to 
+Database, Connect to Server, and Extensions and Updates are displayed in
+ the drop-down menu. He selects the Extensions and Updates option and 
+the Extensions and Updates dialog box is displayed.<br><br>The dialog 
+box includes three panes. The left pane includes the following nodes: 
+Installed, Online, and Updates. The Installed node is expanded by 
+default and includes subnodes such as All, Controls, Samples, and 
+Templates. The All subnode is selected by default. The middle pane 
+includes the Sort by drop-down list box with the default value Name: 
+Ascending. Below the drop-down list box, options such as Chutzpah Test 
+Adapter for the Test Explorer, Chutzpah Test Runner Context Menu 
+Extension, and JavaScriptUnitTestProject are displayed. The Chutzpah 
+Test Adapter for the Test Explorer option is selected by default and the
+ Disable and Uninstall buttons are displayed to the right of the 
+Chutzpah Test Adapter for the Test Explorer option. The right pane 
+includes the Search Installed drop-down list box. Below the drop-down 
+list box, the following text is displayed:<br><br>Created by: Matthew Manela<br>Date Installed: 6/11/2015<br>Version: 4.0.3<br><br>Below
+ the text, the More Information and Getting Started links are displayed.
+ Then he expands the Online node in the left pane and the following 
+subnodes are displayed: Visual Studio Gallery and Samples Gallery. The 
+Visual Studio Gallery subnode is selected by default. The middle pane 
+now includes options such as NuGet Package Manager, WakaTime, and Visual
+ Assist. The NuGet Package Manager option is selected by default and 
+includes the checkmark.<br><br>The right pane includes the Search Visual
+ Studio Gallery drop-down list box. In the drop-down list box, he enters
+ the text javascript unit testing and presses the Enter key. As a 
+result, in the left pane, the Visual Studio Gallery subnode is expanded 
+and the Search Results subnode is displayed. The Search Results subnode 
+is selected by default. The options in the middle pane are also 
+modified.</em>
+<br><br>
+<strong></strong>
+And there you go, you can see several of these including the ones I've 
+already installed plus some others you might find useful. Now if you had
+ not already install these, you would select them and simply click <strong>OK</strong>. But since we've already installed them, we're just going to <strong>Close</strong>
+ this window out, slide right back down to our looking at the code. Now 
+what do these tools do for you? Unless you're probably already aware in 
+Visual Studio, you can right-click things and get a lot of options, for 
+example, if I right click this variable, I've the option to <strong>Go</strong> <strong>To</strong> <strong>Definition</strong>, put in a <strong>Breakpoint</strong>, <strong>Copy</strong>, <strong>Cut</strong>,
+ run built-in Visual Studio Test, and other things. Notice these new 
+items with the odd symbol to the left; those were from the components I 
+just added I can <strong>Run</strong> <strong>JS</strong> <strong>Tests</strong>.
+ Now in this case, there is really nothing to their particular variable 
+to test. Normally, I would pick a function and test that particular 
+function. <br>
+<em>The Extensions and Updates dialog box is displayed. The middle pane 
+includes options such as Chutzpah Test Runner Context Menu Extension, 
+Chutzpah Test Adapter for the Test Explorer, and 
+JavaScriptUnitTestProject. The presenter then closes the Extensions and 
+Updates dialog box, and the default.js tabbed page is displayed in the 
+Microsoft Visual Studio window. He now right-clicks at the code temp 
+from the code statement var temp = (cost * qty); in line #11. As a 
+result, the shortcut menu with options such as Run JS Test, Open in 
+browser, Show Code Coverage, Run Tests, Go To Definition, Breakpoint, 
+and Copy is displayed. Most of the options are associated with the 
+appropriate icons. He points to the following options with icons: Run JS
+ Test, Open in browser, and Show Code Coverage.<br><br>He then clicks 
+the Run JS Tests option, and then selects and right clicks at the 
+'Calculate' code from the code statement function Calculate(cost, rate, 
+weight, qty) in line #6.</em>
+<br><br>
+<strong></strong>
+So right-click, <strong>Run</strong> <strong>JS</strong> <strong>Tests</strong>,
+ now you can't see it right now so I'm going to move this up, the Output
+ window gives you some information about that particular test. In this 
+case, there is not a lot going on to test, so you're not going to get 
+any particular interesting output, but that's the methodology. This is 
+how you add in testing tools to Visual Studio that will allow you to 
+specifically test JavaScript. Of course, you don't have to use these 
+automated tools, you can stick to manual testing methods as well as 
+other testing external tools that you might use in the rest of your 
+projects. <br>
+<em>The default.js tabbed page is displayed in the Microsoft Visual 
+Studio window. The presenter right-clicks the selected Calculate code 
+from the code statement, function Calculate(cost, rate, weight, qty) in 
+line #6. From the shortcut menu displayed, he selects the Run JS Test 
+option. As a result, the Output window is displayed that he moves 
+upward. The window includes the following text:<br><br>========== Total Test: 0 passed, 0 failed, 0 total ==========</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19da61-e4cb-11e6-8282-0242c0a80a04">
+Defensible Methods in &nbsp;JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+Regardless of the particular programming language you're using, a very 
+important part of secure programming is writing defensible methods. What
+ does that mean? Well, obviously it's impossible to stop all attacks, 
+all errors, all issues. But a defensible function...a defensible method 
+is one that's written in such a way as to ameliorate as many of these 
+issues as possible. Now this is just as important in JavaScript as it is
+ for any other programming language. So let's take a look at an example 
+we've set up to show you defensible methods. First I'm going to shift 
+over to the user interface. This is a very simple interface. It's 
+designed so that the user can enter a single number, click the button, 
+and then get back the factorial of that number. Now there are a lot of 
+things that could go wrong here. We need to, in defensive programming, 
+to write a method in such a way that it accounts for as many issues as 
+possible. So let's take a look at that method. Once the user clicks the 
+button, this function is executed. Now the details of how to <code>factorial</code>
+ a number are not particularly important for our purposes here. But you 
+can see it all comes down to this single line of code that I've 
+highlighted on the screen that recursively calls this function again and
+ again. <br>
+<em>The 82765 Defensible Me..in JavaScript.html tab is displayed in the 
+Microsoft Visual Studio window. The window includes the menu bar with 
+menus such as FILE, EDIT, and VIEW. The 82765 Defensible Me..in 
+JavaScript.html tabbed page includes the following code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82765 Defensible Methods in JavaScript&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>function factorial(num)<br>{<!-- --><br>try<br>{<!-- --><br>// first validation<br>if(isNaN(num))<br>{<!-- --><br>alert("you must enter a number")<br>return;<br>}<br>// If the number is less than 0, reject it.<br>if (num &lt; 0)<br>{<!-- --><br>alert("you must enter a positive number")<br>return;<br>}<br>// now get to functionality<br>if (num == 0)<br>return 1<br>else<br>return num * factorial(num - 1)<br>}<br>catch (err)<br>{<!-- --><br><br>The
+ presenter navigates to the Internet Explorer browser window. The 
+browser window includes the 82765 Defensible Methods tab. This tabbed 
+page includes the following partially displayed address in the address 
+bar: C:\User\Admin\Desktop\code\82765 Defensible and includes the Number
+ to factorial text box and the Factorial button. Then the presenter 
+navigates to Microsoft Visual Studio and highlights the following code 
+statements on the tabbed page:<br><br>function factorial(num)<br>{<!-- --><br>try<br>{<!-- --><br>// first validation<br>if(isNaN(num))<br>{<!-- --><br>alert("you must enter a number")<br>return;<br>}<br>// If the number is less than 0, reject it.<br>if (num &lt; 0)<br>{<!-- --><br>alert("you must enter a positive number")<br>return;<br>}<br>// now get to functionality<br>if (num == 0)<br>return 1<br>else<br>return num * factorial(num - 1)<br>}<br>catch (err)<br>{<!-- --><br>alert( "Input is " + err);<br>}<br><br>Next he highlights the following line of code:<br><br>return num * factorial(num -1)</em>
+<br><br>
+<strong></strong>
+But more to the point for our current topic is what makes this 
+defensible method. First and foremost, we're accounting for the 
+possibility that the user inputs bad data. I've highlighted two simple <code>if</code>
+ statements. In the first one I check to see if the input is simply not a
+ number. If so, let's not even attempt to do the code; let's <code>alert</code> the user and exit. What if they gave a number less than zero? Again let's not even attempt to do the <code>factorial</code> operation; let's <code>alert</code> the user and exit, and that's handled in these two <code>if</code>
+ statements. So first and foremost a defensible method is one that 
+accounts for at least the most likely issues with data validation, and 
+makes sure that we don't attempt to operate on inappropriate data. Next 
+you will notice the entire functionality is encapsulated within a <code>try</code>-<code>catch</code>
+ block. Now I don't anticipate a great many errors occurring with this 
+function. It's relatively trivial. But it also takes a matter of seconds
+ to create a simple <code>try</code>-<code>catch</code> block, so that 
+the program doesn't blow up. It doesn't hang, it doesn't crash. So 
+exception handling is also an important part of defensible methods. <br>
+<em>The 82765 Defensible Me..in JavaScript.html tabbed page is displayed
+ in the Microsoft Visual Studio window. On this tabbed page, the 
+presenter highlights the following lines of code:<br><br>try<br>{<!-- --><br>//first validation<br>if(isNaN(num))<br>{<!-- --><br>alert("you must enter a number")<br>return;<br>}<br>// If the number is less than 0, reject it.<br>if (num &lt; 0)<br>{<!-- --><br>alert("you must enter a positive number")<br>return;<br>}<br><br>The presenter then explains both the if statements.<br><br>Next the presenter highlights the following code related to the catch portion of the try-catch block:<br><br>catch(err)<br>{<!-- --><br>Alert("Input is "+ err);<br>}</em>
+<br><br>
+<strong></strong>
+Now let's look at a few things that may be less obvious, the name of the
+ method. It's something meaningful. Now that doesn't make the code work 
+any better, but it does make it easier for a programmer reviewing the 
+code, looking for issues and errors to follow the code. The same thing 
+is true with a nice indention you see, everything is indented well. So 
+it's very, very obvious what code goes inside which container. There's 
+no ambiguity here. That's another probably less focused upon aspect of 
+defensible methods. So to recap...you want to have a defensible method 
+such that it validates input; it handles errors; it has meaningful 
+names; it is well written with good whitespace and indented code so that
+ it's easy to follow. <br>
+<em>The 82765 Defensible Methods tabbed page is displayed in the 
+Microsoft Visual Studio window. The presenter highlights the 'factorial'
+ code from the code statement 'function factorial(num)' to indicate the 
+name of the method.</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19da63-e4cb-11e6-8282-0242c0a80a04">
+Parameters and Return Values &nbsp;in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+At its core, defensive programming is about good solid programming, and 
+that starts with good functions, good parameter values, and good return 
+values. Let's take a look at each of these three elements. Now before we
+ begin, you should be aware that JavaScript is less versatile in this 
+regard than some other programming languages, such as C++ and Java. 
+Frankly, there is a lot less you can do with parameter values and return
+ values. But let's see what we can do. Also, you should keep in mind 
+that this particular example is utilizing one of the exciting new 
+features of HTML5, and that's local storage. In this first <code>function</code> <code>saveuser()</code>, we take data, <code>"Submit"</code> it from this <code>form</code> you see here, which is, say, an employee's <code>First</code> <code>name</code>, <code>Last</code> <code>name</code>, <code>Age</code>, and <code>Job</code>. When that's submitted, this <code>saveuser()</code> function is called. It creates an array and it puts all the values from those <code>form</code> fields into the array, and then uses the <code>localStorage.setItem</code> value to set an item with that <code>employee.lastname</code> and all of that data. Now this <code>function</code> takes no parameters and returns no values, but it's a well-structured <code>function</code> with a meaningful name, well-indented, clean, easy-to-read code, and good error handling. Let's look at a <code>function</code> that takes a parameter, <code>retrieveuser</code>. You pass in the <code>lastname</code>. <br>
+<em>The 82766 return param...and functions.htm tab is displayed in the 
+Microsoft Visual Studio window. The window includes the menu bar with 
+menus such as FILE, EDIT, and VIEW. The 82766 return param...and 
+functions.htm tabbed page includes the following code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82766 Parameters return values and functions&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>function saveuser()<br>{<!-- --><br>try<br>{<!-- --><br>var employee = {};<br>employee.lastname = lname.value;<br>employee.firstname = fname.value;<br>employee.age = age.value;<br>employee.job = job.value;<br>localStorage.setItem( 'employee' + employye.lastname, JSON.stringify(employee) );<br>}<br>catch (err)<br>{<!-- --><br>alert( err.message);<br>}<br>}<br><br>Then
+ the presenter refers to the code for the saveuser function, scrolls 
+down the tabbed page, and highlights the following lines of code:<br><br>&lt;BODY BGCOLOR=White&gt;<br>&lt;form id="frmemploye"&gt;<br>First name: &lt;input type="text" name="fname" value="Smith"&gt;&lt;br&gt;<br>Last name: &lt;input type="text" name="lname" value="John"&gt;&lt;br&gt;<br>Age: &lt;input type="text" name="age" value="30"&gt;&lt;br&gt;<br>Job: &lt;input type="text" name="job" value="Programmer"&gt;&lt;br&gt;&lt;br&gt;<br>&lt;INPUT TYPE=button NAME="Submit" VALUE="Save User" onclick="saveuser()"&gt;<br>&lt;INPUT TYPE=button NAME="Retrieve" VALUE="Retrieve User" onclick="retrieveuser(lname)"&gt;<br>&lt;/form&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;<br><br><br>Next the presenter scrolls up and explains the following portion of the code of the saveuser function:<br><br>try<br>{<!-- --><br>var employee = {};<br>employee.lastname = lname.value;<br>employee.firstname = fname.value;<br>employee.age = age.value;<br>employee.job = job.value;<br>localStorage.setItem( 'employee' + employye.lastname, JSON.stringify(employee) );<br>}<br>catch (err)<br>{<!-- --><br>alert( err.message);<br>}<br><br>He scrolls down again and refers to the following portion of the code that is displayed on the tabbed page:<br><br>function retrieveuser(lastname="")<br>{<!-- --><br>try<br>{<!-- --><br>if(lastname.length&lt;1)<br>alert("No valid name given");<br>else<br>{<!-- --><br>var employee[] = localStorage.getItem( 'employee '+lastname);<br>fname.value = employee.firstname;<br>alert(employee.firstname);<br>age.value = employee.age;<br>job.value = employee.job;<br>}<br>}<br>catch(err)<br>{<!-- --><br>alert( err.message);<br>}<br>}</em>
+<br><br>
+<strong></strong>
+Now again, there is not a lot we can do in JavaScript with these 
+parameters, but you can begin by giving them a meaningful name and 
+whenever appropriate, a default value. Now why is that default value 
+important? Well, first of all, as with any variable, it indicates to 
+anyone reading my code what data type I am expecting. I am expecting a 
+string. Secondly, it prevents a null value from being here if the <code>function</code> is called without being passed an appropriate value. The rest of this <code>function</code> is again good programming. We do some data validation before working with the data. Then we go get the <code>employee</code> who matches that <code>lastname</code>. Finally, let's look at a <code>return</code> value. And this <code>function</code> is aptly called <code>returnexample</code>. In this case, the <code>lastname</code> is still used to retrieve, but we're looking specifically for <code>job</code> and we've returned the <code>job</code>. When it comes to <code>return</code> types, there are only a few things you need to keep in mind when returning a <code>value</code> from a JavaScript <code>function</code>. First of all, your code should ensure that you're not going to <code>return</code> null, that you're not going to <code>return</code> an inappropriate data type. In other words, the calling <code>function</code> that's going to get back this <code>return</code> value shouldn't have to worry about those things. So let's make a few quick changes and see how that works. <br>
+<em>The 82766 return param...and functions.htm tabbed page is displayed 
+in the Microsoft Visual Studio window. On this tabbed page, the 
+presenter explains the following retrieveuser function:<br><br>function retrieveuser(lastname="")<br>{<!-- --><br>try<br>{<!-- --><br>if(lastname.length&lt;1)<br>alert("No valid name given");<br>else<br>{<!-- --><br>var employee[] = localStorage.getItem( 'employee '+lastname);<br>fname.value = employee.firstname;<br>alert(employee.firstname);<br>age.value = employee.age;<br>job.value = employee.job;<br>}<br>}<br>catch(err)<br>{<!-- --><br>alert( err.message);<br>}<br>}<br><br>Then the presenter scrolls down and the following portion of the code is displayed:<br><br>function returnexample(lastname="")<br>{<!-- --><br>try<br>{<!-- --><br>if(lastname.length&lt;1)<br>alert("No valid name given");<br>else<br>{<!-- --><br>var employee[] = localStorage.getItem('employee'+lastname);<br>fname.value = employee.firstname;<br>alert(employee .firstname);<br>age.value = employee.age;<br>job.value = employee.job;<br>return employee.job;<br>}<br>}<br>catch(err)<br>{<!-- --><br>alert(err.message);<br>}<br>}</em>
+<br><br>
+<strong></strong>
+Well, now we're checking to ensure it's not blank, that there is something in there. You also have to understand if this <code>value</code>
+ doesn't exist at all, we will get a blank or an exception will be 
+generated here. In either case, we're ensuring that this will only <code>return</code> a value if there is something to <code>return</code>.
+ That's just a few of the elements that you need to consider when 
+developing JavaScript functions, but again there is not a lot of 
+complexity to JavaScript functions. Make sure you have meaningful names,
+ your parameters have meaningful names, and if possible, default value, 
+and make sure you check to make sure you're only returning valid data. <br>
+<em>The 82766 return param...and functions.htm tabbed page is displayed 
+in Microsoft Visual Studio window. On this tabbed page in the code for 
+the returnexample function, the presenter pastes the code statement 
+'if(employee.job !="")' below the 'job.value = employee.job;' code 
+statement. As a result, the updated code for the returnexample function 
+is as follows:<br><br>function returnexample(lastname="")<br>{<!-- --><br>try<br>{<!-- --><br>if(lastname.length&lt;1)<br>alert("No valid name given");<br>else<br>{<!-- --><br>var employee[] = localStorage.getItem('employee'+lastname);<br>fname.value = employee.firstname;<br>alert(employee .firstname);<br>age.value = employee.age;<br>job.value = employee.job;<br>if(employee.job !="")<br>return employee.job;<br>}<br>}<br>catch(err)<br>{<!-- --><br>alert(err.message);<br>}<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19da65-e4cb-11e6-8282-0242c0a80a04">
+Variables in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+One important aspect of defensive programming is the appropriate 
+handling of variables and data types. JavaScript poses some particular 
+challenges in this area because JavaScript is not a strongly typed 
+language. What that means is that rather than have multiple data types 
+of float, an integer, and a string, we simply have the <code>var</code>,
+ variable. Now depending on what value you put in it, what you assign to
+ it is how JavaScript will treat it. Now based on that, JavaScript has 
+three primitive data types that can recognize string, number, and 
+boolean, as well as <code>two</code> <code>complex</code> <code>data</code> <code>types</code> <code>object</code> <code>and</code> <code>array</code>; and <code>all</code> <code>can</code> <code>be</code> <code>local</code> <code>or</code> <code>global</code>. Now you'll notice here I have created a <code>global</code> <code>variable</code>, and the entire purpose of this <code>global</code> <code>variable</code> is simply to illustrate two things. One how <code>global</code> <code>variable</code>
+ is used, but secondly, notice I gave it a default value. Many 
+programmers and many languages recommend default values, but in 
+JavaScript, it takes on a whole new level of importance because 
+JavaScript is not strongly typed. If I don't provide a default value and
+ later another programmer is managing or maintaining my code, it may not
+ be immediately obvious to that programmer what data type I intended. 
+The default value clarifies that. <br>
+<em>The 82767 Variables in..ript and HTML5.htm tab is displayed in the 
+Microsoft Visual Studio window. The window includes the menu bar with 
+menus such as FILE, EDIT, and VIEW. The 82767 Variables in..ript and 
+HTML5.htm tabbed page includes the following partially visible code:<br><br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82767 Variables in JavaScript and HTML5&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>// three primitive data types: string, number, boolean<br>// two complex data types object and array<br>// all can be local or global<br>// global variable<br>var globalexample = "I love JavaScript";</em>
+<br><br>
+<strong></strong>
+Now we have two functions we'd like to look at. The first is <code>stringtest()</code>.
+ Now let me show you the user interface we're working with. Very simply 
+the user types a text in here, gives a beginning and endpoint, clicks <strong>Submit</strong>
+ and that piece of text is extracted. In other words, if they put a 3 
+and a 10, and all the characters from the third character to the tenth 
+are extracted. And this is meant simply to illustrate what you can do 
+with strings in JavaScript. Now back to the code. The first thing I do 
+here is somewhat artificial, and it's just to show you how a <code>global</code> <code>variable</code> is used. I checked to see that text field was its zero <code>length</code>, then let's just use the <code>global</code> <code>variable</code>.
+ If it wasn't, then let's use whatever the user typed in. Now at this 
+point, we can do anything we would normally do with a string. And even 
+if I type digits in there, 1, 2, 3, 4, 5, JavaScript is going to treat 
+it like a string. And I can extract a <code>substring</code> from it. 
+Now what all this tells us is first of all to be incredibly careful with
+ how you use variables in JavaScript because they're not strongly typed.
+ It also tells us that we do have some things we can do with the string 
+that are similar to what you can do in other programming languages. 
+Let's take a look at how <code>basicvariables()</code> retrieve it. This <code>function</code> simply creates and utilizes <code>basicvariables()</code>, and I use a <code>Number</code>, a <code>String</code>, <code>Array</code>, and an <code>Object</code>, and later I'll show you a <code>Boolean</code>. <br>
+<em>The 82767 Variables in..ript and HTML5.htm tabbed page is open in 
+the Microsoft Visual Studio window. On this tabbed page, the following 
+portion of the code is displayed:<br><br>function stringtest()<br>{<!-- --><br>try<br>{<!-- --><br>/// shows string functions<br>if txttest.toString().length&lt;1)<br>mystring = globalexample;<br>else<br>var mystring =txttest.value;<br><br>var begin = txtbegin.value;<br>var end = txtend.value;<br><br>var seg = mystring.substring(begin,end);<br>alert(seg);<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}<br><br>The
+ presenter navigates to the Internet Explorer browser window. In the 
+browser window, the 82767 Variables in JavaScript and HTML5.htm tabbed 
+page is open and includes the Enter Text Here text box and two text 
+boxes with the text 0 and 5, respectively, and the Submit button.<br><br>Then the presenter returns to the Visual Studio window and refers to the following portion of the code on the tabbed page:<br><br>function stringtest()<br>{<!-- --><br>try<br>{<!-- --><br>/// shows string functions<br>if txttest.toString().length&lt;1)<br>mystring = globalexample;<br>else<br>var mystring =txttest.value;<br><br>var begin = txtbegin.value;<br>var end = txtend.value;<br><br>var seg = mystring.substring(begin,end);<br>alert(seg);<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}<br><br>Next the presenter scrolls down the tabbed page and refers to the following portion of the code:<br><br>function basicvariables()<br>{<!-- --><br>try<br>{<!-- --><br>var empID = 16; // Number<br>var lastName = "Smith"; // String<br>var jobs = ["Programmer", "Manager", "Sales"]; // Array<br>var x = {firstName: "John", lastName: "Smith"}; // Object<br>var currentemployee = true; // Boolean<br>// how are variables treated<br>// if one of the variables is a string, then it all is treated as a string<br>var answer1 = 10 + "JavaScript";<br>alert(answer1);<br>//JavaScript works left to right<br>var answer2 = 5 + 5 + "JavaScript";<br>alert(answer2);<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}<br>}</em>
+<br><br>
+<strong></strong>
+Now essentially what we have here is an <code>empID</code> treated as an integer, a <code>Number</code>. Our JavaScript, by the way, doesn't differentiate between integer and float. Our <code>lastName</code> that's a <code>String</code>, an <code>Array</code> that we called <code>jobs</code>. Now you can create an <code>Array</code>
+ with nothing in it, just the brackets, then it could be dynamically 
+sized. That's recommended against unless you have a compelling reason 
+because it's a little too flexible. It would allow the program to 
+perhaps continually grow the <code>Array</code>. You need to have a specific size in mind if it all possible. In this case, we're using the JSON notation to create an <code>Object</code>, and here we made this a <code>Boolean</code> simply by setting its value to <code>true</code>.
+ Again, there is nothing inherent in any of these that's anything other 
+than a variable until I assign it a value. A few things to be aware of, <code>if</code> <code>one</code> <code>of</code> <code>the</code> <code>variables</code> <code>is</code> <code>a</code> <code>string</code>, <code>then</code> <code>it</code> <code>all</code> <code>is</code> <code>treated</code> <code>as</code> <code>a</code> <code>string</code>. If I do <code>10</code> <code>+</code> <code>"JavaScript"</code>, the answer is going to be a string, <code>10</code> <code>+</code> <code>"JavaScript"</code>. However, <code>JavaScript</code> <code>works</code> <code>left</code> <code>to</code> <code>right</code>. If I say, <code>5</code> <code>+</code> <code>5</code> <code>+</code> <code>"JavaScript"</code>,
+ since both of these are clearly numbers, they will be treated as 
+numbers, added together, then the answer concatenated to the string. The
+ real issue to keep in mind is the fact that JavaScript is not strongly 
+typed, means you need to be much more careful with how you utilize 
+variables. It's a great place to use comments and default values to help
+ indicate what you intended the variable to be. <br>
+<em>The 82767 Variables in..ript and HTML5.htm tabbed page is open in 
+the Microsoft Visual Studio window. On this tabbed page, the presenter 
+refers to the following portion of the code:<br><br>function basicvariables()<br>{<!-- --><br>try<br>{<!-- --><br>var empID = 16; // Number<br>var lastName = "Smith"; // String<br>var jobs = ["Programmer", "Manager", "Sales"]; // Array<br>var x = {firstName: "John", lastName: "Smith"}; // Object<br>var currentemployee = true; // Boolean<br>// how are variables treated<br>// if one of the variables is a string, then it all is treated as a string<br>var answer1 = 10 + "JavaScript";<br>alert(answer1);<br>//JavaScript works left to right<br>var answer2 = 5 + 5 + "JavaScript";<br>alert(answer2);<br>}<br>catch(err)<br>{<!-- --><br>alert("Input is " + err);<br>}<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19da67-e4cb-11e6-8282-0242c0a80a04">
+Using Null Values in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+Well, it may sound counter-intuitive or even odd, null values can be 
+very useful in secure or defensive programming. Let's consider some code
+ you see on the screen now. Now you may have seen this code in some of 
+the other videos; essentially, it's a web application that allows the 
+end user to type in employee information, the employee age, name, 
+e-mail, job, that sort of things, and then save it or retrieve data for a
+ current employee. Now obviously, we need to validate data before saving
+ it and the null value can be helpful in that respect. For example, in 
+this <code>VerifyEmployee()</code> function, we do some other validation
+ but let's consider this section of code highlighted on your screen 
+right now. We're checking to see if the <code>job</code> is <code>null</code>.
+ If it is, that means that the user didn't type anything at all in, it 
+doesn't mean they typed in incorrect data or data that's out of bound, 
+there's no data at all. So we <code>alert</code> the end user and we exit the function we <code>return</code>.
+ This is one way you can use the null value, and null is normally 
+associated with objects and array types. So let's take a look at a 
+function that would use that. The function you see highlighted on your 
+screen right now retrieves an end user from local storage. <br>
+<em>The 82768 Using Null V...ipt and HTML5.html tab is displayed in the 
+Microsoft Visual Studio window. The window includes the menu bar with 
+menus such as FILE, EDIT, and VIEW. The 82768 Using Null V...ipt and 
+HTML5.html tabbed page includes the following partially visible code:<br><br>function VerifyEmployee()<br>{<!-- --><br>try<br>{<!-- --><br>var iAge = document.getElementById("age");<br>if (isNaN(iAge))<br>{<!-- --><br>alert("Enter a valid integer age");<br>return;<br>}<br>if(iAge&lt; 18)<br>{<!-- --><br>throw "too low";<br>return;<br>}<br>if(iAge&gt; 100)<br>{<!-- --><br>throw "too high";<br>return;<br>}<br><br>//else process data// including a deeper check for valid job<br>if(sampleform.job.value == null)<br>{<!-- --><br>alert("you must enter a value for Job");<br>return;<br>}<br>var sJob=document.getElementbyId("job");<br>switch (sJob)<br>{<!-- --><br>case 'programmer';<br>// code to handle this job<br>break;<br>case 'manager':<br>// code to handle this job<br>break;<br>case 'sales':<br>// code to handle this job<br>break;<br><br>The presenter highlights and refers to the following portion of the code:<br><br>if(sampleform.job.value == null)<br>{<!-- --><br>alert("you must enter a value for Job");<br>return;<br>}<br><br>Then the presenter scrolls up the tabbed page and highlights the following portion of the code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82768 Using Null Values in JavaScript and HTML5&lt;/TITLE&gt;<br>&lt;script type="text/javascript"&gt;<br>var employee = {};<br>function retrieveUser(lastname)<br>try<br>{<!-- --><br>//employee.name = name.value;<br>//employee.email = email.value;<br>//employee.age = age.value;<br>//employee.job = job.value;<br>if ('localStorage' in window &amp;&amp; window['localStorage'] !== null)<br>{<!-- --><br>employee = localStorage.getItem(name.value);<br>if(employee==null)<br>{<!-- --><br>alert("No such employee found")<br>return<br>}<br>else<br>{<!-- --><br>// do code with employee information<br>employee = null;<br>}<br>}</em>
+<br><br>
+<strong></strong>
+Now I've in comments here given you the basic structure of that data. It
+ should have an employee name, e-mail, age, and job that's what should 
+have been stored. We're going to use the null value in three different 
+ways. First let's see <code>'localStorage'</code> as <code>null</code>. If it is, that means there is nothing in it so there is no sense searching for this end user. If it's not, then we can call <code>localStorage.getItem</code> for this end user, this particular <code>employee</code>. Now if we do that, it's possible that, yes, there is data in local storage but the specific <code>employee</code> we're looking for is not there. If that would occur, we might get back <code>null</code> value in this array. So before we do anything with that array, let's check to see if it's null. If it is, <code>alert</code> the end user and <code>return</code>.
+ If it's not, then you can do whatever code you intended to do, 
+transmitting it to web servers, displaying it to user, whatever you 
+wish. <br>
+<em>The Microsoft Visual Studio window is displayed with the 82768 Using
+ Null V...ipt and HTML5.html tabbed page open. On this tabbed page, the 
+presenter highlights and refers to the following portion of the code:<br><br>//employee.name = name.value;<br>//employee.email = email.value;<br>//employee.age = age.value;<br>//employee.job = job.value;<br><br>Then the presenter refers to and highlights the following portion of the code:<br><br>if ('localStorage' in window &amp;&amp; window['localStorage'] !== null)<br>{<!-- --><br>employee = localStorage.getItem(name.value);<br>if(employee==null)<br>{<!-- --><br>alert("No such employee found")<br>return<br>}<br>else<br>{<!-- --><br>// do code with employee information<br>employee = null;<br>}</em>
+<br><br>
+<strong></strong>
+Now there is a third way to use <code>(employee==null)</code>. If that array, <code>employee</code>
+ was a local variable, we wouldn't be concerned about this issue because
+ as soon as the function is done executing, all the local variables are 
+gone. But in this case, we have a global array, you can see right here. 
+So let's say we do a search for a particular <code>employee</code>, we 
+find data and so this array is populated, right here in this highlighted
+ code. Then we subsequently call this function again, search for a 
+different employee that's not there. Because this array is global, it 
+could very well have leftover data in it. So to prevent that from 
+happening, when we're done with whatever code we intend to do, we set 
+that array to <code>null</code>; that will completely wipe it out. You 
+can do this with arrays and objects to clear them out so you don't have 
+any leftover values. Those are three different ways you can use the <code>null</code> value to enhance your secure programming. <br>
+<em>The Microsoft Visual Studio window is displayed with the 82768 Using
+ Null V...ipt and HTML5.html tabbed page open. On this tabbed page, the 
+presenter highlights and refers to the following code statement:<br><br>var employee = {};<br><br>Then the presenter refers to the following line of code that defines the array:<br><br>employee = localStorage.getItem(name.value);<br><br>Next the presenter refers to the following portion of the code:<br><br>// do code with employee information<br>employee = null;<br>}</em>
+</p>
+</div>
+</div>
+<div>
+<h2 id="fe19da69-e4cb-11e6-8282-0242c0a80a04">
+If and Switch Statements in JavaScript and HTML5
+</h2>
+<div><p>
+<strong></strong>
+<code>if</code> statements and <code>switch</code> statements provide a 
+very easy to implement methodology, whereby you can check what the user 
+has inputted before proceeding. This is a cornerstone of defensive 
+programming. Using <code>if</code> statements and <code>switch</code> 
+statements to verify user input can avoid errors before they happen and 
+avoiding errors before they happen is very important in defensive 
+programming. Let's take a look at a simple example. This is a piece of 
+an employee web site; employees enter their <code>First</code> <code>name</code>, <code>Last</code> <code>name</code>, <code>Age</code>, and <code>Job</code>. There you'll note that we have default values put in here. Our focus in this lesson is on <code>if</code> statements and <code>switch</code>
+ statements, but keep in mind, default values at least give the user a 
+suggestion as to what sort of data you're looking for, can help them 
+pick the right data types. That's very important in JavaScript because 
+JavaScript is a loosely-typed language. It can't really differentiate 
+between integers and floats, for example. When they click the button, we
+ call <code>VerifyExample()</code>. Now the first thing this does is get the <code>"age"</code>.
+ There is a functionality in JavaScript that allows you to differentiate
+ between a number and not a number. The obvious one is the function is 
+not a number, <code>isNaN</code>. <br>
+<em>The Microsoft Visual Studio window is displayed and the menu bar of 
+the window includes menus such as FILE, EDIT, VIEW, PROJECT, DEBUG, and 
+TOOLS. The window also includes the 82769 If and Switch.htm tab. This 
+tabbed page is open and includes the following code:<br><br>&lt;!DOCTYPE html&gt;<br>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;82769 If and Switch Example&lt;/TITLE&gt;<br>&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>function VerifyExample()<br>{<!-- --><br>var iAge = document.getElementById("age");<br>if (isNaN(iAge))<br>{<!-- --><br>alert("Enter a valid integer age");<br>break;<br>}<br>//else process data// including a deeper check for valid job<br>var sJob=document.getElementById("job");<br>switch (sJob)<br>{<!-- --><br>case 'programmer':<br>// code to handle this job<br>break;<br>case 'manager':<br>// code to handle this job<br>break;<br>case 'sales':<br>// code to handle this job<br>break;<br>default:<br>alert("Unknown job type")<br>}<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/head&gt;<br>&lt;button onclick="VerifyExample()"&gt;Click&lt;/button&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;<br><br>The presenter scrolls down the tabbed page and highlights the following:<br><br>&lt;BODY BGCOLOR=White&gt;<br>&lt;form id="frm1"&gt;<br>First name: &lt;input type="text" name="fname" value="Smith"&gt;&lt;br&gt;<br>Last name: &lt;input type="text" name="lname" value="John"&gt;&lt;br&gt;<br>Age: &lt;input type="text" name="age" value="30"&gt;&lt;br&gt;<br>Job: &lt;input type="text" name="job" value="Programmer"&gt;&lt;br&gt;<br>&lt;/form&gt;<br>&lt;button onclick="VerifyExample()"&gt;Click&lt;/button&gt;<br>&lt;/BODY&gt;<br><br>The presenter then scrolls up the tabbed page and highlights the following:<br><br>function VerifyExample()<br>{<!-- --><br>var iAge = document.getElementById("age");<br>if (isNaN(iAge))</em>
+<br><br>
+<strong></strong>
+So the first thing I do is ask is what they entered is not a number. If it's not a number, I have an <code>alert</code> that simply tells them, <code>"Enter</code> <code>a</code> <code>valid</code> <code>integer</code> <code>age"</code>.
+ If not, then I go and process the data. Now in processing the data, we 
+include a second check, and this is given to illustrate how to use the <code>switch</code>-<code>case</code> statement. We grab the <code>"job"</code>
+ title. Now we don't care what it is, we're assuming it's string in this
+ case. We're not checking data type, but we only have three job titles 
+available. If they've entered one of these, then we execute the code 
+right here, whatever it might be to handle our job. If not, we again 
+give an <code>alert</code> to tell the user, we don't know what job type
+ you entered. Now these are two simple examples. I would expect that any
+ time you have user's input data, you might use an <code>if</code> 
+statement to check on data length. You can check on if it's a number or 
+not. You can check on if it's blank. If I wanted an end user to enter 
+all four of these values, I might check any one of them to see if there 
+is actually a value in there. These are simple checks you can do prior 
+to processing data that will help you avoid errors. <br>
+<em>The 82769 If and Switch.htm tabbed page is open in the Visual Studio
+ window. On this tabbed page, the presenter highlights the following 
+portion of the code:<br><br>function VerifyExample()<br>{<!-- --><br>var iAge = document.getElementById("age");<br>if (isNaN(iAge))<br>alert("Enter a valid integer age");<br>break;<br>}<br>//else process data// including a deeper check for valid job<br>var sJob=document.getElementById("job");<br>switch (sJob)<br>{<!-- --><br>case 'programmer':<br>// code to handle this job<br>break;<br>case 'manager':<br>// code to handle this job<br>break;<br>case 'sales':<br>// code to handle this job<br>break;<br>default:<br>alert("Unknown job type")<br>}</em>
+</p>
+</div>
+</div>
+
+
+</body></html>

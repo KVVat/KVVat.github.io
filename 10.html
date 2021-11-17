@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="JavaScript Front-end Development: Fundamentals Transcript">
+<title>JavaScript Front-end Development: Fundamentals Transcript</title>
+</head>
+<body>
+<h1>JavaScript Front-end Development: Fundamentals</h1>
+<p>Explore basic JavaScript concepts and Full Stack Development while 
+you learn&nbsp;how to get started using JavaScript, and code formatting 
+basics. During this course, you will start by exploring the fundamentals
+ and synergy of FSD, Full Stack Development, and JavaScript Front End 
+Development. Next, you will discover the JavaScript and ECMAScript 
+relationship, and go on to review recent updates 2016, 2017, and 
+ES.Next. As you progress, you will learn how to set up a JavaScript 
+Development Environment, how to discover the features and functionality 
+of the developer console, and how to learn best practices for JavaScript
+ code spacing and formatting. Other topics include how to consider three
+ methods for adding JavaScript to an HTML document, and how to explore 
+the various ways to declare and use variables, use Arithmetic, Logic, 
+and assignment Operators. Finally, conclude by learning how to work with
+ bitwise, increment, and decrement operators.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#1bc76980-6af7-11e8-981b-cd9e3ae019a4">Full Stack Fundamentals</a></li>
+<li><a href="#1cf9cf00-6af7-11e8-981b-cd9e3ae019a4">JavaScript for Front End Development </a></li>
+<li><a href="#1fd85de0-6af7-11e8-981b-cd9e3ae019a4">JavaScript and ECMAScript</a></li>
+<li><a href="#22b95dc0-6af7-11e8-981b-cd9e3ae019a4">Setting Up a JavaScript Development Environment</a></li>
+<li><a href="#253b26a0-6af7-11e8-981b-cd9e3ae019a4">Using a JavaScript Console</a></li>
+<li><a href="#27bcef80-6af7-11e8-981b-cd9e3ae019a4">Introduction to Code Spacing and Formatting</a></li>
+<li><a href="#2a995b80-6af7-11e8-981b-cd9e3ae019a4">Inserting JavaScript Code</a></li>
+<li><a href="#2db7d990-6af7-11e8-981b-cd9e3ae019a4">Creating Variables</a></li>
+<li><a href="#30a81bb0-6af7-11e8-981b-cd9e3ae019a4">Basic JavaScript Operators</a></li>
+<li><a href="#34050250-6af7-11e8-981b-cd9e3ae019a4">Arithmetic and Logic Operators</a></li>
+<li><a href="#369e4ad0-6af7-11e8-981b-cd9e3ae019a4">Exercise: Using JavaScript in a Web Page</a></li>
+</ol></div>
+<div>
+<h2 id="1bc76980-6af7-11e8-981b-cd9e3ae019a4">
+Full Stack Fundamentals
+</h2>
+<div><p>[Video description begins] <em> Topic title: Full Stack Fundamentals. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'm going to look at JavaScript Front-End Web 
+Development, or Full Stack Fundamentals. The thing is there's really no 
+hard and fast definition for full stack development. It really depends 
+on some kind of context, and even the context changes.</p>
+<p>[Video description begins] <em> A pyramid is displayed on the screen.
+ It is divided into following 6 tiers: 1st, Front End. 2nd, I S, H t ml,
+ C S S. 3rd, Server Side Logic. 4th, Windows, Mac, Linux. 5th, Back end.
+ 6th, Databases.</em> [Video description ends]</p>
+<p>In terms of Web development, then what we're looking at. The context 
+in which we can discuss full stack development involved around the 
+Internet and the World Wide Web. Then we can think of some of the tools 
+that we use to access the World Wide Web. We need a computer, we need a 
+browser, we need an operating system. So that's what we're looking at 
+when we're talking about full stack development. So we can look at it, 
+then, from three parts. Or we can look at full stack development as 
+having three layers.</p>
+<p>The front end layer, that's your browser-based stuff. That's your 
+browser and how it operates, what it needs to present, the images and 
+text that it's presenting. Then there's a server side part of it. That's
+ your operating system-based programming languages. So things like PHP, 
+and C#, and those other types of scripting languages on the server side.
+ Of course, most website would need a database back-end, so that's the 
+third layer. And once we look at full stack development that's having 
+three layers. Then we can of course drill down into these layers a 
+little bit further.</p>
+<p>[Video description begins] <em> Screen titled: F S D - Stack Layers.</em> [Video description ends]</p>
+<p>That front end layer where we are representing information on a 
+browser. That's the layer that encompasses HTML, CSS, and the 
+JavaScript.</p>
+<p>[Video description begins] <em> HTML or CSS have 2 sub points: CSS Box Model. Bootstrap. Java Script has 2 sub points: J query. React or Angular JS.</em> [Video description ends]</p>
+<p>So HTML and CSS that's the structure at the presentation layer. 
+JavaScript is considered to be a browser-based scripting language. So 
+JavaScript will interact with your HTML to make things happen on the 
+browser itself. Then there are the server side languages that support 
+your front end part. So these things like PHP, Ruby, Python, even C#. 
+These are the languages that would support your HTML, CSS, and 
+JavaScript. In fact, you would need a server side language in order to 
+interact with the database. Which is the third layer of our three part, 
+or three layer set up. Now, of course, we can have a webpage or website 
+without a database.</p>
+<p>But most of the sophisticated ones would have some kind of database. 
+Because your website would want to collect information from the user. As
+ well as present the user with information or specific information that 
+the user is requesting. That sort of back and forth would require some 
+type of a persistence layer. Now, of course, these three layers that I 
+just mentioned is not the entire story. Of course we would want more 
+support than that. And being a full stack developer, these are the three
+ core parts of being a full stack developer. Now of course, if you know 
+something about HTTP and REST then that's even better. This is the layer
+ that sort of pulls everything together and makes everything happen. 
+They operate at the sort of a network layer. But nevertheless you need 
+to have some knowledge about HTTP and about REST.</p>
+<p>Then any good web developer, a full Stack web developer, would have 
+an excellent knowledge of the entire application. This is the entire 
+system that your website is running on. So we're talking web server 
+software, things like IIS or Apache. We're also looking at the operating
+ system, the file systems within the operating system. So this is where 
+the web developer would interact with the systems person, whoever that 
+is and whatever his title is. It could be systems developer, systems 
+administrator. It could even be the network administrator. So a full 
+stack developer is not expected to have excellent or expert knowledge in
+ any one particular area. For example, jQuery, you can spend years in 
+just using jQuery alone. But a full stack developer is expected to have a
+ general understanding, a good understanding of the overall picture. The
+ overall architecture that makes up a website and allows that website to
+ function.</p></div>
+</div>
+<div>
+<h2 id="1cf9cf00-6af7-11e8-981b-cd9e3ae019a4">
+JavaScript for Front End Development 
+</h2>
+<div><p>[Video description begins] <em> Topic title: JavaScript for Front End Development. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'm going to describe what JavaScript front end development is and where it fits in to full stack development.</p>
+<p>[Video description begins] <em> Screen title: Java Script history and Definitions.</em> [Video description ends]</p>
+<p>But I'd like to first talk a little but about the history of 
+JavaScript. JavaScript was developed at Netscape in or around 1995 and 
+it became part of the second version of their Navigator browser in 1996.
+ JavaScript actually became an ECMA standard in 1997 and the standard 
+was given the official name of ECMA-262. And so ECMAScript is the 
+official name of the language. However, JavaScript is just one 
+implementation of ECMAScript.</p>
+<p>There are other scripts out there. The thing is JavaScript became so 
+popular that now several desktop and server side programs use 
+JavaScript, like Node.js for example. In fact, even some databases like 
+MongoDB and CouchDB, they had to use some language to interact with 
+their data, and their tables, and their database objects, and so on. And
+ so they decided to use JavaScript for that part of our database. In 
+terms of learning JavaScript, well, there is good news.</p>
+<p>[Video description begins] <em> Screen title: Java Script - Features.</em> [Video description ends]</p>
+<p>JavaScript is part of those C-Style languages, like C++, C#, Java. So
+ the structure should be very familiar to learners and to other 
+developers. So the syntax is very similar to all of these different 
+languages. JavaScript is dynamic, meaning that the user can have a 
+better experience on a web page or website due to the functionality and 
+dynamism of JavaScript. In fact, quite a lot of processing of user data 
+can be done on the browser before that data reaches the back end. And 
+JavaScript is responsible for all of this processing.</p>
+<p>Each time we fill out a form on the Internet, we are probably seeing 
+JavaScript at work, verifying our data, providing us with a path to 
+completion of that form. JavaScript is also object oriented, in that we 
+can create objects and work with objects just like in other 
+object-oriented languages like C++ and Java. JavaScript's implementation
+ of objects though might be a little bit different at first or it 
+appears different at first. But in the end, what we have is an object, 
+and an object behaves just like other objects in other languages. So 
+what all of this means is that we have the power to deal with or to work
+ with structure of an HTML document.</p>
+<p>[Video description begins] <em> Screen titled: Full Stack Development - Java Script.</em> [Video description ends]</p>
+<p>JavaScript interacts with the structure of an HTML development, as 
+part of an HTML document, as part of something called front end 
+development, which in itself is part of full stack development. So as a 
+front end developer, you would have to able to target at various parts 
+of a HTML document. And be able to work with each and every individual 
+piece of that HTML document, each element of that document. JavaScript 
+even gives us the ability to work with CSS, which CSS now gives a look 
+and feel, a sort of a theme to a web page. JavaScript can work with the 
+Document Object Model and HTML to effect styling on any page.</p>
+<p>So with CSS and The DOM, the Document Object Model which consist of 
+HTML elements, we have now the ability to completely redesign an entire 
+web page. In terms of how this functionality works, think of an array. 
+With the JavaScript, we can build arrays. And with an array, we can 
+probably store a set of div tag in a JavaScript array.</p>
+<p>This gives developers the ability to target any one of those div tags
+ and change its content, change its background, even make it float off 
+the page, for example. So the functionality of JavaScript can be 
+leveraged to work with the Document Object Model, to work with HTML 
+elements, and to work with styling. So JavaScript by itself, even with 
+all of the power that it has, cannot really do anything. It has to work 
+with HTML, it has to work with CSS, in order to be meaningful to an end 
+user.</p></div>
+</div>
+<div>
+<h2 id="1fd85de0-6af7-11e8-981b-cd9e3ae019a4">
+JavaScript and ECMAScript
+</h2>
+<div><p>[Video description begins] <em> Topic title: Java Script and ECMA Script. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'm going to discuss JavaScript and its relation to ECMAScript. This is a very high level overview.</p>
+<p>[Video description begins] <em> Screen titled: Java Script, ECMA Script, and J Script.</em> [Video description ends]</p>
+<p>Now ECMA, or European Computer Manufacturers Association, started out
+ in or around 1961. And they are really a standards body, and they 
+operate in the information and communication system space. Now, 
+ECMAScript is just one of several specifications that this particular 
+body has drafted. ECMAScript is a scripting language specifically or 
+officially known as ECMA-262. And the current version is ES2017, which 
+is also known as ES8.</p>
+<p>But there have been eight editions of ECMA-262 since the body has 
+started in 1961. JavaScript is a subscript of ECMAScript. But JavaScript
+ was actually started by Netscape, a company that no longer exists. And 
+the second version of their Navigator browser was actually the first 
+browser to ever use JavaScript. JScript was Microsoft's attempt to 
+implement some kind of scripting language for Internet Explorer. But the
+ default is JavaScript, and now all browsers comply with that ECMAScript
+ standard.</p>
+<p>[Video description begins] <em> Screen titled: ECMA Script Compliance, and Conformance.</em> [Video description ends]</p>
+<p>And this is actually a good thing, because this ubiquitous browser 
+support for ECMAScript and JavaScript. What we're going to have is the 
+avoidance of proprietary software and proprietary features. But remember
+ a standard is really just that. It doesn't mean that the browser 
+manufacturers can't do more. And in fact, a lot of them do do more. So 
+generally, though, standards compliance simply means that the 
+manufacturer has promised to implement or provide support for things 
+like types, values, objects, properties, functions, and program syntax 
+and semantics. As it was laid out in the ECMA-262 specification. 
+According to ECMA, ECMAScript was intended to be used as a scripting 
+language.</p>
+<p>But recently, we noticed that it has become more of a general purpose
+ language. In fact, it's now being used on the back end, on the server 
+side. ECMA went on to define a scripting language as a programming 
+language that is used to manipulate, customize, and automate an existing
+ system. So that's the key here. An existing system must exist in order 
+for a scripting language to work on it. But of course, that means that 
+the language should be easier. A scripting language is also meant to be 
+used by both developers and the designers, making it a little bit more 
+versatile. So JavaScript, then, is a general purpose language that 
+conforms to ECMAScript.</p>
+<p>[Video description begins] <em> Screen titled: ECMA Script to Java Script.</em> [Video description ends]</p>
+<p>So we can say that JavaScript is just one implementation of 
+ECMAScript. There are several implementations of that ECMAScript. But 
+the good news is that most browsers will implement ECMAScript in the 
+same way. Meaning that we now have interoperability. So I can take a 
+file that I developed on my PC and then go to a Mac and run the same 
+file. And I should see the same interactions on the Mac that I did on 
+the PC. In fact, a JavaScript engine is a piece of operating system 
+software or interpreter that can understand and execute JavaScript code.
+ JavaScript engines are present in web browsers.</p>
+<p>And it's called V8 in Chrome, SpiderMonkey in Firefox, and Chakra in 
+Edge. A JavaScript runtime is the operating system-based environment 
+which handles and executes your JavaScript code, the same JavaScript 
+that we wrote. It is this runtime that makes possible those host objects
+ that JavaScript needs in order to perform its functions and its tasks.</p>
+<p>[Video description begins] <em> Screen titled: E S 2017 Features.</em> [Video description ends]</p>
+<p>Let's take a look now at some of the ES8 features. So they've 
+introduced something called string padding. A string is a type of object
+ in JavaScript, and it has its own methods and properties. In the 
+specification, they added the ability to add characters before the 
+actual visible characters or after those visible characters. So there 
+are two instance methods called string.prototype.padStart, 
+string.prototype.padEnd.</p>
+<p>They've also introduced something called 
+object.getOwnPropertyDescriptors, which is a method. And it makes it 
+easy for developers to copy objects. Object.values and object.entries, 
+these are methods that iterate over objects and add functionality to 
+what was there before. For example object.values returns an array of 
+values corresponding to the existing keys in some object. They also 
+introduced something called an Async Function, which instructs the 
+compiler to pause whenever it sees the await keyword inside of a 
+function. This is good news for developers because developers are always
+ over some type of network. And so we are always waiting on something to
+ give us an answer.</p></div>
+</div>
+<div>
+<h2 id="22b95dc0-6af7-11e8-981b-cd9e3ae019a4">
+Setting Up a JavaScript Development Environment
+</h2>
+<div><p>[Video description begins] <em> Topic title: Setting Up a Java Script Development Environment. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'm going to be talking about our JavaScript 
+development environment. Now JavaScript is a browser-based language, so 
+we have to have a browser.</p>
+<p>[Video description begins] <em> A desktop appears on the screen.</em> [Video description ends]</p>
+<p>JavaScript is also made up of text, so we have to have a text editor 
+available. Then when you think about JavaScript and where it is run, it 
+is run on some kind of platform. It could be a phone, tablet, or in this
+ case here, it's an operating system. So at the very basic level, all we
+ really need to start developing in JavaScript or using JavaScript is a 
+browser, a text editor, and some kind of environment. Now of course 
+there are all kinds of sophisticated IDEs, integrated development 
+environments, out there that are focused on maybe a number of different 
+technologies together, JavaScript is just the one of them.</p>
+<p>But in this case here, in this course, we will keep it very simple. 
+So if we think of our environment as a tool, then in my case it's the 
+Windows operating system, and one of the tools of that system is the 
+Windows File Explorer, which I've just opened up. In Windows File 
+Explorer, what I have done is created a folder for my JavaScript files, 
+and I have navigated to that folder.</p>
+<p>[Video description begins] <em> He clicks a file named Dev 
+Environment under Quick access. Dev Environment file opens up. Following
+ folders have appeared: CSS Folder. Images Folder. J S Folder. And a 
+browser icon titled external, dot, html is also present.</em> [Video description ends]</p>
+<p>So that's my first tool, the environment in which, or the platform, 
+which I'm going to be using to develop JavaScript files. The second 
+thing is my browser of course. Now there are lots of browsers out there 
+and the more you could use when you're developing, the better it is. 
+Because what happens is that they all must follow a standard, but of 
+course we know that they are different manufacturers and they may 
+implement that standard a little bit differently. So it's good to have 
+different browsers available.</p>
+<p>For this course and for most of the exercises and the demonstrations 
+in this course, I will be using Chrome. I may switch to another browser 
+if I feel that other browser has something that I can explain better or 
+will be explained better. So in this case it is Chrome that I'm using 
+and I'm going to right-click on my external file right here and open up 
+Chrome. So I could just right-click on an HTML file, it will 
+automatically open up to Chrome for me.</p>
+<p>[Video description begins] <em> A java script web page browser opens 
+up. A dialog box displays. It has following text: This page says J S 
+external. and a Ok button.</em> [Video description ends]</p>
+<p>And right away, we see some JavaScript running. Now, this video is about the environment,</p>
+<p>[Video description begins] <em> He clicks Ok button. Following text appears on the screen: This is a paragraph.</em> [Video description ends]</p>
+<p>so we're not going to talk about the JavaScript as yet. Just know 
+that this page does have some JavaScript on it. So I've opened up my 
+Chrome explorer, Chrome window, and I am going to try to make my windows
+ so that I can see them. So if you notice, I've doubled down on my File 
+Explorer window as well as my Chrome window. So the third tool that we 
+need to talk about is the text editor.</p>
+<p>[Video description begins] <em> He clicks on external, dot, html. A list of options appear. He selects Edit with Notepad++.</em> [Video description ends]</p>
+<p>So in my case, there is a free text editor called Notepad++ on the 
+Internet, and I have gone ahead and downloaded that and I have installed
+ it on my machine.</p>
+<p>[Video description begins] <em> Notepad++ opens up with the java codes on the screen.</em> [Video description ends]</p>
+<p>So, if I were to move these three windows around, then what I have</p>
+<p>[Video description begins] <em> Three screen are present on the 
+desktop. 1st screen is for Java script web page. 2nd screen is for Dev 
+Environment. 3rd Screen is for Java Codes in Notepad++.</em> [Video description ends]</p>
+<p>is a basic environment in which I can start developing my JavaScript 
+codes. So basically what happens is that every time I make a change to 
+the file that I'm working with, then that change is reflected in the 
+browser. Also, most modern browsers come with developer tools. So in 
+Chrome for example, if I click on Chrome to highlight it or</p>
+<p>[Video description begins] <em> He points to the chrome screen.</em> [Video description ends]</p>
+<p>to ask the operating system to work with the Chrome window instead of
+ the other two windows. And I hit F12 on the key board, then what's 
+going to happen is the developer portion will open up.</p>
+<p>[Video description begins] <em> The presenter goes to the java script
+ browser. He clicks the F12 button on the keyboard. A developer page is 
+displayed with codes and an image.</em> [Video description ends]</p>
+<p>Now of course, in order to see this one better, I may have to expand 
+the Chrome window in this case. But as you can see, the developer 
+environment is a reflection of what's going on in the final HTML 
+rendition of that code. So as you can see, as I move my mouse over the 
+various code lines within Chrome, the corresponding sort of highlight on
+ the web page, itself, is appearing for me. So, for example, if I went 
+to just the paragraph alone, then on the left side of the page, you will
+ see that this is a paragraph, it's sort of highlighted for me.</p>
+<p>[Video description begins] <em> He points to the code on the right side of the chrome web page, on the left screen, This is a paragraph is highlighted.</em> [Video description ends]</p>
+<p>Now, of course, we will be talking about the developer tools much 
+more in other videos, but I just wanted to give you an introduction of 
+what we'll be using now. If I hit F12 again on the keyboard, that 
+developer part goes away back to just the plain old HTML file.</p>
+<p>[Video description begins] <em> He clicks F12 button on the keyboard,
+ The codes on the chrome screen disappears. Following text appears on 
+the screen: This is a paragraph.</em> [Video description ends]</p>
+<p>So this has been an introduction to the JavaScript environment.</p></div>
+</div>
+<div>
+<h2 id="253b26a0-6af7-11e8-981b-cd9e3ae019a4">
+Using a JavaScript Console
+</h2>
+<div><p>[Video description begins] <em> Topic title: Using a Java Script Console. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'm going to demonstrate some of the developer tools 
+in Chrome, Google Chrome. Now, most modern developers do have developer 
+tools available. However, I tend to like the fact that Chrome is always 
+up to date and very cutting edge. I have three windows open, File 
+Explorer, that's from the operating system. I have Notepad++, and I also
+ have Chrome opened up. What's happening is that we are displaying this 
+particular file here, 139678a,</p>
+<p>[Video description begins] <em> He points to the chrome icon, under folder Javascript demo, named as 139678a dot html.</em> [Video description ends]</p>
+<p>that's being displayed in a Chrome at the moment. And it's also opened up in Notepad++.</p>
+<p>[Video description begins] <em> He highlights screen for Java Codes in Notepad++.</em> [Video description ends]</p>
+<p>So it means that any change I make to my Notepad++ version of this 
+139678a file will reflect in the Chrome browser once I refresh that 
+page.</p>
+<p>[Video description begins] <em> He highlights screen for Java browser web page.</em> [Video description ends]</p>
+<p>So back on my Notepad++, let's make a change. I want to send something to the console window in Chrome.</p>
+<p>[Video description begins] <em> He highlights the code line 15. The 
+code is: slash, slash, console, dot, log, open curved bracket, double 
+quote, X is, double quote, plus X, close curved bracket, Semi-colon. He 
+changed the code by removing Slash, Slash, from the code.</em> [Video description ends]</p>
+<p>Now, it wasn't long ago that developers used console.log to debug 
+their JavaScript. So I've just made a change and I'm going to save that 
+change in Notepad++, back on my Chrome window I will refresh the file 
+within Chrome. Notice that nothing happens, nothing happened because in 
+order to see that console window within Chrome, we would have to go to 
+the developer tools.</p>
+<p>[Video description begins] <em> He goes to the screen of Java browser
+ web page. Following number appears on the screen: 20. He refreshes the 
+page. Following number appears on the screen: 20.</em> [Video description ends]</p>
+<p>Now, the easiest way to open up the developer tools in Chrome is to 
+hit the F12 or the Function12 button on your keyboard, which I just did 
+and there is my Chrome developer tools.</p>
+<p>[Video description begins] <em> He clicks, the F12 button on the keyboard, a developer page opens up with codes and an image.</em> [Video description ends]</p>
+<p>So if you notice, there are quite a few tabs up at the top.</p>
+<p>[Video description begins] <em> On screen of Java browser web page, he highlights following tabs : Elements. Console. Sources. Network.</em> [Video description ends]</p>
+<p>The ones we as JavaScript developers are interested in is the Console tab,</p>
+<p>[Video description begins] <em> He highlights console tab.</em> [Video description ends]</p>
+<p>and maybe Elements, as well as Sources.</p>
+<p>[Video description begins] <em> He highlights sources tab.</em> [Video description ends]</p>
+<p>Now remember, the Chrome developer tools were meant for many 
+developers not just JavaScript developers. So the ones that we are 
+interested in, like I said, are the Elements, the Console tab, and the 
+Sources tab. Let's click on Console for a second and there is the output
+ that was sent from</p>
+<p>[Video description begins] <em> He clicks on councel tab, following 
+text appears on the screen: x is 20. on the other side 139678a dot html,
+ colon, 15 is displayed.</em> [Video description ends]</p>
+<p>my console.log, which appeared on line 15.</p>
+<p>[Video description begins] <em> He highlights code line 15 in notepad++.</em> [Video description ends]</p>
+<p>If you noticed, Chrome is actually pointing to the name of the file, as well as the line that this content is coming from.</p>
+<p>[Video description begins] <em> He highlights 139678a dot html, colon 15. &amp;, x is 20 in Java browser web page.</em> [Video description ends]</p>
+<p>Now, in order to close your developer window, you can hit the F12 key
+ on your keyboard again, or just click on this x here and it will go 
+away. I want to make one more change. First of all, I'm going to comment
+ that line again, and this time I'm going to</p>
+<p>[Video description begins] <em> He highlights the code line 15. The 
+code is: console, dot, log, open curved bracket, double quote, X is, 
+double quote, plus X, close curved bracket, Semi-colon. He changed the 
+code by adding Slash, Slash, from the code.</em> [Video description ends]</p>
+<p>introduce a deliberate error, I'm going to say x + y, now I have not declared y.</p>
+<p>[Video description begins] <em> He highlights the code line 14. The 
+code is: element, dot, inner HTML, = x, semi-colon. He changed the code 
+by adding +, Y, after X in the code line.</em> [Video description ends]</p>
+<p>Let's save this in Notepad ++, back on my Chrome window I can refresh it and notice that the 20 went away.</p>
+<p>[Video description begins] <em> He again refreshes the Java browser web page.</em> [Video description ends]</p>
+<p>That indicates to me that something happened, there's an error 
+happened, but we don't see the error. In order to see that error, I 
+would have to hit F12 again on the keyboard, open up the developer tools
+ area, and there's the error. It even tells us the name of the file, and
+ the line that the error occurred on.</p>
+<p>[Video description begins] <em> He clicks the developer tool. A screen opens up with an error on code line 14.</em> [Video description ends]</p>
+<p>So the developer tools is what JavaScript developers will use to find
+ these kinds of errors, but there's a little bit more to it than just 
+that. I'm going to close Chrome for now, go back to my File Explorer 
+window, and</p>
+<p>[Video description begins] <em> He closes the Java browser web page.</em> [Video description ends]</p>
+<p>let's take a look at the b version of this file. I have 139678b file,
+ I'm going to drag that over to Notepad++, and notice it's a little bit 
+different.</p>
+<p>[Video description begins] <em> He highlights 139678b dot html &amp;, x is 20 in Java browser web page &amp; number of codes appears.</em> [Video description ends]</p>
+<p>It's pointing to or connecting with an external JavaScript file,</p>
+<p>[Video description begins] <em> He highlights the code line 7. The 
+code is: open angular bracket, script, s r c, =, double quote,J S, 
+slash, external, dot, J s, double quote, close angular bracket, open 
+angular bracket, slash, script, close angular bracket.</em> [Video description ends]</p>
+<p>it's inside a folder called JS.</p>
+<p>[Video description begins] <em> He highlights J s from the code line 7.</em> [Video description ends]</p>
+<p>So back on my File Explorer window, if I double-click on my JS 
+folder, there's my external.js file. I'm going to drag that over to my 
+Notepad++, and notice that it's a very simple statement. It's just a 
+very simple alert statement written in JavaScript.</p>
+<p>[Video description begins] <em> He opens the folder name J s, under 
+folder Java script demo. Following file is present: external, dot, J s. 
+He drags the file to the notepad++. A line of code appears. The code is:
+ alert, open curved bracket, open quote, J S external files, close 
+curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So let's close these two tabs now and back, went back this one as well.</p>
+<p>[Video description begins] <em> He closes following 2 files in notepad ++: external, dot, j s. 139678b dot html</em> [Video description ends]</p>
+<p>Back in my File Explorer window, I'm going to come out of the JS 
+folder by clicking on the arrow next, to the address bar, and I'm going 
+to open up my b file in Chrome again.</p>
+<p>[Video description begins] <em> He goes back to the J s folder &amp;,
+ clicks on 139678b dot html. He opens up the file in chrome. Following 
+text appears on the screen: This page says j s external files with an OK
+ button.</em> [Video description ends]</p>
+<p>And immediately the JavaScript fires. So I'm going to click OK on the
+ window that pops up, and we have our JavaScript, we have our HTML file 
+in the browser. Now, I'm going to hit F12 on the keyboard again to open 
+up our Chrome developer window. I'm going to maximize the Chrome window.
+ And if you notice, the developer tools are all the way over to the 
+right. Now of course, you can move this around, depending on what you're
+ trying to do. In my case now, I'm going to click on the left margin of 
+the developer tools window and drag it over to let's say, let's go back 
+over here to about 540 pixels. Now, remember I said that one of the tabs
+ that we are interested in is the Sources tab.</p>
+<p>[Video description begins] <em> He clicks on the sources tab. Number of option appears on the screen.</em> [Video description ends]</p>
+<p>If I click on that tab, what I'm going to see is sort of a replicate 
+of the Windows file structure. I see my root folder, I see my JavaScript
+ folder, and I see my HTML file.</p>
+<p>[Video description begins] <em> He highlights following options under
+ sources tab: c, colon, slash, Users, slash, Admin, slash, Documents, 
+JavaScript. Js. 139678b dot html.</em> [Video description ends]</p>
+<p>What we're interested in as JavaScript developers is the JavaScript file itself.</p>
+<p>[Video description begins] <em> He expands J s blue folder. external, dot, js folder appears.</em> [Video description ends]</p>
+<p>So if I click on that arrow next to the blue JS folder, there's my 
+external JS file. If I click on that, I see the raw JavaScript itself 
+within that JS file.</p>
+<p>[Video description begins] <em> He clicks external, dot, j s folder, a
+ line of code appears. The code is: alert, open curved bracket, open 
+quote, J s external file, close quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Now you might think that we can just simply make changes to this. So 
+for example, if I wanted to remove the word files, I might be able to do
+ something like that.</p>
+<p>[Video description begins] <em> He removes files from code. The 
+modified code is: alert, open curved bracket, open quote, J s external 
+file, close quote, close curved bracket, semi-colon. An asterisk is adds
+ at the end of the file name.</em> [Video description ends]</p>
+<p>Notice an asterisk appeared on the name of the file. And if I click 
+Ctrl and then S, the S works another way, so you might get the feeling 
+that the file was saved. But notice there's a little caution icon next 
+to the name of the file. If I move my mouse over to that, it says 
+Changes to this file were not saved. So how do we make these changes 
+persist, how do we save these changes? Well, it's actually very easy. My
+ mouse, right now, is in the white space. If I right click on this white
+ space, I do have a pop up menu come up. I can go to Save as.</p>
+<p>[Video description begins] <em> He clicks on the white space. A pop up menu with many options appears. He select save as option.</em> [Video description ends]</p>
+<p>If I choose Save as, then the system sort of sends me back over to 
+the operating system, where File Explorer window takes over and</p>
+<p>[Video description begins] <em> Save as, window opens up. It has a file named external, dot j s.</em> [Video description ends]</p>
+<p>asks me if I want to save this file in this particular path. If I 
+click Save, then it’s going to ask me to confirm that. And I can say Yes
+ at this point. And now that the original file has been saved on my 
+Windows file system. So if I refresh this page, notice that the word has
+ gone away, I believe it was file.</p>
+<p>[Video description begins] <em> He refreshes the Java browser web page. Following text appears in the dialogue box: This page says J s external.</em> [Video description ends]</p>
+<p>So if I click OK there and I minimize this window, if I go back to my
+ File Explorer window, go into that .js file, drag it over to Notepad++,
+ notice that the extra word is gone.</p>
+<p>[Video description begins] <em> The new code is: alert, open curved bracket, open quote, J S external, close quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So this is one way of saving files on the fly. There are other ways, 
+and as we move on in the course, you will see other features of Chrome 
+that can actually persist without going through the Save as. But for 
+now, that's a quick introduction to the developer tools in Chrome.</p></div>
+</div>
+<div>
+<h2 id="27bcef80-6af7-11e8-981b-cd9e3ae019a4">
+Introduction to Code Spacing and Formatting
+</h2>
+<div><p>[Video description begins] <em> Topic title: Introduction to code Spacing and Formatting. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'd like to describe some of the best practices for 
+developing JavaScript code in terms of spacing, formatting, naming of 
+constants, naming of variables. And also I'd like to introduce some of 
+the more recent ECMAScript standards and</p>
+<p>[Video description begins] <em> On desktop, there is a screen for Java Codes in Notepad++, and a Java browser web page.</em> [Video description ends]</p>
+<p>specifications. On the screen I have an HTML document. The JavaScript
+ that I'm using is embedded in that HTML document. So right away, we 
+need to, whenever we do something like this, whenever we include 
+JavaScript with HTML. We need to play nicely with all of the other HTML 
+code, as well as some of the CSS code that could be in here. So notice 
+that my JavaScript is already indented, and anyone looking at this will 
+know exactly where the script starts and where it ends. So that brings 
+me to the first specification, and it's not a ECMAScript specification, 
+but on line 10, if we are using HTML 5 and older. Then it's not 
+necessary to have the mime you type in within the script tag.</p>
+<p>[Video description begins] <em> He highlights the code line 10. The 
+code is: open angular bracket, script, type, =, double quote, text, 
+slash, javascript, double quote, close angular bracket.</em> [Video description ends]</p>
+<p>It is no longer necessary, however, if you're developing for some 
+older browsers, especially the Internet Explorer browsers. Then you 
+would definitely want to leave that in there. Moving on to line 11, it 
+is a constant that I'm declaring, and the best practice of course is to 
+use uppercase characters for your declarations for constants.</p>
+<p>[Video description begins] <em> The code on line 11 is: const, 
+Interest, underscore, rate, =, .05, semi-colon. he highlights Interest, 
+underscore, rate from the code.</em> [Video description ends]</p>
+<p>Also, if it makes sense to have two words for your constants, like in
+ this case interest rate, it is better to separate them out with an 
+underscore rather than putting them together.</p>
+<p>[Video description begins] <em> He highlights underscore from code line 11.</em> [Video description ends]</p>
+<p>Also, notice that of each of my statement has a semicolon at the end.
+ There was a time when this was not necessary, and in some older 
+browsers it still isn't necessary. However, it is a good practice, the 
+best practice, to leave those in there and make sure that each 
+JavaScript statement ends with a semicolon. Look at line 12, it's a very
+ long line. It spans three lines actually, and the reason for doing this
+ is based on yet another best practice, in that we should not have lines
+ longer than 80 characters.</p>
+<p>[Video description begins] <em> The code on line 12 is: const, LONG, 
+underscore, STRING, =, open quote, Lorem, ipsum, dolor, sit, amet, 
+comma, slash. The code on line 13 is: consectetur, adipiscing, elit, 
+slash, The code on line 14 is: sed do eiusmod temper incididunt, 
+fullstop, close quote, semi-colon.</em> [Video description ends]</p>
+<p>So what we need to do for long strings like this is to separate them 
+out. In this case, we're using a character, or a continuation character,
+ that suggests to the browser that we have a very long string.</p>
+<p>[Video description begins] <em> He highlights slash from code line 12, &amp;, 13.</em> [Video description ends]</p>
+<p>Now this best practice is a little bit controversial. But what the 
+best practice says is that we should actually remove those continuation 
+characters. And replace them with a concatenation character, something 
+like this. So it means then that on our next slide, line number 13, we 
+would have to start that string again. And of course, end it like this, 
+until we are complete with the entire string itself.</p>
+<p>[Video description begins] <em> On code line 11, he adds close quote,
+ plus, in place of slash. And, on code line 12, he adds open quote 
+before consectetur, and close quote, plus, in place of slash.</em> [Video description ends]</p>
+<p>Now, this does not make a difference in terms of the output, but</p>
+<p>[Video description begins] <em> He saves the file in notepad++. He 
+refreshes the javascript web page. The following text is displayed: The 
+value of Long, underscore, string is Lorem, ipsum, dolor, sit, amet, 
+comma, consectetur, adipiscing, elit, sed do eiusmod, temper, 
+incididunt.</em> [Video description ends]</p>
+<p>it does make a difference in terms of following a best practice. 
+Another good practice, and this has to do with ECMAScript, is to use let
+ instead of var whenever we declare and initialize variables. Now, it 
+was a long time that JavaScript developers used var, and you may still 
+see me using it from time to time if it's something very simple that I'm
+ trying to do, however, the best practice is to use let. Also take a 
+look at line 17. The suggestion is that we do not do this. In other 
+words, we should not be declaring multiple variables on the same line.</p>
+<p>[Video description begins] <em> The code on line 17 is: let Y,=, 100,
+ comma, z,=, 50, semi-colon, slash, slash, Do not do this. He highlights
+ Do not do this from the code.</em> [Video description ends]</p>
+<p>The suggestion is that we move your other variables down to another line, and declare them and initialize them there.</p>
+<p>[Video description begins] <em> The code let, z,=, 50, semi-colon, slash, slash, Do not Do this shifted to the line 18.</em> [Video description ends]</p>
+<p>So this would be the better practice, rather than keeping them on one line.</p>
+<p>[Video description begins] <em> He removes Do not Do this from the code in line 18.</em> [Video description ends]</p>
+<p>Again, in terms of ECMAScript we now have the ability in JavaScript, 
+to include the variable within the statement. So something like this, 
+'The value of LONG_STRING is ${LONG_STRING}'; we can actually embed the 
+variable within the statement, and so</p>
+<p>[Video description begins] <em> The code on line 19 is: element, dot,
+ inner HTML, =, Accent, The value of Long, underscore, String, is, 
+dollar sign, open curly bracket, Long, underscore, string, close curly 
+bracket, accent, semi-colon. He highlights Long, underscore, string, 
+from the code.</em> [Video description ends]</p>
+<p>the entire string prints out on the browser. Now in order to do this,
+ we would have to use the back ticks instead of regular single quote.</p>
+<p>[Video description begins] <em> He highlights accent from the code line 19.</em> [Video description ends]</p>
+<p>But of course it's much more convenient doing it this way, and in 
+fact, what happens is that, because we now have this ability, we could 
+do something like this. We could say, in this case, it's x + 5. In other
+ words, we could do arithmetic, right, within the single statement.</p>
+<p>[Video description begins] <em> He adds slash, slash in front of the 
+code line 19. The code on line 20 is: element, dot, inner HTML, =, 
+Accent, The value of x is dollar sign, open curly bracket, x, plus 5, 
+close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>So if I were to save this and refresh it we should see something like 25, because x was 20 before.</p>
+<p>[Video description begins] <em> He saves the file in notepad++. He refreshes the javascript web page. The following text is: The value of x is 25.</em> [Video description ends]</p>
+<p>Now there are some more best practises when it comes to the more 
+complex issues within JavaScript. Things like objects, things like 
+functions, and of course, I will discuss those when we get into that 
+part of the language.</p></div>
+</div>
+<div>
+<h2 id="2a995b80-6af7-11e8-981b-cd9e3ae019a4">
+Inserting JavaScript Code
+</h2>
+<div><p>[Video description begins] <em> Topic title: Inserting Java Script Code. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'd like to demonstrate the three methods of adding 
+JavaScript to an HTML document. Remember that JavaScript interacts with 
+the HTML document. In fact, it interacts with something called the 
+Document Object Model, or the DOM.</p>
+<p>[Video description begins] <em> On desktop, there is a screen for Java Codes in Notepad++.</em> [Video description ends]</p>
+<p>And what we mean by that is that if you look at this body tag of the,
+ in fact, even the body tag can be somehow affected by the script you 
+write in your JavaScript. So an HTML document is made up of all these 
+different tags, the head tag, the body tag, paragraph tags, etc. And 
+what we see here in this example is that we are attempting to get a 
+handle on one of those tags, and attempting to change the content of 
+that tag or the content that is in between the tags.</p>
+<p>[Video description begins] <em> The presenter goes to the line 13. 
+The code is: element, dot, inner HTML, =, open quote, New Heading, 
+double quote, semi-colon. he highlights New Heading in the code.</em> [Video description ends]</p>
+<p>And this is mainly what JavaScript does, and is very good at it. So 
+if we look at this example, we are getting a tag, one of the tags. In 
+this case, I'm calling it Element.</p>
+<p>[Video description begins] <em> He goes to the line 12. The code is: 
+var, element, =, document, dot, get element by ID, open curved bracket, 
+double quote, old, double quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>And it's actually pointing to this, the header tag, on the page. This page is very simple, just two HTML tags.</p>
+<p>[Video description begins] <em> He highlights the code line 10. The 
+code is open angular bracket, h 1, i d, =, double quote, old, double 
+quote, close angular bracket, &amp;, open angular bracket, slash, h 1, 
+close angular bracket.</em> [Video description ends]</p>
+<p>And once we get a hold of that element as an object,</p>
+<p>[Video description begins] <em> He highlights, elements in code line 12. The element on code line 13 gets also highlighted.</em> [Video description ends]</p>
+<p>we can change the inner HTML of that element. And so we can provide it with a different wording content.</p>
+<p>[Video description begins] <em> He highlights, inner HTML &amp;, New Heading in code line 13.</em> [Video description ends]</p>
+<p>So the old wording, had we not run JavaScript, would be Old heading.</p>
+<p>[Video description begins] <em> He highlights, old heading in code line 10.</em> [Video description ends]</p>
+<p>However, once the script runs within the browser, that Old heading is going to be changed to New heading.</p>
+<p>[Video description begins] <em> He highlights, new heading in code line 13.</em> [Video description ends]</p>
+<p>Let's just take a look at how or what that would produce.</p>
+<p>[Video description begins] <em> He opens a folder of Java script 
+demo. Following explorer files present under it: body, dot, html chrome 
+icon. external, dot, html chrome icon. Head, dot, html chrome icon. 
+test, dot j s file.</em> [Video description ends]</p>
+<p>So if I open this up, we see that New heading is printed and not Old heading.</p>
+<p>[Video description begins] <em> He clicks on body, dot, html chrome 
+icon, &amp; choose opens up. Java browser web page opens up. Following 
+text appears on the screen: Hello Skillsoft. New Heading.</em> [Video description ends]</p>
+<p>Now just to demonstrate the difference with this particular file.</p>
+<p>[Video description begins] <em> He highlights code line from 11 to 
+14. The code on line 11 is: open angular bracket, script, close angular 
+bracket. The code on line 14 is: open angular bracket, slash, script, 
+close angular bracket.</em> [Video description ends]</p>
+<p>If we were to remove the JavaScript from the body and put it into the head, then without a function, it simply will not work.</p>
+<p>[Video description begins] <em> He removes code line from 11 to 14, and, shifted to code line 7.</em> [Video description ends]</p>
+<p>So see, we're back to Old heading.</p>
+<p>[Video description begins] <em> He refreshes the Java browser web page. Following text appears on the screen: Hello Skillsoft. Old Heading.</em> [Video description ends]</p>
+<p>So whenever we need to do something really quickly, we could insert 
+JavaScript into the body tag, and actually call the particular element 
+that we're looking at. But mainly, JavaScript is run from the head tags.
+ Let's take a look at an example with JavaScript in the head tags. So 
+I'm going to close these two examples that I have.</p>
+<p>[Video description begins] <em> On desktop, he close two programs. 1st program is for Java Codes in Notepad++. 2nd program is for Java browser web page.</em> [Video description ends]</p>
+<p>I'm going to go back to my File Explorer, open up my head example, edit that with Notepad.</p>
+<p>[Video description begins] <em> He again opens explorer file. He 
+clicks on head, dot, html chrome icon, &amp; choose edit up with 
+notepad++. codes in notepad++ opens up.</em> [Video description ends]</p>
+<p>So we can see that all of the JavaScript now is run inside of the 
+head tag of the html document. Now, this video is about where the script
+ is placed, it's not about functionality. So this script actually will 
+not work at this point in time. However, this is just an example to show
+ you that JavaScript is mainly put into the head tags. And then you 
+would call it somewhere within the body of your HTML document by some 
+kind of function name. So to really see this example work properly, we 
+would have to wrap all of this code inside of a function.</p>
+<p>[Video description begins] <em> He highlights code from line 8 to 14.
+ Code on line 8 is, let, x equals, open quote, 5, close quote, 
+semicolon. Code on line 9 is, alert, open curved bracket, type of, x 
+close curved bracket, semicolon. Code on line 10 is, if, open curved 
+bracket, x, triple equals, open quote, 5, close quote, close curved 
+bracket, open curly bracket. Code on line 11 is, alert, open curved 
+bracket, open quote, true, close quote, close curved bracket, semicolon.
+ Code on line 12 is, close curly bracket, else, open curly bracket. Code
+ on line 13 is, alert, open curved bracket, open quote, false, close 
+quote, close curved bracket, semicolon. Code on line 14 is, close curly 
+bracket.</em> [Video description ends]</p>
+<p>And then, within one of the events of that DOM, the Document Object 
+Model, within one of the events, we will then call that function. And 
+you will see lots of examples of that in the future. But there's one 
+other way to insert JavaScript, and that is by an external file. And 
+let's take a look at an example of that. So here, I have an external 
+document, HTML document. Let's drag that over into the Notepad++ and 
+take a look at what that says.</p>
+<p>[Video description begins] <em> He again opens explorer file. He clicks on external, dot, html chrome icon, &amp; drag the file in notepad++.</em> [Video description ends]</p>
+<p>So if we look at it, and again, it's placed in the head tags of the html document that you're looking at.</p>
+<p>[Video description begins] <em> He highlights the code line 7. The 
+code is: open angular bracket, script, s r c, =, double quote, test, 
+dot, j s, double quote, type, equals, javascript, double quote, close 
+angular bracket, open angular bracket, slash, script, close angular 
+bracket.</em> [Video description ends]</p>
+<p>And so what this script is doing is it's pointing to an external file.</p>
+<p>[Video description begins] <em> He highlights test, dot, j s in code line 7.</em> [Video description ends]</p>
+<p>That file is called test.js. So what the browser's going to do because the path is suggesting</p>
+<p>[Video description begins] <em> He highlights test, dot, j s in code line 7.</em> [Video description ends]</p>
+<p>that this file is located in the same folder where external.html is,</p>
+<p>[Video description begins] <em> He highlights test, dot, j s tab.</em> [Video description ends]</p>
+<p>if we go to that folder, we do see test.js there. I can drag that over to my Notepad++ and actually it's just an alert.</p>
+<p>[Video description begins] <em> He again opens explorer file. He 
+clicks on test, dot, j s &amp; drag the file in notepad++. Following 
+code appears in notepad++: alert, open curved bracket, open quote, J S, 
+external, close quote, close curved bracket.</em> [Video description ends]</p>
+<p>Lets put in our semicolon there.</p>
+<p>[Video description begins] <em> He adds semi-colon after close curved bracket.</em> [Video description ends]</p>
+<p>So it's just an alert. So when this document is loaded in the 
+browser, it's going to run that script for us. And as you can see, it is
+ running that script. So I'll say OK to that, and close that out.</p>
+<p>[Video description begins] <em> He saves the code in notepad++. He 
+opens external, dot, html in the Java browser web page. Following text 
+appears on the screen: This page says J s external. he clicks Ok and 
+close this tab.</em> [Video description ends]</p>
+<p>So some general rules is that if we want to try to affect one of the 
+elements of our HTML document, that it would be better to put the script
+ within the body tag. When we want to have scripts run only when an 
+event occur, then we should place that script within the head tags. But 
+generally, though, even the scripts that are placed in the head tags can
+ be placed in an external file, which is the preferred method of doing 
+this.</p>
+<p>By placing scripts in an external file, what we are doing is 
+separating out the HTML code from the JavaScript code, just like we 
+would do with a CSS file. This makes the HTML and the JavaScript and CSS
+ easier to read. Also, with modern browsers, these JavaScript's files 
+can be cached, so it sort of speeds up the loading process of the HTML 
+document itself. There is a little bit of a disadvantage of placing 
+scripts within the head tag of an HTML page in that the browser has to 
+kind of slow up and process all of that JavaScript before the rest of 
+the page can be loaded. So for that reason, it's a bit of a disadvantage
+ when it comes to performance of your web page. So there we see the 
+three different ways of inserting JavaScript. But the preferred way, of 
+course, is to create an external JavaScript file and point to that 
+external file from your HTML document.</p></div>
+</div>
+<div>
+<h2 id="2db7d990-6af7-11e8-981b-cd9e3ae019a4">
+Creating Variables
+</h2>
+<div><p>[Video description begins] <em> Topic title: Creating Variables. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to explore the various ways to 
+declare and use variables in JavaScript. On the screen I have Notepad++ 
+which has been opened up to a very simple HTML file. On the right side 
+there's a Chrome window that's rendered the HTML file that you're 
+looking at on the left. So the file on the left, we've embedded some 
+JavaScript into the body tag of that HTML document. And we are declaring
+ one paragraph in which we are changing the content of that</p>
+<p>[Video description begins] <em> He goes to the code line 9. the code 
+is: open angular bracket, p, i d, =, double quote, P 1, double quote, 
+close angular bracket, open angular bracket, slash, p, close angular 
+bracket. He highlights P 1 in the code.</em> [Video description ends]</p>
+<p>paragraph with the variables that we've declared.</p>
+<p>[Video description begins] <em> He goes to the code line 18. The code is: element, dot, innerHTML, =, x, semi-colon. He highlights, x in the code</em> [Video description ends]</p>
+<p>So from lines 12 to 15 are the various ways to declare and use variables and JavaScript.</p>
+<p>[Video description begins] <em> He highlights code line from 12 to 
+15. The code on line 12 is: x =, 5, semi-colon, slash, slash, not 
+recomended. The code on line 13 is: var, y =, 3, semi-colon. The code on
+ line 14 is: let z =, open quote, Zebra, close quote, semi-colon. The 
+code on line 15 is: const week =, 7, semi-colon.</em> [Video description ends]</p>
+<p>Let's start with line 12 where x is equal to 5 and notice I already 
+have a comment that this is not recommended. By doing this in order 
+words, we eliminate one of the key words like var letter const. What 
+we're doing is we've created an x variable within the global window 
+object of the browser. Now that means that our global object, our x or 
+global variable, in this case x, can be changed without our knowledge. 
+In fact, it can even be eliminated. It can be deleted. So this is not 
+the recommended way of doing this.</p>
+<p>[Video description begins] <em> He highlights the code line 12.</em> [Video description ends]</p>
+<p>But if you look at how Chrome has rendered the file, it works fine. 
+We are printing x which has the value 5, and it prints 5. However, this 
+type of declaration is not recommended, it cannot be trusted. So let's 
+comment that line out. We don't want to use that anymore. Line 13 is the
+ correct way of doing this.</p>
+<p>[Video description begins] <em> He adds slash, slash before x in code line 12.</em> [Video description ends]</p>
+<p>So with line 13, we've used the keyword var is equal to y, we still 
+have a global object. However, y cannot be tampered with, without our 
+knowledge. So let's see how this works in this space here. So we've 
+declared it within the global object, however, I'm going to wrap this 
+statement, the statements on lines, well now it's on line 18 and 19. 
+Wrap those two statements inside of an if block. So let's say if y is 
+the same as 3 which is true in this case, I want to be able to execute 
+lines 18 and 19 in this case.</p>
+<p>[Video description begins] <em> He writes code in line 17. The code is: if, open curved bracket, y, equivalent, 3, close curved bracket, open curly bracket.</em> [Video description ends]</p>
+<p>So let's just fix this up a little bit.</p>
+<p>[Video description begins] <em> He adds close curly bracket in the 
+code on line 20. He highlights code line 18 &amp;, 19. The code in line 
+18 is: var, element, =, document, dot, get element by ID, open curved 
+bracket, double quote, p 1, double quote, close curved bracket, 
+semi-colon. The code in line 19 is: element, dot, inner HTML, =, x, 
+semi-colon.</em> [Video description ends]</p>
+<p>So what I'm saying is that if y is equal to 3, let's go ahead and print y, the value of y to the browser window.</p>
+<p>[Video description begins] <em> He writes y in place of x in code line 19.</em> [Video description ends]</p>
+<p>So if I save these changes, I refresh the page I do get the 3 here which is fine.</p>
+<p>[Video description begins] <em> He saves the code in notepad++. He opens the Java browser web page. Following number appears on the screen: 3.</em> [Video description ends]</p>
+<p>Now let's see if this y is going to be a variable outside of the if block. So console.log and let's log our y and</p>
+<p>[Video description begins] <em> He writes code in line 21. The code is: console, dot, log, open curved bracket, y, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>see what value we get. So I'll refresh the browser screen, nothing 
+happens but if I hit F12 on the keyboard I do get into the developer 
+console and there's my 3. So what this proves,</p>
+<p>[Video description begins] <em> He saves the code in notepad++. He 
+opens the Java browser web page. Number 3 appears on the screen from the
+ last refresh. He clicks, the F12 button on the keyboard, a developer 
+console window opens up. Number 3 appears on the screen.</em> [Video description ends]</p>
+<p>let me just get rid of the developer tools by hitting F12 again. What
+ this proves is that y is available within the scope and even within 
+inner blocks. So just to take the example a little bit further, we could
+ something like this where our y = 4.</p>
+<p>[Video description begins] <em> He writes code in line 18. The code is: var Y, =, 4, semi-colon.</em> [Video description ends]</p>
+<p>Save that, refresh the page and now we get 4. But let's see what that developer tools show us. So y has been changed.</p>
+<p>[Video description begins] <em> He saves the code in notepad++. He 
+opens the Java browser web page. Number 4 appears on the screen from the
+ last refresh. He clicks, the F12 button on the keyboard, a developer 
+console window opens up.</em> [Video description ends]</p>
+<p>Now on line 14, thus, this is the recommended way of declaring your 
+variables from this point on. Use of the let key words started with es 
+six, I believe. And, it is the recommended ways so, let's try this out. 
+So I'll keep my if statement here but I'm going to change the value of 
+z, in this case. So let's use the let keyword again, let z = So instead 
+of a zebra, let's go with lion.</p>
+<p>[Video description begins] <em> He writes, let, z in place of var, 
+&amp;, double quote, Lion, double quote in code line 18. Now the code in
+ line 18 is: let, z =, double quote, Lion, double quote, semi-colon.</em> [Video description ends]</p>
+<p>Let's print out our z.</p>
+<p>[Video description begins] <em> He writes, z in place of y in code line 20.</em> [Video description ends]</p>
+<p>And we'll also print it to the console.</p>
+<p>[Video description begins] <em> he goes to the code line 22. The code
+ is: console, dot, log, open curved bracket, y, close curved bracket, 
+semi-colon. He writes z, in place of y.</em> [Video description ends]</p>
+<p>So we started in one scope, we changed it in a different scope and</p>
+<p>[Video description begins] <em> He highlights code line 14.</em> [Video description ends]</p>
+<p>then we went back to the original scope.</p>
+<p>[Video description begins] <em> he highlights the code line from 17 to 21. He highlights the code line 22.</em> [Video description ends]</p>
+<p>So let's see how this works. I'll save it, refresh the screen. I do 
+get lion because z has changed at this point and I am printing z.</p>
+<p>[Video description begins] <em> He saves the code in notepad++. He opens the Java browser web page. Following text appears on the screen: Lion.</em> [Video description ends]</p>
+<p>But let's see what printed out on the developer console. So I'm going to hit F12 on the keyboard and what we get is zebra.</p>
+<p>[Video description begins] <em> He clicks, the F12 button on the keyboard, a developer console window opens up. Following output appears on the screen: Zebra.</em> [Video description ends]</p>
+<p>So this is a different behavior from when we had the y before. So 
+that means that wherever you use the keyword let, that variable in that 
+scope is maintained.</p>
+<p>[Video description begins] <em> He highlights code line 18.</em> [Video description ends]</p>
+<p>Or just say the value of that variable within the scope is 
+maintained. Once we get out of that scope, the original value is printed
+ out to the screen or to the log in this case.</p>
+<p>[Video description begins] <em> He highlights Z in the code line 22.</em> [Video description ends]</p>
+<p>Line 15 is the fourth way of declaring and using variables and it is 
+the recommended way for variables that you do not expect to have any 
+changes during the running of the program. So in this case, we are 
+attempting to say that the week has seven days. We don't expect that to 
+change. So we use the const keyword, and the behavior of const is 
+exactly as the behavior of let. So there are the four different ways of 
+declaring and using variables. However, let's just say it's three ways 
+now from this point on.</p></div>
+</div>
+<div>
+<h2 id="30a81bb0-6af7-11e8-981b-cd9e3ae019a4">
+Basic JavaScript Operators
+</h2>
+<div><p>[Video description begins] <em> Topic title: Basic Java Script Operators. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this video, I'd like to demonstrate the use of basic JavaScript arithmetic and assignment operators.</p>
+<p>[Video description begins] <em> On desktop, there is two screen. 1st screen is for Java Codes in Notepad++. 2nd screen is for Java browser web page.</em> [Video description ends]</p>
+<p>On the screen I have a simple HTML file, the code of which is showing
+ in Notepad++. On the right side of the screen there is a Chrome browser
+ that has opened up the file that you see on the left. So the file on 
+the left, what we have are the five basic arithmetic operations, the 
+plus, minus, multiplies, divide and the modulus operator. Now they all 
+operate and work exactly like any other language. So in this case we've 
+got two statements, let x=y and let y=3. So equals is the assignment 
+operator.</p>
+<p>[Video description begins] <em> The presenter moves the cursor around
+ code line 11, &amp; 12. Code on line 11 is: let x, =, 6, semi-colon. 
+Code on line 12 is: let y, =, 3, semi-colon.</em> [Video description ends]</p>
+<p>So on lines 11 and 12, what we're seeing is take the value on the 
+right side of that equal operator and assign it to the variable on the 
+left. From that point on, we are using various arithmetic operators and 
+as you can see, I have the values that are supposed to be printed out on
+ the right-hand side.</p>
+<p>[Video description begins] <em> He moves the cursor around code line 
+from 14 to 18. The code on line 14 is: let, sum, =, x, plus, y, 
+semi-colon, slash, slash, 9. The code on line 15 is: let, sub, =, x, 
+minus, y, semi-colon, slash, slash, 3. The code on line 16 is: let, mul,
+ =, x, asterisk, y, semi-colon, slash, slash, 18. The code on line 17 
+is: let, div, =, x, slash, y, semi-colon, slash, slash, 2. The code on 
+line 18 is: let, mod, =, x, percentage, 4, semi-colon,</em> [Video description ends]</p>
+<p>Now, 18 modulus operator is not very familiar. So let's go through 
+that a bit. What the modulus operator does is it will take the value on 
+the left and divide it by the value on the right. So in this case, x 
+happens to be 6 on line 11. That 6 will be divided into by 4. And 
+whatever that remainder is, that's what's going to get assigned to the 
+mod variable on the left. So if we were to print mod, what you see is a 
+2, because 4 will go into 6 one time, but leave a remainder of two which
+ is what you're seeing on the screen.</p>
+<p>[Video description begins] <em> The code on line 22 is: element, dot,
+ inner HTML, =, mod, semi-colon. He highlights mod from the code. On 
+Java browser web page number 2 is displayed.</em> [Video description ends]</p>
+<p>Now just like in regular arithmetic and in other programming 
+languages, we do have some order of precedence. Let's take a look at 
+line 20.</p>
+<p>[Video description begins] <em> The code on line 20 is: slash, slash, let total, =, x, asterisk, y, plus, 4, slash 2, semi-colon, slash, slash, 20.</em> [Video description ends]</p>
+<p>I'm going to uncomment line 20 and what line 20 is saying, okay,</p>
+<p>[Video description begins] <em> He deletes slash, slash from the starting of the code line 20.</em> [Video description ends]</p>
+<p>take the value of whatever is on the right-hand side of that equal statement,</p>
+<p>[Video description begins] <em> He highlights , 4, slash 2 from the code line 20.</em> [Video description ends]</p>
+<p>and assign it to the variable total.</p>
+<p>[Video description begins] <em> He highlights total from the code line 20.</em> [Video description ends]</p>
+<p>And we'll just print total, just to see what happens.</p>
+<p>[Video description begins] <em> He write total in place of mod in the code line 22.</em> [Video description ends]</p>
+<p>What the statement is doing is it's saying let x*y+4/2. And obviously using the rules of arithmetic, what's going to happen is</p>
+<p>[Video description begins] <em> He highlights x, asterisk, y, plus, 4, slash 2 from the code line 20.</em> [Video description ends]</p>
+<p>the multiplication and division is going to happen first, and</p>
+<p>[Video description begins] <em> He highlights x, asterisk, y, &amp;, 4, slash 2 from the code line 20.</em> [Video description ends]</p>
+<p>then the result of those two operations will be added together. So, 6
+ times 3 is 18, 4 divided by 2 is 2. So, 18 plus 2 is equal to 20. But 
+we can, of course, change everything, change the order by, for example, 
+inserting brackets between y and 4.</p>
+<p>[Video description begins] <em> He inserts open curved bracket before Y and, close curved bracket, after 4 in code line 20.</em> [Video description ends]</p>
+<p>And if we were to save this and render it, we get 21.</p>
+<p>[Video description begins] <em> He saves the file in notepad++. He refreshes the javascript web page. The following number is: 21.</em> [Video description ends]</p>
+<p>So the entire expression has changed by the insertion of these 
+brackets. So the takeaway here is that JavaScript operates just like the
+ arithmetic that we all grew up with. And the same as all the other 
+programming languages.</p></div>
+</div>
+<div>
+<h2 id="34050250-6af7-11e8-981b-cd9e3ae019a4">
+Arithmetic and Logic Operators
+</h2>
+<div><p>[Video description begins] <em> Topic title: Arithmetic and Logic Operators. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to take a look at the increment and 
+decrement operators in JavaScript. We'll also take a second look at the 
+assignment operator and I will also talk about bitwise operations in 
+JavaScript.</p>
+<p>[Video description begins] <em> On desktop, there is two screen. 1st screen is for Java Codes in Notepad++. 2nd screen is for Java browser web page.</em> [Video description ends]</p>
+<p>On the screen, I have Notepad ++ opened up. It's showing a simple 
+HTML file with some JavaScript in the middle. On the right side, the 
+right window is a Chrome window and it is showing how it has rendered 
+the file on the left. If we take a look at the file on the left at line 
+13, we are declaring a variable called x and assigning the value of 5 to
+ it. On line 14 is where we're using that increment operator.</p>
+<p>[Video description begins] <em> The code on line 14 is: +,+, X, semi-colon.</em> [Video description ends]</p>
+<p>The increment and decrement operator will either add 1 or remove 1 
+from the value or from the variable in this case. And it will only be 1.
+ There will never be another number other than 1. So line 14 is saying 
+add 1 to x and line 15 is showing the value of that x after the 
+operation on line 14.</p>
+<p>[Video description begins] <em> The code on line 15 is: element, dot, inner HTML, =, X, semi-colon.</em> [Video description ends]</p>
+<p>So, we will see 6 showing up for the value of x. And I can do the 
+same thing with the -- operator, which is the decrement operator. If I 
+show that value, it should be 4 because 5 and then the decrement 
+operator will remove 1.</p>
+<p>[Video description begins] <em> On code line 14, the presenter 
+replaces +,+ with minus, minus. He saves the codes in notepad++ file. He
+ refreshes, Java browser web page. Following number appears on the 
+screen: 4.</em> [Video description ends]</p>
+<p>So now, on line 15, we're seeing a 4.</p>
+<p>[Video description begins] <em> He highlights X, on code line 15. The x on code line 13 &amp;, 14 also gets highlighted.</em> [Video description ends]</p>
+<p>What's interesting about the decrement and increment operators are 
+the placement of those operators. So, on line 15, if I were to increment
+ that operator, that variable again, you would think that 5 - 1 would be
+ 4 + 1</p>
+<p>[Video description begins] <em> On code line 15, He adds + +, after x.</em> [Video description ends]</p>
+<p>should give me a 5 back, showing up on the browser window. Well let's
+ save that and refresh the browser window and notice that nothing 
+happened, we're still showing 4.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file and refreshes the Java browser web page. Following number appears on the screen: 4.</em> [Video description ends]</p>
+<p>The explanation is very simple. What JavaScript does is that it will take the value of x before</p>
+<p>[Video description begins] <em> He highlights X, on code line 15. The x on code line 13 &amp;, 14 also gets highlighted.</em> [Video description ends]</p>
+<p>the operation in this case because the operator is after the variable.</p>
+<p>[Video description begins] <em> He highlights +, + &amp;, x on code line 15.</em> [Video description ends]</p>
+<p>So it will use that value of x in the JavaScript statement. So that 
+statement is saying print x. So this point in time, line 15, x has the 
+value of 4. So that's what we see on the screen. Now after it has 
+printed x, so the statement hasn't been executed, then the operation 
+will take place. So the increment operator x on the 4 in this case and 
+makes it 5 again. So on line 16, if I were to do something with that x, 
+now you will see the operation happening after the first operation. So, 
+there are basically two operations here. The first operation is to use 
+that x and in this case, that use that x means print x, so that’s what 
+we see.</p>
+<p>[Video description begins] <em> He highlights X on code line 15.</em> [Video description ends]</p>
+<p>And then the second operation is to add 1 to that x.</p>
+<p>[Video description begins] <em> He highlights +, + on code line 15.</em> [Video description ends]</p>
+<p>Let’s take a look at the assignment operator again. So, on line 16, I
+ can do something like this. I can say x +=, let's go with a 2 in this 
+case, and we also want to see what happened to that. So on line 17, I 
+could do something like this. I can say =x, again.</p>
+<p>[Video description begins] <em> He writes code on lines 16 and 17. 
+The code on line 16 is, x, +=, 2, semi-colon. The code on line 17 is, 
+element, dot, inner HTML, =, X, semi-colon.</em> [Video description ends]</p>
+<p>And now we will see what happened to x because what we're seeing is 
+that, well, let's print it out first. Let me save it. Print it out and 
+we see a 7.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file and refreshes the Java browser web page. Following number appears on the screen: 7.</em> [Video description ends]</p>
+<p>So let's take a look at the sequence of what happened. We started off with a 5, took 1 away from it, so it becomes 4.</p>
+<p>[Video description begins] <em> He highlights 5 on code line 13. He highlights x in code line 14.</em> [Video description ends]</p>
+<p>Then we added 1 to it, so it became 5 again.</p>
+<p>[Video description begins] <em> He highlights X + +, in code line 15.</em> [Video description ends]</p>
+<p>And then finally, on line 16, this assignment operator, the += 
+assignment operator is saying, take the value of x, whatever it happens 
+to be, so</p>
+<p>[Video description begins] <em> He highlights +, = in code line 16. He highlights X in code line 16.</em> [Video description ends]</p>
+<p>it happened to be 5 now because that operation took place.</p>
+<p>[Video description begins] <em> He highlights + +, in code line 15.</em> [Video description ends]</p>
+<p>And it's saying, okay, look at the value of x, whatever it happens to
+ be. So it happens to be 5. Add then add a 2 to it, so now it becomes 7.</p>
+<p>[Video description begins] <em> he highlights, X &amp;, 2 in code line 16.</em> [Video description ends]</p>
+<p>And then store that 7 back in the original variable.</p>
+<p>[Video description begins] <em> He again highlights X in code line 16.</em> [Video description ends]</p>
+<p>So x now has a 7 stored in it, so that's why on line 17, we're able to print that x out. So this += operator, also,</p>
+<p>[Video description begins] <em> He highlights +, = in code line 16.</em> [Video description ends]</p>
+<p>we also have -= operator, *= operator. So all of these assignment 
+operators will perform the action that is indicated by the operator 
+itself. So -= will remove 2 from x whatever it happens to be. So if we 
+had a -= 2 here.</p>
+<p>[Video description begins] <em> He replaces + with minus in code line 16.</em> [Video description ends]</p>
+<p>Let's save it and see what the value is, it turns out to be 3.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file and refreshes the Java browser web page. Following number appears on the screen: 3.</em> [Video description ends]</p>
+<p>And that's because on line 15, x happens to be a 5 and if we took 2 
+away from it, it's now 3. So we could this type of assignment with all 
+of the other operators.</p>
+<p>[Video description begins] <em> He highlights 2 in code line 16. He highlights minus, = in code line 16.</em> [Video description ends]</p>
+<p>So, even the modulus operator can be used in this way. Let's take a 
+look now at bitwise operations because what happens in bitwise 
+operations is that we're going to be changing the bit patterns of those 
+binary numbers. Do you remember every number is taught as a binary 
+number? JavaScript's bitwise operators treat their operands as a 
+sequence of 32 bits, not as decimal numbers. However, JavaScript stores 
+their numbers as 64 bit floating point numbers. So when JavaScript looks
+ at the number 3 for example, it's going to look at the sequence of 32 
+bits with the last two bits being 1 and 1.</p>
+<p>[Video description begins] <em> He writes code in line 18. The code is: slash, slash, Thirty times Zero double one.</em> [Video description ends]</p>
+<p>So, this would represent a 3 in decimal.</p>
+<p>[Video description begins] <em> He highlights double one in code line 18.</em> [Video description ends]</p>
+<p>So in terms of bitwise operations, I'm just going to insert some code
+ that I have from before. And what this code is saying is let x = 1 so 
+that the representation of that of course is 32 bits now. I'm just using
+ 4 bits in this case. And a y is that number that you saw before.</p>
+<p>[Video description begins] <em> He writes code in line 19 &amp;, 20. 
+The code in line 19 is: let X, =, 1, semi-colon, slash, slash, Zero Zero
+ Zero 1. He highlights Zero, Zero, Zero 1 in the code line 19. The code 
+in line 20 is: let Y, =, 3, semi-colon, slash, slash, Zero, Zero 11. He 
+highlights Zero, Zero 11 in the code 20.</em> [Video description ends]</p>
+<p>Now, bitwise ampersand is the and operator, so if we were to do 
+something like this, x &amp;amp; y, let's see what that result in. The 
+&amp;amp; or the and</p>
+<p>[Video description begins] <em> He writes code in line 21. The code is: x, ampersand, y, semi-colon, slash, slash.</em> [Video description ends]</p>
+<p>bitwise operator will look at the last two digits on the right hand side and</p>
+<p>[Video description begins] <em> He highlights zero 1 in code line 19 &amp;, 1 1 in code line 20.</em> [Video description ends]</p>
+<p>say okay, if there's a 1 and a 1, I'm going to leave it as a 1. 
+However, everything else would be 0, so a 1 and a 0 is a 0, a 0 and a 0 
+is a 0 and the other 0 and a 0 is a 0.</p>
+<p>[Video description begins] <em> He writes zero zero zero one after slash, slash in code line 21.</em> [Video description ends]</p>
+<p>So x &amp;amp; y or x and y in terms of bitwise operation would be the number one.</p>
+<p>[Video description begins] <em> He Highlights zero zero zero one after slash, slash in code line 21</em> [Video description ends]</p>
+<p>If we were to use the bitwise or operator, which is the pipe 
+character on the keyboard, then that treats the binary numbers 
+differently.</p>
+<p>[Video description begins] <em> He writes vertical bar in place of 
+ampersand in code line 21. Now the code in line 21 is: x, vertical bar, 
+Y, semi-colon, slash, slash, zero zero zero one.</em> [Video description ends]</p>
+<p>So wherever there's a 1 and a 1, it'll leave a 1. But wherever else it sees a 1, it will turn that bit into a 1.</p>
+<p>[Video description begins] <em> He writes one in place of zero in code line 21. Now the code is: zero zero 1 1.</em> [Video description ends]</p>
+<p>However, a 0 and a 0 will remain 0. So x or y will actually result in
+ the number 3. So, we saw examples of incrementing and decrementing. We 
+saw the assignment operators again, we're using plus equals, minus 
+equals, multiply equals, etc. And we took a look at the bitwise 
+operations in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="369e4ad0-6af7-11e8-981b-cd9e3ae019a4">
+Exercise: Using JavaScript in a Web Page
+</h2>
+<div><p>[Video description begins] <em> Topic title: Exercise: Using Java Script, in a Web Page. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this exercise, you will start with an html template, then add some
+ JavaScript within the body tag. Set up the innerHTML property of an 
+HTML element, so that means give it an ID. Then declare and initialize 
+two variables using JavaScript, one numeric, one alphabetic. Print out 
+those variables in a sentence, using the HTML element from step 1.</p>
+<p>Try to use a template string or a template literal. Now, you can 
+pause the video, attempt the exercise, and then return to the video to 
+see the file that I've created. So you were tasked with starting an html
+ template and adding some JavaScript in the body. Set up the innerHTML 
+property of an HTML element with an ID. Declare and initialize two 
+variables, one numeric, one alphabetic. Print out those variables in one
+ sentence using the HTML element from step 1. And attempt to, or try to 
+use a template string and literal.</p>
+<p>Let's see how I will approach this task. On the screen, I've got my 
+Windows file system opened, a File Explorer. I have Chrome open, and I 
+have my template in Notepad++. I'm going to minimize File Explorer and 
+work with the template file that I have so far. Notice that my template 
+file has the p tags or the paragraph tags already in it.</p>
+<p>[Video description begins] <em> He highlights the code line 9. The 
+code is: open angular bracket, p, close angular bracket, open angular 
+bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>So all I really need to do right now is give it an ID.</p>
+<p>[Video description begins] <em> He goes to the note pad titled. The 
+titled is: C, colon, \, Users, \Admin, \, Documents, \, Java Script 
+Demos, \, 139681, \, 139683 dot html, dash, Notepad++. He clicks on 
+139681.</em> [Video description ends]</p>
+<p>I have given my paragraph tag an ID of p1.</p>
+<p>[Video description begins] <em> After clicking 139681 from the note 
+pad titled, The code 9 in line is: open angular bracket, p, i d, =, 
+double quote, p 1, double quote, close angular bracket, open angular 
+bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>So now within my JavaScript code, I can access that HTML element 
+called p1, and insert any content into it. The next thing I would need 
+are my JavaScript tags.</p>
+<p>[Video description begins] <em> He expands code line 10.</em> [Video description ends]</p>
+<p>So I've got my scripting tags already in place here.</p>
+<p>[Video description begins] <em> He adds code in code line 11. The code is: Let, x, = 5, semi-colon.</em> [Video description ends]</p>
+<p>And now, what I want to do is start with the JavaScript itself. And 
+so my first variable is an x, which I've declared and initialized with a
+ 5.</p>
+<p>[Video description begins] <em> He adds code in code line 12. The code is: Let, y, = double quote, My variable, double quote,</em> [Video description ends]</p>
+<p>My second variable is, believe it or not, is string My variable. Now,
+ I have two variables. In order to do something with these variables, at
+ least on the browser window, I would have to access that HTML element 
+that I created on line 9.</p>
+<p>[Video description begins] <em> He highlights code in code line 13. 
+The code is: Let, element, =, documents, dot, get element by I d, open 
+curved bracket, double quote, p1 , double quote, close curved bracket, 
+semi-colon.</em> [Video description ends]</p>
+<p>So in that case, I'm going to have to use yet another variable, or 
+declare another variable, in which I'm trying to grab or get a hold of 
+the handle of that HTML element called p1. So now that I have that 
+element, I could now do something like this.</p>
+<p>[Video description begins] <em> He highlights code in code line 14. 
+The code is: Element, dot, inner HTML, =, accent, dollar sign, open 
+curly bracket, y, close curly bracket, apostrophe, s, value is, dollar 
+sign, open curly bracket, x, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>I can now use a templated string to print out the values of those two variables.</p>
+<p>[Video description begins] <em> He points the code line 11 &amp;, 12.</em> [Video description ends]</p>
+<p>So y will print out My variable.</p>
+<p>[Video description begins] <em> He points to the code line 14.</em> [Video description ends]</p>
+<p>Notice I can just insert an 's right into the statement. Value is 
+whatever the value of 5 is. So if we refresh our screen, well, I need to
+ save it first.</p>
+<p>[Video description begins] <em> He refreshes the java script webpage. The following text appears on the screen: My variable's value is 5.</em> [Video description ends]</p>
+<p>Refresh the screen, it should say My variable's value is 5.</p></div>
+</div>
+
+
+</body></html>

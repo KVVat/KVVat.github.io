@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="JavaScript Front-end Development: Frameworks Transcript">
+<title>JavaScript Front-end Development: Frameworks Transcript</title>
+</head>
+<body>
+<h1>JavaScript Front-end Development: Frameworks</h1>
+<p>Discover how to work with JavaScript language frameworks, such as 
+Angular, Vue.js, and React, for creating dynamic front end content for 
+full stack applications.  During this course, you will start by learning
+ how Angular controllers can be used to interact with data. Next you 
+will observe how to sort and filter data, as well as use Angular to 
+validate user form input and format output. Other topics you will 
+explore include how to understand Vue.js concepts and implement the 
+Vue.js library; and how to use components and directives to make a 
+view.js project structure. From there, you will study key concepts of 
+Reactive programming for web page construction, and how to consider the 
+React and JSX relationship. You'll learn how to embed expressions in 
+JSX, and finally conclude the course by learning how to use the React 
+virtual DOM to update page elements.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#07381710-89c1-11e8-9c58-b7993da8b1b4">Setting Up the Angular Environment</a></li>
+<li><a href="#0a062b30-89c1-11e8-9c58-b7993da8b1b4">Angular Controllers and Services</a></li>
+<li><a href="#0c3c9330-89c1-11e8-9c58-b7993da8b1b4">Angular Filters</a></li>
+<li><a href="#0e76a4b0-89c1-11e8-9c58-b7993da8b1b4">Validating Input</a></li>
+<li><a href="#10af7db0-89c1-11e8-9c58-b7993da8b1b4">Formatting Output</a></li>
+<li><a href="#1314e4f0-89c1-11e8-9c58-b7993da8b1b4">AngularJS Services</a></li>
+<li><a href="#15a97280-89c1-11e8-9c58-b7993da8b1b4">Introduction to Vue.js</a></li>
+<li><a href="#17e4e390-89c1-11e8-9c58-b7993da8b1b4">Working with Vue.js Projects</a></li>
+<li><a href="#1a2e3750-89c1-11e8-9c58-b7993da8b1b4">Vue.js Standard Directives</a></li>
+<li><a href="#1c5d9a70-89c1-11e8-9c58-b7993da8b1b4">React Basics</a></li>
+<li><a href="#1e6d1980-89c1-11e8-9c58-b7993da8b1b4">Working with React Components</a></li>
+<li><a href="#21043f20-89c1-11e8-9c58-b7993da8b1b4">React and JSX</a></li>
+<li><a href="#23812600-89c1-11e8-9c58-b7993da8b1b4">Virtual DOM</a></li>
+<li><a href="#261c9160-89c1-11e8-9c58-b7993da8b1b4">Exercise: Creating a Vue.js Application</a></li>
+</ol></div>
+<div>
+<h2 id="07381710-89c1-11e8-9c58-b7993da8b1b4">
+Setting Up the Angular Environment
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Setting Up the Angular Environment. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to start looking at AngularJS. As 
+usual, I have an HTML document opened in Notepad++, it's a very simple 
+HTML document. And on the right side of your screen there's a Chrome 
+browser rendering the document that you see on the left.</p>
+<p>[Video description begins] <em> On the browser page, the heading is: 
+AngularJS Typical Project. There is a input box present here. Above the 
+input box, the following text is written: Enter something, anything: 
+Below the input box, This is what you are entering: is written.</em> [Video description ends]</p>
+<p>AngularJS is meant to be used on a single webpage. So it's more of a 
+front-end browser-based technology, although it could be used on the 
+server side. It is a JavaScript framework, meaning that we just need to 
+link to the library via CDN. And then we have access to all of the 
+functionality of the framework. Now, of course, we could download the 
+raw files and attach it that way. AngularJS is part of the MEAN Stack, 
+MongoDB Express Angular and Node.js. AngularJS is styled on the MVC 
+model, model view controller. And it's also easy to bind HTML elements 
+to input data or to external data.</p>
+<p>And that data part is considered the model part of MVC. There's also a
+ view, and these views can be considered templates. And an example could
+ be a list of states in the United States. These views are inserted into
+ the page using something called expressions. And then, of course, 
+pure.js can be used to control the functionality of views and the 
+models, and so we can consider pure.js as the controller. But for this 
+demonstration, we're going to look at setting up the environment using 
+directives, as well as using expressions. So the first thing we'll want 
+to do is, of course, get the framework. So, as usual, between the head 
+tags, I'm going to insert some script tags. And the source of my script 
+tag will be pointing to a CDN.</p>
+<p>[Video description begins] <em> The presenter adds code on lines 5 
+and 6. The code on line 5 is: &lt;script src= ""&gt;. Between the two 
+double quotes, he adds the following link: 
+https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js. 
+The code on line 6 is: &lt;/script&gt;.</em> [Video description ends]</p>
+<p>Which just happens to be the same area on the googleapis.com website 
+that has jQuery. So once we have that installed, it means then that I 
+now have the functionality of the library. So in my body tag, what I'm 
+going to do is I'm going to insert a directive called ng-app.</p>
+<p>[Video description begins] <em> He goes to the code line 8. The code is: &lt;body ng-app&gt;</em> [Video description ends]</p>
+<p>That directive is going to get the library ready to be used in the 
+rest of the document. All directives actually start with ng. The other 
+thing to note here is that because I've placed my ng-app directive in my
+ body tag. It means that anything between my body tags now have access 
+to all of the functionality that is incorporated into this AngularJS 
+framework. So now I can start using other directives. So where my input 
+tag is on line 12, I'm going to use another directive there called 
+ng-model. To that directive I am going to assign something, and actually
+ I'm just going to use the word something. I can use any word I want, I 
+can use an X here if I wanted to.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 12. The code here is: &lt;input type="text" ng-model ="something"/&gt;</em> [Video description ends]</p>
+<p>What this means is that our something will hold values that the user 
+types into this text box. And that something, if you want to consider it
+ a variable, that variable is now assigned to the global object or the 
+scope object. Which simply means now that I can access something from 
+anywhere on this webpage. In fact, we can even use something to pass 
+data off to a database. So since I have access to something, I can now 
+use it in something called an expression. And expressions are usually 
+typed within a pair of curly braces. So on line 16, where I have my span
+ tag,</p>
+<p>[Video description begins] <em> He goes to the code line 16. The code is: &lt;span style="font—size : 1 . 4em; "&gt;&lt;/span&gt;</em> [Video description ends]</p>
+<p>I'm going to insert there a pair of curly braces. And within that 
+pair of curly braces, I can insert any expression I want, including the 
+variable something.</p>
+<p>[Video description begins] <em> He modifies the code line 16. The new code is: &lt;span style="font-size : 1 . 4em; "&gt;{ {something} } &lt;/span&gt;</em> [Video description ends]</p>
+<p>So once I have done all of these changes, I can save all of these 
+changes, refresh my browser page now. Whenever I type something into 
+this text box, it should show up on that span tag. So let's type 
+something like Skillsoft. And notice what happens at the bottom, it just
+ even types, it reflects every letter that I typed into that text box.</p>
+<p>[Video description begins] <em> On the browser page, he types 
+Skillsoft in the input box. Skillsoft also reflects under the following 
+text: This is what you are entering:</em> [Video description ends]</p>
+<p>So that's the power of AngularJS.</p></div>
+</div>
+<div>
+<h2 id="0a062b30-89c1-11e8-9c58-b7993da8b1b4">
+Angular Controllers and Services
+</h2>
+<div><p>[Video description begins] <em> Topic title: Angular Controllers and Services. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to continue on the topic of 
+AngularJS. We will now look at the role of controllers in Angular. As 
+usual, on the screen, I have an HTML document opened in Notepad++. We've
+ got a few JavaScript tags in between. And on the right hand side, we 
+have a Chrome browser rendering the file you see on the left.</p>
+<p>[Video description begins] <em> The following text is present on the screen: " AngularJS Typical Project" "A message from your controller:".</em> [Video description ends]</p>
+<p>As with most Angular App applications, we need to start with a 
+directive in the body tag. So on line 8, I'm going to insert my ng-app 
+directive. And to that, I'm going to assign it at the name of an 
+application and this can be any name you wish and in my case here, I 
+will decide to call this ssApp.</p>
+<p>[Video description begins] <em> The presenter declares a code on line 8. The code is:&lt;body ng-app="ssApp" &gt;</em> [Video description ends]</p>
+<p>Now, in order to continue developing our module called ssApp or 
+application called ssApp, we need to use something from the framework 
+called module. So between my script tags between line 15 and 17, I'm 
+going to start inserting some code. I'm going to, first of all, assign a
+ variable. I'll just call it ngApp. And I am going to point that to the 
+angular.module method. And that method takes two parameters. Now the 
+first parameter will be the name of our application, which we just 
+inserted on line 8. And the second parameter is actually an array that 
+holds directives, other directives services, etc. But for this 
+application, we don't have any, so we're going to leave that blank.</p>
+<p>[Video description begins] <em> The presenter declares a code on line 16. The code is: let ngApp = angular.module( ' ' , [ ] ) ;</em> [Video description ends]</p>
+<p>So again on line 16, I'm going to pass, as the first parameter, the name of my application which I declared on line 8.</p>
+<p>[Video description begins] <em> He modifies the code on line 16. The new code is: let ngApp = angular.module( ' ssApp ' , [ ] ) ;</em> [Video description ends]</p>
+<p>So essentially, what line 16 is saying is that, let this variable 
+called ngApp, let that object represent our application. It stands in 
+place of our application or it stands for our application. So now that 
+we have this Angular module object, we can now create our controller. So
+ ngApp by default, being an Angular module object, will have a 
+controller function. We can use that function to pass as the first 
+parameter is string that represents our controller name. So on line 17, 
+I'm going to use my ngApp and the controller function and that function 
+will take two parameters. The first one will be our name, the second 
+will be a function. Now that function itself, let's make some space 
+here.</p>
+<p>That function itself has to have, as a parameter, the scope object. 
+Remember the scope object is considered a global object. So remember the
+ first parameter will contain the name of our controller. And this can 
+be anything you want, so I just called mine ssControlr.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 17. The new code on line 17 is: ngApp.controller( ' ss Controlr', function ($scope) {.</em> [Video description ends]</p>
+<p>So with this structure in place, we can now use our scope object to 
+attach to it any variable we wish. So in this case, I'm going to say I'm
+ going to create a variable called someString. And once I have my 
+variable in place, I can pass to it anything I want, I could pass 
+objects if I wanted to. But because it's a very simple application, I'm 
+going to pass just a simple string. Or I should say we're going to 
+assign a simple string to a variable called someString, remember 
+someString is now attached to this scope object.</p>
+<p>[Video description begins] <em> He declares a code on line 18. The 
+code is: $scope.someString = "Lessons from Skillsoft" ;. Successive code
+ lines shift one line down.</em> [Video description ends]</p>
+<p>Great, so now that we have an object called someString, we can use 
+that anywhere on the page. So in this case, we will use it on line 12 
+between our span tags.</p>
+<p>[Video description begins] <em> He refers to the code on line 12. The code is: &lt; span style="font-size:1.4em;"&gt;</em> [Video description ends]</p>
+<p>But before we can access the value in our variable, we need to insert
+ a directive into the span tag. In this case, it will be a controller 
+directive and we will point it to the controller that we created in this
+ app, remember that was called ssController. So let's insert that into 
+the assignment statement.</p>
+<p>[Video description begins] <em> He goes to the code on line 12. He 
+then modifies the code on line 12. The new code is: &lt; span 
+ng-controller="ssControlr" style="font-size:1.4em;" &gt;</em> [Video description ends]</p>
+<p>So now with all of this in place, we can now access our someString 
+variable. Remember, the way we do that is between the two pairs of curly
+ braces, we will insert the variable that we wish to display on to the 
+screen.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The code is: { {someString} }. Successive code lines shift one line down.</em> [Video description ends]</p>
+<p>And really, that's it. So now I can save these changes and refresh 
+the browser and there we see the value of that someString variable, 
+which we created using that scope object.</p>
+<p>[Video description begins] <em> The following value appears in the 
+browser, "Lessons from Skillsoft". The presenter, highlights this value.
+ He highlights "someString" in the codes, on line 13 and 19.</em> [Video description ends]</p></div>
+</div>
+<div>
+<h2 id="0c3c9330-89c1-11e8-9c58-b7993da8b1b4">
+Angular Filters
+</h2>
+<div><p>[Video description begins] <em> Topic title: Angular Filters. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to continue talking about AngularJS.
+ And in particular, we'll talk about filters. On the left of your 
+screen, there's an HTML document opened in Notepad++. And on the right 
+of screen, there is a Chrome browser rendering the HTML document on your
+ left.</p>
+<p>[Video description begins] <em> The following text: "AngularJS Filter Demo:" is present on the browser screen.</em> [Video description ends]</p>
+<p>Filters in AngularJS is like a factory or a service. It allows us to 
+format the data that is going to be displayed. But we never affect the 
+original list. That stays as is. Filters can be used with expressions or
+ directives. And there's a special pipe character that is used to 
+separate out the object from the criteria. Angular does have built in 
+filters to format data of different data types. There are filters for 
+numbers, currency, dates, etc. For this demonstration, I'll show a 
+couple of different examples of filtering. So let's head over to the 
+HTML document and on line 10 and 11, we have some script tags.</p>
+<p>[Video description begins] <em> The tag on line 10 is: &lt; script &gt;. The tag on line 11 is: &lt;/script&gt;</em> [Video description ends]</p>
+<p>And the first thing that I'm going to do is make some space for 
+myself. So on line 11, I'm going to declare a variable. I'm going to 
+call it ssApp. Now, I can call it anything I want. And I'm going to 
+assign to that variable the angular.module method. And remember, that 
+module method takes two parameters. We don't have any special directives
+ to pass to it, so the second parameter will be an empty array. But the 
+first parameter is going to be the name of our application that we 
+declared on line 6 in this case.</p>
+<p>[Video description begins] <em> The code on line 6 is: &lt; body 
+ng-app="ssApp" &gt;. The presenter enters a new line of code on line 11.
+ The code here is: let ssApp = angular.module('ssApp' , [ ] ) ;. The 
+successive code lines shift one line down.</em> [Video description ends]</p>
+<p>Now I have to use a controller and I'm going to use my div tag on line 8, the one ID'd as demo.</p>
+<p>[Video description begins] <em> He refers to the code on line 8. The code here is: &lt;div id="demo" &gt;.</em> [Video description ends]</p>
+<p>I'm going to use that div tag to display my content. So let's invoke the ngController directive.</p>
+<p>[Video description begins] <em> He highlights the code on line 8 and 9.</em> [Video description ends]</p>
+<p>And for now, I'm just going to point it to some name that I just made up. So I'm just going to call my controller, ssController.</p>
+<p>[Video description begins] <em> He modifies the code on line 8. The new code here is:&lt;div id="demo" ng-controller="ssController"&gt;.</em> [Video description ends]</p>
+<p>Then on line, let's see, I've got a variable already created that is 
+pointing to my angular module object. So let's use that ssApp variable 
+and access the controller method. Remember that controller method? We 
+are going to pass it the name of our controller, so I've called it 
+ssController in this case. And then we pass it a function, and that 
+function itself is going to take or accept the scope object, or the 
+scope parameter, I should say. Which is, in fact, an object. Now, once I
+ have that scope object, it becomes a global variable, so I'm going to 
+make some space here within the function. I'm going to define this 
+function now. And I'm going to use my scope object, attach to it a 
+variable called today. Now, the rest of this will just be plain old 
+JavaScript. I'm going to point that or assign to today a variable the 
+new date, which will be today's date, the date that I'm recording this 
+particular video.</p>
+<p>[Video description begins] <em> He declares codes from line 12 to 14.
+ The code on line 12 is: ssApp.controller("ssController", function 
+($scope) {. The code on line 13 is: $scope.today = new Date ( ) ;. The 
+code on line 14 is: } );. Successive code lines shift 3 lines down.</em> [Video description ends]</p>
+<p>Now that I have the variable today, I'm going to head back over to my
+ div tag on line 8. I'm going to make some space for myself. And 
+remember, whenever we work with AngularJS variables, we put them in 
+between a pair of curly braces. So within that pair of curly braces, I'm
+ going to use the today variable and apply a filter by using that pipe 
+character. And the filter that I want to apply to that today is a date. 
+And I'm going to pass to that date the format that I want to filter the 
+today variable by. And that format is going to be dd/MMM/yyyy. So that 
+should give me today's date, but with the month all spelled out in the 
+three letter format.</p>
+<p>[Video description begins] <em> He declares a code on line 9. The code is: { { today | date: 'dd/MMM/yyyy' } }. Successive code lines shift one line down.</em> [Video description ends]</p>
+<p>So with that in place, I can save the change, refresh the browser 
+screen, and there's my date filtered according to the specifications on 
+line 9.</p>
+<p>[Video description begins] <em> The following date appears on the 
+browser screen:06/Jul/2018. The presenter, then highlights this date. He
+ refers to the code on line 9.</em> [Video description ends]</p>
+<p>But more typically though, you tend to use filters with collections. 
+So I'm going to head back over to my controller method on line 13. And 
+on line 14, I have already used the scope object. So I'm going to use 
+that again on line, let's say 15 now. So that scope object, I'm going to
+ attach another variable to it called fruits. And to that fruits, I'm 
+going to assign some kind of an array. So I'm going to define my array 
+with let's see, one, two, three, four items in it and I'm just going to 
+fill it up with just some strings.</p>
+<p>[Video description begins] <em> He declares a code on line 15. The 
+code is: $scope.fruits = [ "Orange", "Pear", "Apple", "Plum" ] ;. 
+Successive code lines shift one line down.</em> [Video description ends]</p>
+<p>Once I have my array, then I can head back over to my div tag on line
+ 8. I'm going to, first of all, use a break tag to display the next set 
+of filtering on the next line.</p>
+<p>[Video description begins] <em> He adds a break tag at the end of line 9. The tag is: &lt;br/&gt;.</em> [Video description ends]</p>
+<p>And again, I'm going to use a pair of those curly braces, two pairs 
+of curly braces. And inside of there, I am going to start with my fruits
+ array, which remember, is part of that scope object. I'm going to 
+filter it by using that pipe character. And after the pipe character, I 
+have to give it a criteria. So I'm going to start, well first of all, we
+ have to use the keyword filter, followed by the criteria. So that 
+criteria for now is going to be PL.</p>
+<p>[Video description begins] <em> He declares a code on line 10. The code is: { { fruits | filter: 'pl' } }. Successive code lines shift one line down.</em> [Video description ends]</p>
+<p>So that means that by creating this filter, what it's doing is it's 
+going to take that fruits array, fruits object, and it's going to look 
+for anything that has a P and L next to it. So for now that looks like 
+plum, as well as apple.</p>
+<p>[Video description begins] <em> He refers to the code on line 16. He 
+highlights 'pl' in line 10, then he highlights the following: 'fruits', 
+'Pl' in plum, and 'pl' in Apple in line 16.</em> [Video description ends]</p>
+<p>So let's save these changes, refresh the browser screen, and there is Plum and Apple.</p>
+<p>[Video description begins] <em> The following result appears on the browser screen below the date: ["Apple","Plum"]. The presenter, highlights this text.</em> [Video description ends]</p>
+<p>Now, if I were to just filter by P alone, let's see what happens.</p>
+<p>[Video description begins] <em> He modifies the code on line 10. The new code is: { { fruits | filter: 'p' } }.</em> [Video description ends]</p>
+<p>I get actually three items coming back.</p>
+<p>[Video description begins] <em> He saves the file in Notepad++, and refreshes the browser. The result for fruits changes to:["Pear","Apple","Plum"].</em> [Video description ends]</p>
+<p>So that's the way filtering works, AngularJS does have a filter 
+method. But for this demonstration, I did not use the filter method.</p></div>
+</div>
+<div>
+<h2 id="0e76a4b0-89c1-11e8-9c58-b7993da8b1b4">
+Validating Input
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Validating Input. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at form validation 
+using AngularJS. And what I have opened up on the screen is an html 
+document. I also have a very simple style sheet that I need to use in 
+order to show some of the effects of AngularJS and the validation within
+ it.</p>
+<p>[Video description begins] <em> Both these files are open in notepad++</em> [Video description ends]</p>
+<p>We also have a Chrome browser on the right side of your screen, that is actually rendering the document you see on the left.</p>
+<p>[Video description begins] <em> The heading on the browser screen is: Angular JS Form Validation. The screen also shows an text box for User Name.</em> [Video description ends]</p>
+<p>The first thing I'd like you to notice is that we have imported 
+another Angular file, it's angular-messages.js and I've imported that 
+via cdn and</p>
+<p>[Video description begins] <em> The presenter refers to the code on 
+line 5 in the html file. The code here is: &lt;script src="https: 
+//cdnjs.cloudflare.com/ajax/libs/angular-messages[1.3.16[angular-messages.js"&gt;&lt;/script&gt;</em> [Video description ends]</p>
+<p>that gives me access to the AngularJS messages module. Now, AngularJS
+ does not require that module but it does make life a lot easier for 
+developers if you included that module. So then on line 19, I can pass 
+that module via that array to my application called ssApp. So on line 
+19, I'm going to insert the ngMessages module and that</p>
+<p>[Video description begins] <em> After modification, the code on line 19 is: let ssApp=angular.module ( 'ssApp' , [' ngMessages ']) ;</em> [Video description ends]</p>
+<p>now gives my ssApp, which was declared on line 10, access to all of the messages and all of the functionality of ngMessages.</p>
+<p>[Video description begins] <em> The code on line 10 is: &lt;body ng-app="ssApp"&gt;. He then points to ngMessages in the code on line 19.</em> [Video description ends]</p>
+<p>So the control or HTML element that we are going to wire up using 
+form validation in AngularJS is the info tag that you see on line 14. So
+ sometimes, you will hear developers refer to these HTML elements as 
+controls.</p>
+<p>[Video description begins] <em> The code on line 14 is: &lt;input type="text" name="uname" &gt;</em> [Video description ends]</p>
+<p>However, underneath the input type = text tag, there is a div tag and</p>
+<p>[Video description begins] <em> The code on line 15 is &lt;div&gt;.</em> [Video description ends]</p>
+<p>the div tag, in this case, on line 15 will act as a container. We are
+ going to pass to that container the error object from ngMessages. And 
+in order to do that, we need to be able to connect it to the form itself
+ and the control. So, we'll use the directive again, ng-messages, it's 
+going to be equal to the name of the form and we're going to chain to 
+that the user name, uname, which is the control that we're looking at. 
+And to that, we will chain the error object. So now, the error object 
+which contains a key value pair for all the areas that occur on, within 
+this element, this input type is equal to text element, that will now be
+ available to anything on inside of this container, the div container.</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 15. The new code is: &lt;div ng-messages="aForm.uname.$error"&gt;. 
+He highlights the code on line 15 and 16. The code on line 16 is: 
+&lt;/div&gt;</em> [Video description ends]</p>
+<p>The next thing we're going to do is the control itself, line 14, 
+we're going to add a directive, ng-model. Remember, ng-model will bind 
+our control to the application, ssApp, on line 10. So we can give this 
+any name we wish. In this case, I'm just going to call it uname. And the
+ first thing that I'm going to listen for is we're going to listen to 
+see if the user did not enter anything into the text box. So I'm going 
+to use the regular required, HTML required attribute for that text box.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 14. The code here is: &lt;input type="text" name="uname" ng-model="uname" required&gt;</em> [Video description ends]</p>
+<p>So what all of this means so far is that, if the user did not type 
+anything into that text box, then our error object will contain the fact
+ that that required requirement was not fulfilled. And therefore we now 
+have an error, we have a property of that error object. So now, in order
+ to see some kind of message, I would now, within that div container, I 
+would include some paragraph text. So between lines 15 and 16, I'm going
+ to include a pair of paragraph tags. And again, I'm going to use the 
+ng-messages attribute and pass to it the required value. And so now, if 
+the user did not type anything into that input box, then what I want to 
+have happen is they want to have that paragraph display a message, in 
+this case, it's Mandatory field.</p>
+<p>[Video description begins] <em> He adds new line of codes on lines 
+16, 17 and 18. The code on line 16 is: &lt;p ng-message=“required"&gt;. 
+The code on line 17 is: Mandatory field. The code on line 18 is: 
+&lt;/p&gt;. The successive code lines shift 3 lines below.</em> [Video description ends]</p>
+<p>So with all of these in place, I can save the changes, refresh the 
+browser's screen and immediately we see Mandatory field because nothing 
+has been entered into that text box.</p>
+<p>[Video description begins] <em> On the browser screen, following message appears below the user name text box: Mandatory field.</em> [Video description ends]</p>
+<p>So the moment I start typing something into that text box, the 
+Mandatory field message disappears because remember, our ng-model is 
+listening for anything that's happening inside of that text box.</p>
+<p>[Video description begins] <em> The presenter types ss, in the text box on the browser screen. The Mandatory field message, disappears.</em> [Video description ends]</p>
+<p>So to take this a little bit further, let's say we had a minimum 
+requirement. So I'm just going to move my line down to line 15, so that I
+ have some room to type in. And let's say that our minimum length 
+ng-minlength needs to be, let's say 4 in this case. So I can say that I 
+want my minimum length to be 4. Remember I'm using an ng-minlength 
+directive.</p>
+<p>[Video description begins] <em> The presenter shifts, required &gt; 
+from the code on line 14 to line 15. He then modifies the code on line 
+15. The new code here is: ng-minlength= "4 " required&gt;. The 
+succeeding code lines shift one line below.</em> [Video description ends]</p>
+<p>It means then that that now, we're going to be listening to see if 
+the user typed in four characters here. So again, I'm going to display 
+another message if they don't enter four characters. So I can now copy 
+and paste line 17 and between lines 17 to 19, I can copy that, paste it 
+over and instead of required, it's going to be minlength.</p>
+<p>[Video description begins] <em> He adds new code lines on lines 20, 
+21 and 22. The code on line 20 is: &lt;p ng-message="minlength"&gt;. The
+ code on line 21 is: Mandatory field. The code on line 22 is: 
+&lt;/p&gt;. The succeeding code lines shift 3 lines below.</em> [Video description ends]</p>
+<p>And the message I want to issue is something like, must be at least 
+4, at least 4 characters, something like that. So that's my messages, 
+that's my message.</p>
+<p>[Video description begins] <em> He modifies the code on line 21. The new code here is: Username must be at least 4 characters!</em> [Video description ends]</p>
+<p>I'll save these changes, refresh the browser screen. Now, we still 
+have the same mandatory field. If I start typing, it goes away. But 
+notice the message changes to at least 4 characters.</p>
+<p>[Video description begins] <em> On the browser screen, following 
+message appears below the user name text box: Mandatory field. The 
+presenter types s, in the text box. The message changes to: Username 
+must be at least 4 characters!.</em> [Video description ends]</p>
+<p>So let's go to 4 characters. So I have one so far, two, three, four, the message disappears.</p>
+<p>[Video description begins] <em> The presenter types ssss, in the text box on the browser screen. The message disappears.</em> [Video description ends]</p>
+<p>And we can even take it further. So we can also add an ng-maxlength. And we're going to make that equal to let's see, 8.</p>
+<p>[Video description begins] <em> He modifies the code on line 15. The new code here is: ng-minlength=" 4 " ng-maxlength=" 8 "required&gt;</em> [Video description ends]</p>
+<p>So we needed between 4 and 8 characters. So again, I'm going to copy 
+the paragraph tag that I had before and paste it and just change 
+minlength to maxlength and change the message to username must be less 
+than 8 characters.</p>
+<p>[Video description begins] <em> The presenter copies the code from 
+lines 20, 21, and 22, and pastes them on lines 23, 24, and 25. He then 
+modifies the code on lines 23, 24, and 25. The code on line 23 is: &lt;p
+ ng-message= "maxlenqth"&gt;. The code on line 24 is: Username must be 
+less than 8 characters! The code on line 25 is: &lt;/p&gt; &lt;/div&gt;</em> [Video description ends]</p>
+<p>Save the changes. Refresh the browser screen. Now we have the 
+Mandatory field. I can start typing one, two, three, four, that goes 
+away. Five, six, seven, eight, nine, ten. And, so once I pass the eighth
+ character, then I get the message that the username must be less than 
+eight characters.</p>
+<p>[Video description begins] <em> In the browser screen text box, the 
+presenter types s, 10 times. The following message displays: Username 
+must be less than 8 characters!</em> [Video description ends]</p>
+<p>Somethings to note about this application is that when you use your 
+required attributes, in this case, for my paragraph tag, all of my 
+attributes must be inside of the div tag that contains the error object.</p>
+<p>[Video description begins] <em> He highlights the codes on line 17 and 16.</em> [Video description ends]</p>
+<p>The other thing to note is that in the attribute for the element 
+itself, the HTML element itself. When we use those directives it's 
+ng-minlength.</p>
+<p>[Video description begins] <em> He highlights ng-minlength in the code on line 15.</em> [Video description ends]</p>
+<p>But when we use it within the error object itself, there's no dash, it's just minlength and maxlength, etc.</p>
+<p>[Video description begins] <em> He refers to the code on lines 20 and 23.</em> [Video description ends]</p>
+<p>So that's how easy it is to use form validation with AngularJS.</p></div>
+</div>
+<div>
+<h2 id="10af7db0-89c1-11e8-9c58-b7993da8b1b4">
+Formatting Output
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Formatting Output. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at AngularJS and 
+filtering, which allows us to do formatting. As usual, I have an HTML 
+document opened in Notepad++. And on the right of your screen, there is a
+ Chrome browser rendering the file you see on the left.</p>
+<p>[Video description begins] <em> The heading in the chrome browser is: Angular JS Filtering. A text box for Amount is also present .</em> [Video description ends]</p>
+<p>Included between the head tags is a link to a CDN that's going to grab the AngularJS library for me and apply it to this page.</p>
+<p>[Video description begins] <em> The link is present in the code line 
+4. The code is not completely visible. The visible portion of the code 
+is: &lt; script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular</em> [Video description ends]</p>
+<p>So formatting and filtering is almost the same thing in AngularJS. 
+It's how we get better looking HTML. And there are some built-in 
+filters, such as currency, dates and the casing, meaning we can turn 
+letters into uppercase or lowercase. So filters can be added to 
+templates, controllers, directives or even services. And of course, it 
+is possible to add your own custom filter. So these filters helps us 
+organize our data and we can display only what we want to have 
+displayed. And in a format we want to have displayed by using some type 
+of criteria in the filter. In this demonstration, we're going to use the
+ currency filter to format some numbers.</p>
+<p>And we want those numbers to appear as currency and that we'll be 
+using North American style for that. There are two ways we can use the 
+currency filter. In the first instance here, we'll be using an HTML 
+template and an AngularJS directive. The second method of course is to 
+use JavaScript and use an AngularJS controller. So I'll show you the 
+simple way first. So we've got an HTML document and with the on line 12,
+ we've got an input tag there, that's where we are going to enter some 
+amount. So let's wire that up so it is now being listened to by 
+AngularJS. And remember that ng-model, if we give it some value, indeed 
+that value can be anything. But once we include our ng-model directive 
+here, it means now that AngularJS is listening to that particular HTML 
+element or control. Sometimes you may hear the word binding.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 12. The code here is: &lt;input type="text" name="camount" ng-model="amount"&gt;</em> [Video description ends]</p>
+<p>So once that is bound, we can use those span tags underneath, which 
+is going to appear next to our box on the HTML document. We can now 
+insert our pair of curly braces, two pairs of curly braces. And once we 
+have that in place, we can access the amount input box because it's now 
+bound. And we can use a pipe filter to tell the amount what we want to 
+have displayed. So in this case, we're saying let's filter this amount, 
+whatever value you've got in amount. Let's filter that through a 
+currency filter.</p>
+<p>[Video description begins] <em> He modifies the code on line 13. The code here is: &lt;span id="curr"&gt;{<!-- -->{amount | currency}}&lt;/span&gt;</em> [Video description ends]</p>
+<p>And actually that would be all. I can save the changes, refresh the 
+browser screen. And if I type something like 123, notice what's 
+happening on where the span tags are. We're filtering that 123 into 
+$123.</p>
+<p>[Video description begins] <em> In the browser screen, the presenter types 123 in the text box. $123.00 appears besides the text box.</em> [Video description ends]</p>
+<p>And we can actually control the decimal places. If we go back to line
+ 13 where I have my currency, I can include something like a $, a : and 
+then a 0.</p>
+<p>[Video description begins] <em> In the code on line 13, the presenter types : "$" :0, next to the word 'currency'.</em> [Video description ends]</p>
+<p>If I saved those changes, refreshed the browser screen and I type 
+123, notice that there is no .00. In other words, what I'm saying, let's
+ restrict our output to no decimal places at all. Now the other way to 
+do this is using JavaScript. And as you can see, I've added in some code
+ here that I didn't have before.</p>
+<p>[Video description begins] <em> He adds new codes in the html file on lines 8-25.</em> [Video description ends]</p>
+<p>We have an application now, an actual application with a name. I've also included a controller on line 8 where my body tag is.</p>
+<p>[Video description begins] <em> The code on line 8 is: &lt; body ng-app="ssApp" ng-controller="ssController"&gt;</em> [Video description ends]</p>
+<p>Once I have that, I can initialize my application on line 17.</p>
+<p>[Video description begins] <em> The code on line 17 is: let ssApp = angular.module ( ' ssApp' , [ ] ) ;</em> [Video description ends]</p>
+<p>And within that, I can use the controller and pass to it a function. 
+That function is going to have our global scope, as well as our filter 
+scope, our filter object.</p>
+<p>[Video description begins] <em> He refers to the code on line 18. The code here is: ssApp.controller('ssController', function ($scope, $filter) {<!-- --></em> [Video description ends]</p>
+<p>We can then use our scope object to listen to the amount text box for any changes.</p>
+<p>[Video description begins] <em> He points to the code on line 12. The code here is: &lt; input type="text" name="cAmount" ng-model="amount"&gt;</em> [Video description ends]</p>
+<p>If there are any changes, then whatever values are typed into that box will be passed into our scope.watch function.</p>
+<p>[Video description begins] <em> He refers to the code on line 19. The code here is: $scope.$watch('amount', function (val) {<!-- --></em> [Video description ends]</p>
+<p>Which will then take that amount and filter it using the currency filter.</p>
+<p>[Video description begins] <em> He refers to the code on line 20. The code here is: $scope.dollars = $filter ('currency')(val);</em> [Video description ends]</p>
+<p>So then the dollars on our webpage, which is again, attached to the 
+scope object, will have the filtered value, whatever that filtered value
+ happens to be. So if you notice, I've changed line 13 where I had my 
+span tag before. Well, it's the same span tag but we're just using the 
+dollars variable now, which is attached to our scope object. Which is a 
+global object.</p>
+<p>[Video description begins] <em> The code on line 13 is: &lt; span id="curr"&gt;{<!-- -->{ dollars }}&lt; /span&gt;. The presenter also refers to $scope in the code on line 20.</em> [Video description ends]</p>
+<p>So once I have all of this in place, if you notice, I can actually 
+type in the same numbers and it works just like I had before. I can even
+ type in the the cents part of it. And as you can see, the filtering is 
+done just like we would expect.</p>
+<p>[Video description begins] <em> The presenter shifts to the browser 
+screen and types 123.36 in the text box. $123.36 appears in the decimal 
+form besides the text box.</em> [Video description ends]</p></div>
+</div>
+<div>
+<h2 id="1314e4f0-89c1-11e8-9c58-b7993da8b1b4">
+AngularJS Services
+</h2>
+<div><p>[Video description begins] <em> Topic Title: AngularJS Services. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to work with AngularJS Services. 
+As usual, I have an HTML document opened in Notepad++ to the left of 
+your screen. And we have Chrome on the right of your screen rendering 
+all of the changes that I'm going to make on that HTML document on the 
+left of your screen.</p>
+<p>[Video description begins] <em> The heading on the browser screen is:
+ AngularJS Services. There is an input box for Number to square. The 
+page also features a button labeled Square Number. Below the button 
+following text is written: Answer: {<!-- -->{}} .</em> [Video description ends]</p>
+<p>Angular services are really just functions that conform to what 
+they're calling now the single responsibility principle. Meaning that 
+each of these functions will really only do one thing and do that one 
+thing well. So this makes services easy to implement. And, an AngularJS 
+service is functionality that some other component depends on, usually a
+ controller. But it could be another service or it could be a filter or 
+it could be a directive. In our example here, we're going to use the 
+controller. So we going to say that our controller depends on this 
+service. So taking a look at the HTML document, on line 4, I'm already 
+connecting to our AngularJS library via a CDN.</p>
+<p>[Video description begins] <em> The code on line 4 is: &lt;script src="https: //ajax.googleapis.com/ajax/libs/angularjs/1 . 6 . 9/angular.min.js.</em> [Video description ends]</p>
+<p>On line 7, I've declared that I'm going to be using an app using the ng-app directive given my app and name.</p>
+<p>[Video description begins] <em> The code on line 7 is: &lt;body ng-app="ssApp"&gt;</em> [Video description ends]</p>
+<p>And on line number 9, where I have a div tag, I'm saying that I'm going to be using a controller.</p>
+<p>[Video description begins] <em> The code on line 9 is: &lt;div ng-controller="CController"&gt;</em> [Video description ends]</p>
+<p>That controller also has a name. On line number 11, we have a HTML 
+controller, an HTML element, the input type is equal to number. And to 
+that I I have bound it to the scope object using the ng-model directive.</p>
+<p>[Video description begins] <em> The code on line 11 is: &lt;input type="number" ng-model="number" /&gt;</em> [Video description ends]</p>
+<p>There is a new directive on line 12, which we've not seen before, that's the ng-click directive.</p>
+<p>[Video description begins] <em> The code on line 12 is: &lt;button ng-click="squareIt() "&gt;Square Number&lt;/button&gt;</em> [Video description ends]</p>
+<p>I've assigned to it a function called squareIt. Now I've not written 
+that function as yet, but obviously, I'm expecting the user to enter 
+some type of number. And we will square that number, and we will reveal 
+the answer to that squared number on line 13.</p>
+<p>[Video description begins] <em> The code on line 13 is: &lt;div&gt;Answer: { { } }&lt;/div&gt;</em> [Video description ends]</p>
+<p>Remember, anything connected to our global scope object will be 
+displayed once we use the two pairs of curly braces on line 13. Line 
+number 17 has our initialization statements, you've seen this before.</p>
+<p>[Video description begins] <em> The code on line 17 is: let ssApp = angular.module('ssApp' , [ ]) ;</em> [Video description ends]</p>
+<p>So all we really need to do now is get started with our service. But 
+before we get started with our service, let's work with the controller 
+first of all. So my application will have a controller, I have to give 
+that controller a name and a function. So remember well, let's just call
+ it CController. And we're going to attach to the second parameter to 
+our controller method will have a function, that function in itself will
+ take two parameters. The first will be our global scope object, and the
+ second will be the service that we're going to be writing. So that 
+service itself is actually just a function. So let's create some space 
+for a function. This is an anonymous function, obviously, and we will 
+define that function.</p>
+<p>[Video description begins] <em> He writes a code on line 19. The code is: ssApp.controller('CController', function($scope, serviceC){<!-- --></em> [Video description ends]</p>
+<p>In fact, we are going to remember on line 12, we have a squareIt 
+function. So that squareIt function is now going to be attached to the 
+scope object. So squareIt is going to be assigned another function, 
+another anonymous function.</p>
+<p>[Video description begins] <em> He writes the following code on line 20. The new code is: $scope.squareIt = function() {<!-- --></em> [Video description ends]</p>
+<p>And that anonymous function will attempt to use that scope object 
+again and we will attach too to the scope object our answer variable. 
+Which is appearing on line number 13, so we're going to define that a 
+little bit later on. So what I'm saying is that I'm going to use a 
+variable called answer to store the return from our service. So serviceC
+ is the service, and that service in itself, we will have to attach the 
+square function to it or square method. And to that we will pass our 
+scope object along with the number that the user is going to type in at 
+our HTML element.</p>
+<p>[Video description begins] <em> He writes the following code on line 
+21: $scope.answer= serviceC .square ($scope.number);. The code on line 
+22 is: }. The code on line 23 is: } };</em> [Video description ends]</p>
+<p>So now that we have all of this in place, I can go ahead and write my
+ service. So between lines 24 and 25, let's start writing the service. 
+So just like on line 19, we use the controller method, there is a 
+service method in AngularJS. There's also a factory method that we could
+ have used, but for this demo I'm using a service method. So let's 
+attach our service method, and just like the controller method we have 
+to pass it. First the name, serviceC and then some kind of anonymous 
+function, which is going to do all of the work for us.</p>
+<p>[Video description begins] <em> The code on line 25 is: ssApp.service( ' serviceC' , function() {<!-- --></em> [Video description ends]</p>
+<p>So let's define this function now. So this function, we'll use this 
+key word to indicate this particular application. And to that we're 
+going to assign to square, the variable called square. We will assign 
+that another function. That's going to be another anonymous function, 
+but it will accept as a parameter the number that the user has typed in.</p>
+<p>[Video description begins] <em> The code on line 26 is: this.square = function(num1)</em> [Video description ends]</p>
+<p>Remember that number is coming in from line 21. So let's define what 
+this function is going to do. This function is going to take that num1 
+and multiply it by itself and return that value.</p>
+<p>[Video description begins] <em> The code on line 27 is: return (num1 * num1) ;. The code on line 28 is: } ;. The code on line 29 is: } };</em> [Video description ends]</p>
+<p>Now, all we need to do is on line 13 where we have our answer and 
+those two pairs of curly braces. We will have to include our answer 
+variable that is now attached to the scope object.</p>
+<p>[Video description begins] <em> He goes to the code line 13. He writes answer in between the double curly brackets.</em> [Video description ends]</p>
+<p>Let's save these changes, refresh the browser screen, let's type 
+something like 3, then the square number and you see it's working.</p>
+<p>[Video description begins] <em> He goes to the browser page. In the input box, he types 3. he clicks the Square Number button. Answer displayed is 9.</em> [Video description ends]</p>
+<p>So that's how easy it is to implement services using AngularJS.</p></div>
+</div>
+<div>
+<h2 id="15a97280-89c1-11e8-9c58-b7993da8b1b4">
+Introduction to Vue.js
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Introduction to Vue.js. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to start looking at Vue.js. Vue.js
+ is just another framework like AngularJS. However, the file size is 
+much smaller. And there are some other features the developers would 
+like you to know about Vue.js. But before we get started with Vue.js, 
+note that I have an HTML template opened on the left of your screen, and
+ that's opened in Notepad++. And then to the right of that is a Chrome 
+browser rendering any change I make to that HTML document.</p>
+<p>[Video description begins] <em> The heading on the chrome browser is: VueJS</em> [Video description ends]</p>
+<p>So Vue claims that it is smaller in terms of size, file size. And 
+they say it's easier to use, it's more versatile. It performs well and 
+it is plugable, meaning that you can plug it into any compartment, any 
+part of your application, not the entire application. So this leads to 
+developers producing more maintainable code. And the code is supposed to
+ be more testable, or easier tested. Now, being a front end technology 
+mainly, Vue allows developers to encapsulate pieces of a webpage into 
+something they call components. So a component really is a combination 
+of HTML, CSS, and JavaScript dedicated just to that one part of that 
+page or that component. So just like AngularJS, we will be using a CDN 
+to import the library. So on line 5, I already have a pair of script 
+tags. And I'm going to pass to that source attribute the address of 
+where we can find our Vue.js library.</p>
+<p>[Video description begins] <em> In the code on line 5, the presenter 
+adds a link. The new code on line 5 is: &lt; script src="https: 
+//cdn.jsdelivr.net/npm/vue/dist/vue . j s"&gt;&lt; /script&gt;</em> [Video description ends]</p>
+<p>Now just to demonstrate how to get started with Vue.js, this is going
+ to be a very simple application. We're just going to display a message 
+on the browser window. So let's take a look at line 9, where I have a 
+div tag id'd so I can target that id, that div tag.</p>
+<p>[Video description begins] <em> The code on line 9 is: &lt; div id="div1"&gt;</em> [Video description ends]</p>
+<p>But between that we have a pair of span tags. And I'm going to be 
+using something called interpolation, which is something that we've seen
+ before if you had looked at the AngularJS videos. So it's basically two
+ pairs of curly braces. And between that, you can pass the value of any 
+variable that you wish. So in this case, my variable is called message. 
+And that will contain some value that we're going to print between these
+ span tags.</p>
+<p>[Video description begins] <em> The span tags are present on line 10. The presenter modifies the code on line 10. The new code here is: &lt; span&gt;{<!-- -->{ message }}&lt; /span&gt;</em> [Video description ends]</p>
+<p>Now, I do have a pair of script tags as well, between lines 12 and 
+13. I'm going to make some space between those tags. And I am going to 
+declare a variable to hold an instance of my Vue object. Now within that
+ Vue object, I'm going to pass or I'm going to develop some type of 
+object. So I've got my curly braces there. And what I'm going to be 
+doing, the element on the page that I'm targeting is that div tag on 
+line 9. So my element is going to be pointing to the pound sign and then
+ the name of the element in this case, which is div1. So that will be my
+ first property of this particular object.</p>
+<p>[Video description begins] <em> He adds new code on lines 13, 14, and
+ 15. The code on line 13 is: let ssVue = new Vue({. The code on line 14 
+is: el: '#div1'. The code on line 15 is: })</em> [Video description ends]</p>
+<p>Then what I'm going to do is make some space for myself, and use a 
+comma between properties, and my next property is going to be the data. 
+And again, I'm going to use the curly braces to hold the data itself. So
+ in this case it's a message, and I'm going to pass some value to that 
+message. Something like, Hello from Skillsoft!</p>
+<p>[Video description begins] <em> He adds new codes on lines 15, 16 and
+ 17. The code on line 15 is: data : (. The code on line 16 is: message :
+ 'Hello from Skillsoft!'. The succeeding code lines shift 2 lines below.
+ The code on line 17 is: }.</em> [Video description ends]</p>
+<p>And so I've got my message, I've got my data component, I've got my 
+targeted div tag, and I believe that is all I need. So let's save those 
+changes and refresh the browser screen. So I should see this message is 
+going to act as a variable. Notice I didn't have to use the scope object
+ here. And let's see if this works. I'll refresh the browser screen, and
+ there is my message. It is really that easy to use Vue.</p>
+<p>[Video description begins] <em> The message: Hello from Skillsoft! appears on the browser screen.</em> [Video description ends]</p>
+<p>And if we wanted to do binding, it's just as easy as well. So we will
+ use a particular directive called v-bind. And what I'm going to do is 
+I'm going to be binding the title of my span tag. And I'm just going to 
+remove the interpolation braces here. And I'm going to do something like
+ hover, because our title will hold a pop up hover over me. And I think 
+that's all I would need. Well, actually I do need to pass my message. So
+ I need to let the title know what I'm trying to do. So it will show 
+whatever values inside of message. In this case it's going to be Hello 
+from Skillsoft!</p>
+<p>[Video description begins] <em> He modifies the code on line 10. The code here is: &lt; span v-bind:title="message"&gt;Hover over me&lt; /span&gt;</em> [Video description ends]</p>
+<p>Let's save these changes, refresh the browser screen. Now if I hover,
+ notice that the pop up, which is the title, will show up in our pop up 
+window there.</p>
+<p>[Video description begins] <em> The message: Hover over me, appears 
+on the browser screen. When the presenter moves mouse over this text, 
+the previous message, "Hello from Skillsoft!" appears as hover-over 
+text.</em> [Video description ends]</p>
+<p>Something else that is interesting about Vue.js. And in fact most of 
+the frameworks is that if I were to let's say access my console and I 
+were to change the message. So ssvue.message, notice how IntelliSense 
+comes up. And let's assign to that message a new message, something 
+like, let's see, Just testing. And I hit the enter key.</p>
+<p>[Video description begins] <em> In the console panel of the browser, the presenter types: ssvue.message="Just testing"</em> [Video description ends]</p>
+<p>Immediately as I hover over our target, span in this case, notice that the message has changed almost instantaneously.</p>
+<p>[Video description begins] <em> The new hover-over text after the change is Just testing.</em> [Video description ends]</p></div>
+</div>
+<div>
+<h2 id="17e4e390-89c1-11e8-9c58-b7993da8b1b4">
+Working with Vue.js Projects
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Working with Vue.js projects. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we'll continue with Vue.js and show a typical 
+project that includes components. As usual I have an HTML document 
+opened to the left of your screen, and to the right of your screen there
+ is Chrome rendering that document you see on the left.</p>
+<p>[Video description begins] <em> The heading displayed on the browser screen is:VueJS.</em> [Video description ends]</p>
+<p>The HTML document on the left is opened in Notepad++. And on line 5, 
+I'm already pointing to the Vue.js file, which will import that Vue 
+library for us, the Vue.js library.</p>
+<p>[Video description begins] <em> The code on line 5 is: &lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"&gt;&lt;/script&gt;.</em> [Video description ends]</p>
+<p>If you look at line 9, that's a div tag that I've id'ed as demo.</p>
+<p>[Video description begins] <em> The code on line 9 is: &lt;div id="demo"&gt;.</em> [Video description ends]</p>
+<p>I'll be using that div tag to display all of the features that I'm 
+going to be talking about in terms of templates and in terms of 
+components, in terms of Vue.js components. So let's get started right 
+away. So beneath line 11 where my script tag is, I'm going to start 
+initializing my Vue component. And well, I've already initialized the 
+Vue component on line 13, I'm using the object now, and I'm accessing 
+the component method.</p>
+<p>[Video description begins] <em> The code on line 13 is: new Vue (( el: '#demo' ));.</em> [Video description ends]</p>
+<p>And I'm going to be passing to that component method two things. The 
+first thing is the name of the component that I'm going to be using, and
+ secondly will be an object. Now, just to explain what we're about to do
+ is I'm going to be using the span tag, the HTML span tag as a template,
+ as a component. So in other words, once I'm done defining this 
+component, this Vue.js component, which is in fact, which is going to 
+render in the browser as a span tag. It means I can use that component 
+anywhere on this webpage that I need to.</p>
+<p>So let's start defining that object. So remember the object itself, 
+let's put those curly braces back, the object itself I'm going to use 
+the template, the template property. And immediately, I'm going to start
+ using the HTML templated strings. Now, don't confuse the HTML templated
+ strings with those back ticks on line 13, with the template that I'm 
+about to define. So I'm using templated strings because my template on 
+line 13 is going to get very long. So the next thing I'm going to do is 
+I'm going to include my span tags, the basic HTML span tags. And I'm 
+going to put some kind of string between my span tag. So let's say this 
+is a template.</p>
+<p>[Video description begins] <em> He declares 3 lines of codes on lines
+ from 12 to 14. The code on line 12 is: Vue.component('vue-span', {. The
+ code on line 13 is: template:`&lt;span&gt;this is a 
+template&lt;/span&gt;`. The code on line 14 is: });.</em> [Video description ends]</p>
+<p>And once I do that I can now access this span tag via its name on 
+line 12. The name of the span tag is vue-span. So instead of using the 
+regular HTML span, I'm going to use vue-span. So between my div tags on 
+line 9, I'm going to start inserting my vue-span, and I'm going to 
+complete it with the closing bracket there. I'll save these changes, 
+refresh the browser screen, and notice that the span tag operates just 
+like a regular HTML span tag.</p>
+<p>[Video description begins] <em> He declares a code on line 10. 
+Succeeding code lines shift one line down. The code on line 10 is: 
+&lt;vue-span&gt;&lt;/vue-span&gt;. The presenter saves the file and 
+shifts to the browser screen. He refreshes the screen and the following 
+text appears below the heading: "this is a template".</em> [Video description ends]</p>
+<p>But typically, you may want to pass your own value for that where it 
+says this is a template, we may want to pass our own value there. So 
+what I'm going to do is expand our component on line 13, so I'm going to
+ use something called props. And with props, I can define. So on line 
+14, I've included props and I'm going to define my props as title. So 
+title is going to be used as a variable, and once I do that, well, let's
+ put a comma to separate the props from our template. Now once I've done
+ that on line 10, I can actually use that title,</p>
+<p>[Video description begins] <em> He declares a code on line 14. The code is: props: ['title'],. Succeeding lines shift one line down.</em> [Video description ends]</p>
+<p>like this, and pass through it any value that I want.</p>
+<p>[Video description begins] <em> He modifies the code on line 10. The new code is: &lt;vue-span title="this is a span tag"&gt;&lt;/vue-span&gt;.</em> [Video description ends]</p>
+<p>So what I'm saying is that when vue-span is rendered on the browser, 
+it should say this is a span tag rather than this is a template. So if I
+ save these changes, refresh the browser screen, well,</p>
+<p>[Video description begins] <em> The anticipated change doesn't appear on the browser screen.</em> [Video description ends]</p>
+<p>actually I need to remove, this is a template first.</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 15 by removing This is a template. The new code on line 15 is: 
+template:`&lt;span&gt;&lt;/span&gt;`.</em> [Video description ends]</p>
+<p>And then within my span tags itself, I can use those interpolated 
+strings. Remember, they go in between the two pairs of curly braces. And
+ I can now display that title like this.</p>
+<p>[Video description begins] <em> He again modifies the code on line 15, the new code is: template:`&lt;span&gt;{<!-- -->{title}}&lt;/span&gt;`.</em> [Video description ends]</p>
+<p>So on line 15, I've inserted the interpolated strings with my title 
+in there. I'll save these changes, refresh the browser screen, and now 
+it says, this is a span tag.</p>
+<p>[Video description begins] <em> On the browser screen the text below the heading changes to: "this is a span tag".</em> [Video description ends]</p>
+<p>So I was successful in passing a value from my title on line 10 into the rendered version of this span tag.</p>
+<p>[Video description begins] <em> He highlights the code on line 10 and then points to the result displayed on the browser screen.</em> [Video description ends]</p>
+<p>But let's do more. Actually now, let's declare a function, so that 
+this function will return data. So let's use data as the property, and 
+point it to a function. That function will be defined as returning an 
+object, all function must return objects. So return, return an object. 
+And let's return in that object something, another variable if you want 
+to consider it a variable. So it's count, and for now I'll just pass the
+ value of 0.</p>
+<p>[Video description begins] <em> He declares codes on lines from 16 to
+ 20. The succeeding codes shift 5 lines down. The code on line 16 is: 
+data:function(){. The code on line 17 is: return {. The code on line 18 
+is: count : 0. The code on line 19 is: }. The code on line 20 is }.</em> [Video description ends]</p>
+<p>Now, within my span tags I can, let's make some, well actually, let's
+ copy what we have before and paste it. But instead of title, let's now 
+display count.</p>
+<p>[Video description begins] <em> He modifies the code on line 15, the new code is: template:`&lt;span&gt;{<!-- -->{title}}{<!-- -->{count}}&lt;/span&gt;`.</em> [Video description ends]</p>
+<p>So with just that simple change, let's save our work, refresh the browser screen.</p>
+<p>[Video description begins] <em> On the browser screen, the text below the heading disappears.</em> [Video description ends]</p>
+<p>And I made a mistake in that I need to separate these two properties.</p>
+<p>[Video description begins] <em> He places a , at the end of the code on line 15.</em> [Video description ends]</p>
+<p>Let's save that again, refresh the browser screen, and there's my 0.</p>
+<p>[Video description begins] <em> On the browser screen, the text below the heading changes to: "this is a span tag 0".</em> [Video description ends]</p>
+<p>And we can even take this a little bit further. Let's put our title 
+and countdown to the next line. And next to my span tag, well, within my
+ span tag of my template I am going to use another directive, v-on, the 
+v-on directive. And pass to that the mouseover event. And I'm going to 
+assign to that mouseover event a function as count++.</p>
+<p>[Video description begins] <em> He breaks the code on line 15. The following part of the code shifts to line 16: {<!-- -->{title}}{<!-- -->{count}}&lt;/span&gt;`,. He then modifies the code on line 15, the new code is: template:`&lt;span v-on:mouseover="count++"&gt;.</em> [Video description ends]</p>
+<p>Let's save these changes, refresh the browser screen, and now, whenever I hover over that tag, the count changes.</p>
+<p>[Video description begins] <em> The result on the browser screen is: 
+this a span tag 0. Every time the presenter hovers the mouse over this 
+result, the number in the result changes. Currently, the number is 7. 
+Hence the result is: this is a span tag 7.</em> [Video description ends]</p>
+<p>But I started by saying that I can use these components anywhere I 
+want, so let's copy line 10, let's copy that line, the entire line, and 
+paste it again. And I can actually pass a different title, so this is 
+another span tag.</p>
+<p>[Video description begins] <em> The presenter copies the code on line
+ 10 and pastes it on line 11. He then modifies the code on line 11: The 
+new code is: &lt;vue-span title="this is another span 
+tag"&gt;&lt;/vue-span&gt;.</em> [Video description ends]</p>
+<p>I'll save these changes, refresh the browser screen.</p>
+<p>[Video description begins] <em> On the browser screen, the text below the heading changes to: "this is a span tag 0 this is another span tag 0".</em> [Video description ends]</p>
+<p>Well, let's put a break tag between them so it's a little bit easier to see.</p>
+<p>[Video description begins] <em> He adds a break tag at the end of the
+ code on line 10, the new code is: &lt;vue-span title="this is a span 
+tag"&gt;&lt;/vue-span&gt; &lt;br/&gt;.</em> [Video description ends]</p>
+<p>Save these changes, refresh the browser screen. Notice we have two span tags now.</p>
+<p>[Video description begins] <em> On the browser screen, the text below
+ the heading appears in two lines now. The first line is: "this is a 
+span tag 0". The second line is: "this is another span tag 0".</em> [Video description ends]</p>
+<p>Now, when I move the mouse over the first span tag it changes and I 
+can keep doing that forever. Now, I'm going to move my mouse over the 
+second span tag. And notice that they are operating independent of each 
+other. So that's the power of Vue components.</p></div>
+</div>
+<div>
+<h2 id="1a2e3750-89c1-11e8-9c58-b7993da8b1b4">
+Vue.js Standard Directives
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Vue.js Standard Directives. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we will continue with Vue.js. As usual, I have
+ an HTML document open on the left of your screen, it's opened in 
+Notepad++. On the right of your screen, there's Chrome rendering that 
+document you see on the left.</p>
+<p>[Video description begins] <em> On the browser page, some text is 
+visible. First, VueJS is written in bold letters as a heading, and below
+ that the following is written: {<!-- -->{}}.</em> [Video description ends]</p>
+<p>I've gone ahead on line 5 and I have attached the Vue.js library to this HTML document via CDN.</p>
+<p>[Video description begins] <em> The code on line 5 is: &lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"&gt;&lt;/script&gt;.</em> [Video description ends]</p>
+<p>On line 13, I have initialized a new application, a Vue.js application or app, and I've named it ssApp.</p>
+<p>[Video description begins] <em> The code on line 13 is: let ssApp = new Vue(.</em> [Video description ends]</p>
+<p>I've also gone ahead and targeted a particular div tag in this case, 
+it's on line 9, there's a div tag. And we are now binding that div tag 
+to our ssApp application on line 13.</p>
+<p>[Video description begins] <em> The code on line 9 is: &lt;div id= "ssApp"&gt;.</em> [Video description ends]</p>
+<p>Also, I have a data structure where I have one variable called x, and
+ there's a value associated with that x called Hello from Skillsoft.</p>
+<p>[Video description begins] <em> He refers to the code lines 16 and 17. The code here is: data:{. The code on line 17 is: x: "Hello from skillsoft".</em> [Video description ends]</p>
+<p>On line 10 you see those interpolation characters again, which sometimes called the mustache.</p>
+<p>[Video description begins] <em> The code on line 10 is: {()}.</em> [Video description ends]</p>
+<p>And if I were to pass my x in there, save the changes, refresh the 
+browser screen, you see that the value that's in x is now displayed as a
+ result of the interpolation.</p>
+<p>[Video description begins] <em> He modifies the code on line 10, the 
+new code is: {(x)}. After refreshing the browser, the text on the 
+browser page changes to: "Hello from Skillsoft".</em> [Video description ends]</p>
+<p>But this video, this demonstration, is about directives. And 
+directives are really just small execution commands that can be attached
+ to DOM elements. So essentially, a directive is a special command that 
+tells the Vue.js library to do something to a particular element. And in
+ this case, we're working with the div tag on line 8.</p>
+<p>[Video description begins] <em> The presenter is referring to the div tag on line 9.</em> [Video description ends]</p>
+<p>Some of the most common ones are v-if, v-else, and v-show. All of 
+these directives start with the v-. So my first example, I'm going to 
+use something called v-text. And for that, I've just made some space and
+ I'm going to use line 11. And what I'm going to do on line 11 is I'm 
+going to start typing a span tag. And I'm going to use that span tag to 
+show you how the v-text works. So as an attribute of my span tag, I am 
+going to now issue a directive, v-text. And I'm going to pass to that 
+v-text directive the value of x. Well, let's leave both of them for now 
+and let's save these changes,</p>
+<p>[Video description begins] <em> He declares a code on line 11, 
+previous codes from line 11 onward shift one line down. The new code on 
+line 11 is: &lt;span v-text="x"&gt;&lt;/span&gt;.</em> [Video description ends]</p>
+<p>refresh the browser screen, and notice that I get two Hello from Skillsoft.</p>
+<p>[Video description begins] <em> The text on the browser page changes again. The new text is: "Hello from Skillsoft Hello from Skillsoft".</em> [Video description ends]</p>
+<p>I'm going to remove the first one on line x, that's your interpolation, I'll remove that.</p>
+<p>[Video description begins] <em> After removing the code fron line 10, the succeding code lines shift one line up.</em> [Video description ends]</p>
+<p>Save the changes, refresh the browser screen, and there's your Hello from Skillsoft.</p>
+<p>[Video description begins] <em> The text on the second line on the browser page changes back to: "Hello from Skillsoft".</em> [Video description ends]</p>
+<p>But there are several more directives we can use. Let's use the 
+v-html. So what I'm going to do is I'm going to copy line 10 and I'm 
+going to paste it at line 11. So now I've got two span tags between my 
+div tag that is bound to my application. I'm going to use a different 
+variable here. So let's use y, and remember this is going to be v-html, 
+so html.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 11. The new code is: &lt;span v-html="y"&gt;&lt;/span&gt;.</em> [Video description ends]</p>
+<p>And I'm going to have to create another data point, so let's put a 
+comma on line 18. And actually, what I'm going to do is just copy and 
+paste. So I'm going to copy line 18 and paste it to line 19. And 
+remember, we're using a different variable, so let's use y in this case.
+ I'll remove the comma from the end of Hello from Skillsoft. And 
+basically, what this does, v-html, as you might imagine, it produces 
+pure HTML. So this variable, y, will send pure HTML to that span tag on 
+line 11. So the first thing that I'm going to do to demonstrate this is 
+issue the break tag. And just to show you exactly how it works, I'm 
+going to use another break tag between from and Skillsoft. So let's use 
+another break tag there. And let's do Skillsoft 2 so we know it's a 
+different value here for my data point y.</p>
+<p>[Video description begins] <em> He modifies the codes on lines 18 and
+ 19. The new code on line 18 is: x: "Hello from skillsoft",. The new 
+code on line 19 is: y: "&lt;br/&gt;Hello from &lt;br/&gt;skillsoft 2".</em> [Video description ends]</p>
+<p>Let's save these changes, refresh the browser screen. And immediately
+ you saw that the second value is now placed on the line below the first
+ one. Also, Skillsoft is now placed on the third line, meaning that it 
+has abided by the break tag.</p>
+<p>[Video description begins] <em> On the browser screen, two more text 
+lines are added. The text on line 2 is: Hello from, and the text on line
+ 3 is: Skillsoft 2.</em> [Video description ends]</p>
+<p>I'll demonstrate one more, but I'm going to use a div tag for this. 
+So let's use a div tag here. And I'll close off my div tag. And in this 
+case, I have to actually insert something and I'll show you why. So 
+let's insert Hello from Skillsoft between my div tags. And let's make 
+this 3 so we know it's a totally different sentence. However, my div is 
+going to have a directive of v-show. And I'm going to make that equal to
+ yet another variable, so let's use z in this case.</p>
+<p>[Video description begins] <em> He modifies the code on line 12, the new code is: &lt;div v-show="z"&gt;Hello from skillsoft 3&lt;/div&gt;.</em> [Video description ends]</p>
+<p>And once again, I'm going to copy one of my previous data points on 
+line 19, let's say. And well, actually, let's copy, yeah, 19 is fine. 
+Actually, we don't need to pass it any strings. We just need to pass it 
+the value of false or true. So let's remove the comma, but place another
+ comma on line 20. So my data structure now has a third element, which 
+is sort of like a Boolean element, and or a Boolean data point. And so 
+our z will be, I need to change this as well. So x, y, z, I need to 
+change this one here on line 21, this should be z. So I have three 
+different data points.</p>
+<p>[Video description begins] <em> The presenter places a comma at the 
+end of the code on line 20, the new code is: y: "&lt;br/&gt;Hello from 
+&lt;br/&gt;skillsoft 2",. He also declares a code on line 21, the 
+previous codes on line 21 onward shift one down. The new code on line 21
+ is: z: false</em> [Video description ends]</p>
+<p>So, obviously, the way this is going to work is that if z is false, 
+the content between our div tag will not show up on the browser page.</p>
+<p>[Video description begins] <em> He highlights "Hello from skillsoft 3" in the code line 12.</em> [Video description ends]</p>
+<p>But if I change this to true, then you'll see a third line here. So 
+let's save these changes, refresh the browser screen, and nothing is 
+going to happen because that's what we expected. Let's hit F12 on the 
+keyboard to get to my console. Let's access my app, my ssApp, and let's 
+access our z data point and make that equal to true. So it was false 
+before. Now take a look at the browser screen as I hit the Enter key. I 
+hit the Enter key, notice immediately, Hello from Skillsoft shows up on 
+the browser's screen. So that's the power of using directives from 
+Vue.js.</p></div>
+</div>
+<div>
+<h2 id="1c5d9a70-89c1-11e8-9c58-b7993da8b1b4">
+React Basics
+</h2>
+<div><p>[Video description begins] <em> Topic Title: React Basics. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to start looking at ReactJS. ReactJS
+ is another JavaScript library. As usual, I have an HTML document opened
+ in Notepad++ and this is located to the left of your screen. But to the
+ right of that screen is a Chrome browser, and that will render any 
+changes that I make to the HTML document on the left of your screen.</p>
+<p>[Video description begins] <em> On the browser page, the following text is present: React JS.</em> [Video description ends]</p>
+<p>React is another JavaScript library, and it can be used to update web
+ pages. In fact, it can even be used on the server side as well. ReactJS
+ plays nicely with Angular and Vue, or it can be used in place of those 
+two. What makes React a little bit different from the other two is that 
+it uses a special syntax called JSX, and with that special syntax, what 
+that syntax tends to do is that it tends to sort of concatenate 
+JavaScript and HTML together. So this sort of eliminates the need for 
+physical files, a separation of concerns. And also, it helps to build 
+components a little bit easier. And it even prevents certain types of 
+injection attacks. So just like with AngularJS and VueJS, we need to 
+import certain libraries, and as you can see, between lines 5 and 7, I 
+already have some script tags.</p>
+<p>[Video description begins] <em> The code on line 5 is: &lt;script 
+src=" "&gt;&lt;/script&gt;. The code on line 6 is: &lt;script src=" 
+"&gt;&lt;/script&gt;. The code on line 7 is: &lt;script src=" 
+"&gt;&lt;/script&gt;.</em> [Video description ends]</p>
+<p>So it is a Facebook, actually, it was produced and developed at 
+Facebook. So we will get the library, the main ReactJS library, from 
+Facebook. But there's also another library that we need, which is the 
+ReactDOM library.</p>
+<p>[Video description begins] <em> On the code line 5, he adds the following text between the double quotes: https://fb.me/react-0 .14 .3 .js</em> [Video description ends]</p>
+<p>So I've just inserted these two libraries on lines 5 and 6.</p>
+<p>[Video description begins] <em> On the code line 6, he adds the following text between the double quotes: https://fb.me/react-dom-0 .14 .3 .js.</em> [Video description ends]</p>
+<p>Now, I did say that React uses JSX. However, the browser does not 
+understand JSX. So we need some way, some mechanism, of converting that 
+JSX into plain old HTML or plain old JavaScript. So for that, we're 
+going to use something called Babel. And I'm going to insert that 
+library on line 7.</p>
+<p>[Video description begins] <em> On the code line 7, he adds the 
+following text between the double quotes: 
+https://unpkg.com/babe1-standalone@6.15.0/babe1.min.js</em> [Video description ends]</p>
+<p>So, there you go, line 7, we've reported the Babel library. So we 
+have everything that we need now to start writing plain old React, 
+right? So we'll start with a very simple example of just sending some 
+HTML code off to the browser screen. But in order to do that, we would 
+need a target. So if you notice on line 7, I do have, actually line 11, I
+ have a div tag there.</p>
+<p>[Video description begins] <em> The code on line 11 is: &lt;div&gt;&lt;/div&gt;</em> [Video description ends]</p>
+<p>So we'll use that as the target. So let's give it an ID. So I'm going
+ to give it an ID of root and so back to this Babel thing now,</p>
+<p>[Video description begins] <em> He goes to the code line 11 and modifies it. The new code is: &lt;div id="root"&gt;&lt;/div&gt;</em> [Video description ends]</p>
+<p>where I have those script tags, the JavaScript tags, we have to 
+actually let the browser know that we are using this special syntax. So I
+ have to add an attribute to my script tags. So it's not just script 
+alone. We have to tell it that we are using this Babel, what's called a 
+transpilator.</p>
+<p>[Video description begins] <em> He modifies the code on line 12 and 
+then highlights the codes on line 12 and 13. The code on line 12 is: 
+&lt;script type="text/babel"&gt;. The code on line 13 is: 
+&lt;/script&gt;</em> [Video description ends]</p>
+<p>So we are transpilating our JSX code into plain old HTML and 
+JavaScript. So once that's done, we can actually tap into the library 
+now, and because we are going to be using the render method, we need the
+ main object, which is ReactDOM, and we can access from that the render 
+method. And once we have that render method, then we can pass to it two 
+parameters. The first parameter, let's make some space. The first 
+parameter can be HTML if you want. So in this case, I do have a pair of 
+span tags in there, and I can even pass some text directly from this 
+render method. My second parameter will be the target on this page. So 
+it's, say, a plain old JavaScript now, it says the 
+document.getElementById, and</p>
+<p>[Video description begins] <em> He writes a code on line 15. The code is: document.getElementByID ( ' root ')</em> [Video description ends]</p>
+<p>we'll pass in the name of the element that we're targeting, root in this case.</p>
+<p>[Video description begins] <em> He declares codes on lines from 13 to
+ 16. the code on line 13 is: ReactDOM. render (. The code on line 14 is:
+ &lt;span&gt;Hello from Skillsoft&lt;/span&gt;, . The code on line 15 
+is: document.getElementByID ( ' root ')The code on line 16 is: );</em> [Video description ends]</p>
+<p>And this is about the simplest React application you can find. Let's 
+save all of those changes, refresh the browser screen, and we should now
+ see that span tag displayed on the browser screen.</p>
+<p>[Video description begins] <em> The following text appears on the browser screen: Hello from Skillsoft.</em> [Video description ends]</p>
+<p>And that's just how easy it is to start using React.</p></div>
+</div>
+<div>
+<h2 id="1e6d1980-89c1-11e8-9c58-b7993da8b1b4">
+Working with React Components
+</h2>
+<div><p>[Video description begins] <em> Topic title: Working with React Components. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we'll continue with ReactJS and we'll look at 
+some of the key concepts of what they're calling reactive programming. 
+What I have on the screen is an HTML document opened in Notepad++ on the
+ left. And on the right, that is Chrome rendering the document you see 
+on the left.</p>
+<p>[Video description begins] <em> On the chrome browser screen, the 
+following text is present as a heading in bold letters: React JS. Below 
+the heading, the following text is present: Hello from Skillsoft.</em> [Video description ends]</p>
+<p>The HTML document to the left of your screen already has the 
+libraries imported between lines 5 and 7. Those would be the React 
+libraries that you can get from Facebook. On line 11, there's a div tag 
+with an id of root, and we'll be targeting that div tag to display some 
+of the changes that we're going to be making.</p>
+<p>[Video description begins] <em> The code on line 11 is: &lt;div id="root"&gt;&lt;/div&gt;.</em> [Video description ends]</p>
+<p>Between lines 12 and 24, that's our script area and we will be 
+writing, we will be changing that script as I go on. So this is about 
+the key concepts. However, the ReactJS is extremely huge, it is a big 
+library. And so I've attempted to pull out some of the main concepts of 
+that library. In fact, in order to get started with ReactJS, you need to
+ know certain things like JSX, what is that? The components, props and 
+data binding, and that there's also something called a Virtual DOM. 
+These are all sort of a big part of ReactJS. What you're looking at on 
+the screen between lines 13 and 22 is JSX. It is sort of a combination 
+of JavaScript and HTML. Take a look at line 15. Line 15 is returning 
+pure HTML. But it's doing that via JavaScript.</p>
+<p>[Video description begins] <em> The code on line 15 is: return &lt;p&gt;Hello from Skillsoft &lt;/p&gt;;.</em> [Video description ends]</p>
+<p>Now, you do not have to use JSX. You can use plain JavaScript. 
+However, what the developers, what Facebook is saying, is that if you 
+use JSX, then writing code is much easier. You become a little bit more 
+productive. Another concept that I'd like to bring across is the concept
+ of components. Everything in ReactJS is a component. On line 13, we 
+have started creating our own component called Greet.</p>
+<p>[Video description begins] <em> The code on line 13 is: class Greet extends React . Component {.</em> [Video description ends]</p>
+<p>And as you can see, we are returning HTML. So all components have to 
+return HTML. And it is a combination of these small components that can 
+actually build a real web page. But getting back to GSX itself, it 
+allows us to use something called props in order to pass another concept
+ props. It allows us to pass variables from one part of the application 
+to another. So if we take a look at line 12, I can actually within my 
+render method, I can actually create a variable. Let's call it ss for 
+this case. And we will give it some value, let's say we wanted to give 
+it the value of Skillsoft.</p>
+<p>[Video description begins] <em> The code on line 12 is: &lt;script 
+type="text/babel"&gt;. The presenter goes to the code on line 20, the 
+code is: &lt;Greet /&gt;,. He then modifies the code on line 20, the new
+ code is: &lt;Greet ss="Skillsoft" /&gt;,.</em> [Video description ends]</p>
+<p>It means now that in my return statement on line 15, I could remove 
+that Skillsoft word and include a pair of curly braces. And within that 
+curly braces, I can access the current component, which is Greet. It can
+ access the property of that component and then attach to that the 
+variable that I just created on line 20, which is ss.</p>
+<p>[Video description begins] <em> He then modifies the code on line 15. The new code is: return &lt;p&gt;Hello from { this .props .ss} &lt;/p&gt;;</em> [Video description ends]</p>
+<p>With these changes, all I have to do is save the changes, refresh the
+ browser's screen, and you'll notice that nothing changes on the 
+browser.</p>
+<p>[Video description begins] <em> He highlights the text on the browser screen.</em> [Video description ends]</p>
+<p>So this is a way of passing props, is a way of passing variables from
+ one part of the application to another. Along with props is something 
+called data binding. So let's take a look at line 11 where I have that 
+div tag or original div tag. I'm going to create another div tag 
+underneath it. So on line 12, I've inserted a div tag. I'm going to give
+ it a second id, so let's call it id root.</p>
+<p>[Video description begins] <em> He goes to the code on line 11. He 
+then declares a code on line 12. The code is: &lt;div 
+id="root2"&gt;&lt;/div&gt;. The succeeding code lines shift one line 
+down.</em> [Video description ends]</p>
+<p>And what I'm going to do is, I will use that second div tag to show a
+ clock. I'm going to create my own clock here. So what I'm going to do 
+now is create a function so lets say around line 24, 25, I'm going to 
+create a function called seconds. And I'm going to define what that 
+function is. So first of all I will declare constant, and it's going to 
+be some type of element, that element is going to be a paragraph tag, so
+ it's another paragraph tag. While I'm working with this second 
+function, I'm going to pass to it some more values. So I've already 
+passed the It is, we’re just like a constant, but I'm also going to use 
+now plain old JavaScript Date object. That new Date will give me a new 
+date. And I'm going to convert that new Date to the local time string, 
+whatever that happens to be in the region.</p>
+<p>[Video description begins] <em> He declares codes on lines from 25 to
+ 30. The code on line 25 is: function seconds ( ) {. The code on line 26
+ is: const element = (. The code on line 27 is: &lt;p&gt;It is { new 
+Date ( ) . toLocaleTimeString ( ) } . &lt;/p&gt;. The code on line 28 
+is: ) ;. The code on line 29 is: / /. The code on line 30 is }. The 
+succeeding code lines shift six lines down.</em> [Video description ends]</p>
+<p>Now remember, this is about binding so I'm going to actually create 
+another React, ReactDOM.render method. So we already have one on line 
+20.</p>
+<p>[Video description begins] <em> The code on line 20 is: ReactDOM . render (.</em> [Video description ends]</p>
+<p>I'm not going to use that one, I'm going to create another one. So on
+ line 30, I'll create another ReactDOM.render method. Remember that 
+render method takes two parameters. The first parameter will be the 
+element that I just created on line 25. And the second parameter to that
+ render method will be the target ID on the webpage, which is at line 
+12, so that's root2.</p>
+<p>[Video description begins] <em> He declares codes on lines from 30 to
+ 33. The code on line 30 is: ReactDOM . render (. The code on line 31 
+is: element ,. The code on line 32 is: document . getElementById 
+('root2'). The code on line 33 is: ) ;. The succeeding code lines shift 
+four lines down.</em> [Video description ends]</p>
+<p>After that, all I really need to do is use plain old JavaScript 
+again, the setInterval method. I'm going to pass it two parameters. The 
+first is the function that I created on line 25. And the second is the 
+amount of seconds I want to have or milliseconds in this case, I want to
+ have passed after I call that seconds function on line 25.</p>
+<p>[Video description begins] <em> He declares code on line 36, the code is: setInterval (seconds, 1000) ;. The succeeding code lines shift one line down.</em> [Video description ends]</p>
+<p>So with these changes, let's save the changes, refresh the browser 
+screen. And we should now see the time and it's actually ticking off in 
+terms of seconds.</p>
+<p>[Video description begins] <em> On the browser screen, the current 
+time is displayed. The time is moving forward. It shows hours, minutes 
+and seconds. The time is written as It is 2:17:51 PM.</em> [Video description ends]</p>
+<p>So that's data binding, but that's one way to do data binding with 
+React JS. Now the last concept that I wanted to talk about is something 
+called the virtual DOM. Now, it'll be really difficult to demonstrate 
+the virtual DOM, but I can tell you that React JS is faster because of 
+the virtual DOM. And as the words suggest, what it is is an in-memory 
+representation of the DOM. So with the virtual DOM, the real DOM is 
+never really touched. Updating the real dump in real life, well in a 
+normal sense, would include parsing HTML, updating the CSS, changing the
+ parent and child elements, updating the layouts.</p>
+<p>And even traversing the render tree and finally painting all of that 
+image onto the browser. But with the virtual DOM, the virtual DOM is 
+constantly monitoring the HTML document for changes and they use some 
+kind of differential algorithm. In fact, it's called the diff algorithm.
+ And so whenever there needs to be an update, what the virtual DOM does 
+is only update that part of the image. So the entire page doesn't have 
+to be recreated or the entire page does not have to be affected, only 
+those parts of the page. So that's why React JS is a little bit faster, 
+and that's why React JS is so popular.</p></div>
+</div>
+<div>
+<h2 id="21043f20-89c1-11e8-9c58-b7993da8b1b4">
+React and JSX
+</h2>
+<div><p>[Video description begins] <em> Topic title: React and JSX. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we will continue with React.js and we'll look 
+at embedding expressions with JSX. Once again, I have an HTML template 
+opened on the left of your screen, that's opened up in Notepad++. On the
+ right of your screen, there's a Chrome browser rendering the HTML you 
+see on the left and we will be making changes to that HTML document.</p>
+<p>[Video description begins] <em> On the chrome browser screen, the 
+following text is present as a heading in bold letters: React JS. Below 
+the heading, the following text is present: Hello from Skillsoft.</em> [Video description ends]</p>
+<p>As of right now, we do have some script tags between lines 13 and 25 
+that will change. And between lines 5 and 7, I have gone ahead and 
+connected to the various libraries that we've been using throughout the 
+series. Also, on the HTML document I have two div tags already ID'ed as 
+root1 and root2 on lines 11 and 12, respectively. We will be using those
+ div tags to display content from our JSX code.</p>
+<p>[Video description begins] <em> The code on line 11 is: &lt;div id="root"&gt;&lt;/div&gt;. The code on line 12 is: &lt;div id="root2"&gt;&lt;/div&gt;.</em> [Video description ends]</p>
+<p>The code that I have on the screen right now you may have seen in 
+another example. On line 14, I have a class, it's called Greet, which is
+ essentially a component.</p>
+<p>[Video description begins] <em> The code on line 14 is: class Greet extends React . Component {.</em> [Video description ends]</p>
+<p>That component is returning, on line 16, a mixture of variables and a placeholder for content.</p>
+<p>[Video description begins] <em> The code on line 16 is: return &lt;p&gt;Hello from { this .props .ss} &lt;/p&gt;;.</em> [Video description ends]</p>
+<p>So think of anything inside of those braces as a placeholder for the 
+values of variables that we will work out eventually. Actually, on line 
+20, we are actually working out what that variable is supposed to be. 
+The variable is called ss and it has a value of Skillsoft.</p>
+<p>[Video description begins] <em> The code on line 20 is: ReactDOM . render (.</em> [Video description ends]</p>
+<p>So on lines 21 and 22, what we're saying is that we're going to 
+access the route element, which is on line 11, but we'll pass to that 
+root element a value, which happens to be Skillsoft.</p>
+<p>[Video description begins] <em> The code on line 21 is: &lt;Greet ss="Skillsoft" /&gt;,. The code on line 22 is: document . getElementById ('root').</em> [Video description ends]</p>
+<p>So on line 16 when that entire statement is printed out on a browser 
+screen, we're not going to get Hello from and then open curly braces, 
+we're going to get whatever this.props.ss works out to be, in this case 
+it's Skillsoft. So on the Chrome browser, what you're seeing is, Hello 
+from Skillsoft. Which is this.props.ss being evaluated and returning 
+Skillsoft. So to take this example a little bit further, between lines 
+13 and 14 I will make some space there and I will insert a constant, the
+ name of that variable will be country, and I'm going to apply some 
+value to it. So let's put a value inside of country.</p>
+<p>[Video description begins] <em> He declares a code on line 14. The code is: const country = ' Canada ' ;. The succeeding code lines shift one line down.</em> [Video description ends]</p>
+<p>Now, on line 17, I can now perform concatenation just like in regular
+ JavaScript. So I will concatenate what we have already, well, in this 
+case, it's going to be a space. And then I will concatenate that with 
+another variable, which we just declared on line 14 and initialized.</p>
+<p>[Video description begins] <em> He modifies the code on line 17. The new code is: return &lt;p&gt;Hello from { this .props .ss + ' ' + country } &lt;/p&gt;;.</em> [Video description ends]</p>
+<p>So with just that simple change, if I save these changes, refresh the
+ browser screen, now it's going to say, Hello from Skillsoft Canada.</p>
+<p>[Video description begins] <em> On the browser screen, the following text appears below the heading: Hello from Skillsoft Canada.</em> [Video description ends]</p>
+<p>So that's another way to work with these placeholders, these curly 
+braces. But, you know, most time we won't have a component declared on 
+line 15. Most times, just to get something done really quickly, we may 
+just want to declare some type of HTML and have that pass over to the 
+render method. So between lines 14 and 15, I'm going to declare another 
+constant, el in this case, short for element. And I'm going to assign 
+just plain old HTML. In this case, it's going to be a header 3 tag and 
+I'm going to pass to it Hello. And within this element that I'm 
+declaring, I'm going to place my placeholder. So within the element 
+itself, you can say that within the variable itself, we can actually 
+pass another variable, which is the variable country that we declared on
+ line 14.</p>
+<p>[Video description begins] <em> He declares a code on line 15. The 
+code is: const el = &lt;h3&gt;Hello, { country } &lt;/h3&gt;;. The 
+succeeding code lines shift one line down. .</em> [Video description ends]</p>
+<p>So with my new constant el, in this case on line 15, I can go ahead 
+and push that off to the second div tag that I have on line 12. But for 
+that I'll need a second ReactDOM.render method. So let's put that on 
+line 27. So I'm going to create another render method and I'm going to 
+pass to it two, it always takes two parameters. So the first one will be
+ the element itself. And a second will be the target. So in this case 
+it's document.getElementById. And remember, that second element is 
+root2.</p>
+<p>[Video description begins] <em> He declares codes on lines 27, 28, 
+and 29. The code on line 27 is: ReactDOM . render (. The code on line 28
+ is: el , document . getElementById('root2'). The code on line 29 is: ) 
+;. The succeeding code lines shift three lines down.</em> [Video description ends]</p>
+<p>So with that in place, I can save these changes, refresh the browser 
+screen. And we should get a second statement at the bottom of Hello from
+ Canada. Just Hello, Canada, because that's what we had in our variable 
+that we declared on line 15.</p>
+<p>[Video description begins] <em> On the browser screen, the following 
+text appears below the original result: Hello, Canada. The new result is
+ written in bold letters in large font size. He then shifts to the html 
+file and highlights the code on line 15.</em> [Video description ends]</p>
+<p>Now, I've been passing strings, but just keep in mind that we can 
+also pass arithmetic expressions as well. So this is the way embedded 
+expressions work with JSX and React JS.</p></div>
+</div>
+<div>
+<h2 id="23812600-89c1-11e8-9c58-b7993da8b1b4">
+Virtual DOM
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Virtual DOM. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we will continue with ReactJS, and we'll take a
+ look at updating elements on an HTML page using the React virtual DOM. 
+There are two applications opened. On the left of your screen, there's 
+an HTML document opened in Notepad++, and to the right of that, a Chrome
+ browser is rendering that HTML document you see on the left of your 
+screen.</p>
+<p>[Video description begins] <em> The following text is present on the browser screen like a heading: React JS.</em> [Video description ends]</p>
+<p>Let's focus on the HTML document, and on lines 5, 6, and 7, I have 
+created script tags to access the various libraries of ReactJS.</p>
+<p>[Video description begins] <em> The code on line 5 is: &lt;script 
+src=" https://fb.me/react-0 .14 .3 .js"&gt;&lt;/script&gt;. The code on 
+line 6 is: &lt;script src="https://fb.me/react-dom-0 .14 .3 .js 
+"&gt;&lt;/script&gt;. The code on line 7 is: &lt;script src=" 
+https://unpkg.com/babel-standalone@6.15.0/babel.min.js"&gt;&lt;/script&gt;.</em> [Video description ends]</p>
+<p>On line 11, I have a div tag that I've id'ed as root. We'll be using that div tag as a target to pass to it</p>
+<p>[Video description begins] <em> The code on line 11 is: &lt;div id = "root"&gt;&lt;/div&gt;</em> [Video description ends]</p>
+<p>various HTML tags that I'm going to be developing using ReactJS. I've
+ got script tags between lines 12 and 13, and we will be writing our 
+code in there, our JSX code, as well as JavaScript code.</p>
+<p>[Video description begins] <em> The code on line 12 is: &lt;script type="text/babel"&gt;</em> [Video description ends]</p>
+<p>And we can now get started. Let's get started with declaring an 
+element, so I can use const or I can use let. I'll give my element a 
+name, so I'll use el for short, and I can pass to it pure HTML. So I can
+ say that I want to have my element pass over a pair of h3 tags, let's 
+say. I could pass the closing tag as well. As well as between those 
+tags, I can pass the exact phrase that I want to have shown on the 
+browser screen.</p>
+<p>[Video description begins] <em> He types the following code on line 13. The code is: const el = &lt;h3&gt;Hello, world&lt;/h3&gt;;</em> [Video description ends]</p>
+<p>And once I have that all set up, I can now go ahead and include my 
+ReactDOM object, and I can access from that object the render method. If
+ you have seen my previous videos, you know that the render method takes
+ two parameters, so that's why there's a comma there on line 16.</p>
+<p>[Video description begins] <em> The code on line 15 is: ReactDOM.render (</em> [Video description ends]</p>
+<p>The first parameter would be whatever HTML I want to have passed to 
+the document. So in this case, it's the element that I created on line 
+13, which is labeled as el. So el represents that entire h3 tag along 
+with the content of that tag. But to the right of it, it will be, I have
+ to specify to the application where I want to have this Hello, world 
+appear with the tags. So I want to have it appear on line 11, where my 
+root tag is, so it's a div tag with the ID of root. So I'm going to say,
+ I'm going to access my document.getElementById, and that particular 
+element is labeled as root.</p>
+<p>[Video description begins] <em> The code on line 16 is: el , document.getElementById( ' root ' )</em> [Video description ends]</p>
+<p>So I have everything that I need in place to be able to pass Hello, 
+world onto my browser screen. So let's save the changes, refresh the 
+browser screen, and we should see Hello, world there shortly.</p>
+<p>[Video description begins] <em> The following text appears below the heading on the browser screen in bold letters: Hello, world.</em> [Video description ends]</p>
+<p>But there is another way to do this. Instead of passing the entire 
+HTML element and content, I could actually access the React object and</p>
+<p>[Video description begins] <em> He goes to the code line 13 and highlights the following text from the code: &lt;h3&gt;Hello, world&lt;/h3&gt;</em> [Video description ends]</p>
+<p>the createElement method of that object.</p>
+<p>[Video description begins] <em> He modifies the code line 13. The new code is: const el = React.createElement ;</em> [Video description ends]</p>
+<p>So now my constant el represents the createElement object. Once I 
+have that, let's turn our attention to the render method on line 15. The
+ second part of that method will remain the same because I'm targeting 
+the same div tag on line 11, the root div tag. So let's push that down 
+to the next line, and remember,</p>
+<p>[Video description begins] <em> He goes to the code line 16. After el,, he shifts the remaining code to line 17.</em> [Video description ends]</p>
+<p>my el now becomes a method. So let's pass to that el, the stuff that I
+ want to have show up on the screen. So let's, first of all, pass a 
+container, and that's a div container. Notice I'm not using the angle 
+brackets. Now, the second element would be, if I wanted to update 
+something on that div tag, now, I don't have anything to update at this 
+point, so I'll pass null for my second parameter. My third parameter, 
+however, is the content that I want to have displayed. So in this case, 
+it's going to be, Hello from Skillsoft.</p>
+<p>[Video description begins] <em> He modifies the code on line 16, the new code is:el('div' ,null, 'Hello from Skillsoft'),</em> [Video description ends]</p>
+<p>So as you can see, I'm telling the React.createElement method that I 
+want to use a div tag, and I want to pass this content into that div 
+tag. And that would be it. I'll save my changes, refresh the browser 
+screen, and now we should see Hello from Skillsoft wrapped into plain 
+old div tags.</p>
+<p>[Video description begins] <em> The text below the heading on the browser screen changes to: Hello from Skillsoft. Now, the letters are not in bold.</em> [Video description ends]</p>
+<p>So that's two different ways, so there are two different ways to pass HTML to the virtual DOM using ReactJS libraries.</p></div>
+</div>
+<div>
+<h2 id="261c9160-89c1-11e8-9c58-b7993da8b1b4">
+Exercise: Creating a Vue.js Application
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Exercise: Creating a Vue.js Application. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this exercise, we will work with Vue.js. You will create a Vue.js 
+component with the following specifications. Use an HTML tag with an 
+attribute. That attribute will act as a placeholder for content. Develop
+ a Vue.js component and pass to that attribute content, HTML content. 
+Use a data structure, and also enhance the HTML with rich content. You 
+may now pause the video, develop this exercise on your own. But return 
+to the video to see how I would work with this exercise.</p>
+<p>[Video description begins] <em> A solution banner appears on the screen.</em> [Video description ends]</p>
+<p>On the left of your screen, there's an HTML document with a template,
+ HTML template, opened in Notepad++. And I'm going to be using that to 
+develop the exercise. To the right of that is Chrome. Chrome is 
+rendering the document you see on the left.</p>
+<p>[Video description begins] <em> The following text is present on the browser screen: Vue.js Components.</em> [Video description ends]</p>
+<p>The HTML document, the template, already has on line 5 a link to the Vue.js library.</p>
+<p>[Video description begins] <em> The code on line 5 is: &lt;script src="https: //cdn. jsdelivr.net/npm/vue/dist/vue.j s"&gt;&lt;/script&gt;.</em> [Video description ends]</p>
+<p>So I will use that to develop my Vue.js component. But the first 
+thing the exercise asked us to do is to include some HTML tags which we 
+can target via our component. So let's develop, between lines 9 and 10, 
+I'll include some div tags there. I'll give it an id, let's called it 
+myContent. So our component can now target this area of the HTML 
+document.</p>
+<p>[Video description begins] <em> The code on line 9 is: &lt;div id="myContent"&gt;</em> [Video description ends]</p>
+<p>But we're not done yet, we also need some paragraph tags. So I've 
+included on line 10 a paragraph tag, an opening paragraph tag, and now a
+ closing paragraph tag. Between those paragraph tags, if you remember, 
+with Vue.js, it does require a pair of curly braces, two pairs of curly 
+braces. So between those paragraph tags, I'm going to include a pair of 
+curly braces, two pairs of curly braces. And I'm also going to give it 
+some kind of title, so, I can use that as my placeholder for content 
+that I'm going to develop shortly.</p>
+<p>[Video description begins] <em> The code on line 10 is: &lt;p&gt; {<!-- -->{content}}&lt;/p&gt;</em> [Video description ends]</p>
+<p>So this HTML document already has some script tags on lines 12 and 
+13. So we'll be using that to develop our Vue.js component. So let's 
+make some space between 12 and 13, and I'm going to use a regular 
+JavaScript variable, just call it v in this case. And I'll point that to
+ the Vue.js constructor. So my first data structure will be el, and I'll
+ be using that el to point it to the myContent div tag on line 9.</p>
+<p>[Video description begins] <em> He declares codes on lines 13 to 15. 
+The code on line 13 is: let v = new Vue({. The code on line 14 is: el: 
+"#myContent",. The code on line 15 is }).</em> [Video description ends]</p>
+<p>So that first part, line 14 is now saying that we're going to target 
+this particular area. Now there's a comma there, so the second part of 
+this component will be the data structure. So, for now, I'm going to use
+ curly braces again, and I'm going to use content, followed by whatever 
+content I need to pass to that paragraph tag on line 10. So my content 
+is going to be a sentence, so it's Skillsoft develops technology. Now I 
+have to concatenate this because it's going to run off the side of the 
+page. So let's use a concatenation character, and I'm going to complete 
+on line 17 my sentence that I need to pass to that paragraph tag on line
+ 10. So Skillsoft develops technology and business courses.</p>
+<p>[Video description begins] <em> He declares codes from line 15 to 18.
+ The code on line 15 is: data : {. The code on line 16 is: content: 
+"Skillsoft develops technology " +. The code on line 17 is: "and busines
+ courses". The code on line 18 is: }.</em> [Video description ends]</p>
+<p>That would be all I need, I can save these changes, refresh the 
+browser screen. And as you can see, I'm able to use my components and 
+pass some content over to the paragraph tags.</p>
+<p>[Video description begins] <em> The following text appears on the browser screen: Skillsoft develops technology and busiues courses</em> [Video description ends]</p>
+<p>But the exercise asked us to pass rich content. So rich content could
+ actually just be passing a pair of strong tags over to the paragraph 
+tag. So let's take a look at line 17. I want to make and strong, so I 
+want to bold the word and.</p>
+<p>[Video description begins] <em> He modifies the code line 17. The new code is: "&lt;strong&gt;and &lt;/strong&gt;busines courses"</em> [Video description ends]</p>
+<p>So I've included some strong tags, some HTML strong tags there. Let's
+ save these changes, refresh the browser screen. And as you can see we 
+are printing the strong tags with the rest of the content,</p>
+<p>[Video description begins] <em> The following text appears on the screen: Skillsoft develops technology &lt;strong&gt;and &lt;/strong&gt;busines courses.</em> [Video description ends]</p>
+<p>that's not what we need. So in order to fix this we're going to have 
+to change the p tag on line 10. We need to now include something called 
+the v-html attribute and, or directive, and we'll assign to it content. 
+So the same content that I have between the two pairs of curly braces, 
+let's remove it from there. And place it inside of the quotes next to 
+v-html directive.</p>
+<p>[Video description begins] <em> He goes to the code line 10 and modifies it. The new code is: &lt;p v-html="content"&gt; {<!-- -->{}}&lt;/p&gt;</em> [Video description ends]</p>
+<p>And with just that simple change, let's save everything, refresh the 
+browser screen, and now, and is bolded, and that is exactly what we were
+ looking for.</p>
+<p>[Video description begins] <em> The following text appears on the 
+screen: Skillsoft develops technology and busines courses. The word 
+"and" appears in bold letters.</em> [Video description ends]</p>
+<p>So this is an example of using Vue.js component and passing rich 
+content, rich HTML over to some target area within the HTML document.</p></div>
+</div>
+
+
+</body></html>

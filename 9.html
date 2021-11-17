@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="JavaScript Front-end Development: Functions &amp; Objects Transcript">
+<title>JavaScript Front-end Development: Functions &amp; Objects Transcript</title>
+</head>
+<body>
+<h1>JavaScript Front-end Development: Functions &amp; Objects</h1>
+<p>JavaScript has rich language features for representing and 
+manipulating real world items as data. During this course, you will 
+explore the basics of creating and working with functions, as well as 
+creating and manipulating objects in JavaScript. Begin by learning how 
+to use function arguments and pass functions as values. Next, you will 
+study recursive and arrow functions, and learn scoping and how to 
+differentiate between local and global variables. As you progress you 
+will explore JavaScript's more common predefined functions, and create 
+custom objects. Other topics include how to employ the FOR/IN loop, to 
+retrieve object properties when their names are unknown;  how to create 
+custom objects with constructor functions; how to create object methods;
+ how to employ the prototype keyword to add properties and methods to an
+ object. Finally, you will learn how to use the PROTOTYPE keyword, to 
+implement inheritance, and to extend classes.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#e2bf2dc0-73a8-11e8-82d9-bf3deb09ab23">JavaScript Functions</a></li>
+<li><a href="#e47dcdb0-73a8-11e8-82d9-bf3deb09ab23">Function Arguments and Values</a></li>
+<li><a href="#e84f6f20-73a8-11e8-82d9-bf3deb09ab23">Recursive Functions</a></li>
+<li><a href="#eaf820f0-73a8-11e8-82d9-bf3deb09ab23">Scoping</a></li>
+<li><a href="#ed792680-73a8-11e8-82d9-bf3deb09ab23">Arrow Functions</a></li>
+<li><a href="#f0596310-73a8-11e8-82d9-bf3deb09ab23">Predefined Functions</a></li>
+<li><a href="#f3804590-73a8-11e8-82d9-bf3deb09ab23">Creating Custom Objects</a></li>
+<li><a href="#f67e1c40-73a8-11e8-82d9-bf3deb09ab23">The For...in Loop</a></li>
+<li><a href="#f9a9b9b0-73a8-11e8-82d9-bf3deb09ab23">Constructor Functions</a></li>
+<li><a href="#fca609c0-73a8-11e8-82d9-bf3deb09ab23">Object Methods</a></li>
+<li><a href="#ff4c98b0-73a8-11e8-82d9-bf3deb09ab23">Prototyping</a></li>
+<li><a href="#023bf070-73a9-11e8-82d9-bf3deb09ab23">Inheritance and Extending Classes</a></li>
+<li><a href="#051d8c90-73a9-11e8-82d9-bf3deb09ab23">Exercise: Working with Functions and Objects</a></li>
+</ol></div>
+<div>
+<h2 id="e2bf2dc0-73a8-11e8-82d9-bf3deb09ab23">
+JavaScript Functions
+</h2>
+<div><p>[Video description begins] <em> Topic title: Java Script Functions. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>This demonstration, I'm going to discuss JavaScript functions. You'll
+ notice that JavaScript functions behave almost exactly like functions 
+in other programming languages. I've got two applications open up on my 
+screen. On the left is Notepad++ with an HTML document. On the right 
+side is Chrome rendering the document on the left. The document on the 
+left has JavaScript embedded in the body tags between lines 10 and 18. 
+As you can see, line 12 has our function being declared.</p>
+<p>[Video description begins] <em> The code on line 12 is: function 
+percent plus, open curved bracket, price, comma, p c mark up, close 
+curved bracket, open curly bracket.</em> [Video description ends]</p>
+<p>And between 13 and 14, that's the function body.</p>
+<p>[Video description begins] <em> He goes to the code line 13 &amp; 14.
+ The code on line 13 is: let mark up, =, price, multiplied by, open 
+curved bracket, p c mark up, divided by, 100, close curved bracket, 
+semi-colon. The code on line 14 is: return price, +, mark up, 
+semi-colon.</em> [Video description ends]</p>
+<p>The call to that function is being made between lines 16 and 17, so</p>
+<p>[Video description begins] <em> He goes to the code line 16 &amp; 17.
+ The code on line 16 is: p 1, dot, inner HTML, +,=. The code on line 17 
+is: double quote, open angular bracket, b r, close angular bracket, 
+final, price is, double quote, +, open curved bracket, percent plus, 
+open curved bracket, 2 point 8 5, comma, 15, close curved bracket, close
+ curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>17 has the exact call to that function.</p>
+<p>[Video description begins] <em> He highlights, percent plus from the code line 17.</em> [Video description ends]</p>
+<p>As you can see, the name of our function is percentPlus. It takes two arguments.</p>
+<p>[Video description begins] <em> He highlights, percent plus, open curved bracket, price, comma, p c mark up, close curved bracket, from the code line 12.</em> [Video description ends]</p>
+<p>Our call to the function happening on 17 is 2 percentPlus and we are passing it to parameters.</p>
+<p>[Video description begins] <em> He highlights, percent plus, open curved bracket, 2, point 8 5, comma, 15, close curved bracket, from the code line 17.</em> [Video description ends]</p>
+<p>The chrome browser on the right is showing us what would happen if we attempt to add 15% to a price of $2.85.</p>
+<p>[Video description begins] <em> He highlights, 2 point 8 5, comma, 15, from the code line 17.</em> [Video description ends]</p>
+<p>It just so happens that, due to how we string,</p>
+<p>[Video description begins] <em> He highlights, &amp; remove the code line 16 &amp; 17.</em> [Video description ends]</p>
+<p>we don't actually have to call our function after the function is declared.</p>
+<p>[Video description begins] <em> He inserts the code line 16 &amp; 17, at code line 12 &amp; 13.</em> [Video description ends]</p>
+<p>We can actually move that function call up to the top. I'll save my 
+changes, refresh the browser screen. And as you can notice, nothing 
+happened to the price.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. After saving the file, following text 
+doesn't change on the screen: Java Script Functions. Final price is, 3, 
+point 2 7 7 5.</em> [Video description ends]</p>
+<p>I'm going to put it back the way it was, because I prefer to have my function declarations above the place where I call them.</p>
+<p>[Video description begins] <em> He puts the code line 12 &amp; 13 again at code line 16 &amp; 17.</em> [Video description ends]</p>
+<p>Now it is also possible to call our function without ever passing in 
+any parameters or less parameters than the function is requesting.</p>
+<p>[Video description begins] <em> He removes, the comma, 15, from the code line 17.</em> [Video description ends]</p>
+<p>So, in this case, I removed the 15. Let's save my change and refresh 
+the browser screen and notice that I get not a number showing up on the 
+browser window.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Functions. Final price is, Not a number, abbreviated as, N A N.</em> [Video description ends]</p>
+<p>So, that's telling me that something went wrong. So, in order to find
+ out what happened, let's do a console, console.log. And I want to find 
+out what happened to pcMarkup in this case.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The 
+code is: console, dot, log, open curved bracket, p c mark up, close 
+curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So I'll save these changes. So I entered a brand new line, on line 
+13, console.log pcMarkup. And let's refresh our browser screen. I just 
+tell get NaN, but if I hit F12 on the keyboard, what we're seeing is 
+that something is undefined.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Functions. Final price, is, NaN. He clicks, the F12 button on the
+ keyboard, a developer console window opens up. Following text with a 
+number is displayed: 139697, dot, html, colon, 13 is undefined.</em> [Video description ends]</p>
+<p>So, and it's on line 13. So we know that pcMarkup in this case is 
+undefined. So it's never a good idea to especially where calculations 
+are involved to pass in less arguments than what's required by the 
+function. So I'm going to put a comment on line 13 to not have that 
+happened. And on the browser screen, I'll hit F12 for a second time to 
+get rid of the developer tools.</p>
+<p>[Video description begins] <em> He adds, slash, slash, before console
+ on code line 13, and he clicks, the F12 button again on the keyboard, 
+to hide the developer console window.</em> [Video description ends]</p>
+<p>On the HTML document, I'm going to put back in my 15%. But I'm also going to pass in yet another parameter, 25 in this case.</p>
+<p>[Video description begins] <em> He adds, comma, 15, comma 25 on code line 18.</em> [Video description ends]</p>
+<p>So, I'm passing into a function that requires two parameters and</p>
+<p>[Video description begins] <em> He highlights, price, comma, p c mark up on code line 12.</em> [Video description ends]</p>
+<p>parsing in three instead.</p>
+<p>[Video description begins] <em> He highlights, 2 point 8 5, comma, 15, comma, 25, from the code line 18.</em> [Video description ends]</p>
+<p>So what's going to happen to that 25? Well, let's save the changes, 
+refresh the screen and you'll notice that we're back to the original 
+number that we had before.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. After saving the file, text changes on the 
+screen: Java Script Functions. Final price is, 3 point 2 7 7 5.</em> [Video description ends]</p>
+<p>So 15% of 285 added to 285 will give us 3.2775. What happened to the 
+third argument is that it was simply ignored by the function. But I did 
+say that the functions behave just like in other programming languages, 
+but JavaScript does have a few tricks up it's sleeve. So there in the 
+background, there's actually something called the arguments, 
+arguments.length parameter. And we can access it in this way, 
+arguments.length.</p>
+<p>[Video description begins] <em> He removes, slash, slash, before 
+console &amp; replace arguments, dot length, in place of p c mark up in 
+the code line 13. Now the code is: console, dot, log, open curved 
+bracket, arguments, dot length, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So on my console window, I want to see what the arguments.length is. Now, I know that I'm expecting two parameters.</p>
+<p>[Video description begins] <em> He highlights, price, comma, p c mark up on code line 12.</em> [Video description ends]</p>
+<p>Let's save these changes, refresh the screen, hit F12 on the keyboard, and notice that we get three.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. After saving the file, following text 
+doesn't change on the screen: Java Script Functions. Final price is, 3 
+point 2 7 7 5. He clicks, the F12 button on the keyboard, a developer 
+console window opens up. Following text with a number is displayed: 3, 
+139697, dot, html, colon, 13.</em> [Video description ends]</p>
+<p>So JavaScript knows that there was an extra parameter that was passed in to this percentPlus function.</p>
+<p>[Video description begins] <em> He highlights, 25 in the code line 18 &amp; percent plus in the code line 12.</em> [Video description ends]</p>
+<p>I'll hit F12 again on the browser to get rid of the developer tools.</p>
+<p>[Video description begins] <em> He clicks, the F12 button again on the keyboard, to hide the developer console window.</em> [Video description ends]</p>
+<p>And to take this example a little bit further, JavaScript does have 
+something called a rest parameter and it happens in the function 
+declaration.</p>
+<p>[Video description begins] <em> He highlights, the code line 12.</em> [Video description ends]</p>
+<p>So next to markup, if I put a comma there and then I put three dots 
+like this, I notice it looks kind of weird. And then I put some kind of a
+ variable name like arg in this case.</p>
+<p>[Video description begins] <em> He adds, comma, dot, dot, dot, args, after p c mark up in the code line 12.</em> [Video description ends]</p>
+<p>Then, it means that, that 25 will now be captured in the args parameter.</p>
+<p>[Video description begins] <em> He highlights, 25 from the code line 18 &amp;, dot dot dot, args, from the code line12.</em> [Video description ends]</p>
+<p>And in order to see that, I could show it on the log. So args., actually it's just args.length.</p>
+<p>[Video description begins] <em> He replaces, arguments, dot, length with args, dot, length, in the code line13.</em> [Video description ends]</p>
+<p>So if I save these changes, refresh the browser screen, I still get my 3.225 so nothing has changed there.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. After saving the file, following text 
+doesn't change on the screen: Java Script Functions. Final price is, 3, 
+dot, 2775.</em> [Video description ends]</p>
+<p>But if I hit F12 on the keyboard, what we're going to get is an 
+argument, is a number one. So it means that args.length is showing me 
+that I have a one.</p>
+<p>[Video description begins] <em> He clicks, the F12 button on the 
+keyboard, a developer console window opens up. Following text with a 
+number is displayed: 1, 139697, dot, html, colon, 13.</em> [Video description ends]</p>
+<p>So if we added another parameter there, save those changes, refresh the browser screen, now we get two.</p>
+<p>[Video description begins] <em> He adds, comma, 33, after 25 on code 
+line 18. He saves the codes in notepad++ file, and refreshes the 
+browser. After saving the file, following text doesn't change on the 
+screen: Java Script Functions. Final price is, 3 point 2 7 7 5. On 
+developer console window, following text with a number is displayed: 2, 
+139697, dot, html, colon, 13.</em> [Video description ends]</p>
+<p>So anything to the right of the initial two arguments that the function requests will be stored in arguments.</p>
+<p>[Video description begins] <em> He highlights, 2 point 8 5, comma, 15, from the code line 18.</em> [Video description ends]</p>
+<p>And if you ever wanted to access those values, you would simply 
+access it, like any other array. Now, args is not a true array, it is an
+ array like object. So, if I were to access the second parameter of that
+ array, I should be accessing the 33.</p>
+<p>[Video description begins] <em> He replaces, args, dot, length with 
+args, open square bracket, 1, close square bracket, in the code line 13.
+ He highlights, 33, from the code line 18.</em> [Video description ends]</p>
+<p>Let's save our changes, refresh the browser screen, notice that I get my 33.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script Functions. Final price is, 3 point 2 7 7 5. On developer console 
+window, following text with a number is displayed: 33, 139697, dot, 
+html, colon, 13.</em> [Video description ends]</p>
+<p>So functions behave just like in other languages, but JavaScript does have a few little tricks up it's sleeve.</p></div>
+</div>
+<div>
+<h2 id="e47dcdb0-73a8-11e8-82d9-bf3deb09ab23">
+Function Arguments and Values
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Functions Arguments and Values Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to discuss JavaScript functions and 
+to look at functions and passing those functions as values. We'll also 
+take a look at function arguments and we'll also discuss anonymous 
+functions in JavaScript. On the screen, we have two applications opened 
+up, Notepad++ on the left and the Chrome on the right. The Notepad++ 
+document has an HTML document opened up with JavaScript in the body tag 
+of that HTML document. On the right is Chrome, rendering the document 
+that you see on the left. Now you may have seen this example before, 
+where we are calling a function called percentPlus, which is going to 
+calculate the markup on a price and return the price plus the markup to 
+us. The name of the function is percentPlus it takes two parameters. And
+ I'm calling that percentPlus function on line 17. I'm calling it by 
+name, and I'm passing it the two required parameters, as you can see.</p>
+<p>[Video description begins] <em> Code on the line 17 is, double quote,
+ Final price is, double quote, + percent plus, open curved bracket, 2 
+point, 8 5, comma, 15, close curved bracket, semi colon.</em> [Video description ends]</p>
+<p>Now I'm calling the function directly within the printing part of 
+this particular program. However, it is also possible to assign a 
+variable. So I could do something like this, let, let's say pc = 
+percentPlus. And I can call the function on line 16, so I'm inserting a 
+line on line 16. I am passing in my two arguments, and so the result of 
+the call to this function will be stored in a variable called pc.</p>
+<p>[Video description begins] <em> The presenter inserts a code line 
+after line 15. Each code line below shifts one line downward. The new 
+code on code line 16 is, let PC = percentPlus, open curved bracket, 2 
+point 8 5, comma, 15, close curved bracket, semi colon.</em> [Video description ends]</p>
+<p>I can then copy that pc and put it where I had my function call before within the line that brings it to the browser screen.</p>
+<p>[Video description begins] <em> He copies PC from line 16, and paste 
+it on line 18, replacing, percent plus, open curved bracket, 2 point, 8 
+5, comma, 15, close curved bracket. The new code on line 18 is, double 
+quote, Final price is, double quote, + PC, semi colon.</em> [Video description ends]</p>
+<p>So in line 18, I set a final price being a function call, it is now a
+ variable. So final price is a variable called pc. If I save these 
+changes, refresh the browser screen, you notice that nothing happens. So
+ we simply replaced the function in the printout to the document, to the
+ browser screen by a variable. And that variable is calling the function
+ instead.</p>
+<p>[Video description begins] <em> He highlights PC , and then, percent 
+plus, open curved bracket, 2 point, 8 5, comma, 15, close curved 
+bracket, in the code line 16.</em> [Video description ends]</p>
+<p>Now you might be wondering, we could just declare functions like this and use it.</p>
+<p>[Video description begins] <em> The presenter is referring to the 
+code lines from 11 to 18. Code on the line 11 is, let p 1 = document, 
+dot, get element by ID, open curved bracket, double quote, p 1, double 
+quote, close curved bracket, semi-colon. Code on the line 12 is, 
+function percentplus, open curved bracket, price, comma, PC markup, 
+close curved bracket, open curly bracket. Code on the line 13 is let 
+mark up = price, multiplied by, open curved bracket, PC markup, divided 
+by, 100, close curved bracket, semi-colon. Code on line 14 is, return 
+price, + markup, semi-colon. Code on line 15 is, close curly bracket, 
+semi-colon. Code on line 16 is, let PC = percentplus, open curved 
+bracket, 2 point 8 5, comma, 15, close curved bracket, semi-colon. Code 
+on line 17 is p 1, dot, inner HTML +=. Code on line 18 is, double quote,
+ Final price is, double quote, comma, + PC, semi-colon.</em> [Video description ends]</p>
+<p>But normally, a function would belong to some kind of object. Well in
+ JavaScript, even though we don’t use it, functions do belong to the 
+global object, which in this case is the window object. So on line 16 if
+ I were to insert the parent object, which is window in this case. So 
+instead of calling percentPlus, I'm calling window.percentPlus. I save 
+these changes, refresh my browser screen, notice that nothing happens. 
+So that proves that percentPlus, the function that we just wrote, 
+belongs to the window object.</p>
+<p>[Video description begins] <em> He highlights code lines 12 to 15 and he also highlights window, in code line 16.</em> [Video description ends]</p>
+<p>As a matter of fact, if I did not return price.markup, but returned 
+this keyword instead. And this, by using this, I'm using it like a 
+personal pronoun. I'm saying, return the object that owns this function.</p>
+<p>[Video description begins] <em> He modifies code line 14 to, return this, semi-colon.</em> [Video description ends]</p>
+<p>If I save these changes, refresh the browser screen, you will notice 
+that we do get object Window being returned. So once again, that proves 
+that our function belongs to the Window object. I'm going to remove this
+ keyword, replace the price + markup that we had before. And remove 
+window from line 16 so that our application is back to the way it was 
+before. Save these changes, refresh the browser screen, notice that 
+we're back to the 3.2775. Now this function declared on line 12, it has a
+ name, it's called percentPlus. And I can use that name anywhere I want 
+in this HTML document wherever I have JavaScript. But it is also 
+possible to declare and use functions without giving them a name. In 
+that case, we say the function is an anonymous function. So let's see 
+how we can take this current function and turn it into an anonymous 
+function.</p>
+<p>[Video description begins] <em> The presenter makes changes in code line 12.</em> [Video description ends]</p>
+<p>Well first of all, I'll have to declare a variable to hold the return
+ of that function. So I can say, let finalPrice = function, and I remove
+ the name percentPlus, I don't need that name any more. So now I don't 
+have a name. But I do have a variable. So I can copy that variable from 
+line 12 and put it on line 16. Replace the name of the function with the
+ name of the variable in this case. If I save these changes, I refresh 
+the browser screen, notice that I still have my price. So I have just 
+turned a named function into an anonymous function.</p></div>
+</div>
+<div>
+<h2 id="e84f6f20-73a8-11e8-82d9-bf3deb09ab23">
+Recursive Functions
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Recursive Functions Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about recursive functions in
+ JavaScript. On the screen, I have two applications opened up. On the 
+left is Notepad++ pointing to a simple short HTML file. On the right 
+side is a Chrome browser that is rendering the file that you see on the 
+left. The file on the left has some JavaScript between lines 10 and 18.</p>
+<p>[Video description begins] <em> Code on the line 10 is, open angle 
+bracket, script, close angle bracket. Code on the line 11 is, let p 1 = 
+document, dot, get element by ID, open curved bracket, double quote, p 
+1, double quote, close curved bracket, semi-colon. Code on the line 12 
+is, function final price, open curved bracket, price, comma, PC markup, 
+close curved bracket, open curly bracket. Code on the line 13 is let 
+mark up = price, multiplied by, open curved bracket, PC markup, divided 
+by, 100, close curved bracket, semi-colon. Code on line 14 is, return 
+price, + markup, semi-colon. Code on line 15 is, close curly bracket, 
+semi-colon. Code on line 16 is p 1, dot, inner HTML +=. Code on line 17 
+is, double quote, Final price is, double quote, comma, + final price, 
+open curved bracket, 100, comma, 10, close curved bracket, semi-colon. 
+Code on the line 18 is, open angle bracket, forward slash, script, close
+ angle bracket.</em> [Video description ends]</p>
+<p>And we see a function being declared on lines 12. And we are calling 
+that function on line 17. Recursion is when a function calls itself. It 
+is mainly used in sorting situations and in any type of fractal 
+situation. By that I mean, we start with some whole number, and 
+iteratively reduce that whole by some fraction until we get some kind of
+ desired result. So what this means is that in a mathematical problem 
+like finding the factorial of a number, a recursive function would be 
+ideal for that. Now another advantage to using a recursive function is 
+that in some situations, it might reduce the amount of variables that we
+ need to declare and use. In other cases, some clever techniques can be 
+used to take advantage of the call stack, but that's an advanced topic. 
+Having said all of that too, I will say that just about anything that 
+could be done with a recursive function can be done with a loop.</p>
+<p>And in some cases, it's much simpler to use a loop. Let's take a look
+ at the application we have or the script that we have in the HTML 
+document on the left. We have seen this before in some other videos, but
+ I have a function declared on line 12. And I'm calling that function on
+ line 17. In this case, we just wanted to see what would happen if we 
+apply the 10% to 100 and then return the amount that we sent in, plus 
+the percentage markup. So it's almost like saying something cost a $100,
+ we wanted to see what 10% effect on that 100 would be. Of course, it's 
+going to be 110, and we see the final price in the browser window. So in
+ order for me to make this final price function a recursive function, 
+all I really have to do is change line 14. So instead of returning the 
+price + markup, I return the function name instead.</p>
+<p>So I replaced price plus the markup by the function name. And just 
+that change alone will make this function a recursive function. Now, I'm
+ not going to run the function because this is just going to keep 
+calling itself forever, and we'll have a browser crash at the right 
+side. So I'm not going to do that. I'm just showing you that in order to
+ make this final price a recursive function, I would simply have to call
+ finalPrice again before I return from the function. So line 14 will 
+actually behave like a go-to statement, so it will go to line 12 each 
+and every time. And that would happen until we do a Ctrl+All+Delete or 
+something like that and stop the browser from running. So what we need 
+to do is figure out a way to stop this recursive calls. We need to be 
+able to stop it from getting into an endless loop or an infinite loop. 
+But taking the example that I have on the screen, we could actually make
+ it a little bit more functional. In that, I will have to restructure 
+the function itself. But we might see something a little bit more useful
+ on the browser screen. What I'm going to do is I'm going to cut lines 
+16 and 17 by using Ctrl+X on the keyboard after highlighting it. And I'm
+ going to reposition those lines above the return statement. So all I 
+did was remove the printing part of this application and put it above 
+the finalPrice.</p>
+<p>Now, of course, I have to find another way to call the function 
+itself, so I am going to copy the name of the function and call that 
+function from beneath the function. So recalling the function again, 
+just like we did before with the $100, and let's say, 10% in this case. 
+At my return statement, I'm going to call again the price. Now price is 
+already declared once the first call is made. Price is already 
+initialized. So I have price, but my pcMarkup, I am going to reduce that
+ by one. Then I'm going to restructure the printing part that goes to 
+the browser, so I need to make some changes, so I am going to actually 
+use templated strings here. So I am going to say, At a markup of, and 
+this is my pcMarkup, At a markup of that, it's a templated string, so I 
+don't need this anymore, the final price is, Here's my other template. 
+And this is going to be markup. And I'm just going to stick a break in 
+here. Now I'm going to wrap everything up in those backticks so that I 
+create a templated string.</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 15 and splits it in two lines. The new code on line 15 is, accent, 
+At a markup of dollar sign, open curly bracket, PC markup, close curly 
+bracket. The new code on line 16 is, the final price is dollar sign, 
+open curly bracket, PC markup, close curly bracket, open angle bracket, b
+ r, forward slash, close angle bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>Now remember, I said we have to find a way of stopping the endless 
+loop. So we do that by declaring or using an if statement. So I can say 
+if, and here I'm going to say pcMarkup is greater than 1. And only if 
+it's greater than 1, because I know at some point in time by reducing 
+pcMarkup by 1 each time we call the function by reducing pcMarkup. 
+Eventually, it's going to go from to ten, to nine, to eight, etc., and 
+at some point in time, it's going to become zero. And at that point, 
+that's when I want to jump out of this loop and continue on with the 
+rest of the program. Well, there's nothing here. But let's save these 
+changes, return to the browser screen, refresh that browser screen. And 
+here, we see now a little bit of more information when it comes to using
+ recursion.</p>
+<p>[Video description begins] <em> The text on the browser is, Java 
+Script Functions Recursion, At a markup of 10, the final price is 10, At
+ a markup of 9, the final price is 9, At a markup of 8, the final price 
+is 8, At a markup of 7, the final price is 7 point 14 times 0, 1, At a 
+markup of 6, the final price is 6, At a markup of 5, the final price is 
+5, At a markup of 4, the final price is 4, At a markup of 3, the final 
+price is 3, At a markup of 2, the final price is 2, At a markup of 1, 
+the final price is 1.</em> [Video description ends]</p>
+<p>Well, I do need to add the price back at some point in time. I can do
+ it at line 13, or I can do it where I print the markup. So let's see, 
+price + markup, save those changes, refresh the browser screen, and now 
+we see a lot better information.</p>
+<p>[Video description begins] <em> After making the changes, the new 
+text on the browser is, Java Script Functions Recursion, At a markup of 
+10, the final price is 110, At a markup of 9, the final price is 109, At
+ a markup of 8, the final price is 108, At a markup of 7, the final 
+price is 107, At a markup of 6, the final price is 106, At a markup of 
+5, the final price is 105, At a markup of 4, the final price is 104, At a
+ markup of 3, the final price is 103, At a markup of 2, the final price 
+is 102, At a markup of 1, the final price is 101.</em> [Video description ends]</p>
+<p>So recursion is possible in JavaScript, just be careful how you use it.</p></div>
+</div>
+<div>
+<h2 id="eaf820f0-73a8-11e8-82d9-bf3deb09ab23">
+Scoping
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Scoping Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about global versus local 
+variables in JavaScript. What you're seeing in front of you are two 
+applications. The application on the left, Notepad++, it is opened up to
+ an HTML file. And if you notice, there is some JavaScript between lines
+ 10 and 19. On the right of your screen is a Chrome browser. And that 
+Chrome browser is rendering that file that you see on the left of your 
+screen. We are going to focus on the script tags or the code between the
+ script tags. If you notice, we have a function being declared on line 
+12 and that function has been called on line 16.</p>
+<p>[Video description begins] <em> Code on line 12 is, function final 
+price, open curved bracket, price, comma, markup, close curved bracket, 
+open curly bracket. Code on line 16 is, var PC = final price, open 
+curved bracket, 2 point 8 5, comma, 15, close curved bracket, 
+semi-colon.</em> [Video description ends]</p>
+<p>But this demo is about global versus local scope. And when we talk 
+about scope, we're talking about variables. So the good news is that in 
+JavaScript, a variable is determined by where that variable is declared 
+and used. And the other good news is that JavaScript really only has two
+ scopes, well, at least until ES6. Now after ES6, we have a third scope 
+which is called block scope. I have discussed block scope and 
+demonstrated block scopes in other videos. So I'm going to keep this 
+discussion to global versus local variables. Also notice that I have 
+changed the let keyword to the var keyword, because let keyword would 
+lead us into a discussion about block scopes. So we've got our function 
+and a variable declared inside of a function belongs to that function. 
+And it has its own scope within that function, meaning that any variable
+ declared within a function is really only accessible from that 
+function. So, if we take a look at the example again, we do have a 
+variable declared on line 13, its called markup. That variable is really
+ only available within that function. So that means that if I tried to 
+print that variable, it will work. So for example, I'm going to copy 
+some code from lines 17 and 18.</p>
+<p>[Video description begins] <em> Code on line 17 is, p 1, dot, inner HTML +=, Code on line 18 is, double quote, Final price is, double quote, + PC, semi-colon.</em> [Video description ends]</p>
+<p>I'm going to copy that code, and I'm going to place it just before the return statement there.</p>
+<p>[Video description begins] <em> The return statement is initially on line 16. Code on the return statement is, return, price + markup, semi-colon.</em> [Video description ends]</p>
+<p>And let's take a look at what will happen. So what I want to say for 
+this is that I want to show what markup is. So I'm going to say, markup 
+is whatever markup is. And I'm going to copy the variable markup and I'm
+ going to replace it with pc in this case.</p>
+<p>[Video description begins] <em> The presenter modifies the code on line 15. The new code is, double quote, markup is, double quote, +, markup, semi-colon.</em> [Video description ends]</p>
+<p>So I've just inserted a couple of lines between lines 14 and 15. I 
+want to print markup to the browser screen. So if I save this change, 
+refresh the browser screen, I do see my markup there. Well, of course we
+ can make it a little bit prettier by inserting</p>
+<p>[Video description begins] <em> The new text on the browser is, Java Script Global versus Local variables, Markup is 0.4 2 7 5, Final price is 3.2 7 7 5</em> [Video description ends]</p>
+<p>a break tag here, so I can do something like this. Insert my break tags right here, save the changes, refresh the screen, and</p>
+<p>[Video description begins] <em> He modifies the code on line 15. The 
+new code is, double quote, markup is, double quote, +, markup, +, double
+ quote, open angle bracket, b r, forward slash, close angle bracket, 
+double quote, semi-colon.</em> [Video description ends]</p>
+<p>now we see that markup is showing. However, if I were to take the 
+exact same lines, so I'm copying the exact same lines from lines 14 and 
+15, and I am placing it beneath okay, so I did not copy it. Let's try 
+copying that again, so, I'm going to copy lines 14 and 15. Copy that and
+ place it just before the ending script tag. And I just wanted to see 
+what would happen now. So, if I save my changes, well, actually let's 
+remove the lines 14 and 15, because I've already copied it to line 19 
+and 20 now. Save those changes, refresh the browser screen. Notice that 
+something is missing.</p>
+<p>[Video description begins] <em> The new text on the browser is, Java Script Global versus Local variables, Final price is 3.2 7 7 5</em> [Video description ends]</p>
+<p>I don't even see the string that I'm supposed to be printing here. If
+ I hit F12 on the keyboard, we will see that something's not defined and
+ it's on line 20. So, markup in this case is not defined. This means 
+then that markup is really only available to the function final price. 
+So, that's your local scope. If you take a look at p1, p1 was declared 
+outside of the function.</p>
+<p>[Video description begins] <em> He highlights code lines 12 to 15. 
+Code on line 12 is, function final price, open curved bracket, price, 
+comma, PC markup, close curved bracket, open curly bracket. Code on the 
+line 13 is var mark up = price, multiplied by, open curved bracket, PC 
+markup, divided by, 100, close curved bracket, semi-colon. Code on line 
+14 is, return price, + markup, semi-colon. Code on line 15 is, close 
+curly bracket, semi-colon.</em> [Video description ends]</p>
+<p>So p1 actually belongs to the window object and that's why I can use 
+p1 on line 17. So p1 being declared outside of a function is in the 
+global scope. So that's the difference between global and local.</p></div>
+</div>
+<div>
+<h2 id="ed792680-73a8-11e8-82d9-bf3deb09ab23">
+Arrow Functions
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Arrow Functions. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about arrow functions in 
+JavaScript. On the screen, we have an HTML document on the left side of 
+your screen. That HTML document is being rendered on the right side of 
+your screen in a Chrome browser. Now, you may have seen me use this 
+example before, and that's good because we can see a progression here. 
+On the left side, between the lines 10 and 23 on the HTML document, 
+there's the JavaScript, and that JavaScript is being rendered in your 
+Chrome browser to the right. In the JavaScript, we have a function, 
+starting on line 13 being declared, and</p>
+<p>[Video description begins] <em> The code on line 13 is: function, 
+final price, open curve bracket, price, comma, p c mark up, close curve 
+bracket, open curly bracket.</em> [Video description ends]</p>
+<p>we have a call to that function on line 18.</p>
+<p>[Video description begins] <em> The code on line 18 is: var, p c, =, final price, open curve bracket, 2.85, comma, 15, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Basically, what we're trying to do is try to figure out what 15% of 
+2.85 is, but the return that we want is the entire number. So 2.85 times
+ 15% added back to 2.85 will give us $3.28, as you see on the right side
+ of your screen. Now, if you've ever heard of lambda expressions in 
+other languages, then arrow functions behave just like lambda 
+expressions. It helps us to reduce the amount of lines that our function
+ uses. In fact, they help us to eliminate the function keyword itself. 
+In some cases, you can even eliminate the return keyword, and in other 
+cases, we can eliminate the curly braces. So they help us make our 
+functions more concise. I'm going to start by replacing the function 
+that starts on line 13, ends on line 16, by a new arrow type function in
+ JavaScript.</p>
+<p>So I'm going to start by saying, let's allow or let's create a 
+variable called finalPrice, and make that equal to something. Now, after
+ the equal sign, I do have parentheses, and that's going to work exactly
+ like the function definition on line 13. We are going to pass our 
+parameters into that by using those parenthesis, so let finalPrice equal
+ to price and markup, and after the parenthesis is where we're going to 
+put our arrow function. After the arrow functions have inserted some 
+curly braces, so we're going to keep those for now. Then inside of the 
+curly braces is where you're going to start writing your function body. 
+So we need to return the price times the markup divided by 100, and then
+ add it back to the price again.</p>
+<p>[Video description begins] <em> The presenter adds a new line of code
+ on line 17. The code here is: let final price, =, open curve bracket, 
+price, comma, p c mark up, close curve bracket, arrow function, open 
+curly bracket, return price, multiplied by, open curve bracket, p c mark
+ up, divided by 100, close curve bracket, + price, close curly bracket.</em> [Video description ends]</p>
+<p>So with just that one line, we now have a new function. So I can get 
+rid off the old function on line 13. Okay, so I'm going to get rid of 
+that, actually just one second. So we got rid of the function on line 
+13.</p>
+<p>[Video description begins] <em> He deletes the codes from line 13 to 16. The code on line 17 is now the code on line 14. The code on line 18 is now on line 16.</em> [Video description ends]</p>
+<p>I'm going to save those changes, and I'll refresh the browser screen,
+ and notice that nothing happens, that means that our function is 
+working. Now, the function is sort of going over to the right side, and I
+ did say that we can shorten our functions using arrow functions, our 
+traditional functions using arrow functions. But in this case, let's 
+leave it like it is. And because it's still on one line, but it's sort 
+of like running off the right side the page, you could, if you wanted 
+to, make some changes and create it just like you would a normal 
+function.</p>
+<p>[Video description begins] <em> He splits the code on line 14 into 
+three parts. Now the code on line 14 is: let final price, =, open curve 
+bracket, price, comma, p c mark up, close curve bracket, arrow function,
+ open curly bracket. The code on line 15 is: return price, multiplied 
+by, open curve bracket, p c mark up, divided by 100, close curve 
+bracket, + price The code on line 16 is: close curly bracket.</em> [Video description ends]</p>
+<p>So if you notice, I've allowed it to run over three lines here. So 
+I'll save those changes, refresh the browser screen, and nothing 
+happens, we still have our original price. So basically, what I did was,
+ I put the function body between the curly braces, but I made sure that 
+those two curly braces were on separate lines. It makes the code a 
+little bit easier to read. But let's see if we can take it a little bit 
+further. Take a look at price and pcMarkup. What if we were to use our 
+documentation to explain what I'm about to do? So let's replace price 
+with just one letter, x. So that means that wherever I use the word 
+price, I can replace price with x.</p>
+<p>[Video description begins] <em> In the codes on line 14 and 15, the presenter replaces price with x</em> [Video description ends]</p>
+<p>Now, I can do the same thing with pcMarkup, I can replace pcMarkup with a y. And then, wherever I see pcMarkup, I use a y.</p>
+<p>[Video description begins] <em> In the codes on line 14 and 15, the presenter replaces p c mark up with y</em> [Video description ends]</p>
+<p>So I have just replaced price and markup, those words, with just x 
+and y. Now, like I said, we would have to document this somewhere. If I 
+refresh the screen, notice nothing happens, we still are at 3.2775. But 
+it means now that we could probably try to put everything back on one 
+line, and notice that it fits nicely on one line.</p>
+<p>[Video description begins] <em> He places the codes on line 14, 15 
+and 16 in one line, on line 14. Now the new code on line 14 is: let 
+final price, =, open curve bracket, x, comma, y, close curve bracket, 
+arrow function, open curly bracket, return x, multiplied by, open curve 
+bracket, y, divided by 100, close curve bracket, + x, close curly 
+bracket.</em> [Video description ends]</p>
+<p>I can now save my changes, refresh my browser, notice that nothing 
+happens. But you know what, what if we always knew that our percentage 
+markup is going to be 15, what if that never changes? It means then, 
+that we can probably insert a constant variable into our code, call it 
+markup. So I've declared on line 11, a markup constant of 15.</p>
+<p>[Video description begins] <em> He adds new line of code on line 11. The code here is: const, mark up, = 15, semi colon</em> [Video description ends]</p>
+<p>So then, that means that we can, if we wanted to, replace our y with 
+markup. Wherever we had y before, we can replace it with markup. But 
+also, notice that we don't need the y-parameter anymore. So I can get 
+rid of my y-parameter and just leave an x. And if I did that, then I 
+don't need the parenthesis anymore. Also, because I now have just one 
+short, simple expression, I don't need the return statement anymore, and
+ I don't need those curly braces anymore. So here we are on line 14, the
+ function that took about four or</p>
+<p>[Video description begins] <em> He modifies the code on line 14. The 
+new code here is: let final price, =, x, arrow function, x, multiplied 
+by, open curve bracket, mark up, divided by 100, close curve bracket, + 
+x, semi colon.</em> [Video description ends]</p>
+<p>five lines before has now been reduced to just one line. Let's save our changes, refresh the screen, refresh the browser.</p>
+<p>[Video description begins] <em> The result from the browser disappears.</em> [Video description ends]</p>
+<p>Okay, so I think I did not use the right word here, so it's markup, 
+not only that, I don't need to pass the 15 on line 16 anymore.</p>
+<p>[Video description begins] <em> He changes the u from lower case to upper case in mark up in the code on line 14. He removes comma 15 from the code on line 16.</em> [Video description ends]</p>
+<p>I could just pass the 2.85 or whatever the cost is of the item. I can
+ save these changes, refresh the browser screen, and notice that we 
+still have 3.2775. So the function is working exactly like what we had 
+when we started, except that everything is now on one single, straight 
+line. So using arrow functions in JavaScript might get a little bit, you
+ might need some time to adjust to using the function because it looks 
+weird at first. But it does have some good uses in terms of whenever you
+ need to manipulate a raise and things like that. Or another advanced 
+topic is whenever we deal with promises and callbacks, those arrow 
+functions are useful in those situations.</p></div>
+</div>
+<div>
+<h2 id="f0596310-73a8-11e8-82d9-bf3deb09ab23">
+Predefined Functions
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Pre-defined Functions. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about built in functions in 
+JavaScript. These are the predefined functions that come with the 
+language itself. On the screen, we have Notepad++ opened up to a short 
+HTML file. On the right side, we see a Chrome browser rendering the file
+ that you see on the left.</p>
+<p>[Video description begins] <em> The browser on the right side of the 
+screen displays the results of the notepad file on the left. And 
+currently, it is showing: JavaScript Pre, hyphen Defined Functions</em> [Video description ends]</p>
+<p>That HTML file has some script tags and we'll be using the area 
+between the script tags to write our various methods. Now, the function 
+or the browser only understands strings. No other data type can be 
+interpreted by the browser. We, as developers need to either implicitly 
+or explicitly turn our data types into a string that the browser will 
+then print on the browser's surface. So string functions are important, 
+and the typical ones are available in JavaScript, just like in most 
+other languages.</p>
+<p>Things like toLowerCase, toUpperCase, split, and slice, and as well 
+as substrings and finding the index of a particular character, etc. But 
+since ES6, an interesting method of the string object, if you want to 
+think of string as an object, is the raw method. Now with raw, it won't 
+work with a browser or the browser surface because with raw, it does not
+ really handle HTML well. Also with raw, it works with templated 
+strings. So I'm going to use the console to demonstrate what raw looks 
+like. I'm going to insert a piece of code at line 14.</p>
+<p>And I'm going to save the changes and let's see what this looks like 
+in the console window. So I'm saying console.log, there's a templated 
+string that has a \n and a \t in it. Now overtime, most developers would
+ understand \n will simply put the rest of the characters on a second 
+line. \t will move it over the tab space, whatever the tab space happens
+ to be in that environment. And there are a number of other non-printing
+ characters like this. Let's save this change, refresh the browser 
+screen. We won't see anything on the browser surface, but if I hit F12 
+on the keyboard, get into the console window. We will see that Hello 
+Skillsoft was printed exactly as we told it to.</p>
+<p>[Video description begins] <em> The presenter inserts an empty line 
+of code below lines 13 and inputs the following code in it: console dot 
+log, open curved bracket, accent, hello backslash N backslash T skill 
+soft, accent, close curve bracket semi colon</em> [Video description ends]</p>
+<p>However, if I were to apply the raw method here. So if I do something like this, now believe it or</p>
+<p>[Video description begins] <em> The presenter changes the code in 
+line 14 from: console dot log, open curved bracket, accent, hello 
+backslash N backslash T skill soft, accent, close curve bracket semi 
+colon. To: console dot log, open curved bracket, string dot raw, accent,
+ hello backslash N backslash T skill soft, accent, close curve bracket 
+semi colon.</em> [Video description ends]</p>
+<p>not, this raw method does not use parentheses. Also as I mentioned 
+before, it only works with templated strings at this point in time. If I
+ save this change, refresh the browser screen, notice what happens. It 
+actually prints the raw string. I'm going to to hit F12 on the keyboard 
+to get rid of the developer tools and I'm going to remove my line 14 
+where I showed the raw method.</p>
+<p>[Video description begins] <em> The presenter deletes line 14</em> [Video description ends]</p>
+<p>Let's move on now to array functions. Now, I did use array functions 
+before in some of my previous videos, but I wanted to talk about an 
+interesting array method called some. Now, most of these methods use a 
+callback function. And in order to use some, I will have to write a 
+callback function. Now what some will do is it will take your function, 
+your custom function, and apply that to each element of the array. That 
+function is supposed to return true or false. So some will tell us 
+whether that array is true or false based on your function. Let's look 
+at an example. I'm going to prepare a function, this is a custom 
+function that is going to take some value and divide it by 3. And if the
+ remainder is equal to 0, it means that, that value is divisible by 3.</p>
+<p>[Video description begins] <em> the presenter inserts three empty 
+lines of code below line 15 and inputs the following code in: Line 16: 
+function d i v by three, open curved bracket, value comma i d x comma a r
+ g s close curve bracket, open curly bracket. Line 17: if open curve 
+bracket value percent three triple equals sign zero close curve bracket,
+ return true, semi colon. Line 18: close curly bracket</em> [Video description ends]</p>
+<p>Let's also create an array of numbers and I'm going to place my array
+ underneath the function. And then finally, I'm going to call the some 
+method. So I'm going to say create another variable, called let three. 
+And I'm going to make that equal to, well I am going to invoke the some 
+method and pass it the callback function, which is divBythree.</p>
+<p>[Video description begins] <em> the presenter inserts two empty lines
+ of code below line 18 and inputs the following code in: Line 19: let 
+nums equals open square bracket sixty two comma one fifty one comma four
+ comma thirty three comma eleven comma forty three close square bracket,
+ semi colon. Line 20: let by three equals nums dot some open curve 
+bracket div by three close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>So basically, what some is going to do is it's going to apply this 
+function, divBythree against each of these elements of the array. Now, 
+when it gets to 33, it's going to get a remainder of 0 and it's going to
+ return true. And therefore, the entire nums.some will return true, so 
+byThree should have the value of true in it. In order to see our value, 
+we will print it to the browser screen in this case.</p>
+<p>[Video description begins] <em> the presenter inserts an empty line 
+of code below line 20 and inputs the following code in the empty line: p
+ 1 dot inner H T M L plus equals by three semi colon</em> [Video description ends]</p>
+<p>So let's save these changes. I will refresh the browser screen and we
+ do see true because 33 is divisible by three. But if I remove this, 
+notice that none of the other numbers are divisible by three. If I save 
+my changes, refresh the browser screen, we now get false. So it means 
+then that some is working properly. Now I'm going to remove the code 
+that I just wrote in here, so we can move on to the date functions.</p>
+<p>[Video description begins] <em> the presenter deletes lines 16 to 21</em> [Video description ends]</p>
+<p>Now just about every language has date functions. Date is something 
+that is universal, so every language has to have it. So on line 18, I 
+inserted some code where I am creating a new date object called myDate.</p>
+<p>[Video description begins] <em> He writes a code on line 18. The code is, let my Date = new Date, open curve bracket, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>What I'm trying to do is date arithmetic in JavaScript. So I'm going 
+to create another date called inSevenDays. So basically what I'm going 
+to try to do is add seven days to today's date.</p>
+<p>[Video description begins] <em> He writes a code on line 19. The code is, let in seven days = new Date, open curve bracket, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>So inSevenDays, what I want to do now is use that inSevenDays and use
+ the setDate function of the date object called inSevenDays. Use the 
+myDate object that I had on from line 18 and then, I'm going to use the 
+getDate on myDate. So it will return today's date, it will add 7 to it 
+and then that will be stored in the new inSevenDays object.</p>
+<p>[Video description begins] <em> He writes code on line 20. The code 
+is, in seven days, dot, set date, open curve bracket, my Date, dot, get 
+date, open curve bracket, close curve bracket, + 7, close curve bracket,
+ semi-colon.</em> [Video description ends]</p>
+<p>Now in order to see all of this happening, I would have to print 
+everything out to the browser screen. So I'm going to use my paragraph 
+tag again.</p>
+<p>[Video description begins] <em> The presenter writes a 3 line code, 
+the code on line 21 is, p1, dot, inner HTML, += the code on line 22 is, 
+accent, today is, $ sign, open curly bracket, my date, close curly 
+bracket, but, in 7 days, it will be The code on line 23 is, $ sign, open
+ curly bracket, in seven days, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>So there's our first date, that's today's date. But in seven days, it
+ will be inSevenDays. Remember, inSevenDays, we will be setting a new 
+date of today's date added to seven. Once I have all this code complete,
+ I will save my changes, refresh the browser screen. Notice it says, 
+today is June 13th. But in seven days, it's going to be June 20th.</p>
+<p>[Video description begins] <em> The changed text on the chrome 
+browser is, Today is Wed, Jun, 13, 2018, 11: 50: 35 GMT-0300 (Atlantic 
+Daylight Time) but in 7 days, it will be, Wed, Jun, 20, 2018, 11: 50: 35
+ GMT-0300 (Atlantic Daylight Time)</em> [Video description ends]</p>
+<p>So that's how the date arithmetic works in JavaScript. Again, I'm 
+going to remove the code that I wrote, and so we can move on to some 
+math functions.</p>
+<p>[Video description begins] <em> The presenter removes the code from lines 18 to 23.</em> [Video description ends]</p>
+<p>I think most languages have math functions, it's again one of those 
+universal things. And so there's really nothing new here, I'm going to 
+insert some code that uses the pow function or the power function.</p>
+<p>[Video description begins] <em> He inserts a 3 line code below line 
+19. Code on line 20 is, P1, dot, inner HTML, += Code on line 21 is, 
+accent, 4 raised to the power of 2 code on the line 22 is, is $ sign, 
+open curly bracket, Math, dot, pow, open curve bracket, 4, comma, 2, 
+close curve bracket, close curly bracket, period, accent, semi-colon.</em> [Video description ends]</p>
+<p>So here we're seeing that we're going to take 4 and raise it to the 
+power of 2. So it is as simple as Math.pow, the first number is the 
+number that we're working with. The second parameter is the power that 
+we're raising the first parameter to. So 4 will be raised to 2, let's 
+save these changes, refresh the browser screen and now we see that it is
+ 16.</p>
+<p>[Video description begins] <em> The changed text on the chrome browser is, 4 raised to the power of 2 is 16.</em> [Video description ends]</p>
+<p>Now what is interesting though are the HTML, some of the HTML 
+functions or the html wrappers. Let me remove the code that I had from 
+before and under html wrappers,</p>
+<p>[Video description begins] <em> The presenter removes the code from lines 20 to 22.</em> [Video description ends]</p>
+<p>I'm going to insert the same function that we had before concerning date.</p>
+<p>[Video description begins] <em> He inserts a 3 line code below line 
+21. The code on line 22 is, let my Date = new Date, open curve bracket, 
+close curve bracket, semi-colon. The code on line 23 is, let in seven 
+days = new Date, open curve bracket, close curve bracket, semi-colon. 
+The code on line 24 is, in seven days, dot, set date, open curve 
+bracket, my Date, dot, get date, open curve bracket, close curve 
+bracket, + 7, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>So I'm going to use the same date. Remember, we had an initial date. 
+We added 7 to that date and we have a new date now. So if you remember, 
+we did have some code before that printed out the new date.</p>
+<p>[Video description begins] <em> The presenter writes a 3 line code 
+below line 24, the code on line 25 is, p1, dot, inner HTML, += the code 
+on line 26 is, accent, today is, $ sign, open curly bracket, my date, 
+close curly bracket, but, in 7 days, it will be The code on line 27 is, $
+ sign, open curly bracket, in seven days, close curly bracket, accent, 
+semi-colon.</em> [Video description ends]</p>
+<p>So if I save these changes, refresh the browser screen, we do see 
+that it works just like the example from before. We added 7 to 13, so we
+ have a new date of June 20th.</p>
+<p>[Video description begins] <em> The changed text on the chrome 
+browser is, Today is Wed, Jun, 13, 2018, 11: 53: 13 GMT-0300 (Atlantic 
+Daylight Time) but in 7 days, it will be, Wed, Jun, 20, 2018, 11: 53: 13
+ GMT-0300 (Atlantic Daylight Time)</em> [Video description ends]</p>
+<p>What's interesting about the html wrappers is that, we can take data 
+that's going to be portrayed, or pushed through the browser screen, and 
+do things with it very quickly. But in order to do that, I would have to
+ first of all convert the inSevenDays to string. So I would have to say 
+toString, first of all to convert my date toString explicitly. And then 
+if I wanted to, I can use one of these wrappers, so for example I can 
+make my new date bolded.</p>
+<p>[Video description begins] <em> He modified the code on line 27, he 
+new code is, $ sign, open curly bracket, in seven days, dot, to string, 
+open curve bracket, close curve bracket, dot, bold, open curve bracket, 
+close curve bracket, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>And with just these simple changes, let's save those changes, refresh
+ the browser screen and there we have a bolded second part of this 
+templated string.</p>
+<p>[Video description begins] <em> On the chrome browser, following text becomes bold: Wed, Jun, 20, 2018, 11: 54: 08 GMT-0300 (Atlantic Daylight Time)</em> [Video description ends]</p>
+<p>So that's the way you would use html wrappers in JavaScript. So there
+ are a lot more methods but of course, there are too many to put into 
+one video.</p></div>
+</div>
+<div>
+<h2 id="f3804590-73a8-11e8-82d9-bf3deb09ab23">
+Creating Custom Objects
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Creating Custom Objects. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about JavaScript objects. On
+ the left side of the screen is an HTML document opened up in Notepad++.
+ On the right side of the screen is a Chrome browser that is rendering 
+the page that you see on the left side of your screen. The HTML document
+ on the left of your screen has JavaScript code embedded between lines 
+11 and 23. So this demo is about object oriented programming. And 
+JavaScript, believe it or not, even though we don't think of it that way
+ is object oriented.</p>
+<p>We can do encapsulation, aggregation, inheritance and polymorphism. 
+As a matter of fact, since ES 6 they introduced the class keyword. To 
+sort of simulate classes as they appear in Java and C#, C++ etc. Keep in
+ mind though, in JavaScipt using a class keyword is just a special 
+function. So throughout this series, I will continue to use the 
+traditional way of creating the classes with the function keyword. And 
+I'm also doing it for backwards compatibility. The example on the screen
+ may have been shown in another video, but if we take a look at it, we 
+do have a vehicle object that is being declared on line 13.</p>
+<p>[Video description begins] <em> The code on line 13 is: let vehicle, =, open curly bracket</em> [Video description ends]</p>
+<p>That object, that vehicle object, has properties like make, color, 
+year. And it also has a method called aboutMe() that simply returns all 
+of the properties concatenated together. So this is as simple as you 
+get. On line 22, you see me accessing the vehicle object and actually</p>
+<p>[Video description begins] <em> The code on line 22 is: p 1, dot, 
+inner HTML, =, accent, $ sign, open curve bracket, vehicle, dot, about 
+me, open close curve bracket, close curly bracket, accent, semi colon.</em> [Video description ends]</p>
+<p>accessing the method code aboutMe(), which will return a string in 
+this case. And as you can see on the right side of your screen, that 
+browser window is showing us the aboutMe() method converted into a 
+string.</p>
+<p>[Video description begins] <em> The string showing on the browser is, Buick, Red, 2019</em> [Video description ends]</p>
+<p>So there's really nothing special about an object in JavaScript. Just
+ keep in mind that if we declare variables normally, like on line 12, 
+where we've just declared a p1 variable, and that</p>
+<p>[Video description begins] <em> The code on line 12 is: let p1, =, 
+document dot, get element, by I d, open curve bracket, double quote, P 
+1, double quote, Close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>p1 variable belongs to the global object, which is the window, in 
+this case. However, on line 13, we've declared a vehicle object. And 
+everything inside that object that uses the this operator, or this 
+keyword, is actually talking about or accessing the vehicle's 
+properties, etc. Whatever belongs to the vehicle, this within that 
+function definition, will refer to the custom object that we just 
+created. So let's make the object a little bit more interesting.</p>
+<p>[Video description begins] <em> The presenter goes to line 17, the 
+code here is, this, dot, color, +, double quote, double quote, +. He 
+highlights, this in the code. He also highlights vehicle in the code on 
+line 13.</em> [Video description ends]</p>
+<p>Let's put in maybe a cost, cost of let's say $10,000. I'll have to use another comma here.</p>
+<p>[Video description begins] <em> The presenter goes to the line 14, 
+the code here is, make, colon, open quote Buick, close quote, comma, 
+color, colon, open quote, red, close quote, comma, year, colon, 2019, 
+comma. He adds cost, colon, 10000, comma, at the end of the code on line
+ 14.</em> [Video description ends]</p>
+<p>And I'm going to create another function that will work with that 
+cost. So let's say we call it costPlusTax(). Now, once I have my 
+function declared, I can then, or method declared, I can then try to 
+calculate out the cost plus tax. Let's use a 10% tax in this case. So I 
+can say return, return, let's see, cost. Now I'm doing this 
+deliberately, but just to prove a point. Cost plus, and we will have to 
+work out whatever the tax rate is. So in this case it is (cost * .09), 
+so 9%. Now all I need to do in order to access this</p>
+<p>[Video description begins] <em> He adds two new lines of code below 
+line 19. the new code on line 20 is: cost plus tax, open close curve 
+brackets, open curly bracket. the new code on line 21 is: return cost, 
++, open curve brackets, cost, multiplied by, .09, close curve bracket, 
+semi colon.</em> [Video description ends]</p>
+<p>method is simply call it somewhere inside of my code. So let's call 
+it on line 25 where we're printing it. Now remember, I said I'm doing</p>
+<p>[Video description begins] <em> The code on line 25 is p 1, dot, 
+inner HTML, =, accent, $ sign, open curly bracket, vehicle, dot, about 
+Me, open close curve brackets, close curly bracket, accent, semi colon. 
+The presenter replaces about Me by cost plus tax The new code on line 25
+ is p 1, dot, inner HTML, =, accent, $ sign, open curly bracket, 
+vehicle, dot, cost plus tax, open close curve bracket, close curly 
+bracket, accent, semi colon.</em> [Video description ends]</p>
+<p>something deliberately. I'm going to save this, refresh the browser. 
+Notice nothing happens. The reason is that when I use cost, the 
+JavaScript engine is attempting to find cost in the global space and it 
+does not exist. So we need to use the keyword this in front of our 
+properties of this particular object in order to get the correct price 
+in this case, which is 10,000. Now once I've made those changes,</p>
+<p>[Video description begins] <em> He modifies the code on line 21. The 
+new code here is: return, this dot cost, +, open curve brackets, this, 
+dot cost, multiplied by, .09, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>save my changes, I can refresh the browser screen and now we see the correct amount showing on the browser screen.</p>
+<p>[Video description begins] <em> The amount showing on the browser screen is 10900.</em> [Video description ends]</p>
+<p>Now of course, objects in JavaScript is a very vast topic, and I've 
+just touched the surface of what we could do using JavaScript objects.</p></div>
+</div>
+<div>
+<h2 id="f67e1c40-73a8-11e8-82d9-bf3deb09ab23">
+The For...in Loop
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Double quote, The For, dot dot dot, in Loop, double quote. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about JavaScript objects and
+ how we iterate over the properties of those objects. On the screen on 
+the left side of your screen, we have an HTML document that has some 
+JavaScript between lines 11 and 20. On the right side of your screen, 
+there's a Chrome browser that is rendering the code that you see on the 
+left, both HTML and JavaScript. Within the JavaScript code, there is an 
+object being declared on line 12.</p>
+<p>That object actually looks like an array because it looks like, well,
+ every object is really a collection of names or keys and their values. 
+And that's exactly what we're seeing here. The make in this case is a 
+key and the value is Buick. So you might think then that we maybe able 
+to use a for loop and iterate over this vehicle object, like I'm doing 
+on line 16. However, if we look at the Chrome browser and render it, 
+render the code on the left and look into the developer tools by hitting
+ F12 on the keyboard, we see that something is undefined on line 17.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script, Iterating Object Properties. He clicks, the F12 button on the 
+keyboard, a developer console window opens up. Following text with a 
+number is displayed: 1 3 9 7 0 4, dot, html, colon, 17 is undefined.</em> [Video description ends]</p>
+<p>So it appears as though we just can't iterate over the vehicle object</p>
+<p>[Video description begins] <em> He goes to the code line 12. The code is: let vehicle, =, open curly bracket.</em> [Video description ends]</p>
+<p>by iterating through, and thinking that each of the property has some kind of numeric value that we can access.</p>
+<p>[Video description begins] <em> He goes to the code line 17. the code
+ is: console, dot, log, open curved bracket, vehicle, open square 
+bracket, i, close square bracket, close curved bracket, semi-colon. He 
+highlights, i, from the code.</em> [Video description ends]</p>
+<p>But we are able to access each of the properties via the key. So if I were to type in make here and save it, if I</p>
+<p>[Video description begins] <em> He replaces, i, with open quote, make, close quote, in the code line 17.</em> [Video description ends]</p>
+<p>refresh the browser screen now I see the value of make, it happens to be Buick.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script, Iterating Object Properties. On developer console window, 
+following text with a number is displayed: Buick. 1 3 9 7 0 4, dot, 
+html, colon, 17.</em> [Video description ends]</p>
+<p>Now of course, it does not make sense in this case to attempt to print make the value Buick 3 times.</p>
+<p>[Video description begins] <em> He highlights the code line 17.</em> [Video description ends]</p>
+<p>But JavaScript came up with a different way of accessing the keys and
+ their values of this type of object. So what they came up with is the 
+for in statement. So we can replace our original or traditional for with
+ a for, something like let i in vehicle, something like that.</p>
+<p>[Video description begins] <em> He goes to the code line 16. The code
+ is: for, open curved bracket, let i, =, zero, semi-colon, i less than 
+3, semi-colon, i plus plus, close curved bracket, open curved bracket. 
+He highlights, let i, =, zero, semi-colon, i less than 3, semi-colon, i 
+plus plus, and replaces with, i in vehicle.</em> [Video description ends]</p>
+<p>And now we may be able to access the keys in this case, which is represented by i.</p>
+<p>[Video description begins] <em> He goes to the code line 17. He highlights, open quote, make, close quote, from the code line and replaces with i.</em> [Video description ends]</p>
+<p>Actually, to make it a little bit nicer, we could use it in a 
+structure like this, i plus, in other words, concatenation. And then we 
+can probably use some kind of a colon like this and then concatenate the
+ value by accessing the object and it's property in this case. So let's 
+save these changes, refresh the browser screen, and</p>
+<p>[Video description begins] <em> He goes to the code line 17. In this code, before vehicle, he adds, i, +, double quote, colon, double quote, +.</em> [Video description ends]</p>
+<p>now we see that we're actually getting those keys and their values.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script, Iterating Object Properties. On developer console window, 
+following text with a number is displayed: make, colon, Buick. 1 3 9 7 0
+ 4, dot, html, colon, 17. color, colon, red. 1 3 9 7 0 4, dot, html, 
+colon, 17. year, colon, 2019. 1 3 9 7 0 4, dot, html, colon, 17. cost, 
+colon, 10000. 1 3 9 7 0 4, dot, html, colon, 17.</em> [Video description ends]</p>
+<p>So this for in loop works really well with iterable objects like the 
+vehicle object in this case and with things like arrays and maps,</p>
+<p>[Video description begins] <em> He highlights the code line 12.</em> [Video description ends]</p>
+<p>and that sort of thing. However, keep in mind that a vehicle object 
+is made up of properties and methods. So if we were to add a method to 
+our property object, it will also be caught up into this loop.</p>
+<p>[Video description begins] <em> He highlights the code line 12, 13, 
+16 &amp; 17. The code on line 13 is: make, colon, open quote, Buick, 
+close quote, comma, color, colon, open quote, Red, close quote, comma, 
+year, colon, 2019, comma, cost, colon, 10000, comma.</em> [Video description ends]</p>
+<p>So for example, if I were to insert some code in the vehicle object,</p>
+<p>[Video description begins] <em> He inserts the code lines from 14 to 
+18. The code in line 14 is: about me, open close curved bracket, open 
+curly bracket. The code in line 15 is: return this, dot, make, + double 
+quote, double quote, + The code in line 16 is: this, dot, color, + 
+double quote, double quote, + The code on line 17 is: this, dot, year, 
+semi-colon. The code in line 18 is: close curly bracket.</em> [Video description ends]</p>
+<p>in other words, I just inserted a function or method called aboutMe,</p>
+<p>[Video description begins] <em> He highlights, about me from the code line 14.</em> [Video description ends]</p>
+<p>that is simply returning all of the properties concatenated together.</p>
+<p>[Video description begins] <em> He highlights from the code line 15 to 17.</em> [Video description ends]</p>
+<p>Now, aboutMe is not a true property, it's a method. However, it's 
+considered a property. So if I save all of this and refresh the browser 
+screen, notice that the aboutMe got caught up in the for loop.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. Following text appears on the screen: Java 
+Script, Iterating Object Properties. On developer console window, 
+following text with a number is displayed: make, colon, Buick. 1 3 9 7 0
+ 4, dot, html, colon, 17. color, colon, red. 1 3 9 7 0 4, dot, html, 
+colon, 17. year, colon, 2019. 1 3 9 7 0 4, dot, html, colon, 17. cost, 
+colon, 10000. 1 3 9 7 0 4, dot, html, colon, 17. about me, colon, about 
+me, open close curved bracket, open curly bracket. 1 3 9 7 0 4, dot, 
+html, colon, 22. return this, dot, make, + double quote, double quote, 
++. this, dot, color, + double quote, double quote, +. this, dot, year, 
+semi-colon. close curly bracket.</em> [Video description ends]</p>
+<p>So that's something to watch for when you're dealing with objects, like objects that represent the real world.</p></div>
+</div>
+<div>
+<h2 id="f9a9b9b0-73a8-11e8-82d9-bf3deb09ab23">
+Constructor Functions
+</h2>
+<div><p>[Video description begins] <em> topic title : Constructor Functions. Your presenter for this session : Axle Barr</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to be talking about Constructor 
+Functions in JavaScript and how we use Constructor Functions to create 
+new objects. What you're seeing on the screen is a Notepad++ application
+ opened up and pointing to an HTML file with some JavaScript in the 
+middle, or in the body tag. On the right of your screen, you're looking 
+at Chrome rendering that file that you see on the left. Now JavaScript, 
+being an object-oriented language, mean that we can create custom 
+objects. And there are about three different ways of doing this. This is
+ the Constructor Function for this particular demo, but we can also 
+construct objects using an object literal.</p>
+<p>We can also construct objects using the new keyword, but using a 
+Constructor Function in this way allows us to create several objects of 
+the same type. Since ES 6 JavaScript did introduce the class keyword. It
+ is an attempt to simulate classes as they appear in Java, C#, C++. 
+However, throughout this series I will be using the function keyword to 
+make my classes. However, keep in mind, that a class in JavaScript as 
+introduced by ES 6 is a special function in JavaScript. If we take a 
+look at line 13, the function vehicle is creating an object. Now notice 
+that</p>
+<p>[Video description begins] <em> the code on line 13 is: function, 
+Vehicle, open curve bracket, make, comma, color, comma, year, close 
+curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>vehicle has an uppercase V to start it off. This is an indication to 
+other programmers that vehicle is a class and not a real function. As 
+you can see, the vehicle object has some parameters in the Constructor. 
+And these parameters go into making up this vehicle in terms of its 
+make,color, year, etc.. So using this structure we can create a new 
+object. So I can say something like, let myRide = new. I will still have
+ to use the new keyword here, new Vehicle. But that new keyword allows 
+me to make my object, so I can pass in something like Ford, White for 
+the color. And let's say the year is 2009.</p>
+<p>[Video description begins] <em> the presenter adds a code on line 18.
+ The code is: let, my ride, =, new vehicle, open curve bracket, open 
+quote, Ford, close quote, comma, open quote, white, close quote, comma, 
+open quote, 2009, close quote, close curve bracket, semicolon.</em> [Video description ends]</p>
+<p>And with just that one line, I have created a new object. Let's save 
+our change, refresh our browser screen, hit F12 just to make sure that 
+we don't have any errors. I'll hit F12 again to get rid of the developer
+ tools. And I did say that, well before we create multiple objects, 
+let's see how we can perhaps print one of the properties of this 
+particular object, the myRide object. So I can use my p1, the paragraph 
+tag and use the innerHTML of that tag.</p>
+<p>And I'd like to display some kind of sentence here using my object. 
+So I'm going to use the templated strings so I'll say, My current car is
+ a, and I'll use templated strings here again so let's see. Now I can 
+access my object which is myRide., and I'll access the make in this 
+case. So with just that one sentence on line, or that one statement on 
+line 19, if I refresh the screen, we see that my current car is a Ford.</p>
+<p>[Video description begins] <em> the presenter adds a code on line 19.
+ the code is : p 1, dot, inner HTML, =, accent, my current car is a 
+dollar sign, open curly bracket, my ride, dot, make, close curly 
+bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>So just to prove the point that we can create as many objects as we 
+wish, I'm going to copy line 18 and put it on line 20. Let's see, let's 
+copy that again, copy line 18. Put it on line 20 and simply change it to
+ myFutureRide. So myFutureRide is not going to be a Ford maybe it's 
+going to be a, let's see Toyota. And the color is going to be Black and 
+of course it's going to be a 2019.</p>
+<p>[Video description begins] <em> The presenter modifies code on line 
+20 . The new code is, let my future ride = new vehicle, open curved 
+bracket, open quote, toyota, close quote, comma, open quote, black, 
+close quote, comma, open quote, 2019, close quote, close curved bracket,
+ semi-colon.</em> [Video description ends]</p>
+<p>Now if I refresh the screen, well, let's print it out first. So I can
+ copy line 19, the current line 19, or cut it I should say. So I'm using
+ Ctrl+X on the keyboard to cut that and then Ctrl+V to paste it 
+underneath my future ride. And then I can just use myFutureRide instead 
+of myRide. And save that change and we see that, well of course I'll 
+have to say myFutureRide, or my future car is, let's just drop this down
+ to the other line so we can see it better.</p>
+<p>[Video description begins] <em> The presenter cuts the code line 19 
+and pastes it on code line 20. He modifies the code on line 20, the new 
+code is, p1, dot, inner HTML, accent, My future car is a, dollar sign, 
+open curly bracket, my future ride, dot make, close curly bracket, 
+accent, semi-colon. He then, splits this code line in two lines for 
+better visibility.</em> [Video description ends]</p>
+<p>Save those changes, refresh the screen and we see that my future car 
+is a Toyota. So once again using Constructor Functions allows us to 
+create as many objects as we wish.</p></div>
+</div>
+<div>
+<h2 id="fca609c0-73a8-11e8-82d9-bf3deb09ab23">
+Object Methods
+</h2>
+<div><p>[Video description begins] <em> topic title, Object Methods. Your presenter for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to discuss adding methods to 
+existing objects in JavaScript. On the left side of your screen is an 
+HTML document that is opened up with Notepad++. It has some JavaScript 
+between lines 12 and 19, but of course this is going to change. On the 
+right side of your screen is a Chrome application that is opened up and 
+pointing to the HTML document that you see on the left of your screen. 
+Let's focus on the HTML document that is on the left of your screen, and
+ let's take a look at the object that was created on line 14.</p>
+<p>[Video description begins] <em> the code on line 14 is: function, 
+Vehicle, open curve bracket, make, comma, color, comma, year, close 
+curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>Now JavaScript does not have a class, as such, but we can use a 
+function to simulate a class. So our Vehicle object has three properties
+ right now. And in order for me to continue with this particular 
+demonstration, I'm going to add a fourth property to the object. So I'm 
+going to add a new property to the Vehicle object. But, first of all, 
+let's create the parameter. So next to year I'm going to create a new 
+parameter there called cost.</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 14, The new code is, function, Vehicle, open curve bracket, make, 
+comma, color, comma, year, cost, close curve bracket, open curly 
+bracket.</em> [Video description ends]</p>
+<p>And it means that I'm going to have to have now a cost property of 
+the vehicle. So after line 17, I'm going to insert some code there, 
+where I am assigning the value of cost, once an instance is</p>
+<p>[Video description begins] <em> the presenter inserts a code on line 18. the code is : this, dot, cost, =, cost, semi-colon.</em> [Video description ends]</p>
+<p>created of this Vehicle class, assign that to the cost property of 
+the Vehicle. But this demonstration is about methods, so how do we 
+create a method? Well, believe it or not, all we really have in 
+JavaScript is the function, and we can use this function to our 
+advantage to create methods. Now, this particular Vehicle has some 
+properties to it. And what I can do is create a new property called 
+carDetails.</p>
+<p>[Video description begins] <em> the presenter created a new property 
+on line 19. the code on line 19 is : this, dot, car details, =, 
+function, open curve bracket, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>But in order to create a method for this function, I would then now 
+have to point that carDetails property to a function. So I'm assigning a
+ function to carDetails, and this is the way you would create methods 
+for all of your objects in JavaScript. So on line 19, I have inserted 
+some code where I'm creating a property called carDetails, pointing that
+ to a function, and now I can flush out the function. So now I can add 
+in the details that I want for this particular method.</p>
+<p>[Video description begins] <em> the presenter added the details on 
+line 20 and 21. the code on line 20 is: return, accent, the $ sign, open
+ curly bracket, this, dot, year, close curly bracket, $ sign, open curly
+ bracket, this, dot, make, close curly bracket. the code on line 21 is: 
+will cost, $ sign, open curly bracket, this, dot, cost, close curly 
+bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>So the method is going to return an entire sentence. It's going to 
+say the year of the car, make, will cost whatever. So I have a 
+full-fledged method now. Let's see how we can use this method. Now we 
+have what in other languages would be a class, and in order to create an
+ object we would, of course, have to create an instance of that object. 
+So the way we would do that in JavaScriptable, first of all we would 
+have to create a variable.</p>
+<p>[Video description begins] <em> the presenter creates a variable on line 24. the code is: let, my ride, =</em> [Video description ends]</p>
+<p>Let's establish a variable called myRide, and we will assign to that 
+variable an instance of the Vehicle class. So on line 24 and 25, I've 
+inserted some code where on line 24 I am creating or declaring a 
+variable, and then assigning to that variable a Vehicle object by using 
+the new keyword.</p>
+<p>[Video description begins] <em> the code which the presenter has 
+added on line 25 is, new vehicle, open curve bracket, open quote, ford, 
+close quote, comma, open quote, white, close quote, comma, open quote, 
+2009, close quote, comma, open quote, 10000, close quote, close curve 
+bracket, semi-colon.</em> [Video description ends]</p>
+<p>Now that I have my instance called myRide, I can now use one of the 
+paragraph tags on my HTML document to print out the carDetails method. 
+So online 26 I have used my innerHTML of the p1 tag, and assigning</p>
+<p>[Video description begins] <em> the code on line 26 is, p1, dot, 
+inner HTML, =, my ride, dot, , car details, open curve bracket, close 
+curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>to that is the instance of my Vehicle object, which is myRide in this
+ case. And from myRide I am invoking the carDetails function. Let's save
+ all of these changes, refresh the browser screen, and you see that it 
+says the 2009 Ford will cost $10,000. So this is one way of adding 
+methods, to your object in this case. Now there are other ways, and as 
+we move on in the series we'll discuss some of the other ways of adding 
+methods to your existing objects.</p></div>
+</div>
+<div>
+<h2 id="ff4c98b0-73a8-11e8-82d9-bf3deb09ab23">
+Prototyping
+</h2>
+<div><p>[Video description begins] <em> topic title: prototyping Your presenter for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at the prototype 
+keyword and see how we can use it to add properties and methods to an 
+existing object in JavaScript. On the left side of your screen, there is
+ an HTML document opened up in Notepad ++ with some JavaScript code in 
+the middle. On the right of your screen, you're taking a look at how the
+ Chrome browser is rendering that file on the left of your screen. I may
+ have mentioned before that JavaScript does not really have classes, 
+doesn't really use classes. There's no concept of designing a class and 
+then creating instances of that class. In JavaScript, everything is an 
+object. In class-based languages, you're unable to modify or add 
+properties or methods to the class after you have defined the class. 
+What I mean by that is that you can't add more properties and methods 
+during run time. In JavaScript however, at run time you can add or 
+remove properties from an object. So if we take a look at the object 
+that we created on line 12,</p>
+<p>[Video description begins] <em> the code on line 12 is: function, 
+Vehicle, open curve bracket, make, comma, color, comma, year, comma, 
+cost, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>this is the vehicle object. On line 25, I'm going to insert some code
+ that is going to add a property to this object. So, let's just say it's
+ a vehicle object and I want to add, let's see, model, we don't have 
+models yet. That's really all I would need to do in order to</p>
+<p>[Video description begins] <em> the code on line 25 is: vehicle, dot, model, semi-colon.</em> [Video description ends]</p>
+<p>add a new property to the vehicle object. It means then, that on line
+ 26, I could if I wanted to, use the myRide instance that I have, if you
+ want to consider it an instance. And then access the model of the model
+ property of that ride. And I can probably make it equal to something, 
+so lets say the Ford Explorer is, the Ford that we have is an Explorer.</p>
+<p>[Video description begins] <em> the code on line 26 is: my ride, dot, model, =, open quote, explorer, close quote, semi-colon.</em> [Video description ends]</p>
+<p>That's all I need to do to add a new property to my vehicle object. 
+So on the right side of the screen, if I go back to Chrome, hit the F12 
+button. Well first, let's refresh the browser to make sure that we pick 
+up this change in code between lines 25 and 26.</p>
+<p>[Video description begins] <em> The presenter saves the changes in notepad++ and refreshes the chrome browser.</em> [Video description ends]</p>
+<p>So in the console window, I could for example, type myRide and choose
+ the model property from the myRide object, hit the enter key and you 
+see that we do have Explorer. But what is actually happening behind the 
+screen is that we are actually using the prototype property of the 
+vehicle object to add this particular property, this new property, this 
+model property. So if I were to change Vehicle.model to 
+Vehicle.prototype.model, save those changes, refresh the browser screen.</p>
+<p>[Video description begins] <em> the presenter is referring to line 25.</em> [Video description ends]</p>
+<p>I can still access myRide.model, I hit the enter key, and as you can 
+see, it is still working like normal. So this is the same technique that
+ I'm going to use to create or to add a new function, or new method to 
+the vehicle class. So if I wanted to do that again, I'm going to access 
+that class that we have, so it's Vehicle.prototype of course, dot and 
+whatever the name of my function is. So my method is going to be called 
+getMSRP.</p>
+<p>[Video description begins] <em> the presenter is adding this code on line 27.</em> [Video description ends]</p>
+<p>Now, if you look at the function definition on line 17, it's 
+basically the same thing we are going to do. So it's going to be equal 
+to function, and I defined a space for my function to write my function.
+ Now, in between the curly braces is where I'm going to define my 
+function just like on 18 and 19. So what I want my MSRP to return is, 
+well I want it to return something, so I've created a place for me to 
+start defining what that return is going to be. So I want to return, 
+let's see, the MSRP, so some sentence first.</p>
+<p>[Video description begins] <em> the code on line 28 is: return, open quote, the MSRP on this, close quote, semicolons.</em> [Video description ends]</p>
+<p>And the first template is going to be, well actually, let's use the 
+new property that we built on line 26. So I'm going to say this.model. 
+Notice, I'm using the this key word. All the way out here on line 28, 
+I'm using the this key word. Now, so the MSRP on this model is, this 
+times the cost or this cost times 0.9, because all of our markups are 
+90%. And believe it or not, that's all I need to do in order to add a 
+new method to the vehicle class.</p>
+<p>[Video description begins] <em> the code on line 28 is modified to: 
+return, accent, the MSRP on this, $ sign, open curly brackets, this, 
+dot, model, close curly bracket, is, $ sign, open curly brackets, this, 
+dot, cost, multiplied by point 9, close curly bracket, accent, 
+semi-colon.</em> [Video description ends]</p>
+<p>I can save those changes, refresh my browser screen, and now I can access</p>
+<p>[Video description begins] <em> The presenter is working on chrome web developer console now.</em> [Video description ends]</p>
+<p>the myRide dot, let's see, getMSRP, put my parenthesis, hit the enter
+ key. And notice it says that the MSRP on this Explorer is $9,000. So 
+this makes JavaScript's objects or working with objects a little bit 
+more flexible than in the traditional way of using classes and things 
+like that.</p></div>
+</div>
+<div>
+<h2 id="023bf070-73a9-11e8-82d9-bf3deb09ab23">
+Inheritance and Extending Classes
+</h2>
+<div><p>[Video description begins] <em> topic title: inheritance and extending classes. your presenter for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at inheritance in 
+JavaScript and figure out what the role of the prototype key word is 
+going to play in inheritance. On your screen, we have Notepad++ opened 
+on the left. And it's pointing to an HTML file with JavaScript in the 
+middle of it. On the right side of your screen, you're looking at 
+Chrome. And Chrome is rendering the HTML document that you see on the 
+left. JavaScript, remember, is a prototype based language. So there's 
+really no concept of a class as such. Every time we create an object in 
+JavaScript, we're actually linking to some other object via its 
+prototype. In fact, whenever you create an object like we're doing on 
+line 12, we are creating a vehicle object using the function keyword.</p>
+<p>Once we create a new object, we get for free something called the 
+prototype property of that object. So putting it another way, every 
+object that you create in JavaScript has a prototype property. And it is
+ the prototype property that we must use whenever we try to do 
+inheritance in JavaScript. So I'm going to start inserting some code on 
+line 24 and 25 to demonstrate this. So on line 24, I'm going to insert 
+some comments. And then on line 25 I will start defining a new object 
+that I'm going to be using. And I'm going to base this new object on the
+ vehicle object. So on line 25, I'm going to create a SUV object, okay? 
+And the SUV object, of course, is going to have a constructor function. 
+And I'm going to use that constructor function to pass in, let's say two
+ parameters, size and the passengers.</p>
+<p>[Video description begins] <em> The presenter put double forward 
+slash in line 24 and wrote codes in line 25. the code on line 25 is: 
+function, SUV, open curve bracket, size, comma, passengers, close curve 
+bracket, open curly bracket.</em> [Video description ends]</p>
+<p>Now notice we don't have size and passengers for vehicle. Now, once 
+the user of this object decides to use the SUV object, they need to pass
+ me size and passengers. And I'll take those two numbers and assign it 
+to the SUV's size. So this.size is going to be equal to the size that 
+the user of this object will pass in. And I'm going to do the same thing
+ with passengers.</p>
+<p>[Video description begins] <em> the presenter writes code on line 26. The code is, this, dot, size, =, size, semi-colon.</em> [Video description ends]</p>
+<p>So this.passengers will be equal to the number of passengers that was passed in.</p>
+<p>[Video description begins] <em> the presenter added code on line 27. The code is, this, dot, passengers, =, passengers, semi-colon.</em> [Video description ends]</p>
+<p>So now that I have a new object, I'm going to use the prototype 
+property of this new object. So on line 29 let's insert some comments. 
+And on line 30 I'm going to use SUV.prototype. So I'm using the 
+prototype property of the SUV object. And to that I'm going to assign 
+the constructor of the vehicle object.</p>
+<p>[Video description begins] <em> the code on line 30 is: SUV, dot, prototype, =, new vehicle, open curve bracket, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>So line 30 is what will cause inheritance to happen. So now I can 
+actually try to create an SUV object. So on line 31 let's create a 
+variable to hold our object. So let's call this object or this new 
+instance the explorer. And to that we are going to, and we'll use 
+explorer to create this new SUV object. So let explorer = new SUV(). So 
+we have a new explorer instance of the SUV object.</p>
+<p>[Video description begins] <em> the code on line 31 is: let explorer, =, new SUV, open curve bracket, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>And, of course, we're going to have to pass to the constructor 
+function the size and passengers. So let's fill in those parentheses 
+with the size and passengers.</p>
+<p>[Video description begins] <em> The presenter put the size and number
+ of passengers in code 31, Now, the code is, let explorer, =, new SUV, 
+open curve bracket, open quote, Mid, close quote, comma, open quote, 6, 
+close quote, close curve bracket, semi-colon.</em> [Video description ends]</p>
+<p>And really that's all we need to do to demonstrate inheritance. 
+Because now that explorer object has access to everything in the vehicle
+ object. So I can do something like this, well, on line 32 I'm going to 
+put in a comment. And then beneath that I'm going to say explorer., now I
+ can access the make of the explorer object. And I can have that 
+assignment, let's say something like Ford.</p>
+<p>[Video description begins] <em> the code on line 33 is: explorer, dot, make, =, open quote, ford, close quote, semi-colon.</em> [Video description ends]</p>
+<p>I can also access all of the other properties of the vehicle object. So for example, I can say explorer.cost = 12000 let's say.</p>
+<p>[Video description begins] <em> the code on line 34 is: explorer, dot, cost, =, 12000, semi-colon.</em> [Video description ends]</p>
+<p>And that's it, that's all I have to do. Let's save these changes, 
+refresh the browser screen. And in the developer tools, what I'm going 
+to do is I'm going to access that explorer object. So explorer, ., let's
+ say cost. And it will give me 12000. Now, explorer., let's say year 
+will not give me anything because I did not define what that year is. 
+But I have just demonstrated with the use of the prototype keyword how 
+to establish or how to implement inheritance in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="051d8c90-73a9-11e8-82d9-bf3deb09ab23">
+Exercise: Working with Functions and Objects
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Exercise: Working with Functions and Objects. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this exercise, we will use JavaScript objects to first of all 
+create an employee object with certain properties, first name, last 
+name, and salary. The employee object will have one method, and that 
+method is going to return the first name and last names concatenated 
+together. You will then use prototypical inheritance to add yet another 
+method. This method will return the first and last names, as well as the
+ salary all concatenated together. So to add a new method, it's the same
+ concept as adding a property that you would have seen in a prior video.
+ Create an employee object to test out that second method. Now you may 
+pause the video, try this problem on your own, and then return to the 
+video to see how I would approach this particular problem. So the first 
+thing we needed to do was create an employee object with the first name,
+ last name, and salary.</p>
+<p>[Video description begins] <em> A notepad ++ with scripts and a browser is displayed.</em> [Video description ends]</p>
+<p>I've already done this between lines 12 and lines 19.</p>
+<p>[Video description begins] <em> The code on line 12 is: function, 
+employee, open curve bracket, f name, comma, l name, comma, salary, 
+close curve bracket, open curly bracket. The code on line 13 is: this 
+dot f name, = f name, semi colon. The code on line 14 is: this dot l 
+name, = l name, semi colon. The code on line 16 is: this dot salary, = 
+salary, semi colon. The code on line 17 is: this dot full name, = 
+function, open close curve brackets, open curly bracket. The code on 
+line 18 is: return, accent, $ sign, open curly bracket, this dot f name,
+ close curly bracket, $ sign, open curly bracket, this dot l name, close
+ curly bracket, accent, semi colon. The code on line 19 is: close curly 
+bracket, semi colon.</em> [Video description ends]</p>
+<p>The second thing was that this employee object should have one method
+ that returns the first and last names concatenated that you see on line
+ 17. Now we need to use prototypical inheritance to add yet another 
+method. And this method is going to return not just the first and last 
+names concatenated, but also the salary is going to be concatenated. And
+ it's the same concept as when we did property inheritance. So remember 
+that every object created in JavaScript has a prototype property. That's
+ the property that we can use to simulate inheritance. So we've already 
+got an employee object, so all I need to do is tap in to that prototype 
+property and add on any functionality that I need. So what I could do is
+ start by declaring this statement, Employee.prototype.nameAndSalary. So
+ I'm going to be calling my new method name and the salary. Now I need a
+ method here, so that statement is going to be equal to some type of 
+function.</p>
+<p>[Video description begins] <em> He adds a new line of code on line 
+21. The code here is: Employee dot prototype dot name and salary = 
+function, open close curve brackets, open curly bracket.</em> [Video description ends]</p>
+<p>Now what I place in the function would be something like this, I 
+would say let's return some sentence. So basically, I'm going to be 
+using this method to return an entire sentence. So that sentence is 
+going to be, and well I know I need at least one template. And maybe 
+I'll add some words works for. So I need two templates at this point. 
+Now you might be thinking, well it should be three, it should be first 
+name, last name, and salary. But remember, we already have a method that
+ returns the full name. That method has been started on line 16 and ends
+ on line 18. So let's use that method here, okay. So this.fullName as a 
+method call will return the entire name. So all we really need to do now
+ is insert the salary itself within the return statement.</p>
+<p>[Video description begins] <em> He adds a new code on line 22. The 
+code here is: return, accent, $ sign, Open curly bracket, this dot full 
+name, open close curve bracket, close curly bracket, works for, $ sign, 
+open curly bracket, this dot salary, close curly bracket, accent, semi 
+colon.</em> [Video description ends]</p>
+<p>So I believe this is all we need, but the next thing that we would 
+want to do is create a new object, an employee object. So let TJones, 
+let's say, so this is the name of the employee, that's going to be equal
+ to a new employee object, right.</p>
+<p>[Video description begins] <em> He adds a new code on line 25, The 
+code here is: let T Jones = He adds a new code on line 26. The code here
+ is: new, employee, open curve bracket, open quote, tom, close quote, 
+comma, open quote jones, close quote, comma, open quote, 55000, close 
+quote, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>And we'll have to fill in that employee object, the constructor I 
+mean, with the first name, last name, and salary. Once we have that, the
+ last thing would be to print it out. So we've already got a p1 tag. 
+Let's use that p1 tag, the innerHTML of that p1 tag, to display TJones, 
+which is our new employee object, period and then the name of the method
+ that we want to use which is nameAndSalary.</p>
+<p>[Video description begins] <em> He adds a new code on line 27. The 
+code here is: p 1, dot inner HTML, =, t jones, period, name and salary, 
+open close curved brackets, semi colon.</em> [Video description ends]</p>
+<p>And that's it, that would be all that we need to do. Now I can save 
+these changes, and let's refresh the browser screen to see what these 
+changes will look like. Let's refresh the browser screen, and there you 
+see that Tom Jones works for $55,000.</p></div>
+</div>
+
+
+</body></html>

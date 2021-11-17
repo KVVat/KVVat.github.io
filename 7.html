@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="description" content="JavaScript Front-end Development: Errors, Events, Objects, &amp; New Features Transcript">
+<title>JavaScript Front-end Development: Errors, Events, Objects, &amp; New Features Transcript</title>
+</head>
+<body>
+<h1>JavaScript Front-end Development: Errors, Events, Objects, &amp; New Features</h1>
+<p>JavaScript has rich language features to help you deal with errors 
+and events. This course explores the basics of events and error handling
+ and also covers working with strings, numbers, dates and some new 
+ECMAScript language features. You'll start by exploring techniques for 
+JavaScript front end development. Next, you will discover events and 
+event handlers, and perform error handling. Other topics of this course 
+include the following: how to consider the fundamentals of strings; 
+perform common string operations; create and use regular expressions; 
+format numbers, and perform common operations, with the Number object; 
+how to perform common calculations with the Math object; how to use the 
+Date object; how to explore how to use the LET and CONST keywords, 
+instead of VAR, when a variable is declared. As you progress, you will 
+discover JavaScript's KeyedCollection, and use the Map and Set objects. 
+Conclude by learning how to use hoisting, string padding, Async 
+Functions, and Promises.</p>
+<div>
+<h2>Table of Contents</h2>
+<ol><li><a href="#c83712d0-7b76-11e8-b52b-2d384025e4de">JavaScript Events and Event Handlers</a></li>
+<li><a href="#cccbdd30-7b76-11e8-b52b-2d384025e4de">JavaScript Error Handling</a></li>
+<li><a href="#cf2a1880-7b76-11e8-b52b-2d384025e4de">JavaScript String Basics</a></li>
+<li><a href="#d268a1b0-7b76-11e8-b52b-2d384025e4de">Common String Methods</a></li>
+<li><a href="#d5346be0-7b76-11e8-b52b-2d384025e4de">Regular Expressions</a></li>
+<li><a href="#d81f08b0-7b76-11e8-b52b-2d384025e4de">Number Object</a></li>
+<li><a href="#dafa3c30-7b76-11e8-b52b-2d384025e4de">The Math Object</a></li>
+<li><a href="#ddeaa560-7b76-11e8-b52b-2d384025e4de">Working With Date and Time</a></li>
+<li><a href="#e0ca6cc0-7b76-11e8-b52b-2d384025e4de">JavaScript let and const Keywords</a></li>
+<li><a href="#e3aaa950-7b76-11e8-b52b-2d384025e4de">Keyed Collections</a></li>
+<li><a href="#e6450340-7b76-11e8-b52b-2d384025e4de">Async Functions and Promises</a></li>
+<li><a href="#e8e32dc0-7b76-11e8-b52b-2d384025e4de">Hoisting</a></li>
+<li><a href="#eb757160-7b76-11e8-b52b-2d384025e4de">String Padding</a></li>
+<li><a href="#ee27c020-7b76-11e8-b52b-2d384025e4de">Exercise: JavaScript Events</a></li>
+</ol></div>
+<div>
+<h2 id="c83712d0-7b76-11e8-b52b-2d384025e4de">
+JavaScript Events and Event Handlers
+</h2>
+<div><p>[Video description begins] <em> Topic Title: JavaScript Events and Event Handlers. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at events and event
+ handlers in JavaScript. On the screen we have Notepad++ opened up, and 
+it is pointing to an HTML file. And within that file, on line 4, we are 
+pointing to a JavaScript file. That file is empty at the moment, but we 
+will fill it in. It's an external file, and we will fill that in 
+shortly. On the right side of the screen is a Chrome browser that is 
+rendering the page you see on the left, the HTML page on the left.</p>
+<p>[Video description begins] <em> In browser, the following text 
+appears This is a paragraph. This is another paragraph. It also has a 
+Button labeled as, button On-Click event:</em> [Video description ends]</p>
+<p>So this demonstration is about events, and events happen all the 
+time. What we're looking at on the right hand side is a browser window 
+that is open. And the moment this browser window was opened, that in 
+itself was an event. Every time I move my mouse over this browser page 
+it is an event, or there are several events that are happening. When we 
+close the browser, that's another event. And when I move my mouse over 
+different parts of the page, these can also trigger events. But one of 
+the most common event, of course, is the button click event. So we have 
+on this page a button, and if I were to click on it then, actually there
+ are several events that are happening.</p>
+<p>There's a button press, there's a button release, there's a 
+mouseover, a hover over. These are all events that are happening just on
+ that one button, on that button itself or the surface of the button 
+itself. But today we will focus on the button click event. So JavaScript
+ was meant to work with these events, to handle these events as they 
+occur. Events are basically triggers. Now, on the left side of your 
+screen there's an HTML document. And as I mentioned, it is supposed to 
+be pointing to a scripts.js file. So let's go ahead and complete that. 
+So on line 4 we have a script tag and a source, attribute of that script
+ tag.</p>
+<p>[Video description begins] <em> The code on line 4 is: open angular 
+bracket, script, S r c, =, double quote, double quote, close angular 
+bracket, open angular bracket, slash, script, close angular bracket.</em> [Video description ends]</p>
+<p>And within those double quotation marks is where we are going to 
+identify the JavaScript file that this HTML document is going to work 
+with.</p>
+<p>[Video description begins] <em> On code line 4, between double quote, he declares scripts dot j s.</em> [Video description ends]</p>
+<p>Once we've done that, then we need to start what's called wiring up 
+our button event. So on lines, let's see, lines 15 and 16, that's our 
+button tags.</p>
+<p>[Video description begins] <em> The code on line 15 is: open angular 
+bracket, button, close angular bracket. The code on line 16 is: Button 
+on-click event, open angular bracket, slash, button, close angular 
+bracket.</em> [Video description ends]</p>
+<p>And within the button tag, one of the attributes is that we can now 
+tap into or get into the trigger of this button. So on line 15 where it 
+says button, I'm going to change that tag to include the On-click 
+events, or to capture the On-click event.</p>
+<p>[Video description begins] <em> He modifies the code on line 15, the new code is, open angle bracket, button, on click, close angle bracket.</em> [Video description ends]</p>
+<p>Now, once I capture the On-click event, I have to point it to 
+JavaScript function. So let's finish the On-click event. So whenever 
+that On-click happens it's going to be pointing to a function. And that 
+function is going to be called message.</p>
+<p>[Video description begins] <em> On code line 15, after on-click, he 
+declares, =, double quote, message, open close curved brackets, double 
+quote. the new code is, open angle bracket, button, on click, =, double 
+quote, message, open close curved brackets, double quote, close angle 
+bracket.</em> [Video description ends]</p>
+<p>Now, I haven't written the function as yet. But at least now my 
+button is going to be pointing to a message function. Let's move over to
+ the JavaScript file where I am now going to write that function. So I 
+definitely need the word function. And from that point on I would name 
+that function message. I have my curly braces, and within those curly 
+braces is where I am going to define what this function is going to do.</p>
+<p>[Video description begins] <em> On code line 1, he writes function, 
+message, open close curved bracket, open curly bracket. On code line 2, 
+the following code is present: close curly bracket.</em> [Video description ends]</p>
+<p>So basically, all I really want to do is issue some kind of an alert.</p>
+<p>[Video description begins] <em> He declares a code on line 2. The code is: alert, open close curved brackets, semi-colon.</em> [Video description ends]</p>
+<p>So the user clicks on that button. And they get a message popping up 
+on the browser screen. And all I really wanted to display is a simple 
+message. You have just witnessed an event in JS!</p>
+<p>[Video description begins] <em> On code line 2, between open close 
+curved brackets, the following text appears: open quote, You have just 
+witnessed an event in J S, exclamation mark, close quote., The new code 
+is, alert, open curved bracket, open quote, You have just witnessed an 
+event in J S, exclamation mark, close quote, close curved bracket, 
+semi-colon.</em> [Video description ends]</p>
+<p>Now, the good thing about Notepad++ is that, if you notice, I've made
+ changes on both documents. So this icon which, one, two, three, the 
+fourth icon to the right is a Save All icon. If I click on that, then I 
+will save all of the files that had changes to them. Now, once those 
+changes have been saved I can move over to my browser screen, refresh 
+the browser screen. And now when I click on that button I see the event 
+happening.</p>
+<p>[Video description begins] <em> He clicks on Button on-click event, a
+ message box with the following text appears on the screen: This page 
+says, You have just witnessed an event in J S.</em> [Video description ends]</p>
+<p>I'll click OK on the message box to make it go away. And back on the 
+Notepad++, you can now go ahead and wire up several other events. So, 
+for example, there's the hover event. There is the mouseover event. 
+There is the timer event if you wanted to have something happen after a 
+certain amount of time has passed. So there are a lot of events in 
+JavaScript, and a lot of events that the HTML document can trigger.</p></div>
+</div>
+<div>
+<h2 id="cccbdd30-7b76-11e8-b52b-2d384025e4de">
+JavaScript Error Handling
+</h2>
+<div><p>[Video description begins] <em> Topic Title: JavaScript Error Handling. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we are going to take a look at error handling 
+with JavaScript. I have Notepad++ opened and there are two files in 
+Notepad++. An HTML document and that HTML document is pointing to an 
+external JavaScript file on line 4.</p>
+<p>[Video description begins] <em> The code on line 4 is: open angular 
+bracket, script, s r c, =, double quote, scripts.js, double quote, close
+ angular bracket, open angular bracket, slash, script, close angular 
+bracket.</em> [Video description ends]</p>
+<p>So that's the second document that is opened in Notepad++, as you can see,</p>
+<p>[Video description begins] <em> He shifts to the second document open in notepad ++. it is titled scripts.js</em> [Video description ends]</p>
+<p>there is the external JavaScript file with one function on it.</p>
+<p>[Video description begins] <em> He points to the code on line 1. The 
+code here is: function, demo, open curve bracket, x, close curve 
+bracket, open curly bracket.</em> [Video description ends]</p>
+<p>I'm going to switch back over now to HTML file. On the right side of 
+your screen is a Chrome browser that is opened up and displaying or 
+rendering the file, the HTML file that you see on the left. Now in 
+Chrome, I also have the developer tools opened because we are working 
+with errors and I wanted to make sure that there are no syntax errors 
+once we start working with our JavaScript in this case. So let's take a 
+look at line 15, that's our button tag and it is pointing to a demo 
+function when the onclick event occurs.</p>
+<p>[Video description begins] <em> The code on line 15 is: open angular 
+bracket, button on click, =, double quote, demo, open curve bracket, 2, 
+close curve bracket, double quote, close angular bracket.</em> [Video description ends]</p>
+<p>And it's also passing a parameter, an argument of 2 to the demo 
+function. So that demo function will of course be defined in the 
+scripts.js file. And there you see it, right there. It is expecting a 
+parameter to be passed, and the rest of the function is defined between 
+lines 2 and 6.</p>
+<p>[Video description begins] <em> In the script.js file, the presenter 
+points to x, in the code on line 1. He then shifts to the codes present 
+between lines 2 and 6. The code on line 2 is: double quote, use strict, 
+double quote, semi colon. The code on line 3 is: var, answer =0, semi 
+colon. The code on line 4 is: let scores =, open square bracket, 4, 
+comma 9, comma, 6, comma, 5, comma, 7, close square bracket, semi colon.
+ The code on line 5 is: answer = scores, open square bracket, x, close 
+square bracket, semi colon. The code on line 6 is: document dot get 
+element by ID, open curve bracket, double quote, p2, double quote, close
+ curve bracket, dot, inner HTML, = answer, semi colon.</em> [Video description ends]</p>
+<p>We will be changing this function as we move on. So this function is 
+only for demonstration, nothing here really makes much sense. But it is 
+expecting a parameter, and in this case, I believe we're passing a 2, so
+ 2 will be passed into demo.</p>
+<p>[Video description begins] <em> He shifts to the first document and highlights 2, in the code on line 15. He then goes back to the script.js file.</em> [Video description ends]</p>
+<p>That 2 will then be used within the scores array to pick out</p>
+<p>[Video description begins] <em> He highlights scores in the code on line 5.</em> [Video description ends]</p>
+<p>the third element, in this case, it's going to be 6.</p>
+<p>[Video description begins] <em> He highlights x in the code on line 5.</em> [Video description ends]</p>
+<p>That 6 will then be stored in another variable called answer,</p>
+<p>[Video description begins] <em> He highlights answer in the code on line 5.</em> [Video description ends]</p>
+<p>which will then be displayed on the p2 tag.</p>
+<p>[Video description begins] <em> He highlights p2, in the code on line 6.</em> [Video description ends]</p>
+<p>Which is, if we move over to the Chrome document, it's a paragraph 
+that says, This is another paragraph. So those words will be replaced by
+ answer, whatever that answer happens to be.</p>
+<p>[Video description begins] <em> He highlights answer in the code on line 6.</em> [Video description ends]</p>
+<p>So just to demonstrate, if I click on the button right now, we do see
+ a 6 because, remember we passed in 2, so that's our third element.</p>
+<p>[Video description begins] <em> He clicks on a button titled, button on-click event, present in the browser. A result, which is 6, is displayed.</em> [Video description ends]</p>
+<p>So 0, 1, 2, so the 6 is being grabbed by the scores subscript 6, scores subscript 2 will return the 6 in this case.</p>
+<p>[Video description begins] <em> He highlights 6, in the code on line 
+4. He then highlights scores, open square bracket, x, close square 
+bracket, in the code on line 5.</em> [Video description ends]</p>
+<p>That 6 would be stored in answer. 6 is now going to be replaced by 
+whatever the paragraph tag said before. Let's refresh the browser 
+screen. So now it's back to the original and I'll move over to the 
+scripts tag. Now, what we want to do is insert the error handling 
+method. In this case, it's a try catch block and it works exactly like 
+in other languages like C++ or Java, C#, etc. So the idea is that if you
+ think something is going to go wrong or could go wrong, then let's wrap
+ up that part of our code that we think an error might occur within this
+ try catch block. So what I'm going to do is between lines 2 and 3 and 
+then between lines 4 and 5, I'm going to make some space myself. So, 
+let's make some space now.</p>
+<p>[Video description begins] <em> An empty space is created in line 4 
+and line 7. The code on line 4 has shifted to line 5 and the code on 
+line 5 has shifted to line 6. The code on line 6 is now on line 8.</em> [Video description ends]</p>
+<p>And I expect an error to happen between lines 5 and 6, okay? So 
+between lines 5 and 6, what I'm going to do is move those over to the 
+right and then wrap those up with a try catch block. So that try catch 
+block obviously starts on 4 and finishes on 7.</p>
+<p>[Video description begins] <em> In line 4, he adds a new code: try, open curly bracket. In line 7, he adds the code: close curly bracket.</em> [Video description ends]</p>
+<p>And it means then that if ever anything occurs, any error occurs 
+between 5 and 6, I can now write a catch block to catch that error. So 
+on line 7, I have inserted a catch block. And then what I want to do now
+ is make some space again, and</p>
+<p>[Video description begins] <em> He adds a space between line 7 and 9. Line 8 is now empty and the code on line 8 has shifted to line 10.</em> [Video description ends]</p>
+<p>then I can write whatever I want to have happen when that error occurred.</p>
+<p>[Video description begins] <em> He modifies the code on line 7. The code is: close curly bracket, catch, open curly bracket.</em> [Video description ends]</p>
+<p>So what I want to have happen then is I want to make that same answer
+ but use the same variable answer but store something different. I'm 
+going to store maybe a message to the user that something happened. So 
+I'm going to say, answer is equal to, and whatever that message is going
+ to be. Remember, this message will only happen when there's an error. 
+So what I want to let the user know is that hey, there's invalid data 
+that you passed over to this function.</p>
+<p>[Video description begins] <em> He adds a new code on line 8. The code here is: answer, =, open quote, invalid data, exclamation mark, close quote, semi colon.</em> [Video description ends]</p>
+<p>So with just those simple changes I can refresh, I can save those 
+changes, refresh the browser screen. I could click on button, and so far
+ nothing's happening. So let's refresh the screen again, let's make 
+something happen, let's invoke an error. Notice that I have on line 2, 
+use strict.</p>
+<p>[Video description begins] <em> He highlights the code on line 2.</em> [Video description ends]</p>
+<p>Let's say, what happens if I did not use the let statement or let 
+keyword in front of scores. So let's remove let, save the change, 
+refresh the browser screen,</p>
+<p>[Video description begins] <em> He removes let, from the code on line 5.</em> [Video description ends]</p>
+<p>notice nothing happens. But if I click on the button click event, it 
+says, Invalid data. So the catch block was triggered, in this case, 
+because an error occurred between lines 5 and 6. So let's put in that 
+word back there, that keyword, let. And now what I want to demonstrate 
+is the finally block.</p>
+<p>[Video description begins] <em> He adds let, at the beginning of line 5.</em> [Video description ends]</p>
+<p>So just like in other languages, we do have a finally block, I'm 
+going to put that in on line 9, and I'm going to make some space again.</p>
+<p>[Video description begins] <em> The new code on line 9 is: close curly bracket, finally, open close curly brackets.</em> [Video description ends]</p>
+<p>And what I'm going to put inside of the finally block will run, will 
+execute no matter what. So as long as I hit that button, whatever I have
+ in finally will execute regardless of whether there was an error or 
+not.</p>
+<p>[Video description begins] <em> He removes the close curly bracket 
+from the end of line 9 and shifts it to line 11. An empty space is added
+ on line 10. The code on line 10 has shifted to line 12.</em> [Video description ends]</p>
+<p>Probably want to access the third paragraph, which is underneath the 
+button, and I want to issue some other message. So I'm going to say, the
+ inner HTML of that paragraph is equal to something, and I can probably,
+ again, this is just for demonstration purposes. I'll say that the 
+finally always execute.</p>
+<p>[Video description begins] <em> New codes are added on line 10 and 
+11. The code on lines 11 and 12 have shifted to 12 and 13 respectively. 
+The new code on line 10 is: document dot get element by ID, open curve 
+bracket, double quote, p3, double quote, close curve bracket, dot, inner
+ HTML, =. The code on line 11 is: open quote, finally will always 
+execute, exclamation mark, close quote, semi colon.</em> [Video description ends]</p>
+<p>Let's save those changes, refresh the browser screen, click on the 
+button click event. Notice that everything works fine just like we did 
+before, except that we now have the finally block executing. And it's 
+replacing the paragraph 3 with the words that I have on line 11.</p>
+<p>[Video description begins] <em> On the browser, the text, Finally will always execute, exclamation mark, appears below the button.</em> [Video description ends]</p>
+<p>So finally will always execute.</p></div>
+</div>
+<div>
+<h2 id="cf2a1880-7b76-11e8-b52b-2d384025e4de">
+JavaScript String Basics
+</h2>
+<div><p>[Video description begins] <em> Topic Title: JavaScript String Basics. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to work with JavaScript Strings. On 
+the screen, I have Notepad++ opened up, and it is pointing to an HTML 
+file. That HTML file is pointing on line 4 to an external JavaScript 
+file called Scripts.js.</p>
+<p>[Video description begins] <em> The code on line 4 is: open angular 
+bracket, script, s r c, =, double quote, scripts.js, double quote, close
+ angular bracket, open angular bracket, slash, script, close angular 
+bracket.</em> [Video description ends]</p>
+<p>I've also got that opened up in Notepad++ on the second tab. On the 
+right side of your screen is a Chrome browser rendering the file that 
+you see on the left. Now this demonstration is just to show some basic 
+ideas and concepts about strings. So the first thing to understand is 
+that when we work with a browser we are working with strings. The 
+browser does not understand numbers or decimals or objects. It 
+understands strings. So anything that is displayed on a browser window 
+is, in the end, a string. So I've got a button on the browser. And that 
+button is wired up to a demo function that is inside of our external 
+file.</p>
+<p>[Video description begins] <em> He highlights the code on line 14. 
+The code here is: open angular bracket, button on click, =, double 
+quote, demo, open curve bracket, open quote, a string, period, close 
+quote, close curve bracket, double quote, close angular bracket.</em> [Video description ends]</p>
+<p>We are passing to that demo function, it's a string called a string.</p>
+<p>[Video description begins] <em> He highlights, a string, in the code on line 14.</em> [Video description ends]</p>
+<p>So if we go to that function we see that our demo function is here. 
+And it is accepting a string via some kind of a variable called x in 
+this case.</p>
+<p>[Video description begins] <em> He shifts to the tab titled, 
+scripts.js in notepad++. He goes to the code on line 1. the code here 
+is: function, demo, open curve bracket, x, close curve bracket, open 
+curly bracket. He highlights x, in the code.</em> [Video description ends]</p>
+<p>The first thing I wanted to demonstrate is concatenation. And we see 
+that happening in the function definition between lines 2 and 3.</p>
+<p>[Video description begins] <em> The code on line 2 is: document dot 
+get element by ID, open curve bracket, double quote, p2, double quote, 
+close curve bracket, dot, inner HTML, =. The code on line 3 is: accent, 
+this is $ sign, open curly bracket, x, close curly bracket, accent, semi
+ colon.</em> [Video description ends]</p>
+<p>So what I'm doing is I'm taking the string that was passed via the variable x and concatenating it to another string on line 3.</p>
+<p>[Video description begins] <em> He highlights x in the code on line 1, and then highlights, This is, in the code on line 3.</em> [Video description ends]</p>
+<p>That entire sentence will be sent to the paragraph 2 tag, the 
+innerHTML of that tag on the browser screen. And what you're seeing on 
+the right side of your screen is that entire string. So you don't see, 
+this is, you see, this is a string. Because the a string part was passed
+ in via our variable x, or parameter x, in this case. So concatenation 
+can happen in strings and by the way I'm using templated strings here. 
+But, of course, the traditional concatenation character, that plus 
+character, can also be used. The other thing that we need to remember 
+about strings in Javascript is that every string is an object. And it 
+means then that object would probably have properties and methods or 
+both. In the case of our string x, it does have a property called length
+ that we can tap into. So if I wanted to print the length, for example, I
+ could probably extend the length, well, the sentence on line 3, I can 
+expand that sentence to perhaps print our length. So I can say, and the 
+length is, and here, I'm going to use the template again. So it's $ and 
+two curly braces and now I can use my x and invoke that property of that
+ x called length.</p>
+<p>[Video description begins] <em> He modifies the code on line 3. The 
+new code on line 3 is: accent, this is $ sign, open curly bracket, x, 
+close curly bracket, comma, the length is $ sign, open curly bracket, x 
+dot length, close curly bracket, accent, semi colon.</em> [Video description ends]</p>
+<p>So with just that change let's save our change to line 3, refresh the
+ browser screen, click on the button again, and I must have spelled it 
+wrong. L-E-N-G-T-H, so let's spell it correctly and we should now see 
+the number 9. Let's refresh the browser screen, click that button again,
+ and there is the length is 9.</p>
+<p>[Video description begins] <em> The result on browser screen is: This is a string, period, comma, the length is 9.</em> [Video description ends]</p>
+<p>But this also means that we can invoke methods of the string object. 
+So JavaScript has included a method called bold. And let's just say, I 
+wanted to bold just the 9 in this case. Well, there's a couple of things
+ I have to do. First of all, I am going to push the 9 part over to the 
+next line in my JavaScript file, so that I don't run off the side of the
+ page.</p>
+<p>[Video description begins] <em> He breaks the code on line 3. The 
+code on line 3 is: accent, this is $ sign, open curly bracket, x, close 
+curly bracket, comma, the length is. The code on line 4 is: $ sign, open
+ curly bracket, x dot length, close curly bracket, accent, semi colon.</em> [Video description ends]</p>
+<p>Now once I've done that, I can wrap up my x.length, which is a number
+ by the way. So because it's a number, I'm going to have to turn that 
+number into a toString before I can invoke the bold method on our 
+string. So x.length, I'm going to have to access the toString method. So
+ toString, first of all, that'll turn the 9 into a string. Now I can 
+call upon or invoke the bold method. So now that I have a string, I can 
+invoke the bold method on that string,</p>
+<p>[Video description begins] <em> He modifies the code on line 4. The 
+new code is: $ sign, open curly bracket, open curve bracket, x dot 
+length, close curve bracket, dot, to string, open close curve brackets, 
+dot bold, open close curve brackets, close curly bracket, accent, semi 
+colon.</em> [Video description ends]</p>
+<p>save my changes, refresh the browser screen, click the button again, 
+and now just the 9 only is bolded. So stings act as objects as well. Now
+ the last part of this discussion is to work with strings in the console
+ window. Now remember, the browser can only understand strings and it 
+doesn't understand anything else like numbers or decimals or even 
+objects. But if we pass our string, our sentence in this case between 
+lines 3 and 4, to the console window. Then what we're doing is we're 
+working with a different technology. So let's see what this looks like. 
+I'll replace line 2, the entire line 2, with just the console.log. I'll 
+wrap everything up in parenthesis.</p>
+<p>[Video description begins] <em> He changes the code on line 2. The 
+new code is: console, dot log, open curve bracket. He adds a close curve
+ bracket between accent and semi colon, on line 4.</em> [Video description ends]</p>
+<p>And I'll save those changes, refresh the browser screen. Click the 
+button and then down below in the console window, you see the result of 
+doing those changes to lines 3 and 4.</p>
+<p>[Video description begins] <em> The console on the browser shows the 
+result in two lines. The first line is: This is a string, period, comma,
+ The length is. The second line is: open angular bracket, b, close 
+angular bracket, 9, open angular bracket, slash, b, close angular 
+bracket.</em> [Video description ends]</p>
+<p>What the console window has done is it has treated this string, our 
+templated string in this case, as a literal. Meaning that it saw a break
+ after the is, the word is, and the console window sought to put the 
+next line down onto the next line in the console window. But this is 
+great. This could probably work to our advantage. So, for example, if I 
+wanted to move the entire, the length is, part of the string, I can 
+probably put a \n in front of that.</p>
+<p>[Video description begins] <em> He adds a back slash n, before, the length is, in the code on line 3.</em> [Video description ends]</p>
+<p>Save those changes, refresh the browser screen, click the button, and now the length has been pushed over to the next line down.</p>
+<p>[Video description begins] <em> The console on the browser shows the 
+result in 3 lines. The first line is: This is a string, period, semi 
+colon, The second line is: The length is. The third line is: open 
+angular bracket, b, close angular bracket, 9, open angular bracket, 
+slash, b, close angular bracket.</em> [Video description ends]</p>
+<p>And we can do this with several of these escape characters in the 
+console window, we won't be able to this with the browser. So that's a 
+basic look at strings in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="d268a1b0-7b76-11e8-b52b-2d384025e4de">
+Common String Methods
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Common String Methods. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to discuss JavaScript string 
+methods. On the screen we have an HTML document opened in Notepad++. On 
+the right side of the screen is a Chrome browser rendering that document
+ on the left. The HTML document on the left has some JavaScript between 
+lines 10 and 14.</p>
+<p>[Video description begins] <em> The code on line 10 is: open angular 
+bracket, script, close angular bracket. The code on line 11 is: let, p 
+1, =, document dot get Element By I D, open curved bracket, double 
+quote, p1, double quote, close curved bracket, semi-colon, The code on 
+line 12 is: let, s s, =, open quote, Percipio by Skillsoft, close quote,
+ semi-colon. The code on line 13 is: p1, dot inner Html, =, s s, 
+semi-colon. The code on line 14 is: open angular bracket, slash, script,
+ close angular bracket.</em> [Video description ends]</p>
+<p>The HTML document has a p1 tag on line 8, and the JavaScript between</p>
+<p>[Video description begins] <em> The code on line 8 is: open angular 
+bracket, p, i d, =, double quote, p 1, double quote, close angular 
+bracket, open angular bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>lines 10 and 14 is using that p1 tag to pass a sentence to it. So on 
+line 12, there's a variable called ss, and to that variable is assigned a
+ sentence. That sentence is then being passed to the p1.innerHTML, and 
+that's what is showing on the browser on the right side of your screen. 
+So this is about string methods and one of the more popular methods is 
+the toUpperCase method. So I can take my ss variable, which is in effect
+ a sort of like a string object, I can take that object and apply the 
+toUpperCase method to it. So I can do something like, on line 13, I can 
+add the toUpperCase</p>
+<p>[Video description begins] <em> He goes to the code line 13. The code
+ is: p 1, dot inner html, =, s s, semi-colon. After S S, he writes dot 
+to Uppercase, open close curved bracket.</em> [Video description ends]</p>
+<p>method to that string object, save those changes, refresh the browser screen, and now the entire sentence is now uppercase.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text appears on the screen: 
+JavaScript String Methods. The following text in Uppercase appears on 
+the screen: Percipio By SkillSoft.</em> [Video description ends]</p>
+<p>Now that may be what was required. But in my case, I really only want
+ to target the first word, Percipio in this case. And I want to turn 
+that into uppercase, but leave everything else the way it is. So 
+JavaScript, like in most other languages, does have a substring method. 
+And I can apply that substring method before I apply the toUpperCase 
+method. So again, on line 13, I am going to change that statement there.
+ I'm going to change ss, instead of ss.toUpperCase, I'm going to insert 
+before the toUpperCase on line 13, I'm going to insert the substring 
+method.</p>
+<p>[Video description begins] <em> He goes to the code line 13. after s s, he writes dot Substring, open close curved bracket</em> [Video description ends]</p>
+<p>Now as in most other languages, you have to tell substring exactly 
+where you want to start and where you want to end. And substring will 
+remove just that part of the sentence for you, and then you can apply 
+the toUpperCase afterwards. So I need to tell it to start at point 0, 
+which is the P, and go for 8 characters, because Percipio is eight 
+letters long.</p>
+<p>[Video description begins] <em> He goes to the code line 13. After substring, he writes 0, comma 8 between the open-close curved brackets.</em> [Video description ends]</p>
+<p>So now I have isolated Percipio and I've turned it into an uppercase 
+word. So let's save these changes, refresh the browser screen, and 
+there's my Percipio all in uppercase.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text appears on the screen: 
+JavaScript String Methods. The following text in Uppercase appears on 
+the screen: Percipio.</em> [Video description ends]</p>
+<p>The thing is, I have to find now a way to sort of join back the rest 
+of the sentence to what I have on the screen. So because I'm going to be
+ running off the side of the Notepad++ document, I'm going to move over 
+to line 14 with the next statement. So what I want to do is somehow 
+concatenate back the rest of the sentence. So let's see, on line 13 I'm 
+going to add the concatenation character and then on line 14 I'm going 
+to use that same substring again.</p>
+<p>[Video description begins] <em> On line 14, he declares a code. The code is: s s dot substring, open close curved brackets, semi-colon.</em> [Video description ends]</p>
+<p>But this time, I'm going to start in the sort of like the middle, 
+just after the Percipio word. I'll start there, so that's position 8. 
+Now, I need to go to the rest of the sentence because I need the entire 
+sentence. Now if you remember, we do have a property of string objects 
+called a length, so I could use that to my advantage here.</p>
+<p>[Video description begins] <em> On code line 14, between the open close curved bracket, he writes, 0, comma, s s dot length.</em> [Video description ends]</p>
+<p>So, basically, what I'm saying is that let's take Percipio in 
+uppercase, but concatenate it back with the rest of the string but 
+starting at position 8 and going until the string ends. Let's save these
+ changes, refresh the browser screen, and notice that everything is back
+ together again.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text appears on the screen: 
+JavaScript String Methods. Percipio By Skillsoft. In the last sentence, 
+Percipio is in the uppercase.</em> [Video description ends]</p>
+<p>But whenever Skillsoft talks about Percipio, it talks about Percipio 
+as being powered by Skillsoft. So I want to use the same sentence but 
+insert the word powered before the word by in this case. So it means, 
+then, that I have to target that space between O and b, and somehow 
+insert a new word into that space. If we look at what's on the browser 
+screen right now, we can think of that entire structure as an object. 
+And it means, then, that I can probably sort of isolate that object by 
+wrapping it up in parentheses. So I started on line 13 by wrapping up 
+the first part of that statement</p>
+<p>[Video description begins] <em> He goes to the code line 13. Before s s, he inserts open curved bracket.</em> [Video description ends]</p>
+<p>in parentheses, and ending on line 14 with another closing 
+parentheses. Now I can issue to that entire structure the replace 
+method.</p>
+<p>[Video description begins] <em> He goes to the code line 14. After length, close curved bracket, he writes dot replace, open close curved bracket.</em> [Video description ends]</p>
+<p>So, what do I want to replace? Well, I want to replace that space. So
+ I have to let the replace method know that I want to replace something,
+ and what do I want to replace? Well, I can use the Spacebar between the
+ two apostrophes and tell it that I'm looking for a space. Now what 
+replace is going to do is to look for the very first occurrence of that 
+space character, and that's going to work to our advantage. So, what do I
+ want to replace it with? Well, I want to replace it with something. And
+ that something is the word powered. Now, obviously, in order to make 
+this more readable, I'm going to have to insert a space before the p in 
+the word powered and after d in the word powered.</p>
+<p>[Video description begins] <em> He goes to the code line 14. He 
+writes, open quote, space close quote, comma, open quote, space powered,
+ space close quote,in between the open curved bracket after replace.</em> [Video description ends]</p>
+<p>So with just this simple change, I can save the changes, refresh the browser screen, and there you see my powered by.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text appears on the screen: 
+JavaScript String Methods. Percipio powered by Skillsoft. In the last 
+sentence, Percipio is in the uppercase.</em> [Video description ends]</p>
+<p>So these are just a few string methods in JavaScript, there are a lot
+ more. But at least I've shown you some of the more common ones here.</p></div>
+</div>
+<div>
+<h2 id="d5346be0-7b76-11e8-b52b-2d384025e4de">
+Regular Expressions
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Regular Expressions. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to discuss regular expressions in 
+JavaScript. On the left side of your screen, I have an HTML document 
+opened up, and there's some JavaScript between lines 9 and 17. On the 
+right side of your screen, there is a Chrome browser showing you how the
+ HTML file on the left is going to be rendered. If you're familiar with 
+searching in a text editor or a word processor like Microsoft Word, then
+ regular expressions work behind the scenes for those searches. Also, if
+ you've ever used database searches and used wildcards, then regular 
+expressions are very similar. But the power of regular expressions 
+really come in handy when we have users inputting data or inputting 
+values into text boxes.</p>
+<p>So regular expressions are used to verify certain common patterns 
+like phone numbers, postal codes, emails, etc. So basically regular 
+expressions are used to match one pattern against some body of text. 
+Now, regular expressions is a vast topic on its own. And this 
+demonstration is not about regular expressions, it's about how 
+JavaScript implements regular expressions. And how you, as a developer, 
+can use regular expressions with JavaScript. In JavaScript, there are 
+basically two ways to implement regular expressions, as a literal or by 
+creating a regular expression object. We'll explore both situations in 
+this demonstration. In my first example, on line 10, I've created or 
+declared a variable called ss, and have assigned to that variable a 
+sentence.</p>
+<p>[Video description begins] <em> The code on line 10 is: let ss, =, open quote, percipio by skillsoft, close quote, semi colon.</em> [Video description ends]</p>
+<p>On line 11, I've declared another variable and I'm using ss as though
+ it is an object. And I'm using the search method of that object to find
+ the expression y.</p>
+<p>[Video description begins] <em> The code on line 11 is: let found, =, ss dot search, open curve bracket, slash, y, slash, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>So, basically I'm using a string method and passing it a regular 
+expression. And that string method will return to me a -1 if it does not
+ find the expression within the sentence, or the yes string object in 
+this case.</p>
+<p>[Video description begins] <em> He refers to the code on line 12. The
+ code here is: if, open curve bracket, found, exclamation mark, =, minus
+ 1, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>Other than that, it will return to me some type of positive number or
+ zero if the search item happens to be in the first character in that 
+sentence. So in this first example, we're searching for a y in this 
+sentence Percipio by Skillsoft and it does find it. And I'm using an if 
+statement to figure out whether I get a -1 or not. What's interesting 
+though, is that it not only returns the fact that it's a positive 
+number, this search method will also return what position our y happens 
+to be in. So, if i wanted to find that out. In this case, I know, this 
+is just for demonstration purposes, I know that there is a y. So on my 
+line 13, I could expand that a little bit to concatenate whatever Found 
+happens to be, whatever value that is.</p>
+<p>[Video description begins] <em> The code on line 13 is: p1, dot inner
+ HTML, =, open quote, found, colon, close curve bracket, close quote, +,
+ found, semi colon.</em> [Video description ends]</p>
+<p>I save these changes, refresh the browser screen, I do see that it happens to be at position 10 in that sentence.</p>
+<p>[Video description begins] <em> The result shown on the browser screen is: Found, colon, close curve bracket, 10.</em> [Video description ends]</p>
+<p>Now, there happens to be another string method called match. And 
+match is very interesting because match returns the array when it finds 
+the item. So for that I'm going to restructure my code a little bit. I'm
+ going to keep my line 11, but I'm going to replace search with match.</p>
+<p>[Video description begins] <em> The presenter modifies the code on 
+line 11. Now, the code here is: let found, =, ss dot match, open curve 
+bracket, slash, y, slash, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>And instead of having an if structure, I'm simply going to use the 
+innerHTML of my p1 tag declared on line 8, to display the various method
+ elements of match.</p>
+<p>[Video description begins] <em> He removes the code on line 12. The 
+following lines shift one place up. So, the code on line 13 is now on 
+line 12, and so on. He then removes the codes from line 13 to 15.</em> [Video description ends]</p>
+<p>So let's remove line 12 and I'll remove just about everything else in
+ the stiff structure. And I'm only going to use the innerHTML, and I'm 
+going to pass to that innerHTML, in this case it's going to be an array,
+ so my found array. And I'm going to grab the first element of that 
+array.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. Now,
+ the code here is: p1, dot inner HTML, =, found, open square bracket, 0,
+ close square bracket, semi colon.</em> [Video description ends]</p>
+<p>Let's save this change. So remember, line 12 has now been changed to 
+just an innerHTML of my p1 tag. And I'm accessing the very first element
+ of that found array because match method will return an array to me. 
+Okay, so let's save those changes, refresh the browser screen, and what I
+ get back is the y itself. So that's telling me that my string, in this 
+case, was found. Let's see what will happen if I don't find the string. 
+So I know y together, it does not exist.</p>
+<p>[Video description begins] <em> In the code on line 11, the presenter adds one more y, next to the already present y.</em> [Video description ends]</p>
+<p>Let's save that change, refresh the browser screen, notice nothing 
+happens. But it's not just that nothing happens. Let's hit F12 on the 
+keyboard to get into the developer tools. And what you'll see is that 
+what match actually returned was a null object.</p>
+<p>[Video description begins] <em> In the console on the browser, 
+following text appears: Uncaught type error, colon, cannot read 
+property, open quote 0, close quote, of null, at 1 3 9 7 1 4.html colon 
+12. The presenter highlights null in the statement.</em> [Video description ends]</p>
+<p>I'm going to hit F12 again to get rid of the developer tools, and 
+let's head back over to line 12. Another interesting feature of match is
+ that if we attempt to access the index of our search term, now let's 
+make our search term. I'm changing line 11 again back to the original y 
+that I had, and I changed line 12 to access the index of my found array.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. Now,
+ the code here is: p1, dot inner HTML, =, found, dot index, semi colon. 
+He removes, one instance of y, from the code on line11.</em> [Video description ends]</p>
+<p>Let's save this change, refresh our browser screen. Notice that I get
+ 10. Remember, that was the number that we got before. So what 
+found.index is showing me is that my y is actually at position 9 in that
+ ss string object. Something else that's interesting with our match 
+method is how it finds the search term that we're looking for. And let's
+ search for an s in this case, and let's see s exists.</p>
+<p>[Video description begins] <em> He replaces, y, with s, in code on line 11.</em> [Video description ends]</p>
+<p>I'm going to change my found again to, well, actually, let's use 
+another property of that array, lets use the length array. I'm going to 
+use the length array. Because, by the way, match will return, depending 
+on how we structure our code for line 11, it will tell me exactly how 
+many occurrences of that search term it finds.</p>
+<p>[Video description begins] <em> In the code on line 12, he replaces index, with length.</em> [Video description ends]</p>
+<p>So this case here, it should find at least one s. Let's save that 
+change, refresh the browser screen. Notice that I get a 1. So that 1 
+tells me that there is at least one s in my sentence. But what if there 
+was more than one? In this case, we have two different s's.</p>
+<p>[Video description begins] <em> He refers to the word skillsoft, present in the code on line 10.</em> [Video description ends]</p>
+<p>In that case, I can apply a flag. In this case, the i flag will 
+indicate to the match object that I'm looking for either upper case or 
+lowercase s in this case.</p>
+<p>[Video description begins] <em> In the code on line 11, he adds, i, 
+between the slash and close curve bracket. Now, the code on line 11 is 
+let found, =, ss dot match, open curve bracket, slash, s, slash, i, 
+close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Now, let's see if it brings back the two s's that's in Skillsoft. 
+Let's save our changes, refresh the screen, notice nothing happens. 
+Well, we've still got our 1. In this case, it is finding the first 
+uppercase s but it's ignoring the second lowercase s.</p>
+<p>[Video description begins] <em> He highlights the first instance of s
+ in skillsoft, which is in upper case, and then highlights the second 
+instance of s in skillsoft, which is in lower case.</em> [Video description ends]</p>
+<p>We can actually apply another flag called the g flag, and g will now return all the occurrences of s's.</p>
+<p>[Video description begins] <em> He adds, g, after i, in the code on line 11.</em> [Video description ends]</p>
+<p>Let's save this, refresh our browser screen, notice that it has 
+changed to 2. For my next example, I'm actually going to be using a 
+regular expression as an object. So I'm going to change line 11 to be 
+something like searchTerm. And I'm going to assign to that searchTerm a 
+regular expression. Now, let's just look for the word itself, by, in 
+this case. So the moment I structure my line 11 like this, searchTerm 
+now becomes a regular expression object. For next thing I'm going to</p>
+<p>[Video description begins] <em> He modifies the code on line 11. The new code is: let, search term, =, slash, by, slash, semi colon.</em> [Video description ends]</p>
+<p>do or, by the way, the search method that I'm going to be using right
+ now, actually returns a Boolean value, true or false. So let's declare 
+another variable, let's call it found, to be equal to whatever my search
+ term. Well, I'm going to use searchTerm as an object. And I'm going to 
+access or invoke the test method of that object. And I'm going to pass 
+to that object the sentence that I had originally, so ss in this case.</p>
+<p>[Video description begins] <em> The presenter adds a new line of code
+ on line 12. The current code on line 12, shifts to line 13. The new 
+code on line 12 is: let, found, =, search term, dot test, open curve 
+bracket, ss, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Now, like I said, what the test method will return is actually true or false.</p>
+<p>[Video description begins] <em> He removes dot length, from the code on line 13.</em> [Video description ends]</p>
+<p>So let's save these changes, refresh the browser screen and notice that it found by in this case.</p>
+<p>[Video description begins] <em> The result on the browser screen shows true.</em> [Video description ends]</p>
+<p>Now, the regular expression object does have another method called exec, which will do something a little bit different.</p>
+<p>[Video description begins] <em> He replaces test, with exec, in the code on line 12.</em> [Video description ends]</p>
+<p>So if I used exec instead of test on line 12 and I pass it the same 
+sentence, let's refresh the browser screen. Notice that it returned the 
+actual word itself. So you can use this in an FL structure.</p>
+<p>[Video description begins] <em> The result on the browser screen shows, by.</em> [Video description ends]</p>
+<p>Now, the final thing that I wanted to show you is how to use the 
+regular expression constructor. S, what I'm going to do is I'm going to 
+actually use my same searchTerm but invoke the regular expression 
+constructor in this way. And in the constructor, I'm going to pass the 
+searchTerm. But notice that I can now pass the searchTerm just like a 
+regular string.</p>
+<p>[Video description begins] <em> He modifies the code on line 11. The 
+new code is: let, search term, =, new, Reg, E x p, open curve bracket, 
+open quote, by, close quote, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>So it means that I now can pass strings into this searchTerm regular 
+expression object. And that's the only change I need to make. Let's save
+ the changes, refresh your browser screen, notice that it returned the 
+very same thing. It's returned by, in this case. So that's a short 
+introduction to regular expressions in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="d81f08b0-7b76-11e8-b52b-2d384025e4de">
+Number Object
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Number Object. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to be working with JavaScript 
+numbers. I have two applications open, on the left is a Notepad++ 
+application opened up to an HTML file, which is a mixture of JavaScript 
+and HTML. On the right side of your screen is a Chrome browser rendering
+ the file that you see on the left. The HTML file on your left has a 
+paragraph tag declared on line 8. We'll be using that paragraph tag to 
+display some of the features of the number object in JavaScript.</p>
+<p>[Video description begins] <em> The code on line 8 is: open angular 
+bracket, p, i d, =, double quote, p 1, double quote, close angular 
+bracket, open angular bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>JavaScript really only have one number type, and that's a 64-bit 
+floating point number. So it means, then, that whatever we need do in 
+terms of numbers, we only really have just one data type to work with. 
+So negative numbers, decimal numbers, in fact, on line 11, there's a 
+binary number declared there.</p>
+<p>[Video description begins] <em> The code on line 11 is: let, num 1, =, 0 b 1 0 1, semi-colon.</em> [Video description ends]</p>
+<p>On line 12, this is an example of representing an exponential number in JavaScript.</p>
+<p>[Video description begins] <em> The code on line 12 is: let, num 2, =, 47 e 2, semi-colon.</em> [Video description ends]</p>
+<p>So bottom line is that JavaScript just has one number type and that's
+ it, that's all we have to work with. So if you ever wanted to see what a
+ binary number would look like, on line 17 I can start working with 
+these various variables to see what they would produce. So let's turn 
+this into a templated string.</p>
+<p>[Video description begins] <em> He goes to the code line 17. the code
+ is: p 1, dot inner html, =, accent, accent, semi-colon, he modifies the
+ code, the new code is, p 1, dot inner html, =, accent, dollar sign, 
+open curved bracket, num 1, close curved bracket, accent, semi-colon,</em> [Video description ends]</p>
+<p>And I will display the binary number 101, now of course, 101 in 
+binary is a number 5. So let's save that change to line 17, refresh the 
+browser page, and there's your 5.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 5.</em> [Video description ends]</p>
+<p>On line 12, there is an example of an exponential number. And I kept 
+it short just to make a point here. And, basically, what this means is, 
+take the number before the e, multiply that number by 10 to the power of
+ whatever number appears after the e. So, basically, this is 47 times 10
+ to the power of 2. So let's see what that looks like, I'm going to 
+change line 17 from num1 to num2. And let's save that change, refresh 
+the browser screen, and there you see it is basically 47 multiplied by 
+100, which gives us 4700.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 4700.</em> [Video description ends]</p>
+<p>Now, what is interesting about JavaScript numbers is when we start 
+working with them and sort of combining strings and numbers together. If
+ you look at line 13, we're declaring a number, well, we're declaring a 
+string in this case but that string happens to be a number.</p>
+<p>[Video description begins] <em> The code on line 13 is: let num 3, =, open quote, 3, close quote, semi-colon.</em> [Video description ends]</p>
+<p>And let's say if I wanted to, let's say, add the num3 variable to the
+ num4 variable, so 3 plus 4, let's see what will produce. So num3 + 
+num4.</p>
+<p>[Video description begins] <em> On code line 17, he writes num 3 + num 4, in place of num 2, after the dollar sign inside the curly brackets.</em> [Video description ends]</p>
+<p>Let's save that change, refresh the browser screen, and we get 34.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 34..</em> [Video description ends]</p>
+<p>The idea here is that the plus character is behaving as a 
+concatenation operator. Now, the funny thing is that if we were to use 
+one of the other arithmetic operators, like multiply in this case,</p>
+<p>[Video description begins] <em> He goes to the code line 17, he replaces + with the multiply sign.</em> [Video description ends]</p>
+<p>it will actually work in terms of numeric data.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 12..</em> [Video description ends]</p>
+<p>So if I refresh the screen, we see 4 multiplied by 3 will give us 12.
+ So it's important to understand that, that plus character can give you 
+the wrong result, depending on what you're trying to do. Now, number as 
+an object does have properties and methods that we can work with. Some 
+are useful numbers, some are not so useful. Let's take a look at what 
+the MAX_VALUE property of the number object will return.</p>
+<p>[Video description begins] <em> He refers to the code line 18. The 
+code is: slash, slash, p 1, dot inner html, =, accent, dollar sign, open
+ curly bracket, Number dot, Max, underscore, Value, close curly bracket,
+ accent, semi-colon. He points to the Max value from the code.</em> [Video description ends]</p>
+<p>I'm going to put a comment on line 17 and I'll uncomment line 18.</p>
+<p>[Video description begins] <em> He goes to the code line 17. He adds,
+ slash slash before p 1. Then he goes to the code line 18. He removes, 
+slash slash before p 1.</em> [Video description ends]</p>
+<p>Let's save that change, refresh the browser screen, and there you see
+ that that's probably the largest number that JavaScript will be allowed
+ to work with.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 1.7 9 7 6 9 3 1 3 4 8 6 2 3 1 5 7, e +
+ 308.</em> [Video description ends]</p>
+<p>So this might come in handy, for example, if you're trying to compare
+ some kind of value that a user is going to pass to you and you want to 
+make sure that your calculations will be able to handle it. You could 
+probably use this MAX_VALUE as some kind of comparative operator, 
+comparative operand, I should say. What is a little bit more useful, 
+though, are some of the methods that are attached to the number object. 
+Take a look at line 19, I'm going to put a comment on line 18 and</p>
+<p>[Video description begins] <em> He goes to the code line 18. He adds, slash slash before p 1.</em> [Video description ends]</p>
+<p>uncomment out line 19.</p>
+<p>[Video description begins] <em> He goes to the code line 19. The code
+ is: slash, slash, p 1, dot inner html, =, accent, dollar sign, open 
+curly bracket, Number dot, parse, Int, open curved bracket, num 5, close
+ curved bracket, close curly bracket, accent, semi-colon. he removes, 
+slash slash from the code.</em> [Video description ends]</p>
+<p>So, basically, what this is doing is it's taking a string, which is 
+8.56 which is enclosed with quotation marks, so it becomes a string.</p>
+<p>[Video description begins] <em> He goess to the code line 15. The 
+code is: let, num 5, =, open quote, 8 point 5 6, close quote, 
+semi-colon. he points, 8 point 5 6, from the code.</em> [Video description ends]</p>
+<p>Pass that string into the parseInt method and the number object using</p>
+<p>[Video description begins] <em> He points to the parse Int, open curved bracket, num 5, from the code line 19.</em> [Video description ends]</p>
+<p>that parseInt method will then return some kind of value to us. So 
+let's save this change, refresh the browser screen, and we see that we 
+get 8.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: JavaScript Number Object. 8.</em> [Video description ends]</p>
+<p>So, basically, it has taken the 8.56 and parsed it as an integer, 
+meaning that we'll drop off the 56 and we'll just return 8 in this case.
+ The idea here is that it has taken a string and turned it into a 
+number, in the first place it'll be a decimal number. Then it went ahead
+ and parsed that decimal number, in terms of using a parseInt method, 
+and returned to us the 8 in this case. So JavaScript numbers are a 
+little bit boring, but they do provide all of the functionality that a 
+JavaScript developer would ever need.</p></div>
+</div>
+<div>
+<h2 id="dafa3c30-7b76-11e8-b52b-2d384025e4de">
+The Math Object
+</h2>
+<div><p>[Video description begins] <em> Topic Title: The Math Object. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at the math object 
+in JavaScript. On the left of your screen is a Notepad++ application 
+opened up and pointing to an html file. That html file has some 
+JavaScript in the middle. On the right side of your screen is the Chrome
+ browser rendering the html file that you see on the left. The html file
+ on the left has the paragraph tag on line 9. And we'll be using the 
+inner html of that paragraph tag to display the various properties and 
+methods of the Math object.</p>
+<p>[Video description begins] <em> The code on line 9 is: open angular 
+bracket, p, i d,=, double quote, p 1, double quote, close angular 
+bracket, open angular bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>The math object comes with JavaScript, and it's absolutely free. It's
+ also an intrinsic object, meaning that it performs just like a static 
+class in C# or Java. What that means is that we can just use the math 
+object. So on line 12, I'm going to access that math object, and we 
+access it with an uppercase M.</p>
+<p>[Video description begins] <em> The code on line 12 is: p 1, dot, 
+inner HTML, =, accent, dollar sign, open close curly bracket, accent, 
+semi-colon. Between open close curly bracket, he writes Math.</em> [Video description ends]</p>
+<p>And now, you may have seen me use the POW function before in another 
+video which, of course, will raise one number to the power of some other
+ number. But the opposite of that is the square root function, so s q r 
+t. I can pass to that square root function, let's say, some number and 
+save those changes.</p>
+<p>[Video description begins] <em> On code line 12, after Math, he 
+writes dot s q r t, open curved bracket, 49, close curved bracket. The 
+new code here is p 1, dot, inner HTML, =, accent, dollar sign, open 
+curly bracket, math, dot s q r t, open curved bracket, 49, close curved 
+bracket, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>Refresh to browser screen and there is a 7.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ , and
+ refreshes the browser. Following text with a number appears on the 
+screen: JavaScript math Object. 7</em> [Video description ends]</p>
+<p>So that's one method that we can use. There are also properties like,
+ for example, the pi property. So if I wanted to see what that looks 
+like, I can simply access the pi property in the innerHTML of this 
+paragraph tag, save that change, refresh the browser screen.</p>
+<p>[Video description begins] <em> On code line 12, he replaces s q r t with, P I.</em> [Video description ends]</p>
+<p>And I must have spelled it wrong, so let's get rid of this. And to 
+save that again, refresh your browser screen, there's your 3.1415.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ , and
+ Refreshes the browser. Following text with a number appears on the 
+screen: JavaScript math Object. 3, point 1 4 1 5 9 2 6 5 3 5 8 9 7 9 3.</em> [Video description ends]</p>
+<p>Another property of the math object is Euler's constant and you may 
+need to use that from time to time. But most of the properties really 
+relate to logarithms. So you've seen the sqrt, or square root function. 
+Let's now take a look at the random function because that is an 
+interesting, that's one that you may have to use. So R-A-N-D-O-M, and 
+you simply access it without passing any parameters,</p>
+<p>[Video description begins] <em> On code line 12, he replaces P I with, random open close curved bracket.</em> [Video description ends]</p>
+<p>save the change, refresh the browser screen. What the math.random does is it gives you a number between 0 and 1.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ , and
+ Refreshes the browser. Following text with a number appears on the 
+screen: JavaScript math Object. 0, point 5 2 8 7 5 1 2 7 4 7 3 7 6 3 2 
+4.</em> [Video description ends]</p>
+<p>So it is up to the developer to decide what to do with that number 
+between 0 and 1. So, for example, if you wanted a number between 0 and 
+9, you'll simply multiply whatever math.random gives you by 10.</p>
+<p>[Video description begins] <em> On code line 12, He writes *, 10, after, random, open close curved bracket.</em> [Video description ends]</p>
+<p>So let's save that change, refresh the browser screen. Notice I got a different number this time.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ , and
+ Refreshes the browser. Following text with a number appears on the 
+screen: JavaScript math Object. 6, point 3 5 8 8 5 6 9 9 0 3 7 3 5 4 3.</em> [Video description ends]</p>
+<p>And every time I refresh the screen, I will get some different number.</p>
+<p>[Video description begins] <em> The numbers keep on changing when he refreshes the browser.</em> [Video description ends]</p>
+<p>And that's the whole purpose of random, you're going to get a random 
+number between 0 and 9 in this case. Now, of course, it is up to the 
+developer to use something like parseInt to remove the decimal part of 
+the number that math.random is giving us. And there are lots of other 
+methods like this, there's the min method, the max method. There is 
+floor and ceil. And, of course, there are a lot more like abs that you 
+may want to use from time to time. So definitely explore all of the 
+different methods that math can help us with. But what's interesting 
+though is that we can extend JavaScript by, of course, finding libraries
+ in the Internet and using those libraries to our advantage. What this 
+means is that there are libraries out there on the Internet that, 
+depending on the copyright attached to the library, you may be able to 
+use it for free. So, for example, there's a particular library that I 
+like, financials.js,</p>
+<p>[Video description begins] <em> He goes to the code line 4. The code 
+here is: open angular bracket, script, s r c, =, double quote double 
+quote, close angular bracket, open angular bracket, slash, script, close
+ angular bracket. He writes, financials dot j s, between the double 
+quotes.</em> [Video description ends]</p>
+<p>and I can simply use that library, well, of course I'll have to 
+create an instance of that library. So I can do something like this, is 
+equal to new, now I can use that library, for</p>
+<p>[Video description begins] <em> He writes a new code on line 11. The 
+existing code on line 11 shifts to line 12. The new code on line 11 is: 
+let, fin Calc, equals New, finance, open close curved bracket, 
+semi-colon.</em> [Video description ends]</p>
+<p>example, there's a method in there called a future value. So I do use
+ something like finCalc.FV. Then I can pass it the three parameters that
+ it needs. So the first would be the interest rate. And I want that 8% 
+to occur or to be applied to, let's say, $2,000. And that's going to be 
+applied over 36 months.</p>
+<p>[Video description begins] <em> He goes to the code line 13. He 
+writes, fin Calc, dot, F V, open curved bracket, 0 point zero8, comma, 
+2000, comma, 36, close curved bracket, in place of, Math, dot, random, 
+open close curved bracket, *, 10.</em> [Video description ends]</p>
+<p>If I save those changes, refresh the browser screen, And I see that in 36 months, my $2,000 would have grown to $2,058.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ , and
+ Refreshes the browser. Following text with a number appears on the 
+screen: JavaScript math Object. 2058, point 41.</em> [Video description ends]</p>
+<p>So there are lots of JavaScript libraries that can be used in this 
+way. But you could do, of course, the same thing with the free math 
+object that you get for free with JavaScript.</p></div>
+</div>
+<div>
+<h2 id="ddeaa560-7b76-11e8-b52b-2d384025e4de">
+Working With Date and Time
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Working With Date and Time. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to explore the date and time, 
+well, the date object in JavaScript. On the left of your screen is an 
+HTML document that's opened up in Notepad++. And on the right of your 
+screen is a Chrome browser rendering the document you see on the left. 
+That document on the left has some JavaScript between lines 9 and 13. 
+There's also a paragraph tag on line 8 that we're going to be using the 
+inner</p>
+<p>[Video description begins] <em> The code on line 8 is: open angular 
+bracket, p, id =, double quote, p1, double quote, close angular bracket,
+ open angular bracket, slash, p, close angular bracket.</em> [Video description ends]</p>
+<p>html of to display the various properties and methods of the date 
+object. Date and time is a universal concept. So it means that the date 
+and time objects that are in JavaScript are probably the same ones that 
+are in just about every other programming language on Earth. So 
+JavaScript has provided us with several constructor methods, and that 
+gives us the flexibility of creating a date object in several different 
+ways. One of the easiest way to declare a date object, which will 
+actually give you the current date and time, is as you see on line 11.</p>
+<p>[Video description begins] <em> The code on line 11 is: let d = new date, open close curve brackets, semi colon.</em> [Video description ends]</p>
+<p>So in this case, I've established a variable called d, and that d is 
+going to hold the new Date object for me. Just by entering this line, 
+line 11, let d = new Date(), what I'm going to get being returned from 
+the Date object is the current date and time, which you see in the 
+browser to the right of your screen.</p>
+<p>[Video description begins] <em> The result on the browser is: Thu, Jun 21, 2018, 10:58:12, GMT-0300, (Atlantic Daylight Time).</em> [Video description ends]</p>
+<p>Keep in mind that that date and time that you're looking at is coming
+ from the machine that I'm actually working on. I also happen to be in 
+the Atlantic Daylight Time zone. So the browser is picking up my 
+localized date and time settings. But focusing back on line 11, if I 
+were to pass the constructor a number, let's say 0 in this case, what 
+the Date object will return to me</p>
+<p>[Video description begins] <em> The presenter adds a 0, between the open close curve brackets on line 11.</em> [Video description ends]</p>
+<p>is the date as it was in 1970, January 1st, 1970. So let's save the 
+change to line 11 where I'm passing in it a 0, let's refresh the browser
+ screen, and to be exact, we're getting the end of 1969. So it'd be end 
+of 69, beginning of 1970.</p>
+<p>[Video description begins] <em> The result on browser shows: Wed, Dec 31, 1969, 20:00:00, GMT-0400, (Atlantic Standard Time).</em> [Video description ends]</p>
+<p>And that's interesting because it means that if we can pass some 
+number that is going to be represented by the milliseconds that has 
+passed since that date that you see on the right of your screen. And so,
+ for example, if I wanted to know date and time is after 153,000 million
+ milliseconds has passed since 1969, then I can pass that amount,</p>
+<p>[Video description begins] <em> He replaces 0 with 1530000000000, in the code on line 11.</em> [Video description ends]</p>
+<p>that number, that large number, to the Date object, save those 
+changes. Again, I'm still working with line 11, refresh the browser 
+screen and we see that it's actually a few days from the time that I'm 
+creating this video</p>
+<p>[Video description begins] <em> The result on browser shows: Tue, Jun 26, 2018, 05:00:00, GMT-0300, (Atlantic Daylight Time).</em> [Video description ends]</p>
+<p>But on a more practical note, perhaps whenever you create date 
+objects, you're probably wanting to do something like date comparison or
+ you're perhaps wanting to do some kind of date arithmetic. So it is 
+possible, then, to pass to the constructor something like this. So 2018,
+ 5, 21, save that change,</p>
+<p>[Video description begins] <em> He replaces the last entered digits within the open close curved brackets on line 11 with, 2018, 5 , 21.</em> [Video description ends]</p>
+<p>refresh the browser screen, and what I get is June 21st.</p>
+<p>[Video description begins] <em> The result on browser shows: Thu, Jun 21, 2018, 00:00:00, GMT-0300, (Atlantic Daylight Time).</em> [Video description ends]</p>
+<p>Notice I got June and not May. So it's extremely important that when 
+you pass to the Date constructor in JavaScript, the middle number in 
+this case is going to be, well, January is actually represented by 0. So
+ keep that in mind when you pass a value such as this to the Date 
+object. Now, of course, we could also pass some kind of a string to the 
+Date object. So I could do something like, let's see, June 21, and let's
+ wrap that up into a string.</p>
+<p>[Video description begins] <em> He modifies the code on line 11. The 
+new code is: let d = new Date, open curve bracket, open quote, 2018 June
+ 21, close quote, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>I can pass that entire string to the Date constructor and refresh the
+ browser screen and we see that we get the same date. In fact, you can 
+even turn it around. So let's put the day first, the month after, so 
+June, and then the year last.</p>
+<p>[Video description begins] <em> He replaces, 2018 June 21, with 21 June 2018, in the code on line 11.</em> [Video description ends]</p>
+<p>Save the change, refresh the browser screen, and we see we get the 
+same date. Of course, you can go ahead to add in a time if you wanted 
+to. Now the Date object is an object, so it does have properties and 
+methods. And there are several methods that are available to developers 
+for working with things like the day of the week, the month, the year, 
+or even time. You can work with time as well. So, for example, if I 
+wanted to get the year just from the date that I created on line 11, I 
+could do something like getFullYear.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. The 
+code here is: p1, dot innerHTML = accent, $ sign, open curly bracket, d,
+ dot, getFullYear, close curly bracket, accent, semi colon.</em> [Video description ends]</p>
+<p>And I'll save that change, and what I should get back is the 2018 
+part. Now, even though I sent to the constructor of my Date object on 
+line 11,</p>
+<p>[Video description begins] <em> He highlights 21 June 2018, in the code on line 11.</em> [Video description ends]</p>
+<p>I sent it a string, I'm going to get back a numeric value in terms of
+ the year. So let's refresh the screen, and I must have forgotten my 
+parentheses.</p>
+<p>[Video description begins] <em> He adds open close curly brackets after, getFullYear, in the code on line 12.</em> [Video description ends]</p>
+<p>Save that change, refresh the browser screen, and notice what I got 
+back, just the 2018. So there are several methods like this that are 
+available in JavaScript for the Date object. So as you can see, the Date
+ object is very simple and very easy to work with in JavaScript.</p></div>
+</div>
+<div>
+<h2 id="e0ca6cc0-7b76-11e8-b52b-2d384025e4de">
+JavaScript let and const Keywords
+</h2>
+<div><p>[Video description begins] <em> Topic title: JavaScript let and const Keywords. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we'll discuss const and let. These are the new
+ keywords that was introduced in ECMAScript 6. On the screen I have an 
+HTML document opened with Notepad++ on the left of your screen. On the 
+right of your screen is a browser window that is rendering the file that
+ you see on the left.</p>
+<p>[Video description begins] <em> Following text is displayed on the browser: Final price is 3.2775, Markup is 0.4275, PC_ MARKUP is 15.</em> [Video description ends]</p>
+<p>I've also got the developer tools opened on the Chrome browser just 
+so that we may see any errors that will occur. So, like the name 
+suggest, the const key word is used with the intention of not changing 
+the value of the variable. On line 12, within the JavaScript of that 
+HTML document, I have a const variable called PC_MARKUP and I've given 
+it a value of 15.</p>
+<p>[Video description begins] <em> The code on line 12 is: const PC_MARKUP= 15 semi colon.</em> [Video description ends]</p>
+<p>Throughout the entire code, that 15 is being used. And even all the way down to line 22,</p>
+<p>[Video description begins] <em> The code on line 22 is: p1. dot 
+innerHTML +=, double quote, open angular bracket, br, slash, close 
+angular bracket, PC_MARKUP is, double quote, + PC_MARKUP semi colon.</em> [Video description ends]</p>
+<p>where I am printing whatever that value is, it turns out to be 15.</p>
+<p>[Video description begins] <em> He highlights PC_MARKUP in the code on line 22.</em> [Video description ends]</p>
+<p>So that value never changes. In fact, if we attempted to change that value, so I'm just copying part of line 12.</p>
+<p>[Video description begins] <em> He copies PC_MARKUP= 15 semi colon from the code on line 12.</em> [Video description ends]</p>
+<p>And I'm going to paste it at where line 15 is now.</p>
+<p>[Video description begins] <em> He pastes the code PC_MARKUP= 15 semi colon on line 15.</em> [Video description ends]</p>
+<p>In other words, I'm trying to re-assign a value to PC_MARKUP. Let's 
+save that change. Now even though it's the same value, let's save the 
+change, refresh the browser screen and notice that we instantly get an 
+error.</p>
+<p>[Video description begins] <em> An error message appears within the 
+console in the browser. The error message is as follows: Uncaught 
+TypeError: Assignment to constant variable at finalPrice(139718 
+.HTML:15), at 139718 .html:19</em> [Video description ends]</p>
+<p>So let's put a comment on line 15, and</p>
+<p>[Video description begins] <em> He adds double slash at the beginning of the code on line 15.</em> [Video description ends]</p>
+<p>even at line 24, yeah, line 24 now.</p>
+<p>[Video description begins] <em> He adds a new line of code on line 24. The code here is: PC_MARKUP= 15 semi colon.</em> [Video description ends]</p>
+<p>Even if I attempted to change the value all the way down here, save 
+that change, refresh the browser screen. Everything worked up to now but
+ I still get an error,</p>
+<p>[Video description begins] <em> On refreshing the browser, the 
+following text appears: Final price is 3.2775, Markup is 0.4275, PC_ 
+MARKUP is 15. An error message appears within the console in the 
+browser. The message is as follows: Uncaught TypeError: Assignment to 
+constant variable at 139718 .HTML:24.</em> [Video description ends]</p>
+<p>meaning that I cannot re-assign PC_MARKUP. So let's put a comment on line 24.</p>
+<p>[Video description begins] <em> He adds double slash, at the beginning of the code on line 24. Now, the code here is: double slash, PC_MARKUP= 15 semi colon.</em> [Video description ends]</p>
+<p>Now, what is interesting though is that with ECMAScript 6, these curly braces now act as its own block scope.</p>
+<p>[Video description begins] <em> He goes to the code on line 14. The 
+code here is: function finalPrice, open curve bracket, price, close 
+curve bracket, open curly bracket. He highlights the open curly bracket 
+in the code. He goes to the code on line 18. The code here is: close 
+curly bracket, semi colon. He highlights the close curly bracket in the 
+code.</em> [Video description ends]</p>
+<p>So it means that I could actually create a new constant</p>
+<p>[Video description begins] <em> He highlights const, in the code on line 12.</em> [Video description ends]</p>
+<p>value with the same name within the function called finalPrice.</p>
+<p>[Video description begins] <em> In the code on line 15, the presenter replaces double slash with const.</em> [Video description ends]</p>
+<p>And that's allowed, in fact, let's change this value to 14, let's 
+save those changes, now remember the markup previously was 43 cents.</p>
+<p>[Video description begins] <em> In line 15, the presenter replaces 15
+ with 14 in the code. He refers to the markup value displayed on the 
+browser. The value here is: 0.4275.</em> [Video description ends]</p>
+<p>With the redefining of PC_MARKUP with the new const keyword, back to 
+14. Let's see if this should be a little bit less now, let's refresh the
+ browser and notice that it's now about 40 cents.</p>
+<p>[Video description begins] <em> The value of markup in the browser, changes to 0.3990000000000001.</em> [Video description ends]</p>
+<p>But of course this makes your code very confusing, so I would strongly suggest that you do not do that.</p>
+<p>[Video description begins] <em> He deletes the code on line 15. The succeeding lines of code shift one place up.</em> [Video description ends]</p>
+<p>The let keyword is a little more forgiving, and it all depends on 
+where that let keyword is used will be the outcome of your code. So in 
+this case, we are defining a variable, declaring a variable called 
+markup outside of the function.</p>
+<p>[Video description begins] <em> He points to the code on line 13. The code here is: let markup = 0, semi colon.</em> [Video description ends]</p>
+<p>So let's see, within this script tag, let's say, from line 11 to line
+ 23, that's the scope of this particular JavaScript. Meaning that's the 
+global scope. And with the let keyword, if I declared something on line 
+13, it means that at line 15, where I'm using it within the function,</p>
+<p>[Video description begins] <em> The code on line 15 is: markup = price * open curve bracket, PC_MARKUP slash 100 close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>it will still retain that value. So up at this point in time, until it calculates, until the calculation is done,</p>
+<p>[Video description begins] <em> He highlights price * open curve bracket, PC_MARKUP slash 100 close curve bracket, on the code on line 15.</em> [Video description ends]</p>
+<p>markup will remain 0. But the idea here is that markup, on line 21, gives me whatever markup value is calculated on line 15.</p>
+<p>[Video description begins] <em> The code on line 21 is: p1. dot 
+innerHTML+=, double quote, open angular bracket, br, slash, close 
+angular bracket, Markup, is, double quote, + markup, semi colon.</em> [Video description ends]</p>
+<p>But just like with the const keyword, a few minutes ago, I could 
+redefine markup. I could actually put a let keyword in front of markup.</p>
+<p>[Video description begins] <em> In the code on line 15, the presenter adds let at the beginning of the code.</em> [Video description ends]</p>
+<p>Now the markup that I have inside of this function is different from the markup</p>
+<p>[Video description begins] <em> He highlights markup in the code on line 15.</em> [Video description ends]</p>
+<p>that I have at the global scope. Let's save these changes, refresh the browser screen and notice that my markup is now 0.</p>
+<p>[Video description begins] <em> The value of markup in the browser changes to 0.</em> [Video description ends]</p>
+<p>So, what that is telling me is that the markup that I'm printing on 
+line 21 is actually the markup that I'm getting from line 13. So, the 
+value 0 has been passed all the way down to line 21. Within the 
+function, markup was calculated correctly.</p>
+<p>[Video description begins] <em> He points to the markup on the code line 15.</em> [Video description ends]</p>
+<p>But we never knew what that markup was because of the redefinition 
+that took place. So depending on what you're trying to do, this ability 
+to redefine a variable in a different place may actually be an advantage
+ for you.</p>
+<p>[Video description begins] <em> He removes let from the code on line 15.</em> [Video description ends]</p>
+<p>But in my case here, I do want my markup to retain the original 
+markup that I declared on line 13. So let's make that change again, 
+refresh the browser screen and now we're back to the original problem 
+that we had.</p>
+<p>[Video description begins] <em> On refreshing the browser, the value of the markup changes to 0.4275.</em> [Video description ends]</p>
+<p>So generally though, let would be used for a mathematical or 
+arithmetic type of operations as well as loops. And in terms of the 
+const keyword, although, I have declared a variable on line 12 as that 
+value being 15. The const keyword can actually point to more complex 
+objects. In fact, it can point to array type objects. And in that case, 
+the values of that object may be changed. However, the way we're using 
+it here, the intention of this const keyword is to not change our 
+PC_MARKUP variable.</p></div>
+</div>
+<div>
+<h2 id="e3aaa950-7b76-11e8-b52b-2d384025e4de">
+Keyed Collections
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Keyed Collections. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, we're going to take a look at keyed 
+collections in JavaScript. This is a new ECMAScript 6 addition to the 
+language. As usual, I have an HTML document opened in Notepad++ with 
+JavaScript between lines 11 and 19. To the right of that is a Chrome 
+browser rendering the file that you see on the left.</p>
+<p>[Video description begins] <em> The following text is displayed on the browser: JavaScript Keyed Collections.</em> [Video description ends]</p>
+<p>Now, JavaScript has several collections to choose from, the array 
+being the simplest and easiest to work with. But EC6 introduced 
+something called keyed collections, and these types of collections use 
+some kind of a value to point to a map to some other value. If you think
+ of associative arrays, well, some of these are very similar to that. 
+They are called keyed collections because the ECMAScript people wanted 
+us to differentiate between these types of collections and what are 
+called indexed collections, like the arrays that we are familiar with. 
+So they introduced three types of keyed collections. Two of them are 
+really more important, so the maps and sets are the most important ones.
+ So I'll just talk about those for this demonstration. What I have on 
+the screen starting at line 13 is a map collection,</p>
+<p>[Video description begins] <em> The code on line 13 is: var, myMap,=, new Map, open close curved brackets, semi-colon.</em> [Video description ends]</p>
+<p>it's a keyed collection. And as you can see on line 13, I've declared
+ a new map. So we can think of it as a myMap object. And I've set some 
+of the various parameters to these values that I talked about. So for 
+example, crystal is pointing to clear on line 14.</p>
+<p>[Video description begins] <em> The code on line 14 is: myMap dot 
+set, open curved bracket, open quote, crystal, close quote, comma, open 
+quote, clear, close quote, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>On line 15, 8, which is a string, is pointing to null.</p>
+<p>[Video description begins] <em> The code on line 15 is: myMap dot 
+set, open curved bracket, open quote, 8, close quote, comma, Null, close
+ curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Now, the idea here of course is to show that you could put just about
+ any data type into these collections, even other objects. So let's take
+ a look now at how I can iterate over the myMap object. So starting on 
+line 19, what I'm going to do is I'm going to invoke for each function 
+of the myMap object. And I'm going to pass to that function. I'm going 
+to pass to that, well, yeah for each method, I'm going to pass it 
+another function.</p>
+<p>[Video description begins] <em> He declares a code on line 19. The 
+code is: myMap.forEach, open curved bracket, function, open close curved
+ brackets, open close curly brackets, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>And then I'm going to pass within that function, I'm going to pass to the using parameters, the item, key and map object.</p>
+<p>[Video description begins] <em> He modifies the code on line 19. The 
+new code is: myMap.forEach, open curved bracket, function, open curved 
+bracket, item, comma, key, comma, mapObj close curved bracket, open 
+close curly brackets, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>So item and key relate to the values that are established within the 
+myMap object. Now, once I have this function established, I'm going to 
+have to define what the function does. So for now I'm going to use the 
+inner html of my p1 tag that I declared on line 9. I'm going to add to 
+that space on the browser window and I'm going to send it the key. And 
+within the key, because of the fact that we can have other objects 
+within sets, I'm going to turn everything into a string. So I'm going to
+ take my key and turn it into a string before I send it off to the 
+browser. Then I'm going to add to that a break tag so that each of these
+ keys are printed on a different line.</p>
+<p>[Video description begins] <em> He declares a code on line 20. The 
+code is: p 1 dot inner Html, + = , keydot to, String, open close curved 
+bracket, +, double quote, open angular bracket, br space, slash, close 
+angular bracket, double quote, semi-colon.</em> [Video description ends]</p>
+<p>And with just that change, let's save those changes, refresh the 
+browser screen and there you see the various keys that are in my 
+collection. If you wanted to change the items instead,</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ and refreshes the browser. The following text appears on the screen: Crystal 8. Seven 50.</em> [Video description ends]</p>
+<p>you will simply remove key from the line 20 and put the word item in 
+there, and then you'll get things like clear and null, so you'll get the
+ values as such. So let's now talk about sets. And sets are declared and
+ initialized almost exactly as maps, so we can just follow what we did 
+on line 13, and I can do something like let mySet = new Set(), and right
+ there I have a mySet object.</p>
+<p>[Video description begins] <em> He declares a code on line 22. The code is: let mySet = new Set, open close curved brackets, semi-colon.</em> [Video description ends]</p>
+<p>Now, sets work a little bit differently from maps in that we'll use 
+the object itself, but then we'll invoke the add method. So mySet.add 
+will allow me to start adding to this collection. And once again, you 
+can add just about any data type to the mySet object.</p>
+<p>[Video description begins] <em> He declares a code on line 23. The code is: mySetdot, add, open close curved brackets.</em> [Video description ends]</p>
+<p>So in the first instance here, I'm probably going to add a string, so let's add a string to that set.</p>
+<p>[Video description begins] <em> On code line 23, he writes, open quote, monday, close quote, between the open close curved bracket.</em> [Video description ends]</p>
+<p>And the good news about sets is that you can continue chaining your 
+add methods. So right after the closing parentheses on line 23, I can 
+simply use a period and then attach the add method to what I had before.
+ And in this case, I can add a number if I wanted to.</p>
+<p>[Video description begins] <em> On code line 23, he writes, period add, open curved bracket, 56, close curved bracket, after the existing code.</em> [Video description ends]</p>
+<p>I can continue like this, I can add even more stuff. For example, I'm
+ adding a boolean type, and finally, I'm going to add an undefined.</p>
+<p>[Video description begins] <em> On code line 23, he writes, period 
+add, open curved bracket, true, close curved bracket, period add, open 
+curved bracket, undefined, close curved bracket, semi-colon after the 
+existing code.</em> [Video description ends]</p>
+<p>So I have just added about four items to mySet. Now, these objects do
+ have properties as well. And one of the better properties that, one of 
+the more important properties we can use, for example, for set is the, 
+well, on line 24 I'm going to use the inner html again. And I'm going to
+ use my mySet object and I'm going to access the size property of that.</p>
+<p>[Video description begins] <em> He declares a code on line 24. The code is: p 1 dotinner Html, + =, mySetdot, size, semi-colon.</em> [Video description ends]</p>
+<p>So let's save these changes, refresh the browser screen, and you see 
+that I get 4, meaning that I have now 4 items in my set itself.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ and refreshes the browser. The following text appears on the screen: Crystal 8. Seven 50. 4.</em> [Video description ends]</p>
+<p>Iteration is also done nicely with sets. But with this particular 
+set, I'm going to use a for off loop. So on line 25, I'm going to set 
+that up. Let's set up a for loop, and within the parentheses of the for 
+loop, and I know I need to set up a variable. So I'm going to use let, 
+and then I'm going to use the of keyword. Once I have that set up, then 
+I'm going to say I'm want to let my key, this could be any variable that
+ you want, of my set. Now, mySet can't change, it has to be the set that
+ you're working with. And now I'm going to define what the 4 is all 
+about. But for this I am going to use the console window. So on line 26,
+ I am going to set up my console.log, and</p>
+<p>[Video description begins] <em> He declares a code on line 25. The 
+code is: for, open curved bracket, let myKey of mySet, close curved 
+bracket, open curly bracket.</em> [Video description ends]</p>
+<p>I'm going to pass to that log myKey.</p>
+<p>[Video description begins] <em> He declares a code on line 26. The code is: consoledotlog, open curved bracket, myKey, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Let's save these changes and refresh the browser screen. Now, you 
+don't see the log showing up, but if I hit F12 to get to the developer 
+tools, you'll see the various keys that are showing up, or values.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ and 
+refreshes the browser. The following text appears on the screen: Crystal
+ 8. Seven 50. 4. He hits the F12 Button. The console window opens up 
+with the following text: Monday, 56, true, undefined.</em> [Video description ends]</p>
+<p>So in this case, it's Monday 56 through true and undefined. Though 
+there is one more collection, which is a WeakMap. But it's not so 
+important, so I just wanted to concentrate on these first two that are a
+ little bit more useful.</p></div>
+</div>
+<div>
+<h2 id="e6450340-7b76-11e8-b52b-2d384025e4de">
+Async Functions and Promises
+</h2>
+<div><p>[Video description begins] <em> Topic Title: async Functions and Promises. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration I'm going to be talking about async functions. 
+The promise object as well as the await keyword in JavaScript. On the 
+left of your screen I have an HTML document opened in Notepad++ with 
+JavaScript in the middle. On the right of your screen there's a Chrome 
+browser rendering the document you see on the left. The HTML document is
+ very simple. We have JavaScript on line 19, I'm calling a function 
+called showMe. You see that function declared and defined on line 11.</p>
+<p>[Video description begins] <em> The code on line 19 is: showMe, open 
+curve bracket, simpleF, open close curve brackets, close curve brackets,
+ semi colon. The code on line 11 is: let showMe = function, open curve 
+bracket, y, close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>And within the parameter of the showMe function, I'm passing in yet another function that is declared on line 15.</p>
+<p>[Video description begins] <em> The code on line 15 is: function simpleF open close curve bracket, open curly bracket.</em> [Video description ends]</p>
+<p>So, basically one function is calling another function and you see 
+the result of all of that on the Chrome browser on the right of your 
+screen.</p>
+<p>[Video description begins] <em> The following text appears on the browser: Just executed!</em> [Video description ends]</p>
+<p>So this demonstration is about async functions, and about await 
+keyboard and the promise object. And basically what that is, is whenever
+ we are on the Internet, JavaScript sometimes has to wait for some other
+ process to complete. A typical example is the JavaScript is waiting for
+ some service on some other website in some other part of the world, 
+like maybe a JSON return object. And in order for the process to 
+continue working, the ECMAScript people had to come up with some way of 
+allowing this to happen. So they came up with this structure of using a 
+promise object within an async function and then an await keyboard. So 
+what I'm going to do is turn the simpleF function into an async 
+function. And in order to do that, all I really have to do is include 
+the async keyword in front of the function. And that's it, that's all 
+that I have to do to make this function, simpleF function, an async 
+function.</p>
+<p>[Video description begins] <em> He adds async at the beginning of the code on line 15.</em> [Video description ends]</p>
+<p>What that means is that the function itself will return a promise 
+object which in itself will have some type of value. That value will 
+only be returned if the promise object was fulfilled. In other words it 
+was resolved. So with just this one change with making this simpleF 
+function an async function, if I save that change, refresh the browser 
+screen, notice what I get back, a promise object.</p>
+<p>[Video description begins] <em> The following text appears on the browser: open square bracket, object Promise, close square bracket.</em> [Video description ends]</p>
+<p>Remember, that promise object has a value, that value is called just returned.</p>
+<p>[Video description begins] <em> He goes to the code on line 16. The 
+code here is: return, open quote, Just executed! close quote, semi 
+colon. He highlights Just executed! in the code.</em> [Video description ends]</p>
+<p>So, in order for me to see all of this, I will have to restructure 
+the call to my simpleF function. So instead of calling I'm changing line
+ 19 and I'm going to invoke the simpleF method. And because that simpleF
+ method will return a promise object, I know the object has a then 
+method, which will then be called once the promise has been resolved. So
+ within the parameter of that promise object, I can do other tasks. So, 
+I'm telling the object in this case to run the showMe method.</p>
+<p>[Video description begins] <em> He modifies the code on line 19. The 
+new code here is: simpleF, open close curve brackets, dot, then, open 
+curve bracket, showMe, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Let's save that change, refresh to browser screen, and now I get just
+ executed. Now in order to make this a little bit more explicit, I can 
+actually return a promise object explicitly. And I know that I am 
+accessing the resolve method because I'm assuming that the promise was 
+resolved and not rejected.</p>
+<p>[Video description begins] <em> He modifies the code on line 16. The 
+code here is: return Promise dot resolve, open curve bracket, open 
+quote, Just Executed! close quote, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>Save the change and refresh the browser screen and we see that the message is the same.</p>
+<p>[Video description begins] <em> The following text appears on the browser: Just Executed!</em> [Video description ends]</p>
+<p>In fact, I can actually take this a little bit further, I can create a new promise object.</p>
+<p>[Video description begins] <em> He adds a new line of code on line 16. The succeeding lines of code shift one place below.</em> [Video description ends]</p>
+<p>So let promise with lowercase p = new Promise. And within the 
+constructor of that promise object, I can pass an anonymous function 
+which will handle whether the promise was rejected or I should say, 
+whether it was resolved or it was rejected.</p>
+<p>[Video description begins] <em> The new code on line 16 is: let 
+promise = new Promise, open curve bracket, function, open curve bracket,
+ resolve, comma, reject, close curve bracket, close curve bracket, semi 
+colon. In the code, the letter p, in the first instance of promise is in
+ lower case, and the letter p, in the second instance of promise is in 
+upper case.</em> [Video description ends]</p>
+<p>Now within the body of that function, I can say, if it was resolved 
+then I would want to pass a value back to the caller and that value is 
+actually going to be the same message that I want printed out to the 
+screen.</p>
+<p>[Video description begins] <em> He adds new line of code on line 17. 
+The code here is: resolve, open curve bracket, open quote, Just 
+executed! close quote, close curve bracket, semi colon. He adds a new 
+code on line 18. The code here is: close curly bracket, close curve 
+bracket, semi colon. The succeeding lines of code shift two places 
+below. The code on line 19 is: return, Promise dot resolve, open curve 
+bracket, open quote, Just executed! close quote, close curve bracket, 
+semi colon. The code on line 20 is, close curly bracket. The code on 
+line 21 is, double slash. The code on line 22 is: simpleF, open close 
+curve brackets, dot, then, open curve bracket, showMe, close curve 
+bracket, semi colon.</em> [Video description ends]</p>
+<p>So now that I have a new promise object inside of the simpleF function itself, I don't need to return anything.</p>
+<p>[Video description begins] <em> He adds double slash at the beginning of the code on line 19.</em> [Video description ends]</p>
+<p>And if I'm not going to return anything, then I can't access the then
+ method of that object, because that object is not being returned to me 
+anymore.</p>
+<p>[Video description begins] <em> He deletes the following portion from the code on line 22: dot, then, open curve bracket, showMe, close curve bracket.</em> [Video description ends]</p>
+<p>So all I can do right now is call the simpleF function, let the 
+function create that object. If the promise object was resolved then a 
+message will be passed back to the caller, so where do we want that 
+message to go? Well at this point in time I'm not actually calling the 
+showMe function anywhere. So within the simpleF function, I can now call
+ the showMe method and I can pass it the object that I just created.</p>
+<p>[Video description begins] <em> He adds a new line of code on line 
+19. The code here is: showMe, open curve bracket, promise, close curve 
+bracket, semi colon. The succeeding lines of code shift one place below.</em> [Video description ends]</p>
+<p>I can save these changes. Now, I know the code won't work exactly, 
+but let's just see what has happened so far. If I refresh the browser 
+screen, I do get promise object, which is great.</p>
+<p>[Video description begins] <em> The following text appears on the browser: open square bracket, object Promise, close square bracket.</em> [Video description ends]</p>
+<p>The problem is that the promise was never resolved. We were simply 
+getting an object and it was never told to do what it was supposed to 
+do. So in order for me to force promise to give up its value, I would 
+have to use the await keyword.</p>
+<p>[Video description begins] <em> He adds await before promise in the code on line 19.</em> [Video description ends]</p>
+<p>So if I save the changes, refresh your browser screen, now I'm getting the message back.</p>
+<p>[Video description begins] <em> The following text appears on the browser: Just executed!</em> [Video description ends]</p>
+<p>But I still haven't shown how this would work on the Internet. Well, 
+on the Internet we always waiting for something to happen. So that's the
+ promise. The promise is, did this thing happen or did it not happen? I 
+can simulate what happens on the Internet with the use of a setTimout 
+function. So I can set timeout and setTimeout always takes a function 
+that will be fired after so many seconds, so whatever. And basically 
+what I'm going to do is wrap up everything inside of this set function. 
+And I'm going to say, okay, after two seconds.</p>
+<p>[Video description begins] <em> He modifies the code on line 17. The 
+code here is: setTimeout, open curve bracket, function, open close curve
+ brackets, open curly bracket, resolve, open curve bracket, open quote, 
+Just executed! close quote, close curve bracket, semi colon, close curly
+ bracket, comma, 2000, close curve bracket, semi colon.</em> [Video description ends]</p>
+<p>So after two seconds, the resolve part of this promise object will 
+fire. So let's save those changes, refresh the browser screen, wait two 
+seconds, and there's your answer.</p>
+<p>[Video description begins] <em> The following text appears on the browser: Just executed!</em> [Video description ends]</p>
+<p>So the async function works nicely when we have to wait on something from the Internet.</p></div>
+</div>
+<div>
+<h2 id="e8e32dc0-7b76-11e8-b52b-2d384025e4de">
+Hoisting
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Hoisting. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about hoisting in 
+JavaScript. I have on the screen an HTML document, on the left, and it 
+has some JavaScript between lines 9 and 13. On the right of your screen 
+is a Chrome browser rendering the file you see on</p>
+<p>[Video description begins] <em> On the browser the following text is present: JavaScript Hoisting. num 1 is 6.</em> [Video description ends]</p>
+<p>the left. The HTML document on the left of your screen is very 
+typical to what happens when using the var keyword. Remember, we can 
+also use the var keyword to declare variables, to initialize them, etc. 
+So when using the var keyword, typically you would declare a variable, 
+and then afterwards access that variable. So the declaration happens on 
+line 11, and on line 12 we are accessing that variable. And on the right
+ side of the screen, you see exactly what would happen. But it is also 
+possible to do something like this.</p>
+<p>[Video description begins] <em> He goes to the code line11. The code is: var, num 1, =, 6, semi-colon. he highlights, var, num1, from the code.</em> [Video description ends]</p>
+<p>I can make my declaration below where I'm actually accessing that declaration.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The code is: var, num 1. He goes to the code line 11. He removes, var from the code.</em> [Video description ends]</p>
+<p>So on line 11 I have assignment, on line 12 I'm accessing the variable,</p>
+<p>[Video description begins] <em> He goes to the code line 12. The code
+ is: p1, dot inner html, =, accent, num 1 is, dollar sign, open curly 
+bracket, num 1, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>and on line 13 I am declaring that variable. Let's save these changes, refresh the browser screen,</p>
+<p>[Video description begins] <em> He goes to the code line 13. He adds, semi-colon after num 1.</em> [Video description ends]</p>
+<p>notice that it works just like it did before.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and refreshes the browser.</em> [Video description ends]</p>
+<p>The reason is that line 13 where the declaration is made, in JavaScript,</p>
+<p>[Video description begins] <em> He goes to the code line 13. He highlights the code.</em> [Video description ends]</p>
+<p>it is hoisted to the top of the code. Meaning that, in memory, 
+JavaScript has already understood that there's a num1 available 
+somewhere inside of this code. So by the time it gets to line 11, num1 
+is already established, so we can now do assignments. The thing is that 
+if we were to do the declaration and the assignment, before we attempt 
+to access the code,</p>
+<p>[Video description begins] <em> He goes to the code line 11. He 
+removes, =, 6, semi-colon from the code. He goes to the code line 13, 
+and adds = 6 semi-colon after num 1.</em> [Video description ends]</p>
+<p>so I've just changed line 12 to be declaration and assignment.</p>
+<p>[Video description begins] <em> He deletes the code on line 11. Now 
+the code line 12 shifted to the code line 11. He goes to the code line 
+12. He highlights, num 1 &amp;, 6 from the code.</em> [Video description ends]</p>
+<p>However, line 11, I'm accessing that variable, let's save the changes, refresh the browser screen and what we get is undefined.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. The following text with a number appears on the 
+screen: Num 1 is undefined.</em> [Video description ends]</p>
+<p>The reason is that only declarations are hoisted not assignment, not 
+initialization, well, actually, I do have an extra semicolon there.</p>
+<p>[Video description begins] <em> He goes to the code line 12. He removes, extra semi-colon from the code.</em> [Video description ends]</p>
+<p>Let's save that change, refresh the browser screen, we still get 
+undefined. It's interesting to note that variables declared with a let 
+and const are hoisted within their respective code blocks. Now, this 
+aspect of hoisting also works with functions. Let's change our line 11, 
+instead of accessing a variable, let's access a Num1, Function, and I'll</p>
+<p>[Video description begins] <em> He modifies the code on line 11, the 
+new code is: p1 dot innerHTML = accent num1 is $ sign, open curly 
+bracket, getNum1, open close curved brackets, close curly bracket, 
+accent, semi-colon.</em> [Video description ends]</p>
+<p>write my function underneath so, On line 12 I will start writing that
+ function. So getNum1 will return to us the number 6, in this case.</p>
+<p>[Video description begins] <em> He declares a code on line 12. The 
+code is: function, get num 1, open close curved brackets, open curly 
+bracket. He goes to the code line 13. He points to the number 6. He 
+declares a code on line 14. The code is: close curly bracket.</em> [Video description ends]</p>
+<p>So I'm returning a 6, let's save those changes,</p>
+<p>[Video description begins] <em> He modifies the code line 13. The new code is: return 6, semi-colon.</em> [Video description ends]</p>
+<p>refresh the browser screen, notice that it works.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and refreshes the browser. The following text with a number appears on the screen: Num 1 is 6.</em> [Video description ends]</p>
+<p>So once again, the function declared on line 12 is hoisted once the 
+JavaScript compiler goes through this code, meaning that it's added to 
+memory.</p>
+<p>[Video description begins] <em> He goes to the code line 12. he points function from the code.</em> [Video description ends]</p>
+<p>So by the time we get to line 11, the getNum1 call is already known. 
+Compiler already knows that this function exists and it knows where to 
+go get the return value.</p>
+<p>[Video description begins] <em> He goes to the code line 11. He highlights get num 1, from the code.</em> [Video description ends]</p>
+<p>Now what is interesting is that after ES6, ECMAScript introduced the 
+class keyword. Now, I've been saying all along that classes do not 
+really exist in JavaScript. What I mean is that the classes don't exist 
+in the sense of Java or C#. The keyword class does exist, and what that 
+denotes is a special function in JavaScript. And what's interesting is 
+that this hoisting feature does not apply to classes even though it's a 
+special function. So let's change our line 12, where my initial function
+ was, let's change that using the class keyword.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. The new code is: class, getNum1, open close curved bracket, open curly bracket.</em> [Video description ends]</p>
+<p>So in other words, I'm creating a class called get1, and that class is going to have a constructor in it.</p>
+<p>[Video description begins] <em> In code line 12, he removes, open close curved brackets.</em> [Video description ends]</p>
+<p>And that constructor is going to do some kind of an assignment.</p>
+<p>[Video description begins] <em> He declares a code on line 13. The 
+code is: constructor, open close curved brackets, open curly bracket. He
+ declares a code on line 15. The code is: close curly bracket. He also 
+goes to the code line 14. he highlights, return in the code.</em> [Video description ends]</p>
+<p>We're going to create a property and I'm going to say that this.x = 6.</p>
+<p>[Video description begins] <em> He modifies the code on line 14, the new code is: this dot x = 6, semi-colon.</em> [Video description ends]</p>
+<p>Now that I have a class, again, which is a special function, I can 
+create an instance of that class. So I can say something like getNum = 
+new getNum1.</p>
+<p>[Video description begins] <em> He declares a code on line 11. The 
+code is: get num, =, new get Num1, open close curved brackets, 
+semi-colon. The existing code on line 11 shifts to line 12.</em> [Video description ends]</p>
+<p>And now that I have an instance, I can use the getNum instance to access the property.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. The 
+new code is: p1 dot innerHTML = accent num1 is $ sign, open curly 
+bracket, getNum1 dot x, close curly bracket, accent, semi-colon.</em> [Video description ends]</p>
+<p>Let’s save these changes, refresh the browser screen. Now we don't 
+see anything on the screen, but if I hit F12, we will see the error, 
+getNum1 is not defined.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++, and 
+refreshes the browser. No change appears on the screen. He hits F12 
+button, the console windows opens up with the following error: Uncaught 
+referenceError :. get num 1 is not defined at 1 3 9 7 2 1 dot, html, 
+colon, 11.</em> [Video description ends]</p>
+<p>So that means that hoisting does not apply to classes. However, if I 
+were to remove lines 13 to 17, which is my entire class, so if I remove 
+it from where it is and put it above where I created an instance</p>
+<p>[Video description begins] <em> He highlights, and removes the codes from line 13 to 17.</em> [Video description ends]</p>
+<p>of that class, save those changes, refresh the browser screen, now it works.</p>
+<p>[Video description begins] <em> He places the code lines removed from
+ lines 13 to 17, to, code line 11 to 15. He saves the codes in 
+notepad++, and refreshes the browser. The following text with a number 
+appears on the screen: JavaScript Hoisting. Num 1 is 6.</em> [Video description ends]</p>
+<p>So the bottom line is to understand hoisting. And that whenever you 
+declare variables, definitely go ahead and do the assignment at the same
+ time and always declare and assign variables before you actually use 
+them.</p></div>
+</div>
+<div>
+<h2 id="eb757160-7b76-11e8-b52b-2d384025e4de">
+String Padding
+</h2>
+<div><p>[Video description begins] <em> Topic Title: String Padding. Your host for this session is, Axle Barr.</em> [Video description ends]</p>
+<p>In this demonstration, I'm going to talk about two new specifications
+ from ES6, padStart and padEnd. On the screen, I have an HTML document 
+opened in Notepad++. There's some JavaScript between lines 10 and 15. On
+ the right of your screen is a Chrome browser rendering the file that 
+you see on the left. I've also got the Console window opened, by hitting
+ F12 on the Chrome browser, you will see the developer tools. And there 
+is a Console window there that we can see any output. So let's take a 
+look at the JavaScript code on line 11 and 12.</p>
+<p>[Video description begins] <em> The code on line 11 is: x, =, open 
+quote, 123.45, close quote, semi-colon. The code on line 12 is: console,
+ dot log, open curved bracket, Y, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>There's a variable called x, and actually I should declare that 
+variable a little bit better. So let's use our let, and in this case, we
+ are printing x to the console.</p>
+<p>[Video description begins] <em> On code line 11, he writes: let, before the code.</em> [Video description ends]</p>
+<p>Let's save that change, refresh the browser, make sure nothing has changed.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser . Following text is curremtly on the screen: 
+JavaScript Padding in JS.. Under developer console window, following 
+text with the numbers is currently on the screen: 123.45. 1 3 9 7 2 2, 
+dot html, colon, 12. The presenter points out that no change has taken 
+place.</em> [Video description ends]</p>
+<p>And, basically, as the word suggests, with padding what you're trying
+ to do is align things together. And this is especially important if you
+ have several items that you're trying to</p>
+<p>[Video description begins] <em> He goes to the code line 8. The code 
+is: open angular bracket, h 3, i d, =, double quote, old, double quote, 
+close angular bracket, JavaScript Padding in JS., Open angular bracket, 
+slash, h 3, close angular bracket. He highlights padding in the code.</em> [Video description ends]</p>
+<p>line up somehow. It's just easier on the eyes if things are a little 
+bit more tabular. So in order to apply the padStart to any string 
+object, you simply attach the padStart. And you would pass it two 
+arguments. If you pass it one argument, let's say in this case I wanted 
+to pass it a 10, the second argument will assumed to be the space 
+character.</p>
+<p>[Video description begins] <em> He modifies code on line 12. The new 
+code is, console, dot log, open curved bracket, x dot padStart, open 
+curved bracket, 10, closed curved bracket, close curved bracket, 
+semi-colon.</em> [Video description ends]</p>
+<p>Now, the JavaScript does have the ability to print space characters 
+onto the browser screen. But I noticed that it wasn't giving me the 
+effect that I wanted so I'm using the console window. So let's save this
+ change. Now, notice what's going to happen to our value down at the 
+bottom.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and on the browser page, Under developer console window, he points to 
+the following number: 123.45.</em> [Video description ends]</p>
+<p>If I refresh the browser screen, notice that it's going to jump to the right and</p>
+<p>[Video description begins] <em> He refreshes the browser, Under developer console window, the following number moves 10 spaces to the right: 123.45.</em> [Video description ends]</p>
+<p>it jumped 10 spaces. So if you wanted to see exactly what that second
+ parameter would do, let's pass to padStart second parameter of the 
+asterisk.</p>
+<p>[Video description begins] <em> He modifies code on line 12. The new 
+code is, console, dot log, open curved bracket, x dot padStart, open 
+curved bracket, 10, comma, open quote, asterisk, close quote, closed 
+curved bracket, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Save the change, refresh the browser screen, notice that it padded four asterisk characters to the left.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and on the browser page, Under developer console window, following 
+number appears: Four times asterisk, 123.45.</em> [Video description ends]</p>
+<p>And that's because the number that we have, although it's five 
+numbers, we do have a period there that takes up one more space. So 
+these are actually six spaces, and</p>
+<p>[Video description begins] <em> he highlights, 123.45 in the browser console.</em> [Video description ends]</p>
+<p>we are padding to the left four spaces with the second parameter. 
+PadEnd works almost exactly like padStart, except that the padding will 
+happen to the right of the value.</p>
+<p>[Video description begins] <em> He goes to the code line 13. The code
+ is: slash, slash, Y, =, open quote, 123.45, close quote, semi-colon. He
+ removes, slash, slash, from the code. He goes to the code line 14. The 
+code is: Slash, slash, console dot log, open curved bracket, Y, close 
+curved bracket, semi-colon. He removes, slash, slash, from the code.</em> [Video description ends]</p>
+<p>So I have another value here, y, and we are going to pad, or we are 
+going to log y as well. Let's do it without any padding at all, so I 
+just save the changes. Refresh your browser screen, and there's our 
+second value.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser . Under developer console window, following 
+text with the numbers appears on the screen: Four times Asterisk, 
+123.45. 139722.html : 12. 123.45. 139722.html : 14.</em> [Video description ends]</p>
+<p>But if I padded that to the end, so let's y.padEnd. And I'm going to pad it, let's see, the same 10 amount.</p>
+<p>[Video description begins] <em> He modifies code on line 14. The new 
+code is: console dot log, open curved bracket, Y dot padEnd, open curved
+ bracket, 10, close curved bracket, close curved bracket, semi-colon.</em> [Video description ends]</p>
+<p>Let's save those changes, refresh the browser screen. Notice nothing 
+happens, and that's fine. Nothing is supposed to happen, because I'm 
+padding everything over to the left. So that means that the value will 
+be left justified. Now to see that a little bit better, what I could do 
+is I could copy lines 13 and 14, paste it. And let's create yet a third 
+value, let's say z in this case,</p>
+<p>[Video description begins] <em> He copies the code line 13 &amp; 14, &amp; pastes them below line 14.</em> [Video description ends]</p>
+<p>and let's give it some kind of a bigger number, so .67.</p>
+<p>[Video description begins] <em> In the code line 15, He replaces the Y- with- Z, And, 1 2 3, period 4 5 with, 1 2 3 4 5, period 6 7.</em> [Video description ends]</p>
+<p>And let's pad our z with the same 10 spaces, save the changes, 
+refresh the browser screen. And there you see that even though we have 
+more characters in the second value, it's still left aligned.</p>
+<p>[Video description begins] <em> He saves the codes in notepad++ file,
+ and refreshes the browser. JavaScript Padding in JS. Under developer 
+console window, following text with the numbers appears on the screen: 
+Four times Asterisk, 123.45. 139722.html : 12. 123.45. 139722.html : 14.
+ 1 2 3 4 5, period 6 7. 139722.html : 16.</em> [Video description ends]</p>
+<p>And if we wanted to actually use that second parameter, we could of 
+course pass it any character we wish. Refresh the screen, and when you 
+check all of these numbers, you should get 10.</p>
+<p>[Video description begins] <em> He modifies the code on line 16, the 
+new code is: console dot log, open curved bracket, Y dot padEnd, open 
+curved bracket, 10, comma, open quote, dash, close quote, close curved 
+bracket, close curved bracket, semi-colon. He, then saves the codes in 
+notepad++ file, and refreshes the browser. JavaScript Padding in J S. 
+Under developer console window, following text with the numbers appears 
+on the screen: Four times Asterisk, 123.45. 139722.html : 12. 123.45. 
+139722.html : 14. 1 2 3 4 5, period 6 7 dash dash. 139722.html : 16.</em> [Video description ends]</p>
+<p>So again, padding is useful when you are dealing with tabular output.</p></div>
+</div>
+<div>
+<h2 id="ee27c020-7b76-11e8-b52b-2d384025e4de">
+Exercise: JavaScript Events
+</h2>
+<div><p>[Video description begins] <em> Topic Title: Exercise: JavaScript Events. Your host for this session is Axle Barr.</em> [Video description ends]</p>
+<p>In this exercise, you will create an HTML document with one H3 tag, 
+two paragraph tags, and one button. When the button is clicked, write 
+two functions that will alert a message. So we're going to be calling 
+both of these functions together in one click. When the mouse is hovered
+ over the H3 tag, change the wording of the other paragraph tags by 
+targeting and changing their innerHTML values. Use an external 
+JavaScript file when you're doing this exercise. You may now pause the 
+video, attempt this exercise, and then return to the video to see how I 
+would approach the tasks at hand. So the first thing that we needed to 
+do was create an HTML document with one</p>
+<p>[Video description begins] <em> A notepad ++ with an HTML file, and a
+ Scripts.js file is open. The presenter is currently on the HTML file. A
+ browser rendering the file in notepad ++ is also open.</em> [Video description ends]</p>
+<p>H3 tag, and two paragraph tags, as well as one button event, one button itself.</p>
+<p>[Video description begins] <em> He goes to the code on line 8. The 
+code here is: open angular bracket, h3, onmouseover = double quote, 
+double quote, id, = double quote, old, double quote, close angular 
+bracket, JavaScript Events, open angular bracket, forward slash, h3, 
+close angular bracket. He highlights h3 in the code. He refers to the 
+code on lines 9, 10, and 12. The code on line 9 is: open angular 
+bracket, p, id, = double quote, p1, double quote, close angular bracket,
+ This is a paragraph, open angular bracket, forward slash, p, close 
+angular bracket. The code on line 10 is: open angular bracket, p, id, = 
+double quote, p2, double quote, close angular bracket, This is another 
+paragraph, open angular bracket, forward slash, p, close angular 
+bracket. The code on line 12 is: open angular bracket, button, onclick =
+ double quote, double quote, close angular bracket. He highlights open 
+angular bracket, p, in the code on lines 9 and 10, and button, in the 
+code on line 12.</em> [Video description ends]</p>
+<p>On the right side of the screen, there's a Chrome browser rendering the file that you see on the left.</p>
+<p>[Video description begins] <em> The following text can be seen on the
+ browser: This is a paragraph. This is another paragraph. There is also a
+ button titled, Button On-click event.</em> [Video description ends]</p>
+<p>Now I went ahead and I accessed the various events, so h3, we needed 
+do a mouseover event, and for the button, we needed to do an onclick 
+event.</p>
+<p>[Video description begins] <em> He highlights, onmouseover, =, double
+ quote, double quote, in the code on line 8. He then highlights onclick 
+in the code on line 12.</em> [Video description ends]</p>
+<p>What we need to do now is wire up all of this to the JavaScript file.
+ If you notice on line 4, I am pointing to a Scripts.js file.</p>
+<p>[Video description begins] <em> The code on line 4 is: open angular 
+bracket, script, src = double quote, Scripts.js, double quote, close 
+angular bracket, open angular bracket, slash, script, close angular 
+bracket.</em> [Video description ends]</p>
+<p>If I move over to my Scripts.js file, let's start writing these functions one at a time.</p>
+<p>[Video description begins] <em> He shifts to the Scripts.js file in notepad++.</em> [Video description ends]</p>
+<p>The first function that I'm going to work on is the button click 
+event. So I know it's a function, so let me go ahead and start on line 1
+ of that JavaScript file with the word function. Then I can define that 
+function, or declare that function, as message1. Remember, there are 
+going to two messages that are going to be fired when we click the 
+event. Now that I have my function all declared, and I have my curly 
+braces and everything, I can now use those curly braces to access the 
+JavaScript built-in function called alert. I know that alert takes a 
+parameter of string and I can pass to that alert function whatever I 
+need to have it say in the pop up box.</p>
+<p>[Video description begins] <em> He adds codes in lines, 1, 2 and 3, 
+The code on line 1 is: function message1, open close curve brackets, 
+open curly bracket. The code on line 2 is: alert, open curve bracket, 
+open quote, You have just witnessed an event in JS!, close quote, close 
+curve bracket, semi colon. The code on line 3 is: close curly bracket.</em> [Video description ends]</p>
+<p>So, I've already got one function done. I'm going to save my changes.
+ I'm going to go back to my HTML document and on the onclick event of</p>
+<p>[Video description begins] <em> He shifts to the HTML file and highlights the code on line 12.</em> [Video description ends]</p>
+<p>that button, I am going to access, or wire up, my first function. So,
+ let's go back to the JavaScript file for a second, grab the message1, 
+or</p>
+<p>[Video description begins] <em> He shifts to scripts.js file and copies message1, from the code on line 1.</em> [Video description ends]</p>
+<p>copy it, and then I'm going to paste it in the onclick event. I'm going to use my parenthesis, because it is a function.</p>
+<p>[Video description begins] <em> He shifts to the HTML file and 
+modifies the code on line 12. Now, the code on line 12 is: open angular 
+bracket, button, onclick = double quote, message1, open close curve 
+brackets, double quote, close angular bracket.</em> [Video description ends]</p>
+<p>Save those changes, refresh the browser screen, click on the button, and there's my first message.</p>
+<p>[Video description begins] <em> He clicks on Button On-click Event in
+ the browser. A pop-up with the following text appears: This page says: 
+You have just witnessed an event in JS!. There is also an OK button on 
+the pop-up box.</em> [Video description ends]</p>
+<p>Great, so I'll click OK to get rid of the message. Go back to my 
+JavaScript file, now all I really need to do is copy this first 
+function. So it's made up of three lines at the moment, so I'll copy all
+ three lines,</p>
+<p>[Video description begins] <em> He goes back to scripts.js file and copies the codes from lines 1-3.</em> [Video description ends]</p>
+<p>and I'll paste it.</p>
+<p>[Video description begins] <em> He pastes the copied codes on lines 4, 5 and 6.</em> [Video description ends]</p>
+<p>I'll change the name of my message to message2, and I'll give it some
+ other message, you have just witnessed maybe another event.</p>
+<p>[Video description begins] <em> He modifies the codes on line 4 and 
+5. On line 4, he replaces message1 with message2 in the code, and on 
+line 5, he replaces the text an, with another, in the code.</em> [Video description ends]</p>
+<p>So it's a different message. I'll save the changes to my JavaScript 
+file, go back to my HTML. Now the question is how do I call two 
+functions from one onclick event?</p>
+<p>[Video description begins] <em> He goes to the html file and highlights message1, open close curve brackets in the code on line 12.</em> [Video description ends]</p>
+<p>And the answer is that we separate them by a semicolon.</p>
+<p>[Video description begins] <em> He adds a semi colon after the open close curve brackets in the code on line 12.</em> [Video description ends]</p>
+<p>So my other function call will be message1, actually message2, so 
+let's change that 1 to a 2, include my parentheses, as well as another 
+semicolon.</p>
+<p>[Video description begins] <em> He modifies the code on line 12. Now,
+ the code here is: open angular bracket, button, onclick = double quote,
+ message1, open close curve brackets, semi colon, message2, open close 
+curve brackets, semi colon, double quote, close angular bracket.</em> [Video description ends]</p>
+<p>So with one onclick event, we can actually access two different 
+functions in JavaScript. Let's save all of these changes, refresh the 
+browser screen, click on that button. There's our first message. I'll 
+click OK, and there's a second message. I'll click OK to get rid of 
+that.</p>
+<p>[Video description begins] <em> A pop-up box with following text 
+appears: This page says: You have just witnessed an event in JS!. There 
+is also an OK button on the pop-up box. The presenter clicks on Ok, and 
+another message appears in the pop-up box. The second message is: This 
+page says: You have just witnessed another event in JS!. The presenter 
+clicks on the OK button to remove the pop-up box.</em> [Video description ends]</p>
+<p>The next thing we wanted to do was create a mouseover event over 
+this, the h3 tag in this case, our h3 tag that says JavaScript Events.</p>
+<p>[Video description begins] <em> He refers to the code on line 8. He 
+then shifts to the browser and highlights the title of the rendered 
+file. The title is: JavaScript Events. In the HTML file, he highlights 
+JavaScript Events in the code on line 8.</em> [Video description ends]</p>
+<p>And while I'm mousing over that h3 tag, I need these two paragraphs to change, so p1 and p2 should change.</p>
+<p>[Video description begins] <em> In the HTML file, he refers to the codes on lines 9 and 10.</em> [Video description ends]</p>
+<p>So I'm going to go back to my JavaScript file again, I'm going to 
+write another function. So basically what I'm going to do is copy my 
+last function, paste it, and just change the name. So let's change it to
+ something like rollOver, with an uppercase O.</p>
+<p>[Video description begins] <em> He shifts to the Scripts.js file, and
+ copies the codes written on line 4, 5, and 6. He then pastes them on 
+the lines 7, 8 and 9. The presenter then modifies the code on line 7. 
+Now, the code on line 7 is: function rollOver, open close curve 
+brackets, open curly bracket. The O in rollOver is in upper case.</em> [Video description ends]</p>
+<p>And I don't want to call an alert this time, but I'm going to 
+actually access the innerHTML of my p1 tag. So, for that, I'm going to 
+have to use the document.getElementById, document.getElementById, and I 
+need to tell JavaScript which element I'm looking for. And in this case,
+ I am looking for my p1 tag. Then I'm going to access the innerHTML of 
+that p1 tag. And I'm going to pass to that innerHTML some message, 
+something like, You have changed.</p>
+<p>[Video description begins] <em> He changes the code on line 8 to: 
+document.getElementById, open curve bracket, double quote, p1, double 
+quote, close curve bracket, .innerHTML = double quote, You have changed,
+ double quote, semi colon.</em> [Video description ends]</p>
+<p>Now I need to do that for the second paragraph as well. So what I'm 
+going to do is I'll copy the first document.getElementBy line, and paste
+ it underneath it. And all I really need to do is change the p1 tag to 
+the p2, in this case, because it is the name of the second paragraph 
+tag. And I can say something like You have changed also. I'll save all 
+of these changes, so</p>
+<p>[Video description begins] <em> He copies the code on line 8 and 
+pastes it on line 9. He then modifies the code on line 9. The code here 
+is: document.getElementById, open curve bracket, double quote, p2, 
+double quote, close curve bracket, .innerHTML = double quote, You have 
+changed also, double quote, semi colon.</em> [Video description ends]</p>
+<p>now we need to fire that event from our HTML document.</p>
+<p>[Video description begins] <em> He shifts to the HTML file.</em> [Video description ends]</p>
+<p>So on the mouseover event, what I need to have called is my rollOver 
+method. Save it, save all changes, refresh that browser screen.</p>
+<p>[Video description begins] <em> He modifies the code on line 8. Now, 
+the code here is: open angular bracket, h3, onmouseover = double quote, 
+rollOver, open close curve brackets, semi colon, double quote, id, = 
+double quote, old, double quote, close angular bracket, JavaScript 
+Events, open angular bracket, forward slash, h3, close angular bracket. 
+He highlights h3 in the code.</em> [Video description ends]</p>
+<p>Now, when I move my mouseover, it should change, and there you see both changes happening.</p>
+<p>[Video description begins] <em> The text in the browser changes to: You have changed. You have changed also.</em> [Video description ends]</p></div>
+</div>
+
+
+</body></html>
